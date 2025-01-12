@@ -1,0 +1,147 @@
+nav {
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  position: fixed;
+  z-index: 9998;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navLogo img {
+  height: 40px;
+}
+
+.navMenu {
+  display: flex;
+}
+ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  padding-right: 4rem;
+  font-weight: 500;
+}
+
+ul li a:hover {
+  color: var(--green);
+}
+
+ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 90%;
+}
+a {
+  cursor: pointer;
+}
+nav .nav-changer {
+  display: none;
+}
+
+.language-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  padding: 5px;
+}
+
+.language-switch {
+  display: flex;
+}
+.language-button .flag-img {
+  width: 20px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.language-button span {
+  margin-left: 5px;
+}
+
+.language-dropdown {
+  background: #fff;
+  overflow: hidden;
+  z-index: 1000;
+  position: absolute;
+  top: 100%;
+}
+
+.language-dropdown .dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.language-dropdown .dropdown-item:hover {
+  background: #f5f5f5;
+}
+
+.language-dropdown .flag-img {
+  width: 20px;
+  height: auto;
+  border-radius: 50%;
+}
+@media (max-width: 1024px) {
+  nav .nav-changer {
+    display: block;
+    color: black;
+    font-size: 2rem;
+    cursor: pointer;
+    padding-right: 2rem;
+  }
+
+  .navbar ul {
+    display: none;
+  }
+
+  .navbarr {
+    background-color: transparent;
+  }
+
+  .navbar {
+    padding: 1rem 0;
+  }
+
+  .navbar .show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    width: 100%;
+    left: 0;
+    top: 5rem;
+    background-color: white;
+    padding: 1rem 0;
+    align-items: center;
+  }
+
+  nav .show li {
+    margin: 1.5rem 1rem !important;
+  }
+  .navLogo img {
+    width: 125px;
+    padding: 1rem 0;
+  }
+}
