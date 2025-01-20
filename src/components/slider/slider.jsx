@@ -78,7 +78,7 @@ const Slider = () => {
             className="slide"
             style={{
               backgroundImage: `url(${slide.image})`,
-              height: "800px",
+              minHeight: "100Vh",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

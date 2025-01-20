@@ -2,6 +2,7 @@ import React from "react";
 
 //BrowserRouter
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SubMenu from "./pages/SubMenuTable/SubMenuTable";
 
 import Main from "./pages/main/home";
 
@@ -14,6 +15,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Main />} />
+          <Route path="/podmenu" element={<SubMenu />} />
         </Routes>
       </BrowserRouter>
     </>

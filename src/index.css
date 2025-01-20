@@ -3,7 +3,11 @@
   --darkblue: #272c38;
   --white: #ededed;
   scroll-behavior: smooth;
-  font-family: "Inter", sans-serif;
+  font-family: CustomFont;
+}
+@font-face {
+  font-family: "CustomFont"; /* Name your font family */
+  src: url("font/SignikaNegative-Regular.ttf"); /* Locate the .ttf file within your directory*/
 }
 
 * {
@@ -28,4 +32,38 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--darkblue);
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1201px) {
+  .container {
+    max-width: 1150px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .container {
+    max-width: 1250px;
+  }
+}
+
+.container {
+  padding: 0 1rem;
 }

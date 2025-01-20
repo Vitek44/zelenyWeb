@@ -1,5 +1,8 @@
 import React from "react";
 
+//Link
+
+import { HashLink } from "react-router-hash-link";
 //Navbar
 import Navbar from "../../components/navbar/navbar";
 //Slider
@@ -25,14 +28,14 @@ function App() {
           <h1>{t("subtitle1")}</h1>
         </div>
         <div className="services">
-          <div className="service">
+          <HashLink className="service" to="/podmenu">
             <div className="serviceImg">
               <img src="img/01c.png" alt="" />
               <div className="serviceContent">
                 <h1>{t("service1")}</h1>
               </div>
             </div>
-          </div>
+          </HashLink>
           <div className="service">
             <div className="serviceImg">
               <img src="img/08d.png" alt="" />
@@ -43,8 +46,13 @@ function App() {
           </div>
         </div>
         <div className="configurator">
-          <h3>{t("configurator_text")}</h3>
-          <button>{t("Btnconfigurator_text")}</button>
+          <div className="configuratorImg">
+            <img src="img/08d.png" alt="" />
+            <div className="onfiguratorContent">
+              <h3>{t("configurator_text")}</h3>
+              <button>{t("Btnconfigurator_text")}</button>
+            </div>
+          </div>
         </div>
         <div className="title">
           <h2>{t("title2")}</h2>
