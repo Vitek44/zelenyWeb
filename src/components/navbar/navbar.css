@@ -2,7 +2,7 @@ nav {
   z-index: 9998;
   top: 0;
   left: 0;
-  margin-top: 1rem;
+  margin-top: 2rem;
   width: 100%;
   position: fixed;
 }
@@ -11,13 +11,14 @@ nav {
   align-items: center;
   justify-content: space-between;
   background-color: var(--white);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
   overflow: auto;
-  box-shadow: 0px 2px 15px rgb(0, 0, 0, 50%);
+  box-shadow: 0px 2px 10px rgb(0, 0, 0, 25%);
 }
 
 .navLogo img {
-  height: 40px;
+  width: 120px;
+  height: auto;
 }
 
 .navMenu {

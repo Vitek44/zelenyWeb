@@ -68,7 +68,7 @@ const Slider = () => {
         arrows: true,
         pagination: true,
         pauseOnHover: true,
-        autoplay: true,
+        autoplay: false,
         interval: 3000,
       }}
     >
@@ -86,7 +86,6 @@ const Slider = () => {
             <div className="container">
               <div className="content-slider">
                 <h1>{slide.title}</h1>
-                <h2>{slide.text}</h2>
                 <div className="button-group">
                   <button className="btn-white" onClick={slide.buttonAction1}>
                     {slide.buttonText1}
