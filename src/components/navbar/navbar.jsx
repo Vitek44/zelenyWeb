@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "./navbar.css";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import { HashLink } from "react-router-hash-link";
 
 export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -19,9 +20,7 @@ export default function Navbar() {
     },
   ];
 
-  const currentLanguage = languages.find(
-    (lang) => lang.code === i18next.language
-  );
+  const currentLanguage = languages.find((lang) => lang.code === i18next.language);
 
   const dropdownRef = useRef(null); // Reference for the dropdown menu
 
@@ -45,8 +44,7 @@ export default function Navbar() {
   const scrollToId = (elementId, offset = 105) => {
     const element = document.getElementById(elementId);
     if (element) {
-      const elementPosition =
-        element.getBoundingClientRect().top + window.scrollY; // Získání pozice prvku vzhledem k dokumentu
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY; // Získání pozice prvku vzhledem k dokumentu
       const offsetPosition = elementPosition - offset;
 
       window.scrollTo({
@@ -72,18 +70,14 @@ export default function Navbar() {
         <div className="navbar">
           {/* Logo */}
           <div className="navLogo">
-            <img
-              src="img/px_logo_site.png"
-              className="logo"
-              alt="Zeleny logo"
-            />
+            <img src="img/px_logo_site.png" className="logo" alt="Zeleny logo" />
           </div>
 
           {/* Menu */}
           <div className="navMenu">
             <ul>
               <li>
-                <a href="#home">{t("nav-li1")}</a>
+                <HashLink to="/#home">{t("nav-li1")}</HashLink>
               </li>
               <li>
                 <a href="#project">{t("nav-li2")}</a>
@@ -109,11 +103,7 @@ export default function Navbar() {
           {/* Language Switch */}
           <div className="language-switch" ref={dropdownRef}>
             <button className="language-button" onClick={toggleDropdown}>
-              <img
-                src={`/img/${currentLanguage?.country_code}.svg`}
-                alt={`${currentLanguage?.name} flag`}
-                className="flag-img"
-              />
+              <img src={`/img/${currentLanguage?.country_code}.svg`} alt={`${currentLanguage?.name} flag`} className="flag-img" />
               {currentLanguage?.name.toUpperCase()}
               <span>{isDropdownOpen ? "▲" : "▼"}</span>
             </button>
@@ -122,16 +112,8 @@ export default function Navbar() {
                 {languages
                   .filter((lang) => lang.code !== i18next.language)
                   .map(({ code, name, country_code }) => (
-                    <button
-                      key={code}
-                      className="dropdown-item"
-                      onClick={() => changeLanguage(code)}
-                    >
-                      <img
-                        src={`/img/${country_code}.svg`}
-                        alt={`${name} flag`}
-                        className="flag-img"
-                      />
+                    <button key={code} className="dropdown-item" onClick={() => changeLanguage(code)}>
+                      <img src={`/img/${country_code}.svg`} alt={`${name} flag`} className="flag-img" />
                       {name.toUpperCase()}
                     </button>
                   ))}

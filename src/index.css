@@ -7,7 +7,7 @@
 }
 @font-face {
   font-family: "CustomFont"; /* Name your font family */
-  src: url("font/SignikaNegative-Regular.ttf"); /* Locate the .ttf file within your directory*/
+  src: url("/font/SignikaNegative-Regular.ttf"); /* Locate the .ttf file within your directory*/
 }
 
 * {

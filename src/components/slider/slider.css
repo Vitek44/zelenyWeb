@@ -11,6 +11,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  background-image: url("/img/skrin.png");
 }
 
 .slide::before {
