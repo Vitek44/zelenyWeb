@@ -1,11 +1,10 @@
 {
-  "nav-li1": "Domů",
+  "nav-li1": "O mně",
   "nav-li2": "Konfigurátor",
-  "nav-li3": "O nás",
-  "nav-li4": "Výroba",
+  "nav-li3": "Galerie",
+  "nav-li4": "Stoly",
   "nav-li5": "Interiéry",
   "nav-li6": "Kontakt",
-  "nav-li7": "Spolupráce",
 
   "welcome_to_react": "Welcome to React!",
   "slide_title_1": "Vytváříme jedinečné interiéry na míru, které odrážejí váš styl a potřeby",
@@ -36,7 +35,7 @@
   "title2": "Nabídka",
   "subtitle2": "Nabídka produktů",
 
-  "description1": "Ručně vyrobený stolík z poctivého českého dřeva",
+  "description1": "Ručně vyrobený z poctivého českého dřeva",
   "warehouse1": "Zbývají 2 ks skladem",
   "productBtn_1": "Zobrazit více",
   "description2": "Ručně vyrobený stolík z poctivého českého dřeva",
@@ -45,8 +44,7 @@
   "description3": "Ručně vyrobený stolík z poctivého českého dřeva",
   "warehouse3": "Zbývají 2ks skladem",
   "productBtn_3": "Zobrazit více",
-  "configurator_text": "Konfigurátor připravujeme, pro zájem nás kontaktujte",
-  "Btnconfigurator_text": "Kontakt",
+  "configurator_text": "Konfigurátor",
 
   "title3": "O mě",
   "subtitle3": "Filip Zelený",
@@ -73,5 +71,7 @@
   "slideRev_name_2": "Josef",
   "slideRev_name_3": "Marek",
   "slideRev_name_4": "Franta",
-  "slideRev_name_5": "Sára"
+  "slideRev_name_5": "Sára",
+
+  "slideProduct_text_1": "AERO"
 }

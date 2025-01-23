@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 //Link
 
@@ -17,6 +18,16 @@ import { useTranslation } from "react-i18next";
 import "./home.css";
 
 function App() {
+  let navigate = useNavigate();
+  const handleLinkClick = (path, id) => {
+    navigate(path);
+    setTimeout(() => {
+      window.scrollTo({
+        top: document.getElementById(id) ? document.getElementById(id).offsetTop - 150 : 0,
+        behavior: "smooth",
+      });
+    }, 100);
+  };
   const { t } = useTranslation();
   return (
     <>
@@ -26,8 +37,13 @@ function App() {
           <div className="content-slider">
             <h1>Vytváříme jedinečné interiéry na míru, které odrážejí váš styl a potřeby</h1>
             <div className="button-group">
-              <button className="btn-white">Více</button>
-              <button className="btn-green">Méne</button>
+              <button className="btn-green" onClick={() => handleLinkClick("/", "about")}>
+                <span>Zjistit více</span>
+                <i className="fa-solid fa-arrow-right"></i>
+              </button>
+              <button className="btn-white" onClick={() => handleLinkClick("/", "kontakt")}>
+                <span>Kotakt</span>
+              </button>
             </div>
           </div>
         </div>
@@ -38,14 +54,14 @@ function App() {
           <h1>{t("subtitle1")}</h1>
         </div>
         <div className="services">
-          <HashLink className="service" to="/podmenu">
+          <div className="service" onClick={() => handleLinkClick("/podmenu", "")}>
             <div className="serviceImg">
               <img src="img/01c.png" alt="" />
               <div className="serviceContent">
                 <h1>{t("service1")}</h1>
               </div>
             </div>
-          </HashLink>
+          </div>
           <div className="service">
             <div className="serviceImg">
               <img src="img/08d.png" alt="" />
@@ -55,12 +71,11 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="configurator">
+        <div className="configurator" onClick={() => handleLinkClick("/konfigurator", "")}>
           <div className="configuratorImg">
             <img src="img/08d.png" alt="" />
             <div className="onfiguratorContent">
               <h3>{t("configurator_text")}</h3>
-              <button>{t("Btnconfigurator_text")}</button>
             </div>
           </div>
         </div>
@@ -123,7 +138,7 @@ function App() {
             </div>
           </div>
         </div>*/}
-        <div className="aboutme">
+        <div className="aboutme" id="about">
           <div className="aboutmeText">
             <div className="title">
               <h2>{t("title3")}</h2>
@@ -165,9 +180,11 @@ function App() {
           <h1>{t("subtitle5")}</h1>
         </div>
         <SliderRev />
-        <div className="title">
-          <h2>{t("title6")}</h2>
-          <h1>{t("subtitle6")}</h1>
+        <div className="kontakt" id="kontakt">
+          <div className="title">
+            <h2>{t("title6")}</h2>
+            <h1>{t("subtitle6")}</h1>
+          </div>
         </div>
       </div>
     </>
