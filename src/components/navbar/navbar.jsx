@@ -2,8 +2,24 @@ import { useState, useEffect, useRef } from "react";
 import "./navbar.css";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import { HashLink } from "react-router-hash-link";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const [scroll, setScroll] = useState(true);
+  const [isOpen, setisOpen] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY < 25) {
+        setScroll(true);
+        console.log("scroll");
+      } else {
+        setScroll(false);
+      }
+    });
+  });
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { t } = useTranslation();
   const languages = [
@@ -19,9 +35,7 @@ export default function Navbar() {
     },
   ];
 
-  const currentLanguage = languages.find(
-    (lang) => lang.code === i18next.language
-  );
+  const currentLanguage = languages.find((lang) => lang.code === i18next.language);
 
   const dropdownRef = useRef(null); // Reference for the dropdown menu
 
@@ -42,20 +56,15 @@ export default function Navbar() {
     setIsDropdownOpen(false);
   };
 
-  const scrollToId = (elementId, offset = 105) => {
-    const element = document.getElementById(elementId);
-    if (element) {
-      const elementPosition =
-        element.getBoundingClientRect().top + window.scrollY; // Získání pozice prvku vzhledem k dokumentu
-      const offsetPosition = elementPosition - offset;
-
+  let navigate = useNavigate();
+  const handleLinkClick = (path, id) => {
+    navigate(path);
+    setTimeout(() => {
       window.scrollTo({
-        top: offsetPosition,
+        top: document.getElementById(id) ? document.getElementById(id).offsetTop - 150 : 0,
         behavior: "smooth",
       });
-    } else {
-      console.error(`Element with ID '${elementId}' not found.`);
-    }
+    }, 100);
   };
 
   // Add event listener for clicking outside
@@ -69,75 +78,59 @@ export default function Navbar() {
   return (
     <nav>
       <div className="container">
-        <div className="navbar">
+        <div className={scroll ? "navbar" : "navbar scroll"}>
           {/* Logo */}
           <div className="navLogo">
-            <img
-              src="img/px_logo_site.png"
-              className="logo"
-              alt="Zeleny logo"
-            />
+            <a onClick={() => handleLinkClick("/", "home")}>
+              <img src="img/px_logo_site.png" className="logo" alt="Zeleny logo" />
+            </a>
           </div>
 
           {/* Menu */}
           <div className="navMenu">
-            <ul>
+            <ul className={isOpen ? "show" : "hide"}>
               <li>
-                <a href="#home">{t("nav-li1")}</a>
+                <a onClick={() => handleLinkClick("/", "about")}>{t("nav-li1")}</a>
               </li>
               <li>
-                <a href="#project">{t("nav-li2")}</a>
+                <a onClick={() => handleLinkClick("/konfigurator", "home")}>{t("nav-li2")}</a>
               </li>
               <li>
-                <a href="#free_spaces">{t("nav-li3")}</a>
+                <a onClick={() => handleLinkClick("/galerie", "home")}>{t("nav-li3")}</a>
               </li>
               <li>
-                <a href="#gallery">{t("nav-li4")}</a>
+                <a onClick={() => handleLinkClick("/stoly", "home")}>{t("nav-li4")}</a>
               </li>
               <li>
-                <a href="#contact">{t("nav-li5")}</a>
+                <a onClick={() => handleLinkClick("/interiery", "home")}>{t("nav-li5")}</a>
               </li>
               <li>
-                <a href="#neco">{t("nav-li6")}</a>
+                <a onClick={() => handleLinkClick("/", "kontakt")}>{t("nav-li6")}</a>
               </li>
               <li>
-                <a href="#spoluprace">{t("nav-li7")}</a>
+                <div className="language-switch" ref={dropdownRef}>
+                  <button className="language-button" onClick={toggleDropdown}>
+                    <img src={`/img/${currentLanguage?.country_code}.svg`} alt={`${currentLanguage?.name} flag`} className="flag-img" />
+                    {currentLanguage?.name.toUpperCase()}
+                    <span>{isDropdownOpen ? "▲" : "▼"}</span>
+                  </button>
+                  {isDropdownOpen && (
+                    <div className="language-dropdown">
+                      {languages
+                        .filter((lang) => lang.code !== i18next.language)
+                        .map(({ code, name, country_code }) => (
+                          <button key={code} className="dropdown-item" onClick={() => changeLanguage(code)}>
+                            <img src={`/img/${country_code}.svg`} alt={`${name} flag`} className="flag-img" />
+                            {name.toUpperCase()}
+                          </button>
+                        ))}
+                    </div>
+                  )}
+                </div>
               </li>
             </ul>
           </div>
-
-          {/* Language Switch */}
-          <div className="language-switch" ref={dropdownRef}>
-            <button className="language-button" onClick={toggleDropdown}>
-              <img
-                src={`/img/${currentLanguage?.country_code}.svg`}
-                alt={`${currentLanguage?.name} flag`}
-                className="flag-img"
-              />
-              {currentLanguage?.name.toUpperCase()}
-              <span>{isDropdownOpen ? "▲" : "▼"}</span>
-            </button>
-            {isDropdownOpen && (
-              <div className="language-dropdown">
-                {languages
-                  .filter((lang) => lang.code !== i18next.language)
-                  .map(({ code, name, country_code }) => (
-                    <button
-                      key={code}
-                      className="dropdown-item"
-                      onClick={() => changeLanguage(code)}
-                    >
-                      <img
-                        src={`/img/${country_code}.svg`}
-                        alt={`${name} flag`}
-                        className="flag-img"
-                      />
-                      {name.toUpperCase()}
-                    </button>
-                  ))}
-              </div>
-            )}
-          </div>
+          {!isOpen ? <i className="fa-solid fa-bars nav-changer" onClick={() => setisOpen(true)}></i> : <i className="fa-solid fa-xmark nav-changer" onClick={() => setisOpen(false)}></i>}
         </div>
       </div>
     </nav>

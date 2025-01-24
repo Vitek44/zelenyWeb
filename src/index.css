@@ -1,13 +1,13 @@
 :root {
   --green: #98ba49;
   --darkblue: #272c38;
-  --white: #ededed;
+  --white: #ffffff;
   scroll-behavior: smooth;
   font-family: CustomFont;
 }
 @font-face {
   font-family: "CustomFont"; /* Name your font family */
-  src: url("font/SignikaNegative-Regular.ttf"); /* Locate the .ttf file within your directory*/
+  src: url("/font/SignikaNegative-Regular.ttf"); /* Locate the .ttf file within your directory*/
 }
 
 * {
@@ -27,7 +27,7 @@
 
 ::-webkit-scrollbar-thumb {
   border-radius: 3px;
-  background: var(--red);
+  background: var(--green);
 }
 
 ::-webkit-scrollbar-thumb:hover {

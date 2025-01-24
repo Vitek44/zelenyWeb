@@ -48,31 +48,29 @@ const SliderRev = () => {
         arrows: false,
         pagination: true,
         pauseOnHover: true,
-        autoplay: true,
+        autoplay: false,
         interval: 3000,
-        gap: 20,
+        gap: "2.5rem",
       }}
     >
       {slides.map((slide) => (
         <SplideSlide key={slide.id}>
           <div className="slideRev">
-            <div className="cxontainer">
-              <div className="slideRevSet">
-                <div className="content-sliderRev">
-                  <p>{slide.text}</p>
-                  <div className="user-group">
-                    <div className="starsSpace">
-                      <img src={slide.image} alt="" />
-                      <h2>{slide.name}</h2>
-                    </div>
-                    <div className="stars">
-                      <img src="img/star-solid.svg" alt="" />
-                      <img src="img/star-solid.svg" alt="" />
-                      <img src="img/star-solid.svg" alt="" />
-                      <img src="img/star-solid.svg" alt="" />
-                      <img src="img/star-solid.svg" alt="" />
-                    </div>
-                  </div>
+            <div className="slideRevSet">
+              <div className="user-title">
+                <h5>{slide.text}</h5>
+              </div>
+              <div className="user-group">
+                <div className="starsSpace">
+                  <img src={slide.image} alt="" />
+                  <h2>{slide.name}</h2>
+                </div>
+                <div className="stars">
+                  <img src="img/star-solid.svg" alt="" />
+                  <img src="img/star-solid.svg" alt="" />
+                  <img src="img/star-solid.svg" alt="" />
+                  <img src="img/star-solid.svg" alt="" />
+                  <img src="img/star-solid.svg" alt="" />
                 </div>
               </div>
             </div>

@@ -66,20 +66,15 @@ const SliderProduct = () => {
       {slides.map((slide) => (
         <SplideSlide key={slide.id}>
           <div className="product">
-            <div className="productTitle">
-              <h2>{slide.text}</h2>
-            </div>
             <div className="productImg">
               <img src={slide.image} alt="" />
             </div>
             <div className="productContent">
-              <h3>{slide.description}</h3>
-              <div className="productContent2">
-                <h3>{slide.warehouse}</h3>
-                <button>
-                  <a href="">{slide.button}</a>
-                </button>
+              <div className="productTitle">
+                <h2>{slide.text}</h2>
+                <h3>{slide.description}</h3>
               </div>
+              <button>{slide.button}</button>
             </div>
           </div>
         </SplideSlide>
