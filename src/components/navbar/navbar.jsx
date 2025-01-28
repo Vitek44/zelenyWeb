@@ -33,6 +33,11 @@ export default function Navbar() {
       name: "EN",
       country_code: "gb",
     },
+    {
+      code: "de",
+      name: "DE",
+      country_code: "de",
+    },
   ];
 
   const currentLanguage = languages.find((lang) => lang.code === i18next.language);

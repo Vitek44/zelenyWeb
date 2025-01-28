@@ -134,7 +134,8 @@
 .aboutmeImg {
   display: flex;
   width: 40%;
-  background-color: var(--green);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(180deg, #98ba49 0%, #59721f 100%);
   justify-content: center;
 }
 

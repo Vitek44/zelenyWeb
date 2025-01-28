@@ -35,7 +35,7 @@ function App() {
       <div className="slide">
         <div className="container">
           <div className="content-slider">
-            <h1>Vytváříme jedinečné interiéry na míru, které odrážejí váš styl a potřeby</h1>
+            <h1>{t("content-slider")}</h1>
             <div className="button-group">
               <button className="btn-green" onClick={() => handleLinkClick("/", "about")}>
                 <span>Zjistit více</span>
@@ -163,16 +163,7 @@ function App() {
         </div>
         <div className="video">
           <div className="movie">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/8qN9ZWcHrvY?si=q5xGjN10-eTWHG1O&autoplay=1&mute=1"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer;autoplay;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8qN9ZWcHrvY?si=q5xGjN10-eTWHG1O&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer;autoplay;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
         </div>
         <div className="title">
