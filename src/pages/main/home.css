@@ -58,7 +58,6 @@
   color: white;
   text-align: center;
   overflow: hidden;
-  transition: all 0.3s ease;
 }
 
 .service h1 {
@@ -74,12 +73,11 @@
 
 .hover-text {
   display: none;
-  transform: translateY(-20%);
+  transform: translateY(200px);
   color: white;
   padding: 10px;
   border-radius: 5px;
-  z-index: 9999999;
-  transition: 0.3 ease-in;
+  transition: 0.3s ease-in;
 }
 
 .service:hover .main-text {
@@ -89,7 +87,7 @@
 .service:hover .hover-text {
   display: block;
   transform: translateY(0);
-  transition: 0.3 ease-in;
+  transition: 0.3s ease-in;
 }
 
 /*Konfigurátor výzva*/
@@ -236,6 +234,46 @@
 .videoText p {
   font-size: 19px;
   text-align: justify;
+}
+
+/* Kontakt */
+
+.kontakt {
+  padding: 6rem 0;
+}
+
+.kontakt input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--green);
+}
+
+.kontakt textarea {
+  width: 100%;
+  height: 100px;
+  resize: none;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--green);
+  font-family: Arial, sans-serif;
+}
+
+.form-group {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  margin: 1rem 0;
+  justify-content: flex-end;
+}
+
+.kontakt-btn {
+  background-color: var(--green);
+  color: white;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
 }
 
 @media screen and (max-width: 768px) {

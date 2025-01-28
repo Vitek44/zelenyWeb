@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 //Navbar
 import Navbar from "../../components/navbar/navbar";
+import Footer from "../../components/footer/footer";
 //Slider
 import Slider from "../../components/slider/slider";
 import SliderRev from "../../components/sliderRev/sliderRev";
@@ -59,8 +60,8 @@ function App() {
             <div className="serviceImg">
               <img src="img/01c.png" alt="" />
               <div className="serviceContent">
-                <h1 class="main-text">{t("service1")}</h1>
-                <div class="hover-text">
+                <h1 className="main-text">{t("service1")}</h1>
+                <div className="hover-text">
                   <p>Stoly konferenční</p>
                   <p>Stoly do kuchyně</p>
                   <p>Stoly do pokoje</p>
@@ -70,10 +71,10 @@ function App() {
           </div>
           <div className="service">
             <div className="serviceImg">
-              <img src="img/08d.png" alt="" />
+              <img src="img/intereiery.webp" alt="" />
               <div className="serviceContent">
-                <h1 class="main-text">{t("service2")}</h1>
-                <div class="hover-text">
+                <h1 className="main-text">{t("service2")}</h1>
+                <div className="hover-text">
                   <p>Kuchyně</p>
                   <p>Vestavěné skříně</p>
                   <p>Nábytek</p>
@@ -120,7 +121,16 @@ function App() {
         </div>
         <div className="video">
           <div className="movie">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8qN9ZWcHrvY?si=q5xGjN10-eTWHG1O&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer;autoplay;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/8qN9ZWcHrvY?si=q5xGjN10-eTWHG1O&autoplay=1&mute=1"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer;autoplay;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
         <div className="title">
@@ -133,8 +143,23 @@ function App() {
             <h2>{t("title6")}</h2>
             <h1>{t("subtitle6")}</h1>
           </div>
+          <div className="kontakt-content">
+            <form>
+              <div className="form-group">
+                <input type="text" placeholder="Jméno / Název firmy" />
+                <input type="text" placeholder="E-mail" />
+              </div>
+              <div className="form-group">
+                <textarea name="text" id="text" placeholder="Váš text"></textarea>
+              </div>
+              <div className="form-group">
+                <button className="kontakt-btn">Odeslat</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
