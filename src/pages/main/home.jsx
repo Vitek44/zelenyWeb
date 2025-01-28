@@ -29,6 +29,7 @@ function App() {
     }, 100);
   };
   const { t } = useTranslation();
+
   return (
     <>
       <Navbar />
@@ -58,7 +59,12 @@ function App() {
             <div className="serviceImg">
               <img src="img/01c.png" alt="" />
               <div className="serviceContent">
-                <h1>{t("service1")}</h1>
+                <h1 class="main-text">{t("service1")}</h1>
+                <div class="hover-text">
+                  <p>Stoly konferenční</p>
+                  <p>Stoly do kuchyně</p>
+                  <p>Stoly do pokoje</p>
+                </div>
               </div>
             </div>
           </div>
@@ -66,14 +72,19 @@ function App() {
             <div className="serviceImg">
               <img src="img/08d.png" alt="" />
               <div className="serviceContent">
-                <h1>{t("service2")}</h1>
+                <h1 class="main-text">{t("service2")}</h1>
+                <div class="hover-text">
+                  <p>Kuchyně</p>
+                  <p>Vestavěné skříně</p>
+                  <p>Nábytek</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div className="configurator" onClick={() => handleLinkClick("/konfigurator", "")}>
           <div className="configuratorImg">
-            <img src="img/08d.png" alt="" />
+            <img src="img/configurator2.png" alt="" />
             <div className="onfiguratorContent">
               <h3>{t("configurator_text")}</h3>
             </div>
@@ -84,60 +95,6 @@ function App() {
           <h1>{t("subtitle2")}</h1>
         </div>
         <SliderProduct />
-        {/*<div className="products">
-          <div className="product">
-            <div className="productTitle">
-              <h2>stolík žolík</h2>
-            </div>
-            <div className="productImg">
-              <img src="img/01cbg.png" alt="" />
-            </div>
-            <div className="productContent">
-              <h3>{t("description1")}</h3>
-              <div className="productContent2">
-                <h3>{t("warehouse1")}</h3>
-                <button>
-                  <a href="">{t("productBtn_1")}</a>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="product">
-            <div className="productTitle">
-              <h2>stolík žolík</h2>
-            </div>
-            <div className="productImg">
-              <img src="img/08bg.png" alt="" />
-            </div>
-            <div className="productContent">
-              <h3>{t("description2")}</h3>
-              <div className="productContent2">
-                <h3>{t("warehouse2")}</h3>
-                <button>
-                  <a href="">{t("productBtn_2")}</a>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="product">
-            <div className="productTitle">
-              <h2>stolík žolík</h2>
-            </div>
-            <div className="productImg">
-              <img src="img/05abg.png" alt="" />
-            </div>
-
-            <div className="productContent">
-              <h3>{t("description3")}</h3>
-              <div className="productContent2">
-                <h3>{t("warehouse3")}</h3>
-                <button>
-                  <a href="">{t("productBtn_3")}</a>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>*/}
         <div className="aboutme" id="about">
           <div className="aboutmeText">
             <div className="title">

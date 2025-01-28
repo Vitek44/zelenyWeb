@@ -29,6 +29,7 @@
   width: 49%;
   overflow: hidden;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .serviceImg {
@@ -56,21 +57,51 @@
   transform: translate(-50%, -50%);
   color: white;
   text-align: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .service h1 {
   margin: 0;
   font-size: 2rem;
+  text-transform: uppercase;
 }
+
+.main-text {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.hover-text {
+  display: none;
+  transform: translateY(-20%);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 9999999;
+  transition: 0.3 ease-in;
+}
+
+.service:hover .main-text {
+  display: none;
+}
+
+.service:hover .hover-text {
+  display: block;
+  transform: translateY(0);
+  transition: 0.3 ease-in;
+}
+
 /*Konfigurátor výzva*/
 
 .configurator {
   width: 100%;
   max-height: 150px;
   overflow: hidden;
-  margin: 4rem 0 0 0;
+  margin: 1.5rem 0 0 0;
   cursor: pointer;
   border-radius: 5px;
+  box-shadow: 0px 2px 10px rgb(0, 0, 0, 25%);
 }
 
 .configuratorImg {
@@ -104,6 +135,7 @@
 .configurator h3 {
   color: white;
   font-size: 2rem;
+  text-transform: uppercase;
 }
 
 .configurator button {

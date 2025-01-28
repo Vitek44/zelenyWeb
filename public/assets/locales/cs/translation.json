@@ -32,6 +32,7 @@
   "title1": "Služby",
   "subtitle1": "Nabídka služeb",
   "service1": "Stoly na míru",
+  "service1_hover": "Info o stole",
   "service2": "Interiéry",
   "title2": "Nabídka",
   "subtitle2": "Nabídka produktů",
@@ -45,7 +46,7 @@
   "description3": "Ručně vyrobený stolík z poctivého českého dřeva",
   "warehouse3": "Zbývají 2ks skladem",
   "productBtn_3": "Zobrazit více",
-  "configurator_text": "Konfigurátor",
+  "configurator_text": "KONFIGURÁTOR STOLU",
 
   "title3": "O mě",
   "subtitle3": "Filip Zelený",
