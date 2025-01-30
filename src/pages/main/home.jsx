@@ -107,7 +107,7 @@ function App() {
           <h1>{t("subtitle2")}</h1>
         </div>
         <SliderProduct />
-        <div className="aboutme" id="about">
+        <div className="aboutme" id="about" data-aos="fade-up">
           <div className="aboutmeText">
             <div className="title">
               <h2>{t("title3")}</h2>
@@ -121,7 +121,7 @@ function App() {
             <img src="img/image-removebg-preview 1.png" alt="" />
           </div>
         </div>
-        <div className="bar">
+        <div className="bar" data-aos="fade-up">
           <h3>{t("bar_text1")}</h3>
           <h3>{t("bar_text2")}</h3>
           <h3>{t("bar_text3")}</h3>
@@ -130,7 +130,7 @@ function App() {
           <h2>{t("title4")}</h2>
           <h1>{t("subtitle4")}</h1>
         </div>
-        <div className="video">
+        <div className="video" data-aos="fade-up">
           <div className="movie">
             <iframe
               width="100%"
@@ -157,14 +157,16 @@ function App() {
           <div className="kontakt-content">
             <form>
               <div className="form-group">
-                <input type="text" placeholder="Jméno / Název firmy" />
-                <input type="text" placeholder="E-mail" />
+                <input type="text" placeholder="Jméno / Název firmy" data-aos="fade-right" />
+                <input type="text" placeholder="E-mail" data-aos="fade-left" data-aos-delay="50" />
               </div>
               <div className="form-group">
-                <textarea name="text" id="text" placeholder="Váš text"></textarea>
+                <textarea name="text" id="text" placeholder="Váš text" data-aos="fade-right" data-aos-delay="100"></textarea>
               </div>
               <div className="form-group">
-                <button className="kontakt-btn">Odeslat</button>
+                <button className="kontakt-btn" data-aos="fade-left" data-aos-delay="150">
+                  Odeslat
+                </button>
               </div>
             </form>
           </div>

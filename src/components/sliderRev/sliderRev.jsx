@@ -69,7 +69,7 @@ const SliderRev = () => {
     >
       {slides.map((slide) => (
         <SplideSlide key={slide.id}>
-          <div className="slideRev">
+          <div className="slideRev" data-aos="zoom-in" data-aos-delay={slide.id * 100}>
             <div className="slideRevSet">
               <div className="user-title">
                 <h5>{slide.text}</h5>
