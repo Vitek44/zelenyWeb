@@ -87,7 +87,7 @@ export default function Footer() {
         <div className="container">
           <div className="bottom-content">
             <div className="copy">
-              <p>2024 © DesignJJ.cz všechna práva vyhrazena.</p>
+              <p>2025 © FilipZeleny.cz všechna práva vyhrazena.</p>
             </div>
             <div className="author">
               Vytvořil:{" "}

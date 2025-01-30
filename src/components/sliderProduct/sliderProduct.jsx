@@ -56,11 +56,19 @@ const SliderProduct = () => {
         type: "loop",
         perPage: 3,
         arrows: false,
-        pagination: true,
+        pagination: false,
         pauseOnHover: true,
         autoplay: true,
         interval: 3000,
         gap: 20,
+        breakpoints: {
+          1024: {
+            perPage: 2,
+          },
+          600: {
+            perPage: 1,
+          },
+        },
       }}
     >
       {slides.map((slide) => (

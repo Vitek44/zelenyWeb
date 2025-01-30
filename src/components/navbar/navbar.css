@@ -128,7 +128,7 @@ nav .nav-changer {
     color: black;
     font-size: 2rem;
     cursor: pointer;
-    padding-right: 2rem;
+    padding-right: 0.5rem;
   }
 
   .navbar ul {
@@ -140,7 +140,7 @@ nav .nav-changer {
   }
 
   .navbar {
-    padding: 1rem 0;
+    padding: 1rem;
     transform: translate(0, 15%);
   }
 

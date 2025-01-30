@@ -13,7 +13,6 @@ export default function Navbar() {
     window.addEventListener("scroll", () => {
       if (window.scrollY < 25) {
         setScroll(true);
-        console.log("scroll");
       } else {
         setScroll(false);
       }

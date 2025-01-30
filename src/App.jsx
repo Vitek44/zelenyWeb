@@ -1,4 +1,6 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 //BrowserRouter
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -11,6 +13,12 @@ import Main from "./pages/main/home";
 import "./App.css";
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      disable: "mobile",
+      duration: 600,
+    });
+  });
   return (
     <>
       <BrowserRouter>

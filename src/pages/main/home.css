@@ -25,69 +25,97 @@
 }
 
 .service {
-  position: relative;
+  height: 300px;
   width: 49%;
-  overflow: hidden;
   border-radius: 5px;
   cursor: pointer;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/01c.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.serviceImg {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.serviceImg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(50%);
-  transition: filter 0.3s ease;
-}
-
-.serviceImg:hover img {
-  filter: brightness(30%);
+.service:nth-child(2) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/intereiery.webp");
 }
 
 .serviceContent {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   color: white;
   text-align: center;
-  overflow: hidden;
 }
 
 .service h1 {
   margin: 0;
   font-size: 2rem;
+  font-weight: 500;
   text-transform: uppercase;
 }
 
 .main-text {
   font-size: 24px;
   margin-bottom: 20px;
+  transform: translateY(180%);
+  transition: 0.2s ease-in;
 }
 
-.hover-text {
-  display: none;
-  transform: translateY(200px);
+.hover-text .service-item {
+  opacity: 0;
+  transform: translateY(50%);
   color: white;
   padding: 10px;
   border-radius: 5px;
-  transition: 0.3s ease-in;
+  transition: 0.2s ease-in;
 }
 
 .service:hover .main-text {
-  display: none;
+  transform: translateY(-50%);
+  transition: 0.2s ease-in;
 }
 
-.service:hover .hover-text {
-  display: block;
+.service:hover .hover-text .service-item {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 0.2s ease-in;
+}
+
+.service:hover .hover-text .service-item:nth-child(2) {
+  opacity: 1;
   transform: translateY(0);
   transition: 0.3s ease-in;
+}
+
+.service:hover .hover-text .service-item:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 0.4s ease-in;
+}
+
+.service:hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("../img/01c.png");
+}
+
+.service:hover:nth-child(2):hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("../img/intereiery.webp");
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.service-item p {
+  font-size: 20px;
+  color: white;
+}
+
+.service-item i {
+  font-size: 8px;
+  color: var(--green);
+  margin-right: 1rem;
 }
 
 /*Konfigurátor výzva*/
@@ -114,7 +142,7 @@
   height: 100%;
   object-fit: cover;
   filter: brightness(50%);
-  transition: filter 0.3s ease;
+  transition: filter 0.2s ease;
 }
 
 .configuratorImg:hover img {
@@ -133,6 +161,7 @@
 .configurator h3 {
   color: white;
   font-size: 2rem;
+  font-weight: 500;
   text-transform: uppercase;
 }
 
@@ -248,7 +277,7 @@
   width: 100%;
   padding: 1rem;
   border-radius: 5px;
-  border: 1px solid var(--green);
+  border: 2px solid var(--green);
 }
 
 .kontakt textarea {
@@ -257,7 +286,7 @@
   resize: none;
   padding: 1rem;
   border-radius: 5px;
-  border: 1px solid var(--green);
+  border: 2px solid var(--green);
   font-family: Arial, sans-serif;
 }
 
@@ -298,6 +327,7 @@
 
   .service {
     width: 100%;
+    height: 200px;
   }
 
   .aboutme {
@@ -306,10 +336,12 @@
 
   .aboutmeText {
     width: 100%;
+    margin-bottom: 2rem;
   }
 
   .aboutmeImg {
     width: 100%;
+    border-radius: 5px 5px 0 0;
   }
 
   .video {
@@ -318,5 +350,18 @@
 
   .videoText {
     width: 100%;
+  }
+
+  .form-group {
+    flex-direction: column;
+  }
+
+  .bar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bar h3 {
+    margin-bottom: 0.5rem;
   }
 }

@@ -43,6 +43,10 @@
   align-items: center;
 }
 
+.button-group span {
+  font-family: "Maven Pro", serif;
+}
+
 .btn-white {
   padding: 1rem 4.1rem;
   background-color: white;
