@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SubMenu from "./pages/SubMenuTable/SubMenuTable";
 import Konfigurator from "./pages/configurator/configurator";
 import Produkt from "./pages/produkt/produkt";
+import Galerie from "./pages/galerie/galerie";
 
 import Main from "./pages/main/home";
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/podmenu" element={<SubMenu />} />
           <Route path="/konfigurator" element={<Konfigurator />} />
           <Route path="/produkt" element={<Produkt />} />
+          <Route path="/galerie" element={<Galerie />} />
         </Routes>
       </BrowserRouter>
     </>
