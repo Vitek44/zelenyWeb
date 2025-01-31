@@ -81,7 +81,7 @@ export default function Navbar() {
 
   return (
     <nav>
-      <div className="container">
+      <div className={scroll ? "container" : "container container-scroll"}>
         <div className={scroll ? "navbar" : "navbar scroll"}>
           {/* Logo */}
           <div className="navLogo" data-aos="fade-right">
@@ -109,7 +109,7 @@ export default function Navbar() {
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="150">
-                <a onClick={() => handleLinkClick("/stoly", "home")}>
+                <a onClick={() => handleLinkClick("/podmenu", "home")}>
                   <span data-content={t("nav-li4")}>{t("nav-li4")}</span>
                 </a>
               </li>

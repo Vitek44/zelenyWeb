@@ -7,87 +7,15 @@ import "./SliderProduct.css";
 const SliderProduct = () => {
   const { t } = useTranslation();
 
-  const slides = [
-    {
-      id: 1,
-      text: t("slideProduct_text_1"),
-      image: "img/01cbg.png",
-      description: t("description1"),
-      warehouse: t("warehouse1"),
-      button: t("productBtn_1"),
-    },
-    {
-      id: 2,
-      text: t("slideProduct_text_1"),
-      image: "img/01cbg.png",
-      description: t("description1"),
-      warehouse: t("warehouse1"),
-      button: t("productBtn_1"),
-    },
-    {
-      id: 3,
-      text: t("slideProduct_text_1"),
-      image: "img/01cbg.png",
-      description: t("description1"),
-      warehouse: t("warehouse1"),
-      button: t("productBtn_1"),
-    },
-    {
-      id: 4,
-      text: t("slideProduct_text_1"),
-      image: "img/01cbg.png",
-      description: t("description1"),
-      warehouse: t("warehouse1"),
-      button: t("productBtn_1"),
-    },
-    {
-      id: 5,
-      text: t("slideProduct_text_1"),
-      image: "img/01cbg.png",
-      description: t("description1"),
-      warehouse: t("warehouse1"),
-      button: t("productBtn_1"),
-    },
-  ];
-
   return (
-    <Splide
-      options={{
-        type: "loop",
-        perPage: 3,
-        arrows: false,
-        pagination: false,
-        pauseOnHover: true,
-        autoplay: true,
-        interval: 3000,
-        gap: 20,
-        breakpoints: {
-          1024: {
-            perPage: 2,
-          },
-          600: {
-            perPage: 1,
-          },
-        },
-      }}
-    >
-      {slides.map((slide) => (
-        <SplideSlide key={slide.id}>
-          <div className="product">
-            <div className="productImg">
-              <img src={slide.image} alt="" />
-            </div>
-            <div className="productContent">
-              <div className="productTitle">
-                <h2>{slide.text}</h2>
-                <h3>{slide.description}</h3>
-              </div>
-              <button>{slide.button}</button>
-            </div>
-          </div>
-        </SplideSlide>
-      ))}
-    </Splide>
+    <SplideSlide>
+      <div class="produkt">
+        <img src="/img/08b.png" alt="" />
+        <h1>Jídelní stůl Aero 190 x 90 cm</h1>
+        <span>55 000,00 Kč</span>
+        <button>Zobrazit</button>
+      </div>
+    </SplideSlide>
   );
 };
 
