@@ -36,6 +36,8 @@
   "service2": "Interiéry",
   "title2": "Nabídka",
   "subtitle2": "Nabídka produktů",
+  "service3": "Stoly",
+  "service4": "Konfigurátor",
 
   "description1": "Ručně vyrobený z poctivého českého dřeva",
   "warehouse1": "Zbývají 2 ks skladem",
@@ -75,5 +77,7 @@
   "slideRev_name_4": "Franta",
   "slideRev_name_5": "Sára",
 
-  "slideProduct_text_1": "AERO"
+  "slideProduct_text_1": "AERO",
+  "SubMenuTable.title": "Stoly na míru",
+  "Product.title": "Produkty"
 }

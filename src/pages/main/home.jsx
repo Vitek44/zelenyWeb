@@ -1,6 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 //Link
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/splide/css";
+import "@splidejs/splide/dist/css/splide.min.css";
+import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 
 import { HashLink } from "react-router-hash-link";
 //Navbar
@@ -10,6 +14,7 @@ import Footer from "../../components/footer/footer";
 import Slider from "../../components/slider/slider";
 import SliderRev from "../../components/sliderRev/sliderRev";
 import SliderProduct from "../../components/sliderProduct/sliderProduct";
+import BtnUpDown from "../../components/btnUpDown/btnUpDown";
 
 //Translation
 import { useTranslation } from "react-i18next";
@@ -33,6 +38,7 @@ function App() {
   return (
     <>
       <Navbar />
+
       <div className="slide">
         <div className="container">
           <div className="content-slider">
@@ -106,25 +112,59 @@ function App() {
           <h2>{t("title2")}</h2>
           <h1>{t("subtitle2")}</h1>
         </div>
-        <SliderProduct />
-        <div className="aboutme" id="about" data-aos="fade-up">
-          <div className="aboutmeText">
-            <div className="title">
-              <h2>{t("title3")}</h2>
-              <h1>{t("subtitle3")}</h1>
+        <Splide
+          options={{
+            type: "loop",
+            autoScroll: {
+              pauseOnHover: false,
+              speed: 0.5,
+            },
+            perPage: 3,
+            perMove: 1,
+            gap: "3rem",
+            pagination: false,
+            pauseOnHover: true,
+            arrows: false,
+            breakpoints: {
+              768: {
+                perPage: 1,
+                gap: "1rem",
+              },
+              1024: {
+                perPage: 2,
+              },
+              1440: {
+                perPage: 2,
+              },
+              1980: {
+                perPage: 3,
+              },
+            },
+          }}
+          extensions={{ AutoScroll }}
+        >
+          <SliderProduct />
+        </Splide>
+        <div class="about-wrap" id="about" data-aos="fade-up">
+          <div className="aboutme">
+            <div className="aboutmeText">
+              <div className="title">
+                <h2>{t("title3")}</h2>
+                <h1>{t("subtitle3")}</h1>
+              </div>
+              <p>{t("text")}</p>
+              <br></br>
+              <p>{t("quote")}</p>
             </div>
-            <p>{t("text")}</p>
-            <br></br>
-            <p>{t("quote")}</p>
+            <div className="aboutmeImg">
+              <img src="img/image-removebg-preview 1.png" alt="" />
+            </div>
           </div>
-          <div className="aboutmeImg">
-            <img src="img/image-removebg-preview 1.png" alt="" />
+          <div className="bar">
+            <h3>{t("bar_text1")}</h3>
+            <h3>{t("bar_text2")}</h3>
+            <h3>{t("bar_text3")}</h3>
           </div>
-        </div>
-        <div className="bar" data-aos="fade-up">
-          <h3>{t("bar_text1")}</h3>
-          <h3>{t("bar_text2")}</h3>
-          <h3>{t("bar_text3")}</h3>
         </div>
         <div className="title">
           <h2>{t("title4")}</h2>
@@ -132,16 +172,7 @@ function App() {
         </div>
         <div className="video" data-aos="fade-up">
           <div className="movie">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/8qN9ZWcHrvY?si=q5xGjN10-eTWHG1O&autoplay=1&mute=1"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer;autoplay;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            ></iframe>
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8qN9ZWcHrvY?si=q5xGjN10-eTWHG1O&autoplay=1&mute=1" title="YouTube video player" frameBorder="0" allow="accelerometer;autoplay;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
           </div>
         </div>
         <div className="title">
@@ -172,6 +203,7 @@ function App() {
           </div>
         </div>
       </div>
+      <BtnUpDown />
       <Footer />
     </>
   );
