@@ -20,12 +20,17 @@ nav {
 }
 
 .scroll {
-  transform: translate(0, 15%);
+  transform: translate(0, 0);
+  border-radius: 0 0 8px 8px;
+  transition: transform 0.3s;
+}
+
+.container-scroll {
   transition: transform 0.3s;
 }
 
 .navLogo img {
-  width: 120px;
+  width: 130px;
   height: auto;
 }
 
@@ -48,6 +53,10 @@ ul {
   text-align: center;
   padding: 0 2rem;
   font-weight: 500;
+}
+
+.navbar ul li:nth-last-child(1) {
+  padding-right: 0;
 }
 
 ul li a:hover {
@@ -181,7 +190,8 @@ ul li a span::before {
 
   .navbar {
     padding: 1rem;
-    transform: translate(0, 15%);
+    transform: translate(0, 0);
+    border-radius: 0 0 8px 8px;
   }
 
   .navbar .show {

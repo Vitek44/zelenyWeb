@@ -49,42 +49,43 @@
 
 .btn-white {
   padding: 1rem 4.1rem;
-  background-color: white;
-  color: black;
+  background-color: var(--green);
+  color: white;
   border: none;
   cursor: pointer;
   font-weight: 600;
   font-size: 16px;
   margin-left: 3rem;
   border-radius: 8px;
-  box-shadow: inset 1px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .btn-white:hover {
-  background-color: #f1f1f1;
+  background-color: #87a541;
 }
 
 .btn-green {
   padding: 0.3rem 0.3rem 0.3rem 2rem;
   font-size: 16px;
-  background-color: var(--green);
-  color: white;
+  background-color: white;
+  color: black;
   border: none;
   cursor: pointer;
   font-weight: 600;
   border-radius: 8px;
-  box-shadow: inset 0px 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 .btn-green i {
   margin-left: 2rem;
   font-size: 16px;
-  background-color: white;
-  color: var(--green);
+  background-color: var(--green);
+  color: white;
   padding: 0.75rem;
   border-radius: 8px;
+  transform: rotate(0deg);
+  transition: transform 0.3s;
 }
 
-.btn-green:hover {
-  background-color: #9dc442;
+.btn-green:hover i {
+  transform: rotate(90deg);
+  transition: transform 0.3s;
 }

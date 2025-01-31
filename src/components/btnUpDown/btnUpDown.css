@@ -1,0 +1,16 @@
+#scrollDown {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+
+  padding: 10px 10px;
+  background: transparent;
+  color: var(--green);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#scrollDown i {
+  font-size: 22px;
+}

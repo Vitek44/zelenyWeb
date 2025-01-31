@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SubMenu from "./pages/SubMenuTable/SubMenuTable";
 import Konfigurator from "./pages/configurator/configurator";
-import Galerie from "./pages/galerie/galerie";
+import Produkt from "./pages/produkt/produkt";
 
 import Main from "./pages/main/home";
 
@@ -27,7 +27,7 @@ function App() {
           <Route exact path="/" element={<Main />} />
           <Route path="/podmenu" element={<SubMenu />} />
           <Route path="/konfigurator" element={<Konfigurator />} />
-          <Route path="/galerie" element={<Galerie />} />
+          <Route path="/produkt" element={<Produkt />} />
         </Routes>
       </BrowserRouter>
     </>
