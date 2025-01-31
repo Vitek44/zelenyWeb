@@ -59,6 +59,7 @@ footer {
   letter-spacing: 0.5px;
   font-weight: 200;
   color: #e0e0e0;
+  transition: 0.2s ease-in-out;
 }
 
 .footer-menu h3 {
@@ -77,11 +78,6 @@ footer {
   margin: 0;
 }
 
-.footer-menu .regular {
-  padding: 0;
-  color: #ffffff;
-}
-
 .footer-menu li {
   margin: 0.5rem 0;
   align-items: center;
@@ -92,15 +88,6 @@ footer {
   font-size: 16px;
   height: auto;
   margin-right: 0.5rem;
-}
-
-.footer-menu li:hover i {
-  color: var(--main);
-  transition: all 0.2s ease;
-}
-
-.footer-menu li:hover .regular {
-  color: var(--main);
 }
 
 .bottom {
@@ -134,10 +121,6 @@ footer {
 .bottom-content img {
   width: 80px;
   margin-left: 0.5rem;
-}
-
-.bottom-content a:hover {
-  color: var(--main);
 }
 
 .footer-main {
