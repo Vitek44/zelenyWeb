@@ -29,7 +29,7 @@ nav {
   height: auto;
 }
 
-.navMenu {
+ul li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,11 +54,6 @@ ul li a:hover {
   color: var(--green);
 }
 
-ul li a {
-  color: black;
-  text-decoration: none;
-  font-size: 90%;
-}
 a {
   cursor: pointer;
 }
@@ -122,13 +117,58 @@ nav .nav-changer {
   border-radius: 50%;
 }
 
+ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+ul li a {
+  position: relative;
+  transition: -webkit-clip-path 275ms ease;
+  transition: clip-path 275ms ease;
+  transition: clip-path 275ms ease, -webkit-clip-path 275ms ease;
+  width: fit-content;
+}
+ul li a:hover span::before,
+ul li a:focus span::before {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+ul li a span {
+  position: relative;
+  display: inline-block;
+  color: black;
+  white-space: nowrap;
+}
+ul li a span::before {
+  position: absolute;
+  content: attr(data-content);
+  color: black;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  -webkit-text-decoration-color: var(--green);
+  text-decoration-color: var(--green);
+  -webkit-clip-path: polygon(0 0, 0 0, 0% 100%, 0 100%);
+  clip-path: polygon(0 0, 0 0, 0% 100%, 0 100%);
+  transition: -webkit-clip-path 275ms ease;
+  transition: clip-path 275ms ease;
+  transition: clip-path 275ms ease, -webkit-clip-path 275ms ease;
+}
+
+@media (max-width: 1200px) {
+  .navbar ul li {
+    padding: 0 1.25rem;
+  }
+}
+
 @media (max-width: 1024px) {
   nav .nav-changer {
     display: block;
     color: black;
     font-size: 2rem;
     cursor: pointer;
-    padding-right: 2rem;
+    padding-right: 0.5rem;
   }
 
   .navbar ul {
@@ -140,7 +180,7 @@ nav .nav-changer {
   }
 
   .navbar {
-    padding: 1rem 0;
+    padding: 1rem;
     transform: translate(0, 15%);
   }
 

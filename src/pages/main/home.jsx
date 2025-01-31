@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
 //Link
 
 import { HashLink } from "react-router-hash-link";
@@ -37,53 +36,65 @@ function App() {
       <div className="slide">
         <div className="container">
           <div className="content-slider">
-            <h1>{t("content-slider")}</h1>
+            <h1 data-aos="fade-up">{t("content-slider")}</h1>
             <div className="button-group">
-              <button className="btn-green" onClick={() => handleLinkClick("/", "about")}>
+              <button className="btn-green" data-aos="fade-up" data-aos-delay="50" onClick={() => handleLinkClick("/", "services")}>
                 <span>Zjistit více</span>
                 <i className="fa-solid fa-arrow-right"></i>
               </button>
-              <button className="btn-white" onClick={() => handleLinkClick("/", "kontakt")}>
-                <span>Kotakt</span>
+              <button className="btn-white" data-aos="fade-up" data-aos-delay="100" onClick={() => handleLinkClick("/", "kontakt")}>
+                <span>Kontakt</span>
               </button>
             </div>
           </div>
         </div>
       </div>
-      <div className="container">
+      <div className="container" id="services">
         <div className="title">
           <h2>{t("title1")}</h2>
           <h1>{t("subtitle1")}</h1>
         </div>
         <div className="services">
-          <div className="service" onClick={() => handleLinkClick("/podmenu", "")}>
-            <div className="serviceImg">
-              <img src="img/01c.png" alt="" />
-              <div className="serviceContent">
-                <h1 className="main-text">{t("service1")}</h1>
-                <div className="hover-text">
+          <div className="service" data-aos="zoom-in" onClick={() => handleLinkClick("/podmenu", "")}>
+            <div className="serviceContent">
+              <h1 className="main-text">{t("service1")}</h1>
+              <div className="hover-text">
+                <div className="service-item">
+                  <i className="fa-solid fa-circle"></i>
                   <p>Stoly konferenční</p>
+                </div>
+                <div className="service-item">
+                  <i className="fa-solid fa-circle"></i>
                   <p>Stoly do kuchyně</p>
+                </div>
+                <div className="service-item">
+                  <i className="fa-solid fa-circle"></i>
                   <p>Stoly do pokoje</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="service">
-            <div className="serviceImg">
-              <img src="img/intereiery.webp" alt="" />
-              <div className="serviceContent">
-                <h1 className="main-text">{t("service2")}</h1>
-                <div className="hover-text">
+          <div className="service" data-aos="zoom-in" data-aos-delay="100">
+            <div className="serviceContent">
+              <h1 className="main-text">{t("service2")}</h1>
+              <div className="hover-text">
+                <div className="service-item">
+                  <i className="fa-solid fa-circle"></i>
                   <p>Kuchyně</p>
+                </div>
+                <div className="service-item">
+                  <i className="fa-solid fa-circle"></i>
                   <p>Vestavěné skříně</p>
-                  <p>Nábytek</p>
+                </div>
+                <div className="service-item">
+                  <i className="fa-solid fa-circle"></i>
+                  <p>Stoly do pokoje</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="configurator" onClick={() => handleLinkClick("/konfigurator", "")}>
+        <div className="configurator" data-aos="zoom-in" data-aos-delay="200" onClick={() => handleLinkClick("/konfigurator", "")}>
           <div className="configuratorImg">
             <img src="img/configurator2.png" alt="" />
             <div className="onfiguratorContent">
@@ -96,7 +107,7 @@ function App() {
           <h1>{t("subtitle2")}</h1>
         </div>
         <SliderProduct />
-        <div className="aboutme" id="about">
+        <div className="aboutme" id="about" data-aos="fade-up">
           <div className="aboutmeText">
             <div className="title">
               <h2>{t("title3")}</h2>
@@ -110,7 +121,7 @@ function App() {
             <img src="img/image-removebg-preview 1.png" alt="" />
           </div>
         </div>
-        <div className="bar">
+        <div className="bar" data-aos="fade-up">
           <h3>{t("bar_text1")}</h3>
           <h3>{t("bar_text2")}</h3>
           <h3>{t("bar_text3")}</h3>
@@ -119,7 +130,7 @@ function App() {
           <h2>{t("title4")}</h2>
           <h1>{t("subtitle4")}</h1>
         </div>
-        <div className="video">
+        <div className="video" data-aos="fade-up">
           <div className="movie">
             <iframe
               width="100%"
@@ -146,14 +157,16 @@ function App() {
           <div className="kontakt-content">
             <form>
               <div className="form-group">
-                <input type="text" placeholder="Jméno / Název firmy" />
-                <input type="text" placeholder="E-mail" />
+                <input type="text" placeholder="Jméno / Název firmy" data-aos="fade-right" />
+                <input type="text" placeholder="E-mail" data-aos="fade-left" data-aos-delay="50" />
               </div>
               <div className="form-group">
-                <textarea name="text" id="text" placeholder="Váš text"></textarea>
+                <textarea name="text" id="text" placeholder="Váš text" data-aos="fade-right" data-aos-delay="100"></textarea>
               </div>
               <div className="form-group">
-                <button className="kontakt-btn">Odeslat</button>
+                <button className="kontakt-btn" data-aos="fade-left" data-aos-delay="150">
+                  Odeslat
+                </button>
               </div>
             </form>
           </div>

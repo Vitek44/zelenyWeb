@@ -46,16 +46,30 @@ const SliderRev = () => {
         type: "loop",
         perPage: 3,
         arrows: false,
-        pagination: true,
+        pagination: false,
         pauseOnHover: true,
         autoplay: false,
         interval: 3000,
         gap: "2.5rem",
+        breakpoints: {
+          640: {
+            perPage: 1,
+            gap: "1rem",
+          },
+          768: {
+            perPage: 2,
+            gap: "1rem",
+          },
+          1024: {
+            perPage: 3,
+            gap: "1rem",
+          },
+        },
       }}
     >
       {slides.map((slide) => (
         <SplideSlide key={slide.id}>
-          <div className="slideRev">
+          <div className="slideRev" data-aos="zoom-in" data-aos-delay={slide.id * 100}>
             <div className="slideRevSet">
               <div className="user-title">
                 <h5>{slide.text}</h5>
