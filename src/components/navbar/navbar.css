@@ -156,6 +156,12 @@ ul li a span::before {
   transition: clip-path 275ms ease, -webkit-clip-path 275ms ease;
 }
 
+@media (max-width: 1200px) {
+  .navbar ul li {
+    padding: 0 1.25rem;
+  }
+}
+
 @media (max-width: 1024px) {
   nav .nav-changer {
     display: block;

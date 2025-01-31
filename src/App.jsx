@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     AOS.init({
       disable: "mobile",
-      duration: 600,
+      duration: 800,
     });
   });
   return (
