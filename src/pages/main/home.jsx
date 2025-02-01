@@ -117,7 +117,7 @@ function App() {
             type: "loop",
             autoScroll: {
               pauseOnHover: false,
-              speed: 0.5,
+              speed: 0.4,
             },
             perPage: 3,
             perMove: 1,
