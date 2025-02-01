@@ -45,11 +45,11 @@ function App() {
             <h1 data-aos="fade-up">{t("content-slider")}</h1>
             <div className="button-group">
               <button className="btn-green" data-aos="fade-up" data-aos-delay="50" onClick={() => handleLinkClick("/", "services")}>
-                <span>Zjistit více</span>
+                <span>{t("green_btn")}</span>
                 <i className="fa-solid fa-arrow-right"></i>
               </button>
               <button className="btn-white" data-aos="fade-up" data-aos-delay="100" onClick={() => handleLinkClick("/", "kontakt")}>
-                <span>Kontakt</span>
+                <span>{t("white_btn")}</span>
               </button>
             </div>
           </div>
@@ -67,15 +67,15 @@ function App() {
               <div className="hover-text">
                 <div className="service-item">
                   <i className="fa-solid fa-circle"></i>
-                  <p>Stoly konferenční</p>
+                  <p>{t("service1_item1")}</p>
                 </div>
                 <div className="service-item">
                   <i className="fa-solid fa-circle"></i>
-                  <p>Stoly do kuchyně</p>
+                  <p>{t("service1_item2")}</p>
                 </div>
                 <div className="service-item">
                   <i className="fa-solid fa-circle"></i>
-                  <p>Stoly do pokoje</p>
+                  <p>{t("service1_item3")}</p>
                 </div>
               </div>
             </div>
@@ -86,15 +86,15 @@ function App() {
               <div className="hover-text">
                 <div className="service-item">
                   <i className="fa-solid fa-circle"></i>
-                  <p>Kuchyně</p>
+                  <p>{t("service2_item1")}</p>
                 </div>
                 <div className="service-item">
                   <i className="fa-solid fa-circle"></i>
-                  <p>Vestavěné skříně</p>
+                  <p>{t("service2_item2")}</p>
                 </div>
                 <div className="service-item">
                   <i className="fa-solid fa-circle"></i>
-                  <p>Stoly do pokoje</p>
+                  <p>{t("service2_item3")}</p>
                 </div>
               </div>
             </div>
@@ -188,15 +188,15 @@ function App() {
           <div className="kontakt-content">
             <form>
               <div className="form-group">
-                <input type="text" placeholder="Jméno / Název firmy" data-aos="fade-right" />
+                <input type="text" placeholder={t("phName")} data-aos="fade-right" />
                 <input type="text" placeholder="E-mail" data-aos="fade-left" data-aos-delay="50" />
               </div>
               <div className="form-group">
-                <textarea name="text" id="text" placeholder="Váš text" data-aos="fade-right" data-aos-delay="100"></textarea>
+                <textarea name="text" id="text" placeholder={t("phText")} data-aos="fade-right" data-aos-delay="100"></textarea>
               </div>
               <div className="form-group">
                 <button className="kontakt-btn" data-aos="fade-left" data-aos-delay="150">
-                  Odeslat
+                  {t("send")}
                 </button>
               </div>
             </form>

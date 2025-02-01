@@ -6,7 +6,14 @@
   "nav-li5": "Interiéry",
   "nav-li6": "Kontakt",
   "content-slider": "Vytváříme jedinečné interiéry na míru, které odrážejí váš styl a potřeby",
-
+  "green_btn": "Zobrazit více",
+  "white_btn": "Kontakt",
+  "service1_item1": "Stoly konferenční",
+  "service1_item2": "Stoly do kuchyně",
+  "service1_item3": "Stoly do pokoje",
+  "service2_item1": "Stoly konferenční",
+  "service2_item2": "Kuchyně",
+  "service2_item3": "Vestavěné skříně",
   "welcome_to_react": "Welcome to React!",
   "slide_title_1": "Vytváříme jedinečné interiéry na míru, které odrážejí váš styl a potřeby",
   "slide_title_2": "Vytváříme jedinečné interiéry na míru, které odrážejí váš styl a potřeby",
@@ -28,7 +35,7 @@
   "button2_text_4": "Kontakt",
   "button1_text_5": "Služby",
   "button2_text_5": "Kontakt",
-
+  "send": "Odeslat",
   "title1": "Služby",
   "subtitle1": "Nabídka služeb",
   "service1": "Stoly na míru",
@@ -50,7 +57,7 @@
   "productBtn_3": "Zobrazit více",
   "configurator_text": "KONFIGURÁTOR STOLU",
 
-  "title3": "O mě",
+  "title3": "O mně",
   "subtitle3": "Filip Zelený",
   "title4": "video",
   "subtitle4": "Výroba stolu",
@@ -79,5 +86,12 @@
 
   "slideProduct_text_1": "AERO",
   "SubMenuTable.title": "Stoly na míru",
-  "Product.title": "Produkty"
+  "Product.title": "Produkty",
+  "footertext": "Profesionální tvorba dřevěného nábytku na míru od návrhu až po předání. Pomůžu vám mít dobrej stůl.",
+  "footer1": "Užitečné",
+  "contants": "Kontakty",
+  "created": "Vytvořil:",
+  "right": "2025 © FilipZeleny.cz všechna práva vyhrazena.",
+  "phName": "Jméno / Název firmy",
+  "phText": "Váš text"
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import "./footer.css";
 import { useNavigate } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
 export default function Footer() {
   let navigate = useNavigate();
 
@@ -14,6 +14,7 @@ export default function Footer() {
       });
     }, 100);
   };
+  const { t } = useTranslation();
   return (
     <footer>
       <div className="container">
@@ -22,54 +23,54 @@ export default function Footer() {
             <a onClick={() => scrollToId("/", "home")} className="footer-logo">
               <img src="/img/Zeleny logo-2B.jpg" alt="DesignJJ logo" draggable="false" />
             </a>
-            <h5>Profesionální tvorba dřevěného nábytku na míru od návrhu až po předání. Pomůžu vám mít dobrej stůl.</h5>
+            <h5>{t("footertext")}</h5>
             <div className="footer-text">
               <p>Filip Zelený</p>
             </div>
           </div>
           <div className="footer-content">
             <div className="footer-menu">
-              <h3>Užitečné</h3>
+              <h3>{t("footer1")}</h3>
               <ul>
                 <li>
                   <a onClick={() => scrollToId("/", "about")} className="link">
-                    O mně
+                    {t("nav-li1")}
                   </a>
                 </li>
                 <li>
                   <a onClick={() => scrollToId("/konfigurator", "home")} className="link">
-                    Konfigurátor
+                    {t("nav-li2")}
                   </a>
                 </li>
                 <li>
                   <a onClick={() => scrollToId("/galerie", "home")} className="link">
-                    Galerie
+                    {t("nav-li3")}
                   </a>
                 </li>
                 <li>
                   <a onClick={() => scrollToId("/stoly", "home")} className="link">
-                    Stoly
+                    {t("nav-li4")}
                   </a>
                 </li>
                 <li>
                   <a onClick={() => scrollToId("/interiery", "home")} className="link">
-                    Interiéry
+                    {t("nav-li5")}
                   </a>
                 </li>
                 <li>
                   <a onClick={() => scrollToId("/", "kontakt")} className="link">
-                    Kontakt
+                    {t("nav-li6")}
                   </a>
                 </li>
               </ul>
             </div>
             <div className="footer-menu">
-              <h3>Kontakty</h3>
+              <h3>{t("contants")}</h3>
               <ul>
                 <li>
                   <i className="fa-regular fa-envelope"></i>
                   <a href="" className="link" target="_blank">
-                    filip-zeleny@gmai.com
+                    filip-zeleny@gmail.com
                   </a>
                 </li>
                 <li>
@@ -87,10 +88,10 @@ export default function Footer() {
         <div className="container">
           <div className="bottom-content">
             <div className="copy">
-              <p>2025 © FilipZeleny.cz všechna práva vyhrazena.</p>
+              <p>{t("right")}</p>
             </div>
             <div className="author">
-              Vytvořil:{" "}
+              {t("created")}{" "}
               <a href="https://designjj.cz/" target="_blank">
                 <img src="/img/author.webp" alt="DesignJJ" />
               </a>
