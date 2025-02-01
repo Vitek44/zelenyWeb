@@ -1,0 +1,151 @@
+.produkt-main {
+  padding: 12rem 0;
+}
+
+.produkt-main nav {
+  position: unset !important;
+}
+
+.produkt-title {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 4px solid var(--green);
+  width: fit-content;
+}
+
+.produkt-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+}
+
+.produkt-gallery {
+  width: 60%;
+}
+
+.produkt-img {
+  border-radius: 5px !important;
+}
+
+.produkt-content {
+  width: 40%;
+}
+
+.produkt-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 55%;
+}
+
+.produkt-item img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.produkt-item h5 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.produkt-item p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.produkt-akce {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.produkt-cena h3 {
+  font-size: 20px;
+  color: var(--green);
+  font-weight: 700;
+}
+
+.produkt-cena p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #a7a7a7;
+}
+
+.produkt-cena span {
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.produkt-akce button {
+  padding: 1rem 1rem;
+  background-color: var(--green);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:focus {
+  border: 3px solid var(--green);
+  border-radius: 5px;
+  filter: brightness(0.6);
+}
+
+.image-gallery-thumbnail:hover {
+  border: 3px solid var(--green);
+  border-radius: 5px;
+}
+
+.image-gallery-thumbnail .image-gallery-thumbnail-image {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 65px;
+}
+
+@media screen and (max-width: 1024px) {
+  .produkt-wrap {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .produkt-gallery {
+    width: 100%;
+  }
+
+  .produkt-content {
+    width: 100%;
+  }
+
+  .produkt-item {
+    width: 100%;
+  }
+
+  .item-row {
+    width: 100%;
+  }
+}
