@@ -38,3 +38,7 @@
   cursor: pointer;
   border-radius: 5px;
 }
+
+.produkt button:hover {
+  background-color: #87a541;
+}
