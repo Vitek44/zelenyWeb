@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-
 import "./produkt.css";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
-const Produkt = () => {
+
+function Produkt({ id }) {
   const [getData, setData] = useState([]);
 
   const loadData = () => {
-    fetch(`https://designjj-test.eu/php/getProdukt.php`, {
+    fetch(`https://designjj-test.eu/php/getProdukt.php?id=${id}`, {
       method: "POST",
     })
       .then((res) => res.json())
@@ -28,8 +29,8 @@ const Produkt = () => {
   };
 
   useEffect(() => {
-    loadData();
-  }, []);
+    loadData(); // Načítání dat podle id
+  }, [id]);
 
   const cenaBezDPH = getData?.Cena ? Math.round(getData.Cena / 1.21) : 0;
 
@@ -38,31 +39,32 @@ const Produkt = () => {
       originalHeight: "335px",
       originalWidth: "100%",
       originalClass: "produkt-img",
-      original: "/img/" + getData.URL,
+      original: getData.URL,
       thumbnail: "/img/08b.png",
     },
     {
       originalHeight: "335px",
       originalWidth: "100%",
       originalClass: "produkt-img",
-      original: "/img/" + getData.URL,
+      original: getData.URL,
       thumbnail: "/img/08bg.png",
     },
     {
       originalHeight: "335px",
       originalWidth: "100%",
       originalClass: "produkt-img",
-      original: "/img/" + getData.URL,
+      original: getData.URL,
       thumbnail: "/img/01c.png",
     },
   ];
+
   return (
     <>
       <Navbar />
       <div className="produkt-main">
         <div className="container">
           <div className="produkt-title">
-            <h1>Žolík stolík</h1>
+            <h1>{getData?.Nazev || "Žolík stolík"}</h1>
           </div>
           <div className="produkt-wrap">
             <div className="produkt-gallery">
@@ -121,6 +123,6 @@ const Produkt = () => {
       <Footer />
     </>
   );
-};
+}
 
 export default Produkt;

@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 import "./SubMenuTable.css";
 
 function SubMenu() {
+  const [data, setData] = useState([]);
+
   const loadData = () => {
     fetch(`https://designjj-test.eu/php/getProdukt.php`, {
       method: "POST",
@@ -48,9 +50,9 @@ function SubMenu() {
   return (
     <>
       <Navbar />
-      <div class="stoly-main">
-        <div class="container">
-          <div class="stoly-title">
+      <div className="stoly-main">
+        <div className="container">
+          <div className="stoly-title">
             <h1>{t("SubMenuTable.title")}</h1>
           </div>
         </div>
@@ -68,22 +70,20 @@ function SubMenu() {
             </div>
           </div>
         </div>
-        <div class="stoly-wrapper">
-          <div class="container">
-            <div class="title">
+        <div className="stoly-wrapper">
+          <div className="container">
+            <div className="title">
               <h2>Nabídka</h2>
               <h1>{t("Product.title")}</h1>
             </div>
-            <div class="stoly-contnet">
-              <div class="stoly-card" onClick={() => handleLinkClick("/stoly/produkt", "")}>
-                <h1>Stolík žolík</h1>
-              </div>
-              <div class="stoly-card">
-                <h1>Stolík polík</h1>
-              </div>
-              <div class="stoly-card">
-                <h1>Stolík dolík</h1>
-              </div>
+            <div className="stoly-contnet">
+              {data.map((item) => (
+                <div className="stoly-card" key={item.Id} onClick={() => handleLinkClick(`/stoly/produkt?id=${item.Id}`)} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${item.URL})` }}>
+                  <div className="stol-text">
+                    <h1>{item.Nazev}</h1>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
