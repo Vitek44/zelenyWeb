@@ -27,9 +27,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Main />} />
-          <Route path="/podmenu" element={<SubMenu />} />
+          <Route path="/stoly" element={<SubMenu />} />
           <Route path="/konfigurator" element={<Konfigurator />} />
-          <Route path="/produkt" element={<Produkt />} />
+          <Route path="/stoly/produkt" element={<Produkt />} />
           <Route path="/galerie" element={<Galerie />} />
           <Route path="/interiery" element={<Interiery />} />
         </Routes>

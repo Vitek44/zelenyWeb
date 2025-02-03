@@ -86,7 +86,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="navLogo" data-aos="fade-right">
             <a onClick={() => handleLinkClick("/", "home")}>
-              <img src="img/px_logo_site.png" className="logo" alt="Zeleny logo" />
+              <img src="/img/px_logo_site.png" className="logo" alt="Zeleny logo" />
             </a>
           </div>
 
@@ -109,7 +109,7 @@ export default function Navbar() {
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="150">
-                <a onClick={() => handleLinkClick("/podmenu", "home")}>
+                <a onClick={() => handleLinkClick("/stoly", "home")}>
                   <span data-content={t("nav-li4")}>{t("nav-li4")}</span>
                 </a>
               </li>

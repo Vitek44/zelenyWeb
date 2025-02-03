@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 
 //Navbar
 import Navbar from "../../components/navbar/navbar";
@@ -11,6 +11,29 @@ import { useNavigate } from "react-router-dom";
 import "./SubMenuTable.css";
 
 function SubMenu() {
+  const loadData = () => {
+    fetch(`https://designjj-test.eu/php/getProdukt.php`, {
+      method: "POST",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setData(data.data);
+          console.log("Data:", data.data);
+        } else {
+          toast.error("Nepodařilo se načíst data.");
+        }
+      })
+      .catch((err) => {
+        console.error("Chyba při načítání dat:", err);
+        toast.error("Chyba při komunikaci se serverem.");
+      });
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
   let navigate = useNavigate();
   const handleLinkClick = (path, id) => {
     navigate(path);
@@ -33,7 +56,7 @@ function SubMenu() {
         </div>
         <div className="container">
           <div className="services1">
-            <div className="service" onClick={() => handleLinkClick("/podmenu", "")}>
+            <div className="service">
               <div className="serviceContent">
                 <h1 className="main-text">{t("service3")}</h1>
               </div>
@@ -52,7 +75,7 @@ function SubMenu() {
               <h1>{t("Product.title")}</h1>
             </div>
             <div class="stoly-contnet">
-              <div class="stoly-card" onClick={() => handleLinkClick("/produkt", "")}>
+              <div class="stoly-card" onClick={() => handleLinkClick("/stoly/produkt", "")}>
                 <h1>Stolík žolík</h1>
               </div>
               <div class="stoly-card">

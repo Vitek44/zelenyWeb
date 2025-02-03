@@ -61,7 +61,7 @@ function App() {
           <h1>{t("subtitle1")}</h1>
         </div>
         <div className="services">
-          <div className="service" data-aos="zoom-in" onClick={() => handleLinkClick("/podmenu", "")}>
+          <div className="service" data-aos="zoom-in" onClick={() => handleLinkClick("/stoly", "")}>
             <div className="serviceContent">
               <h1 className="main-text">{t("service1")}</h1>
               <div className="hover-text">
@@ -172,7 +172,16 @@ function App() {
         </div>
         <div className="video" data-aos="fade-up">
           <div className="movie">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8qN9ZWcHrvY?si=q5xGjN10-eTWHG1O&autoplay=1&mute=1" title="YouTube video player" frameBorder="0" allow="accelerometer;autoplay;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/8qN9ZWcHrvY?si=q5xGjN10-eTWHG1O&autoplay=1&mute=1"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer;autoplay;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
         <div className="title">
