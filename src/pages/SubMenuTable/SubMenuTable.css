@@ -44,6 +44,7 @@
 }
 
 .stoly-card:hover {
+  filter: brightness(0.75);
   transform: scale(1.025);
   transition: 0.3s;
 }

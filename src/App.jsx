@@ -1,20 +1,16 @@
 import { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-// BrowserRouter a další
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import SubMenu from "./pages/SubMenuTable/SubMenuTable";
 import Konfigurator from "./pages/configurator/configurator";
 import Produkt from "./pages/produkt/produkt";
 import Galerie from "./pages/galerie/galerie";
 import Interiery from "./pages/interiery/interiery";
 import Main from "./pages/main/home";
-
-// css
 import "./App.css";
 
-// Hlavní App komponenta
+// Hlavní App komponenta, která obaluje aplikaci v <BrowserRouter>
 function App() {
   useEffect(() => {
     AOS.init({
@@ -23,17 +19,25 @@ function App() {
     });
   }, []);
 
-  const [Id, setId] = useState("");
-  const location = useLocation(); // Použití useLocation
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
+}
 
-  // Funkce pro získání query parametrů
+// Komponenta, která obsahuje routování a umožňuje použití useLocation()
+function AppRoutes() {
+  const [Id, setId] = useState("");
+  const location = useLocation();
+
   const getQueryParam = (param) => {
     const urlParams = new URLSearchParams(location.search);
-    return urlParams.get(param); // Získá hodnotu parametru z URL
+    return urlParams.get(param);
   };
 
   useEffect(() => {
-    const urlemail = getQueryParam("id"); // Získá query parametr "id"
+    const urlemail = getQueryParam("id");
     setId(urlemail);
   }, [location]);
 
@@ -49,13 +53,4 @@ function App() {
   );
 }
 
-// Tento komponent obaluje celou aplikaci v <BrowserRouter>
-export default function AppWithRouter() {
-  return (
-    <BrowserRouter>
-      {" "}
-      {/* BrowserRouter na vrcholu */}
-      <App />
-    </BrowserRouter>
-  );
-}
+export default App;

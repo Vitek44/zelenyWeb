@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 //Navbar
 import Navbar from "../../components/navbar/navbar";
+import Footer from "../../components/footer/footer";
 
 //Translation
 import { useTranslation } from "react-i18next";
@@ -78,7 +79,7 @@ function SubMenu() {
             </div>
             <div className="stoly-contnet">
               {data.map((item) => (
-                <div className="stoly-card" key={item.Id} onClick={() => handleLinkClick(`/stoly/produkt?id=${item.Id}`)} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${item.URL})` }}>
+                <div className="stoly-card" key={item.Id} onClick={() => handleLinkClick(`/stoly/produkt?id=${item.Id}`)} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${item.URL})` }}>
                   <div className="stol-text">
                     <h1>{item.Nazev}</h1>
                   </div>
@@ -88,6 +89,7 @@ function SubMenu() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
