@@ -69,7 +69,7 @@ function SubMenu() {
             </div>
           </div>
         </div>
-        <div className="stoly-wrapper">
+        <div className="stoly-wrapper" id="produkty-stolu">
           <div className="container">
             <div className="title">
               <h2>Nabídka</h2>
