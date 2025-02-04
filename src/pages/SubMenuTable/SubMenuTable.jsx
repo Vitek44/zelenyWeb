@@ -22,7 +22,6 @@ function SubMenu() {
       .then((data) => {
         if (data.success) {
           setData(data.data);
-          console.log("Data:", data.data);
         } else {
         }
       })
@@ -53,6 +52,7 @@ function SubMenu() {
         <div className="container">
           <div className="stoly-title">
             <h1>{t("SubMenuTable.title")}</h1>
+            <img src="/img/Underline 1.svg" alt="" />
           </div>
         </div>
         <div className="container">
@@ -62,7 +62,7 @@ function SubMenu() {
                 <h1 className="main-text">{t("service3")}</h1>
               </div>
             </div>
-            <div className="service">
+            <div className="service" onClick={() => handleLinkClick("/konfigurator")}>
               <div className="serviceContent">
                 <h1 className="main-text">{t("service4")}</h1>
               </div>

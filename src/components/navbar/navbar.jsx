@@ -81,7 +81,7 @@ export default function Navbar() {
 
   return (
     <nav>
-      <div className={scroll ? "container" : "container container-scroll"}>
+      <div className={scroll ? "container" : "container scroll-wide"}>
         <div className={scroll ? "navbar" : "navbar scroll"}>
           {/* Logo */}
           <div className="navLogo" data-aos="fade-right">

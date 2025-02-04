@@ -217,3 +217,14 @@ ul li a span::before {
     width: 80px;
   }
 }
+
+@media (max-width: 768px) {
+  nav .container {
+    max-width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .navbar {
+    border-radius: 0px;
+  }
+}

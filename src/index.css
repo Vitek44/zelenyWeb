@@ -68,3 +68,7 @@
 .container {
   padding: 0 1rem;
 }
+
+.scroll-wide {
+  padding: 0 !important;
+}

@@ -12,13 +12,6 @@ import "./App.css";
 
 // Hlavní App komponenta, která obaluje aplikaci v <BrowserRouter>
 function App() {
-  useEffect(() => {
-    AOS.init({
-      disable: "mobile",
-      duration: 800,
-    });
-  }, []);
-
   return (
     <BrowserRouter>
       <AppRoutes />
@@ -28,6 +21,12 @@ function App() {
 
 // Komponenta, která obsahuje routování a umožňuje použití useLocation()
 function AppRoutes() {
+  useEffect(() => {
+    AOS.init({
+      disable: "mobile",
+      duration: 800,
+    });
+  }, []);
   const [Id, setId] = useState("");
   const location = useLocation();
 
