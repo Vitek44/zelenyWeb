@@ -1,89 +1,118 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-
 import "./produkt.css";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
-const Produkt = () => {
+
+function Produkt({ id }) {
+  const [getData, setData] = useState([]);
+
+  const loadData = () => {
+    fetch(`https://designjj-test.eu/php/getProdukt.php?id=${id}`, {
+      method: "POST",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setData(data.data[0]);
+          console.log("Data:", data.data[0]);
+        } else {
+          toast.error("Nepodařilo se načíst data.");
+        }
+      })
+      .catch((err) => {
+        console.error("Chyba při načítání dat:", err);
+        toast.error("Chyba při komunikaci se serverem.");
+      });
+  };
+
+  useEffect(() => {
+    loadData(); // Načítání dat podle id
+  }, [id]);
+
+  const cenaBezDPH = getData?.Cena ? Math.round(getData.Cena / 1.21) : 0;
+
   const images = [
     {
       originalHeight: "335px",
       originalWidth: "100%",
       originalClass: "produkt-img",
-      original: "./img/08b.png",
-      thumbnail: "./img/08b.png",
+      original: getData.URL,
+      thumbnail: "/img/08b.png",
     },
     {
       originalHeight: "335px",
       originalWidth: "100%",
       originalClass: "produkt-img",
-      original: "./img/08bg.png",
-      thumbnail: "./img/08bg.png",
+      original: getData.URL,
+      thumbnail: "/img/08bg.png",
     },
     {
       originalHeight: "335px",
       originalWidth: "100%",
       originalClass: "produkt-img",
-      original: "./img/01c.png",
-      thumbnail: "./img/01c.png",
+      original: getData.URL,
+      thumbnail: "/img/01c.png",
     },
   ];
+
   return (
     <>
       <Navbar />
-      <div class="produkt-main">
-        <div class="container">
-          <div class="produkt-title">
-            <h1>Žolík stolík</h1>
+      <div className="produkt-main">
+        <div className="container">
+          <div className="produkt-title">
+            <h1>{getData?.Nazev || "Žolík stolík"}</h1>
           </div>
-          <div class="produkt-wrap">
-            <div class="produkt-gallery">
+          <div className="produkt-wrap">
+            <div className="produkt-gallery">
               <ImageGallery items={images} showFullscreenButton={false} showPlayButton={false} showNav={false} />
             </div>
-            <div class="produkt-content">
-              <div class="produkt-item">
+            <div className="produkt-content">
+              <div className="produkt-item">
                 <h5>Typ desky:</h5>
-                <div class="item-row">
-                  <p>Brazilská borovice</p>
-                  <img src="./img/typ_desky.svg" alt="" />
+                <div className="item-row">
+                  <p>{getData.Material}</p>
+                  <img src="/img/typ_desky.svg" alt="" />
                 </div>
               </div>
-              <div class="produkt-item">
+              <div className="produkt-item">
                 <h5>Šířka desky:</h5>
-                <div class="item-row">
-                  <p>60 cm</p>
-                  <img src="./img/sirka.svg" alt="" />
+                <div className="item-row">
+                  <p>{getData.Sirka + " cm"}</p>
+                  <img src="/img/sirka.svg" alt="" />
                 </div>
               </div>
-              <div class="produkt-item">
+              <div className="produkt-item">
                 <h5>Výška desky:</h5>
-                <div class="item-row">
-                  <p>60 cm</p>
-                  <img src="./img/vyska.svg" alt="" />
+                <div className="item-row">
+                  <p>{getData.Vyska + " cm"}</p>
+                  <img src="/img/vyska.svg" alt="" />
                 </div>
               </div>
-              <div class="produkt-item">
+              <div className="produkt-item">
                 <h5>Tloušťka desky:</h5>
-                <div class="item-row">
-                  <p>3 cm</p>
-                  <img src="./img/tloustka.svg" alt="" />
+                <div className="item-row">
+                  <p>{getData.Tloustka + " cm"}</p>
+                  <img src="/img/tloustka.svg" alt="" />
                 </div>
               </div>
-              <div class="produkt-item">
+              <div className="produkt-item">
                 <h5>Výška stolu:</h5>
-                <div class="item-row">
-                  <p>42 cm</p>
-                  <img src="./img/vyska2.svg" alt="" />
+                <div className="item-row">
+                  <p>{getData.Uhlopricka + " cm"}</p>
+                  <img src="/img/vyska2.svg" alt="" />
                 </div>
               </div>
-              <div class="produkt-akce">
-                <div class="produkt-cena">
-                  <span>#ID1264</span>
-                  <h3>50.000,-</h3>
-                  <p>46.000,- bez DPH</p>
+              <div className="produkt-akce">
+                <div className="produkt-cena">
+                  <span>{"ID#" + getData.Prodej_id}</span>
+                  <h3>{getData.Cena + " ,-"}</h3>
+                  <p>{cenaBezDPH + " ,- bez DPH"} </p>
                 </div>
-                <div class="produkt-btn">
+                <div className="produkt-btn">
                   <button>Zeptat se na stůl</button>
                 </div>
               </div>
@@ -94,6 +123,6 @@ const Produkt = () => {
       <Footer />
     </>
   );
-};
+}
 
 export default Produkt;
