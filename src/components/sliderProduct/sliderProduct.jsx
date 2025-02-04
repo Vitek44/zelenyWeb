@@ -9,7 +9,7 @@ const SliderProduct = () => {
 
   return (
     <SplideSlide>
-      <div class="produkt">
+      <div className="produkt">
         <img src="/img/08b.png" alt="" />
         <h1>Jídelní stůl Aero 190 x 90 cm</h1>
         <span>55 000,00 Kč</span>

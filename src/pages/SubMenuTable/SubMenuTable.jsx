@@ -24,12 +24,10 @@ function SubMenu() {
           setData(data.data);
           console.log("Data:", data.data);
         } else {
-          toast.error("Nepodařilo se načíst data.");
         }
       })
       .catch((err) => {
         console.error("Chyba při načítání dat:", err);
-        toast.error("Chyba při komunikaci se serverem.");
       });
   };
 
@@ -71,7 +69,7 @@ function SubMenu() {
             </div>
           </div>
         </div>
-        <div className="stoly-wrapper">
+        <div className="stoly-wrapper" id="produkty-stolu">
           <div className="container">
             <div className="title">
               <h2>Nabídka</h2>
