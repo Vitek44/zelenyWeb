@@ -17,7 +17,6 @@ function Produkt({ id }) {
       .then((data) => {
         if (data.success) {
           setData(data.data[0]);
-          console.log("Data:", data.data[0]);
         } else {
           toast.error("Nepodařilo se načíst data.");
         }

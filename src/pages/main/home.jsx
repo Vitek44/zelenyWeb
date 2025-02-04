@@ -166,7 +166,7 @@ function App() {
             <h3>{t("bar_text3")}</h3>
           </div>
         </div>
-        <div className="title">
+        {/*<div className="title">
           <h2>{t("title4")}</h2>
           <h1>{t("subtitle4")}</h1>
         </div>
@@ -183,7 +183,8 @@ function App() {
               allowFullScreen
             ></iframe>
           </div>
-        </div>
+        </div> */}
+
         <div className="title">
           <h2>{t("title5")}</h2>
           <h1>{t("subtitle5")}</h1>
