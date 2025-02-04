@@ -109,7 +109,7 @@ export default function Navbar() {
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="150">
-                <a onClick={() => handleLinkClick("/stoly", "home")}>
+                <a onClick={() => handleLinkClick("/stoly", "produkty-stolu")}>
                   <span data-content={t("nav-li4")}>{t("nav-li4")}</span>
                 </a>
               </li>

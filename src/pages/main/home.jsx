@@ -145,7 +145,7 @@ function App() {
         >
           <SliderProduct />
         </Splide>
-        <div class="about-wrap" id="about" data-aos="fade-up">
+        <div className="about-wrap" id="about" data-aos="fade-up">
           <div className="aboutme">
             <div className="aboutmeText">
               <div className="title">
