@@ -6,9 +6,6 @@ ini_set('display_errors', 1);
 
 header('Content-Type: application/json');
 
-// Ověření metody požadavku
-
-
 // Ověření připojení k databázi
 if (!$conn) {
     http_response_code(500);
@@ -16,8 +13,18 @@ if (!$conn) {
     exit;
 }
 
-// SQL dotaz
-$sql = "SELECT * FROM Stoly_na_miru";
+// Získání ID z parametru GET
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0; // Pokud není id, nastavíme na 0
+
+// Pokud není id, vrátíme všechny produkty
+if ($id > 0) {
+    // SQL dotaz pro konkrétní produkt
+    $sql = "SELECT * FROM Stoly_na_miru WHERE id = $id";
+} else {
+    // SQL dotaz pro všechny produkty
+    $sql = "SELECT * FROM Stoly_na_miru";
+}
+
 $result = mysqli_query($conn, $sql);
 
 if (!$result) {

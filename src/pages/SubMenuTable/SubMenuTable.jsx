@@ -24,12 +24,10 @@ function SubMenu() {
           setData(data.data);
           console.log("Data:", data.data);
         } else {
-          toast.error("Nepodařilo se načíst data.");
         }
       })
       .catch((err) => {
         console.error("Chyba při načítání dat:", err);
-        toast.error("Chyba při komunikaci se serverem.");
       });
   };
 
