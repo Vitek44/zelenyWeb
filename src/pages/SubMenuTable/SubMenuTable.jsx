@@ -45,31 +45,22 @@ function SubMenu() {
     }, 100);
   };
   const { t } = useTranslation();
+
+  const [hoveredId, setHoveredId] = useState(null);
+  const formatCena = (cena) => {
+    return cena.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  };
   return (
     <>
       <Navbar />
       <div className="stoly-main">
         <div className="container">
-          <div className="stoly-title">
+          <div className="podmenu-title">
             <h1>{t("SubMenuTable.title")}</h1>
             <img src="/img/Underline 1.svg" alt="" />
           </div>
         </div>
-        <div className="container">
-          <div className="services1">
-            <div className="service">
-              <div className="serviceContent">
-                <h1 className="main-text">{t("service3")}</h1>
-              </div>
-            </div>
-            <div className="service" onClick={() => handleLinkClick("/konfigurator")}>
-              <div className="serviceContent">
-                <h1 className="main-text">{t("service4")}</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="stoly-wrapper" id="produkty-stolu">
+        <div className="stoly-wrapper" id="produkty-stolu" data-aos="fade-up">
           <div className="container">
             <div className="title">
               <h2>Nabídka</h2>
@@ -77,12 +68,61 @@ function SubMenu() {
             </div>
             <div className="stoly-contnet">
               {data.map((item) => (
-                <div className="stoly-card" key={item.Id} onClick={() => handleLinkClick(`/stoly/produkt?id=${item.Id}`)} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${item.URL})` }}>
-                  <div className="stol-text">
+                <div className="stoly-card" key={item.Id}>
+                  <img src={item.URL} alt={item.Nazev} onClick={() => handleLinkClick(`/stoly/produkt?id=${item.Id}`)} />
+                  <div className="stoly-text">
                     <h1>{item.Nazev}</h1>
+                    <p>
+                      {item.Popisek}, {item.Vyska}x{item.Sirka} cm
+                    </p>
+                    <div className="text-row">
+                      <span>{formatCena(item.Cena)} Kč</span>
+                      <div className="text-btns">
+                        <button className="info" onMouseEnter={() => setHoveredId(item.Id)} onMouseLeave={() => setHoveredId(null)}>
+                          <i className="fa-solid fa-info"></i>
+                        </button>
+                        {hoveredId === item.Id && (
+                          <div className="tooltip">
+                            <p>
+                              Název: <span>{item.Nazev}</span>
+                            </p>
+                            <p>
+                              Výška: <span>{item.Vyska} cm</span>
+                            </p>
+                            <p>
+                              Šířka: <span>{item.Sirka} cm</span>
+                            </p>
+                            <p>
+                              Tloušťka: <span>{item.Tloustka} cm</span>
+                            </p>
+                            <p>
+                              Typ: <span>{item.Typ}</span>
+                            </p>
+                            <p>
+                              Materiál: <span>{item.Material}</span>
+                            </p>
+                          </div>
+                        )}
+                        <button className="lupa" onClick={() => handleLinkClick(`/stoly/produkt?id=${item.Id}`)} title="Detail produktu">
+                          <i className="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+        <div className="container">
+          <div className="services1">
+            <div className="configurator" data-aos="zoom-in" data-aos-delay="200" onClick={() => handleLinkClick("/konfigurator", "")}>
+              <div className="configuratorImg">
+                <img src="img/configurator2.png" alt="" />
+                <div className="onfiguratorContent">
+                  <h3>{t("configurator_text")}</h3>
+                </div>
+              </div>
             </div>
           </div>
         </div>

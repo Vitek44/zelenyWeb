@@ -14,8 +14,9 @@ function Interiery() {
       <Navbar />
       <div class="interiery-main">
         <div class="container">
-          <div class="interiery-title">
+          <div class="podmenu-title">
             <h1>Interiéry</h1>
+            <img src="/img/Underline 1.svg" alt="" />
           </div>
         </div>
         <div className="container">

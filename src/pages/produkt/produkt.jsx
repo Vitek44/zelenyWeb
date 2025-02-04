@@ -62,50 +62,50 @@ function Produkt({ id }) {
       <Navbar />
       <div className="produkt-main">
         <div className="container">
-          <div className="produkt-title">
+          <div className="produkt-title" data-aos="fade-down">
             <h1>{getData?.Nazev || "Žolík stolík"}</h1>
           </div>
           <div className="produkt-wrap">
-            <div className="produkt-gallery">
+            <div className="produkt-gallery" data-aos="fade-right">
               <ImageGallery items={images} showFullscreenButton={false} showPlayButton={false} showNav={false} />
             </div>
             <div className="produkt-content">
-              <div className="produkt-item">
+              <div className="produkt-item" data-aos="fade-left">
                 <h5>Typ desky:</h5>
                 <div className="item-row">
                   <p>{getData.Material}</p>
                   <img src="/img/typ_desky.svg" alt="" />
                 </div>
               </div>
-              <div className="produkt-item">
+              <div className="produkt-item" data-aos="fade-left" data-aos-delay="50">
                 <h5>Šířka desky:</h5>
                 <div className="item-row">
                   <p>{getData.Sirka + " cm"}</p>
                   <img src="/img/sirka.svg" alt="" />
                 </div>
               </div>
-              <div className="produkt-item">
+              <div className="produkt-item" data-aos="fade-left" data-aos-delay="100">
                 <h5>Výška desky:</h5>
                 <div className="item-row">
                   <p>{getData.Vyska + " cm"}</p>
                   <img src="/img/vyska.svg" alt="" />
                 </div>
               </div>
-              <div className="produkt-item">
+              <div className="produkt-item" data-aos="fade-left" data-aos-delay="150">
                 <h5>Tloušťka desky:</h5>
                 <div className="item-row">
                   <p>{getData.Tloustka + " cm"}</p>
                   <img src="/img/tloustka.svg" alt="" />
                 </div>
               </div>
-              <div className="produkt-item">
+              <div className="produkt-item" data-aos="fade-left" data-aos-delay="200">
                 <h5>Výška stolu:</h5>
                 <div className="item-row">
                   <p>{getData.Uhlopricka + " cm"}</p>
                   <img src="/img/vyska2.svg" alt="" />
                 </div>
               </div>
-              <div className="produkt-akce">
+              <div className="produkt-akce" data-aos="fade-left" data-aos-delay="250">
                 <div className="produkt-cena">
                   <span>{"ID#" + getData.Prodej_id}</span>
                   <h3>{getData.Cena + " ,-"}</h3>

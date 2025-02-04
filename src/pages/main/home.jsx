@@ -1,10 +1,9 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 //Link
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/css";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 
 import { HashLink } from "react-router-hash-link";
 //Navbar
@@ -15,7 +14,8 @@ import Slider from "../../components/slider/slider";
 import SliderRev from "../../components/sliderRev/sliderRev";
 import SliderProduct from "../../components/sliderProduct/sliderProduct";
 import BtnUpDown from "../../components/btnUpDown/btnUpDown";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 //Translation
 import { useTranslation } from "react-i18next";
 
@@ -23,6 +23,13 @@ import { useTranslation } from "react-i18next";
 import "./home.css";
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      disable: "mobile",
+      duration: 800,
+    });
+  }, []);
+
   let navigate = useNavigate();
   const handleLinkClick = (path, id) => {
     navigate(path);
@@ -112,39 +119,8 @@ function App() {
           <h2>{t("title2")}</h2>
           <h1>{t("subtitle2")}</h1>
         </div>
-        <Splide
-          options={{
-            type: "loop",
-            autoScroll: {
-              pauseOnHover: false,
-              speed: 0.4,
-            },
-            perPage: 3,
-            perMove: 1,
-            gap: "3rem",
-            pagination: false,
-            pauseOnHover: true,
-            arrows: false,
-            breakpoints: {
-              768: {
-                perPage: 1,
-                gap: "1rem",
-              },
-              1024: {
-                perPage: 2,
-              },
-              1440: {
-                perPage: 2,
-              },
-              1980: {
-                perPage: 3,
-              },
-            },
-          }}
-          extensions={{ AutoScroll }}
-        >
-          <SliderProduct />
-        </Splide>
+        <SliderProduct />
+
         <div className="about-wrap" id="about" data-aos="fade-up">
           <div className="aboutme">
             <div className="aboutmeText">

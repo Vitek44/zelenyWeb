@@ -8,18 +8,7 @@
 }
 .content-galery {
   text-align: center;
-  margin: 0 0 8rem 0;
-}
-
-.title-galery {
-  padding: 10rem 0rem 6rem 0;
-}
-
-.title-galery h1 {
-  font-weight: 600;
-  font-size: 20 px;
-  text-transform: uppercase;
-  padding-top: 0.3rem;
+  margin: 12rem 0 2rem 0;
 }
 
 .overlay {

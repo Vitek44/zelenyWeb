@@ -331,6 +331,10 @@
     height: 200px;
   }
 
+  .service:hover .main-text {
+    transform: translateY(-10%);
+  }
+
   .aboutme {
     flex-direction: column;
   }

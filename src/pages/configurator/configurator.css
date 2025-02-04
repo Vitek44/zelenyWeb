@@ -19,10 +19,8 @@
   margin-bottom: 2rem;
 }
 
-.titleConfigurator {
-  text-align: center;
+.configurator-content {
   margin: 12rem 0 2rem 0;
-  text-transform: uppercase;
 }
 
 .configurator-section {

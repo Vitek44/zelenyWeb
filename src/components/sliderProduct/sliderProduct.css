@@ -42,3 +42,19 @@
 .produkt button:hover {
   background-color: #87a541;
 }
+
+.splide__pagination {
+  bottom: -2rem;
+}
+
+.splide__pagination__page.is-active {
+  background-color: var(--green);
+}
+
+.splide__pagination__page {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 0.5rem;
+  background-color: #d8d8d8;
+}
