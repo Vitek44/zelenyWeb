@@ -18,3 +18,124 @@
   color: white;
   margin-bottom: 2rem;
 }
+
+.titleConfigurator {
+  text-align: center;
+  margin: 12rem 0 2rem 0;
+  text-transform: uppercase;
+}
+
+.configurator-section {
+  width: 100%;
+  height: 600px;
+  display: flex;
+}
+
+.configurator3D {
+  width: 50%;
+  height: 100%;
+  background-image: url(../../img/01c.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.configurator-choose {
+  width: 50%;
+  height: 100%;
+  background-color: var(--darkblue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: var(--white);
+}
+
+.configurator-choose ul {
+  list-style: none;
+  color: var(--white);
+  width: 100%;
+  padding: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.configurator-choose ul li {
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--green);
+  align-items: flex-start;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.configurator-choose ul li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.configurator-choose ul li ul.dropdown {
+  position: absolute;
+  width: 100%;
+  background-color: var(--white);
+  color: black;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  z-index: 1000;
+}
+
+.configurator-choose ul li:hover ul.dropdown {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+}
+
+.configurator-choose ul li ul.dropdown li {
+  padding: 0.75rem;
+  transition: background 0.3s;
+  background-color: white;
+}
+
+.configurator-choose ul li ul.dropdown li:hover {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.configurator-choose ul li:has(> ul.dropdown:visible) ~ li {
+  margin-top: 3rem;
+}
+
+.configurator-dimensions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.configurator-dimensions label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.configurator-dimensions input {
+  padding: 0.75rem;
+  border: 2px solid var(--green);
+  border-radius: 6px;
+  background: var(--white);
+  color: black;
+  font-size: 1rem;
+  outline: none;
+}
