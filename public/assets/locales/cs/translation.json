@@ -93,5 +93,13 @@
   "created": "Vytvořil:",
   "right": "2025 © FilipZeleny.cz všechna práva vyhrazena.",
   "phName": "Jméno / Název firmy",
-  "phText": "Váš text"
+  "phText": "Váš text",
+
+  "Typ_desky": "Typ desky",
+  "Sirka": "Šířka desky",
+  "Vyska": "Výška desky",
+  "Tloustka": "Tloušťka desky",
+  "Vyska2": "Výška stolu",
+  "bez_dph": "bez DHP",
+  "Produkt_btn": "Zeptat se na stůl"
 }

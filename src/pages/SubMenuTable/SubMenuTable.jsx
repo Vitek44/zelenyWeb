@@ -8,10 +8,18 @@ import Footer from "../../components/footer/footer";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
 //css
 import "./SubMenuTable.css";
 
 function SubMenu() {
+  useEffect(() => {
+    AOS.init({
+      disable: "mobile",
+      duration: 800,
+    });
+  }, []);
   const [data, setData] = useState([]);
 
   const loadData = () => {

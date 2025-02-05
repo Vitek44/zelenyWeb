@@ -5,8 +5,19 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import "./produkt.css";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
+import { useTranslation } from "react-i18next";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Produkt({ id }) {
+  useEffect(() => {
+    AOS.init({
+      disable: "mobile",
+      duration: 800,
+    });
+  }, []);
+  const { t } = useTranslation();
+
   const [getData, setData] = useState([]);
 
   const loadData = () => {
@@ -71,35 +82,35 @@ function Produkt({ id }) {
             </div>
             <div className="produkt-content">
               <div className="produkt-item" data-aos="fade-left">
-                <h5>Typ desky:</h5>
+                <h5>{t("Typ_desky")}:</h5>
                 <div className="item-row">
                   <p>{getData.Material}</p>
                   <img src="/img/typ_desky.svg" alt="" />
                 </div>
               </div>
               <div className="produkt-item" data-aos="fade-left" data-aos-delay="50">
-                <h5>Šířka desky:</h5>
+                <h5>{t("Sirka")}:</h5>
                 <div className="item-row">
                   <p>{getData.Sirka + " cm"}</p>
                   <img src="/img/sirka.svg" alt="" />
                 </div>
               </div>
               <div className="produkt-item" data-aos="fade-left" data-aos-delay="100">
-                <h5>Výška desky:</h5>
+                <h5>{t("Vyska")}:</h5>
                 <div className="item-row">
                   <p>{getData.Vyska + " cm"}</p>
                   <img src="/img/vyska.svg" alt="" />
                 </div>
               </div>
               <div className="produkt-item" data-aos="fade-left" data-aos-delay="150">
-                <h5>Tloušťka desky:</h5>
+                <h5>{t("Tloustka")}:</h5>
                 <div className="item-row">
                   <p>{getData.Tloustka + " cm"}</p>
                   <img src="/img/tloustka.svg" alt="" />
                 </div>
               </div>
               <div className="produkt-item" data-aos="fade-left" data-aos-delay="200">
-                <h5>Výška stolu:</h5>
+                <h5>{t("Vyska2")}:</h5>
                 <div className="item-row">
                   <p>{getData.Uhlopricka + " cm"}</p>
                   <img src="/img/vyska2.svg" alt="" />
@@ -109,10 +120,10 @@ function Produkt({ id }) {
                 <div className="produkt-cena">
                   <span>{"ID#" + getData.Prodej_id}</span>
                   <h3>{getData.Cena + " ,-"}</h3>
-                  <p>{cenaBezDPH + " ,- bez DPH"} </p>
+                  <p>{cenaBezDPH + " ,- " + t("bez_dph")}</p>
                 </div>
                 <div className="produkt-btn">
-                  <button>Zeptat se na stůl</button>
+                  <button>{t("Produkt_btn")}</button>
                 </div>
               </div>
             </div>

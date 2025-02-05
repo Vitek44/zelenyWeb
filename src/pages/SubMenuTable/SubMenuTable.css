@@ -104,6 +104,12 @@
   font-weight: 400;
   color: var(--green);
   cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.text-btns .info:hover {
+  transition: 0.3s ease-in-out;
+  color: black;
 }
 
 .text-row span {
@@ -123,21 +129,24 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   margin-left: 0.5rem;
   cursor: pointer;
+  transition: 0.3s ease-in-out;
 }
 
 .text-btns .lupa:hover {
   background-color: #87a541;
+  transition: 0.3s ease-in-out;
 }
 
 .tooltip {
   position: absolute;
   margin-top: 18rem;
   padding: 0.5rem 1rem;
+  margin-left: -3.5rem;
   background-color: #ffffff;
   border: none;
   border-radius: 5px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 9999999;
+  z-index: 99999999;
 }
 
 .tooltip p {
@@ -159,5 +168,9 @@
 
   .podmenu-title img {
     width: 100%;
+  }
+
+  .tooltip {
+    margin-left: -5rem;
   }
 }

@@ -87,7 +87,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="service" data-aos="zoom-in" data-aos-delay="100">
+          <div className="service" data-aos="zoom-in" data-aos-delay="100" onClick={() => handleLinkClick("/interiery", "")}>
             <div className="serviceContent">
               <h1 className="main-text">{t("service2")}</h1>
               <div className="hover-text">

@@ -89,5 +89,13 @@
   "created": "Created by:",
   "right": "2025 © FilipZeleny.cz All rights reserved.",
   "phName": "Name / Company name",
-  "phText": "Your text"
+  "phText": "Your text",
+
+  "Typ_desky": "Board type",
+  "Sirka": "Board width",
+  "Vyska": "Board height",
+  "Tloustka": "Board thickness",
+  "Vyska2": "Table height",
+  "bez_dph": "without DHP",
+  "Produkt_btn": "Ask about the table"
 }
