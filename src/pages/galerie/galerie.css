@@ -4,11 +4,12 @@
 }
 
 .galery img:hover {
-  filter: brightness(70%);
+  transform: scale(1.02);
+  transition: transform 0.3s;
 }
 .content-galery {
   text-align: center;
-  margin: 12rem 0 2rem 0;
+  margin: 12rem 1rem 2rem 1rem;
 }
 
 .overlay {

@@ -38,22 +38,22 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a onClick={() => scrollToId("/konfigurator", "home")} className="link">
+                  <a href="/konfigurator" onClick={() => scrollToId("/konfigurator", "home")} className="link">
                     {t("nav-li2")}
                   </a>
                 </li>
                 <li>
-                  <a onClick={() => scrollToId("/galerie", "home")} className="link">
+                  <a href="/galerie" onClick={() => scrollToId("/galerie", "home")} className="link">
                     {t("nav-li3")}
                   </a>
                 </li>
                 <li>
-                  <a onClick={() => scrollToId("/stoly", "home")} className="link">
+                  <a href="/stoly" onClick={() => scrollToId("/stoly", "home")} className="link">
                     {t("nav-li4")}
                   </a>
                 </li>
                 <li>
-                  <a onClick={() => scrollToId("/interiery", "home")} className="link">
+                  <a href="/interiery" onClick={() => scrollToId("/interiery", "home")} className="link">
                     {t("nav-li5")}
                   </a>
                 </li>

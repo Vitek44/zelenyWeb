@@ -106,22 +106,22 @@ export default function Navbar() {
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="50">
-                <a onClick={() => handleLinkClick("/konfigurator", "home")}>
+                <a href="/konfigurator" onClick={() => handleLinkClick("/konfigurator", "home")}>
                   <span data-content={t("nav-li2")}>{t("nav-li2")}</span>
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="100">
-                <a onClick={() => handleLinkClick("/galerie", "home")}>
+                <a href="galerie" onClick={() => handleLinkClick("/galerie", "home")}>
                   <span data-content={t("nav-li3")}>{t("nav-li3")}</span>
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="150">
-                <a onClick={() => handleLinkClick("/stoly", "")}>
+                <a href="stoly" onClick={() => handleLinkClick("/stoly", "")}>
                   <span data-content={t("nav-li4")}>{t("nav-li4")}</span>
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="200">
-                <a onClick={() => handleLinkClick("/interiery", "home")}>
+                <a href="interiery" onClick={() => handleLinkClick("/interiery", "home")}>
                   <span data-content={t("nav-li5")}>{t("nav-li5")}</span>
                 </a>
               </li>
