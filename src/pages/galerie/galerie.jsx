@@ -20,8 +20,9 @@ function Galerie() {
 
       <div className="container">
         <div className="content-galery">
-          <div className="title-galery">
+          <div className="podmenu-title">
             <h1>Galerie</h1>
+            <img src="/img/Underline 1.svg" alt="" />
           </div>
           <Reactgalerie />
         </div>

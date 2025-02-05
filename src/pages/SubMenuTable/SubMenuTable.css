@@ -2,22 +2,31 @@
   padding: 12rem 0;
 }
 
-.stoly-title {
+.stoly-main .title {
+  padding: 2rem 0;
+}
+
+.podmenu-title {
   font-size: 24px;
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 4rem;
 }
 
-.stoly-title h1 {
+.podmenu-title h1 {
   margin: 0;
 }
 
 .services1 {
-  margin-top: 4rem;
   display: flex;
   justify-content: space-between;
-  gap: 1rem; /* Přidání mezery mezi obrázky */
+  margin-top: 8rem;
 }
 
 .services1 .main-text {
@@ -28,6 +37,10 @@
   transform: translateY(0);
 }
 
+.services1 .service {
+  width: 100%;
+}
+
 .stoly-contnet {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -35,35 +48,129 @@
 }
 
 .stoly-card {
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-size: cover;
-  background-position: center;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
+  flex-direction: column;
+}
+
+.stoly-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
   cursor: pointer;
-  transition: 0.3s;
+  border-radius: 5px;
+  transform: scale(1);
+  transition: transform 0.3s;
 }
 
-.stoly-card:hover {
-  filter: brightness(0.75);
-  transform: scale(1.025);
-  transition: 0.3s;
+.stoly-card img:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s;
 }
 
-.stoly-card h1 {
-  color: white;
-  margin: 0;
-  font-size: 2rem;
-  font-weight: 500;
+.stoly-text h1 {
+  font-size: 24px;
+  font-weight: 700;
   text-transform: uppercase;
+  margin: 0.5rem 0;
+}
+
+.stoly-text p {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0.5rem 0;
+}
+
+.text-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0rem;
+}
+
+.text-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-btns .info {
+  background-color: #ffffff;
+  border: 0;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--green);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.text-btns .info:hover {
+  transition: 0.3s ease-in-out;
+  color: black;
+}
+
+.text-row span {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.text-btns .lupa {
+  background-color: var(--green);
+  color: #ffffff;
+  border: 0;
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.text-btns .lupa:hover {
+  background-color: #87a541;
+  transition: 0.3s ease-in-out;
+}
+
+.tooltip {
+  position: absolute;
+  margin-top: 18rem;
+  padding: 0.5rem 1rem;
+  margin-left: -3.5rem;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 99999999;
+}
+
+.tooltip p {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 1rem 0;
+}
+
+.tooltip p span {
+  font-size: 16px;
+  font-weight: 500;
 }
 
 @media screen and (max-width: 768px) {
   .services1 {
     flex-direction: column;
     gap: 2rem;
+  }
+
+  .podmenu-title img {
+    width: 100%;
+  }
+
+  .tooltip {
+    margin-left: -5rem;
   }
 }

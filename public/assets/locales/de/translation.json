@@ -89,5 +89,13 @@
   "created": "Erstellt von:",
   "right": "2025 © FilipZeleny.cz Alle Rechte vorbehalten.",
   "phName": "Name / Firmenname",
-  "phText": "Ihr text"
+  "phText": "Ihr text",
+
+  "Typ_desky": "Plattentyp",
+  "Sirka": "Plattenbreite",
+  "Vyska": "Plattenhöhe",
+  "Tloustka": "Plattendicke",
+  "Vyska2": "Tischhöhe",
+  "bez_dph": "ohne DHP",
+  "Produkt_btn": "Nach dem Tisch fragen"
 }

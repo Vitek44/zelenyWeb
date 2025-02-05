@@ -4,8 +4,15 @@ import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import { HashLink } from "react-router-hash-link";
 import { useNavigate } from "react-router-dom";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default function Navbar() {
+  useEffect(() => {
+    AOS.init({
+      disable: "mobile",
+      duration: 800,
+    });
+  }, []);
   const [scroll, setScroll] = useState(true);
   const [isOpen, setisOpen] = useState(false);
 
@@ -109,7 +116,7 @@ export default function Navbar() {
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="150">
-                <a onClick={() => handleLinkClick("/stoly", "produkty-stolu")}>
+                <a onClick={() => handleLinkClick("/stoly", "")}>
                   <span data-content={t("nav-li4")}>{t("nav-li4")}</span>
                 </a>
               </li>

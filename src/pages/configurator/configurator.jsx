@@ -37,8 +37,9 @@ function Konfigurator() {
       </div>*/}
       <div className="configurator-content">
         <div className="container">
-          <div className="titleConfigurator">
+          <div className="podmenu-title">
             <h1>{t("configuratorTitle")}</h1>
+            <img src="/img/Underline 1.svg" alt="" />
           </div>
           <div className="configurator-section">
             <div className="configurator3D"></div>
