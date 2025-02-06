@@ -55,7 +55,7 @@
   "description3": "Ručně vyrobený stolík z poctivého českého dřeva",
   "warehouse3": "Zbývají 2ks skladem",
   "productBtn_3": "Zobrazit více",
-  "configurator_text": "KONFIGURÁTOR STOLU",
+  "configurator_text": "Vytvořte si svůj vlastní stůl",
 
   "title3": "O mně",
   "subtitle3": "Filip Zelený",
@@ -65,13 +65,15 @@
   "video_text2": "Řemeslníci pečlivě opracovávají dřevo, používají tradiční nástroje i moderní techniky. Každý stůl je originál, vznikající z kvalitních materiálů s ohledem na estetiku i funkčnost. Záběry zachycují jak samotnou práci, tak hotové produkty, které jsou výsledkem mistrovské zručnosti.",
   "text": "Svůj život jsem zasvětil výrobě stolů, nábytku a kuchyňských linek na míru. Každý kus je originál, vyráběný s láskou a precizností z poctivého českého dřeva.",
   "quote": "Když si něco zaslouží být uděláno dobře, udělej to srdcem a rukama.",
-  "bar_text1": "Počet spokojených zákazníku: 50+",
-  "bar_text2": "Zkušenosti v oboru: 5 let",
-  "bar_text3": "Zkušenosti v oboru: 5 let",
+  "bar_text1": "Počet spokojených zákazníku: ",
+  "bar_text2": "Zkušenosti v oboru: ",
+  "bar_text3": "Zkušenosti v oboru: ",
   "title5": "recenze",
   "subtitle5": "Co o mě říkají zákaznici",
   "title6": "kontakt",
   "subtitle6": "Kontaktní formulář",
+  "title7": "stoly",
+  "subtitle7": "Podobné produkty",
 
   "slideRev_text_1": "Kuchyň od Filipa je v luxusním provedení. Manželka mi může ráno dělat vajíčka",
   "slideRev_text_2": "ten stůl splňuje očekávaní, pravidelně na něm s rodinou jíme a stůl stále nedotčenej",
@@ -101,5 +103,6 @@
   "Tloustka": "Tloušťka desky",
   "Vyska2": "Výška stolu",
   "bez_dph": "bez DHP",
-  "Produkt_btn": "Zeptat se na stůl"
+  "Produkt_btn": "Zeptat se na stůl",
+  "let": " let"
 }

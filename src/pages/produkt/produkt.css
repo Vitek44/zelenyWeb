@@ -143,6 +143,39 @@
   border-radius: 5px;
 }
 
+.desc-wrapper {
+  margin: 4rem 0 6rem 0;
+  display: flex;
+}
+
+.desc-content {
+  width: 100%;
+}
+
+.desc-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+}
+
+.desc-text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.produkt-main .title {
+  padding: 0;
+}
+
+.image-gallery-left-nav .image-gallery-svg,
+.image-gallery-right-nav .image-gallery-svg {
+  width: 40px;
+  height: 40px;
+  fill: white;
+}
+
 @media screen and (max-width: 1024px) {
   .produkt-wrap {
     flex-direction: column;

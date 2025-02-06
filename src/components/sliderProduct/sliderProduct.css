@@ -58,3 +58,11 @@
   margin: 0 0.5rem;
   background-color: #d8d8d8;
 }
+
+.splide__arrow--next {
+  right: -3rem;
+}
+
+.splide__arrow--prev {
+  left: -3rem;
+}
