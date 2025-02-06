@@ -20,7 +20,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer">
           <div className="footer-main">
-            <a onClick={() => scrollToId("/", "home")} className="footer-logo">
+            <a href="/" className="footer-logo">
               <img src="/img/Zeleny logo-2B.jpg" alt="DesignJJ logo" draggable="false" />
             </a>
             <h5>{t("footertext")}</h5>
@@ -38,22 +38,22 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a onClick={() => scrollToId("/konfigurator", "home")} className="link">
+                  <a href="/konfigurator" className="link">
                     {t("nav-li2")}
                   </a>
                 </li>
                 <li>
-                  <a onClick={() => scrollToId("/galerie", "home")} className="link">
+                  <a href="/galerie" className="link">
                     {t("nav-li3")}
                   </a>
                 </li>
                 <li>
-                  <a onClick={() => scrollToId("/stoly", "home")} className="link">
+                  <a href="/stoly" className="link">
                     {t("nav-li4")}
                   </a>
                 </li>
                 <li>
-                  <a onClick={() => scrollToId("/interiery", "home")} className="link">
+                  <a href="/interiery" className="link">
                     {t("nav-li5")}
                   </a>
                 </li>

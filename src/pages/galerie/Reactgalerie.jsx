@@ -68,8 +68,8 @@ const Reactgalerie = () => {
       )}
 
       <div className="galery">
-        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 2 }}>
-          <Masonry columnsCount={2} gutter="10px">
+        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
+          <Masonry columnsCount={3} gutter="10px">
             {images.map((image, i) => (
               <img key={i} src={image} style={{ padding: "8px", width: "100%", display: "block", cursor: "pointer" }} alt="" onClick={() => viewImage(image, i)} />
             ))}

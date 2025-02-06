@@ -18,14 +18,12 @@ function Galerie() {
     <>
       <Navbar />
 
-      <div className="container">
-        <div className="content-galery">
-          <div className="podmenu-title">
-            <h1>Galerie</h1>
-            <img src="/img/Underline 1.svg" alt="" />
-          </div>
-          <Reactgalerie />
+      <div className="content-galery">
+        <div className="podmenu-title">
+          <h1>Galerie</h1>
+          <img src="/img/Underline 1.svg" alt="" />
         </div>
+        <Reactgalerie />
       </div>
       <Footer />
     </>

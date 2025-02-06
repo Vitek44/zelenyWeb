@@ -44,6 +44,11 @@ function Produkt({ id }) {
 
   const cenaBezDPH = getData?.Cena ? Math.round(getData.Cena / 1.21) : 0;
 
+  const formatCena = (cena) => {
+    if (!cena) return "0"; // Ošetření pro undefined nebo null
+    return cena.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  };
+
   const images = [
     {
       originalHeight: "335px",
@@ -119,8 +124,8 @@ function Produkt({ id }) {
               <div className="produkt-akce" data-aos="fade-left" data-aos-delay="250">
                 <div className="produkt-cena">
                   <span>{"ID#" + getData.Prodej_id}</span>
-                  <h3>{getData.Cena + " ,-"}</h3>
-                  <p>{cenaBezDPH + " ,- " + t("bez_dph")}</p>
+                  <h3>{formatCena(getData.Cena) + ",-"}</h3>
+                  <p>{formatCena(cenaBezDPH) + " ,- " + t("bez_dph")}</p>
                 </div>
                 <div className="produkt-btn">
                   <button>{t("Produkt_btn")}</button>
