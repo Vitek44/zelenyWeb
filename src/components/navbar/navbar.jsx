@@ -101,8 +101,8 @@ export default function Navbar() {
           <div className="navMenu">
             <ul className={isOpen ? "show" : "hide"}>
               <li data-aos="fade-down">
-                <a onClick={() => handleLinkClick("/", "about")}>
-                  <span data-content={t("nav-li1")}>{t("nav-li1")}</span>
+                <a onClick={() => handleLinkClick("/", "services")}>
+                  <span data-content={t("nav-li4")}>{t("nav-li4")}</span>
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="50">
@@ -116,21 +116,16 @@ export default function Navbar() {
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="150">
-                <a href="stoly" onClick={() => handleLinkClick("/stoly", "")}>
-                  <span data-content={t("nav-li4")}>{t("nav-li4")}</span>
+                <a onClick={() => handleLinkClick("/", "about")}>
+                  <span data-content={t("nav-li1")}>{t("nav-li1")}</span>
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="200">
-                <a href="interiery" onClick={() => handleLinkClick("/interiery", "home")}>
-                  <span data-content={t("nav-li5")}>{t("nav-li5")}</span>
-                </a>
-              </li>
-              <li data-aos="fade-down" data-aos-delay="250">
                 <a onClick={() => handleLinkClick("/", "kontakt")}>
                   <span data-content={t("nav-li6")}>{t("nav-li6")}</span>
                 </a>
               </li>
-              <li data-aos="fade-left" data-aos-delay="300">
+              <li data-aos="fade-left" data-aos-delay="250">
                 <div className="language-switch" ref={dropdownRef}>
                   <button className="language-button" onClick={toggleDropdown}>
                     <img src={`/img/${currentLanguage?.country_code}.svg`} alt={`${currentLanguage?.name} flag`} className="flag-img" />
