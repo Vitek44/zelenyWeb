@@ -92,7 +92,7 @@ export default function Navbar() {
         <div className={scroll ? "navbar" : "navbar scroll"}>
           {/* Logo */}
           <div className="navLogo" data-aos="fade-right">
-            <a onClick={() => handleLinkClick("/", "home")}>
+            <a href="/">
               <img src="/img/px_logo_site.png" className="logo" alt="Zeleny logo" />
             </a>
           </div>
@@ -106,12 +106,12 @@ export default function Navbar() {
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="50">
-                <a href="/konfigurator" onClick={() => handleLinkClick("/konfigurator", "home")}>
+                <a href="/konfigurator">
                   <span data-content={t("nav-li2")}>{t("nav-li2")}</span>
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="100">
-                <a href="galerie" onClick={() => handleLinkClick("/galerie", "home")}>
+                <a href="galerie">
                   <span data-content={t("nav-li3")}>{t("nav-li3")}</span>
                 </a>
               </li>
