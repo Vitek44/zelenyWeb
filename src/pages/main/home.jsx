@@ -18,7 +18,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 //Translation
 import { useTranslation } from "react-i18next";
-
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 //css
 import "./home.css";
 
@@ -41,11 +42,14 @@ function App() {
     }, 100);
   };
   const { t } = useTranslation();
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Trigger the animation only once
+    threshold: 0.1, // Trigger when 10% of the element is in view
+  });
 
   return (
     <>
       <Navbar />
-
       <div className="slide">
         <div className="container">
           <div className="content-slider">
@@ -121,7 +125,7 @@ function App() {
         </div>
         <SliderProduct />
 
-        <div className="about-wrap" id="about" data-aos="fade-up">
+        <div className="about-wrap" id="about" data-aos="fade-up" ref={ref}>
           <div className="aboutme">
             <div className="aboutmeText">
               <div className="title">
@@ -137,9 +141,21 @@ function App() {
             </div>
           </div>
           <div className="bar">
-            <h3>{t("bar_text1")}</h3>
-            <h3>{t("bar_text2")}</h3>
-            <h3>{t("bar_text3")}</h3>
+            <h3>
+              {t("bar_text1")}
+              {inView ? <CountUp end={50} duration={3} delay={0.5} /> : null}
+              {t("let")}
+            </h3>
+            <h3>
+              {t("bar_text2")}
+              {inView ? <CountUp end={12} duration={3} delay={0.5} /> : null}
+              {t("let")}
+            </h3>
+            <h3>
+              {t("bar_text3")}
+              {inView ? <CountUp end={1500} duration={3} delay={0.5} /> : null}
+              {t("let")}
+            </h3>
           </div>
         </div>
         {/*<div className="title">

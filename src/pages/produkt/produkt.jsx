@@ -8,6 +8,7 @@ import Footer from "../../components/footer/footer";
 import { useTranslation } from "react-i18next";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import SliderProduct from "../../components/sliderProduct/sliderProduct";
 
 function Produkt({ id }) {
   useEffect(() => {
@@ -55,21 +56,28 @@ function Produkt({ id }) {
       originalWidth: "100%",
       originalClass: "produkt-img",
       original: getData.URL,
-      thumbnail: "/img/08b.png",
+      thumbnail: getData.URL,
     },
     {
       originalHeight: "335px",
       originalWidth: "100%",
       originalClass: "produkt-img",
-      original: getData.URL,
-      thumbnail: "/img/08bg.png",
+      original: getData.URL1,
+      thumbnail: getData.URL1,
     },
     {
       originalHeight: "335px",
       originalWidth: "100%",
       originalClass: "produkt-img",
-      original: getData.URL,
-      thumbnail: "/img/01c.png",
+      original: getData.URL2,
+      thumbnail: getData.URL2,
+    },
+    {
+      originalHeight: "335px",
+      originalWidth: "100%",
+      originalClass: "produkt-img",
+      original: getData.URL3,
+      thumbnail: getData.URL3,
     },
   ];
 
@@ -83,7 +91,7 @@ function Produkt({ id }) {
           </div>
           <div className="produkt-wrap">
             <div className="produkt-gallery" data-aos="fade-right">
-              <ImageGallery items={images} showFullscreenButton={false} showPlayButton={false} showNav={false} />
+              <ImageGallery items={images} showFullscreenButton={false} showPlayButton={false} />
             </div>
             <div className="produkt-content">
               <div className="produkt-item" data-aos="fade-left">
@@ -133,6 +141,19 @@ function Produkt({ id }) {
               </div>
             </div>
           </div>
+          <div class="desc-wrapper">
+            <div class="desc-content">
+              <div class="desc-title">Popis stolu</div>
+              <div class="desc-text">
+                <p>{getData.Popis}</p>
+              </div>
+            </div>
+          </div>
+          <div class="title">
+            <h2>{t("title7")}</h2>
+            <h1>{t("subtitle7")}</h1>
+          </div>
+          <SliderProduct />
         </div>
       </div>
       <Footer />

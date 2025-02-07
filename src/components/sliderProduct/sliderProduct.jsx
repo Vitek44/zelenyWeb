@@ -53,7 +53,6 @@ const SliderProduct = () => {
         perMove: 1,
         gap: "3rem",
         pagination: true,
-        arrows: false,
         breakpoints: {
           768: {
             perPage: 1,
