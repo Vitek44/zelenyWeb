@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import SliderProduct from "../../components/sliderProduct/sliderProduct";
+import i18next from "i18next";
 
 function Produkt({ id }) {
   useEffect(() => {
@@ -83,6 +84,33 @@ function Produkt({ id }) {
     },
   ];
 
+  const [exchangeRate, setExchangeRate] = useState(25); // Defaultní kurz
+
+  useEffect(() => {
+    const fetchExchangeRate = async () => {
+      try {
+        const response = await fetch("https://api.exchangerate-api.com/v4/latest/CZK");
+        const data = await response.json();
+        console.log("API odpověď:", data); // Debugging
+        setExchangeRate(data.rates.EUR);
+      } catch (error) {
+        console.error("Chyba při načítání kurzu měny:", error);
+      }
+    };
+
+    fetchExchangeRate();
+  }, []);
+
+  const getFormattedPrice = (price) => {
+    if (!price || isNaN(price) || !exchangeRate || exchangeRate <= 0 || exchangeRate > 10) {
+      return "0 Kč"; // Ochrana proti nesmyslnému kurzu
+    }
+    if (i18next.language === "de" || i18next.language === "en") {
+      return (price * exchangeRate).toFixed(2) + " €";
+    }
+    return price.toLocaleString("cs-CZ") + " Kč";
+  };
+
   return (
     <>
       <Navbar />
@@ -134,8 +162,8 @@ function Produkt({ id }) {
               <div className="produkt-akce" data-aos="fade-left" data-aos-delay="250">
                 <div className="produkt-cena">
                   <span>{"ID#" + getData.Prodej_id}</span>
-                  <h3>{formatCena(getData.Cena) + ",-"}</h3>
-                  <p>{formatCena(cenaBezDPH) + " ,- " + t("bez_dph")}</p>
+                  <h3>{formatCena(getFormattedPrice(getData.Cena) + ",-")}</h3>
+                  <p>{formatCena(getFormattedPrice(cenaBezDPH) + " " + t("bez_dph"))}</p>
                 </div>
                 <div className="produkt-btn">
                   <button>{t("Produkt_btn")}</button>
@@ -147,7 +175,7 @@ function Produkt({ id }) {
             <div class="desc-content">
               <div class="desc-title">Popis stolu</div>
               <div class="desc-text">
-                <p>{getData.Popis}</p>
+                <p>{i18next.language === "de" ? getData.PopisDE : i18next.language === "en" ? getData.PopisEN : getData.Popis}</p>
               </div>
             </div>
           </div>

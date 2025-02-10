@@ -7,6 +7,7 @@ import Footer from "../../components/footer/footer";
 //Translation
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import i18next from "i18next";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -54,6 +55,10 @@ function SubMenu() {
   };
   const { t } = useTranslation();
 
+  useEffect(() => {
+    console.log(t);
+  }, []);
+
   const [hoveredId, setHoveredId] = useState(null);
   const formatCena = (cena) => {
     return cena.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
@@ -65,7 +70,6 @@ function SubMenu() {
         <div className="container">
           <div className="podmenu-title">
             <h1>{t("SubMenuTable.title")}</h1>
-            <img src="/img/Underline 1.svg" alt="" />
           </div>
         </div>
         <div className="stoly-wrapper" id="produkty-stolu" data-aos="fade-up">
@@ -81,7 +85,9 @@ function SubMenu() {
                   <div className="stoly-text">
                     <h1>{item.Nazev}</h1>
                     <p>
-                      {item.Popisek}, {item.Vyska}x{item.Sirka} cm
+                      <p>
+                        {i18next.language === "de" ? item.PopisekDE : i18next.language === "en" ? item.PopisekEN : item.Popisek} , {item.Vyska}x{item.Sirka} cm
+                      </p>
                     </p>
                     <div className="text-row">
                       <span>{formatCena(item.Cena)} Kč</span>

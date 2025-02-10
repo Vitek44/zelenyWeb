@@ -58,7 +58,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a onClick={() => scrollToId("/", "kontakt")} className="link">
+                  <a onClick={() => scrollToId("/kontakt", "")} className="link">
                     {t("nav-li6")}
                   </a>
                 </li>
