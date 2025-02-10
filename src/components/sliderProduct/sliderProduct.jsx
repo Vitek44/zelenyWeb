@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import "./SliderProduct.css";
 import { useNavigate } from "react-router-dom";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+import i18next from "i18next";
 
 const SliderProduct = () => {
   const { t } = useTranslation();
@@ -22,7 +23,7 @@ const SliderProduct = () => {
   };
 
   const loadData = () => {
-    fetch(`https://designjj-test.eu/php/getProdukt.php`, {
+    fetch(`https://designjj-test.eu/php/sliderProdukt.php`, {
       method: "POST",
     })
       .then((res) => res.json())
@@ -77,7 +78,9 @@ const SliderProduct = () => {
             <div className="stoly-text">
               <h1>{item.Nazev}</h1>
               <p>
-                {item.Popisek}, {item.Vyska}x{item.Sirka} cm
+                <p>
+                  {i18next.language === "de" ? item.PopisekDE : i18next.language === "en" ? item.PopisekEN : item.Popisek}, {item.Vyska}x{item.Sirka} cm
+                </p>
               </p>
             </div>
           </div>

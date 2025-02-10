@@ -173,7 +173,14 @@
 .image-gallery-right-nav .image-gallery-svg {
   width: 40px;
   height: 40px;
-  fill: white;
+}
+
+.image-gallery-icon {
+  color: white;
+}
+
+.image-gallery-icon:hover {
+  color: #87a541;
 }
 
 @media screen and (max-width: 1024px) {
