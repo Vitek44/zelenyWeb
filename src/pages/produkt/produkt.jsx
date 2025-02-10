@@ -40,7 +40,9 @@ function Produkt({ id }) {
   };
 
   useEffect(() => {
-    loadData(); // Načítání dat podle id
+    if (id) {
+      loadData();
+    }
   }, [id]);
 
   const cenaBezDPH = getData?.Cena ? Math.round(getData.Cena / 1.21) : 0;
