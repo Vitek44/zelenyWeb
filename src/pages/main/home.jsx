@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/css";
 import "@splidejs/splide/dist/css/splide.min.css";
-
+import { Helmet } from "react-helmet";
 import { HashLink } from "react-router-hash-link";
 //Navbar
 import Navbar from "../../components/navbar/navbar";
@@ -49,6 +49,11 @@ function App() {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Tvorba Interierů | Filip Zelený</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <Navbar />
       <div className="slide">
         <div className="container">
