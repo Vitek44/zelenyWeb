@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 //Navbar
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
+import { Helmet } from "react-helmet";
 
 //Translation
 import { useTranslation } from "react-i18next";
@@ -65,6 +66,11 @@ function SubMenu() {
   };
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{t("SubMenuTable.title")} | Filip Zelený</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <Navbar />
       <div className="stoly-main">
         <div className="container">

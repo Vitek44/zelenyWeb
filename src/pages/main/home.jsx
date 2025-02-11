@@ -51,7 +51,7 @@ function App() {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Tvorba Interierů | Filip Zelený</title>
+        <title>{t("main-title")} | Filip Zelený</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <Navbar />
