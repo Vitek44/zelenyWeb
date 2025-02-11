@@ -48,7 +48,8 @@ function Konfigurator() {
           </div>
           <div className="configurator-section">
             <div className="configurator-picture">
-              <img src="../../img/01c.png" alt="" />
+              {/* <img src="../../img/01c.png" alt="" />*/}
+              Loading <div className="progress"></div>
             </div>
             <div className="configurator-content">
               <div className="configurator-label">

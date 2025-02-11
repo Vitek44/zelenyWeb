@@ -1,22 +1,40 @@
 import { useState } from "react";
 import { useSwipeable } from "react-swipeable";
-
-// Galerie
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-
-// Lightbox
-import { SlideshowLightbox } from "lightbox.js-react";
-
-// Swiping
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 import "./galerie.css";
 
-const images = ["../../img/01c.png", "../../img/08a.png", "../../img/08d.png", "../../img/kuchyn.png", "../../img/skrin.png", "../../img/intereiery.webp", "../../img/08b.png"];
+const categories = ["Všechno", "Stoly", "Interiéry", "Cvrkec", "Smrkec"];
+
+const images = [
+  { src: "../../img/01c.png", category: "Stoly" },
+  { src: "../../img/kuchyn.png", category: "Smrkec" },
+  { src: "../../img/01c.png", category: "Stoly" },
+  { src: "../../img/01c.png", category: "Stoly" },
+  { src: "../../img/08d.png", category: "Cvrkec" },
+  { src: "../../img/kuchyn.png", category: "Smrkec" },
+  { src: "../../img/kuchyn.png", category: "Smrkec" },
+  { src: "../../img/01c.png", category: "Stoly" },
+  { src: "../../img/08b.png", category: "Cvrkec" },
+  { src: "../../img/skrin.png", category: "Stoly" },
+  { src: "../../img/intereiery.webp", category: "Interiéry" },
+  { src: "../../img/intereiery.webp", category: "Interiéry" },
+  { src: "../../img/08b.png", category: "Cvrkec" },
+  { src: "../../img/08a.png", category: "Interiéry" },
+  { src: "../../img/08b.png", category: "Cvrkec" },
+  { src: "../../img/intereiery.webp", category: "Interiéry" },
+  { src: "../../img/08b.png", category: "Cvrkec" },
+  { src: "../../img/intereiery.webp", category: "Interiéry" },
+  { src: "../../img/kuchyn.png", category: "Smrkec" },
+  { src: "../../img/08b.png", category: "Cvrkec" },
+  { src: "../../img/08b.png", category: "Cvrkec" },
+];
 
 const Reactgalerie = () => {
   const [data, setData] = useState({ img: "", i: 0 });
+  const [selectedCategory, setSelectedCategory] = useState("Všechno");
+
+  // Filtruje obrázky podle vybrané kategorie
+  const filteredImages = selectedCategory === "Všechno" ? images : images.filter((img) => img.category === selectedCategory);
 
   const viewImage = (img, i) => {
     setData({ img, i });
@@ -26,18 +44,17 @@ const Reactgalerie = () => {
     let i = data.i;
     if (action === "close") {
       setData({ img: "", i: 0 });
+      return;
     }
     if (action === "next") {
-      i = i + 1 < images.length ? i + 1 : 0;
-      setData({ img: images[i], i });
+      i = i + 1 < filteredImages.length ? i + 1 : 0;
     }
     if (action === "prev") {
-      i = i - 1 >= 0 ? i - 1 : images.length - 1;
-      setData({ img: images[i], i });
+      i = i - 1 >= 0 ? i - 1 : filteredImages.length - 1;
     }
+    setData({ img: filteredImages[i].src, i });
   };
 
-  // Swipeable settings for overlay
   const handlers = useSwipeable({
     onSwipedRight: () => imageAction("next"),
     onSwipedLeft: () => imageAction("prev"),
@@ -49,6 +66,14 @@ const Reactgalerie = () => {
 
   return (
     <>
+      <div className="galerie-choices">
+        {categories.map((category) => (
+          <button key={category} className={selectedCategory === category ? "active" : "galerie-selected"} onClick={() => setSelectedCategory(category)}>
+            {category}
+          </button>
+        ))}
+      </div>
+
       {data.img && (
         <div className="overlay">
           <button className="close" onClick={() => imageAction("close")}>
@@ -57,9 +82,8 @@ const Reactgalerie = () => {
           <button className="prev" onClick={() => imageAction("prev")}>
             <i className="fa-solid fa-less-than"></i>
           </button>
-          {/* Swipeable image */}
-          <div {...handlers} className="swipeable-image-container" style={{ userSelect: "none", touchAction: "none" }}>
-            <img src={data.img} alt="" draggable="false" translate="transform" style={{ userSelect: "none" }} />
+          <div {...handlers} className="swipeable-image-container">
+            <img src={data.img} alt="" draggable="false" />
           </div>
           <button className="next" onClick={() => imageAction("next")}>
             <i className="fa-solid fa-greater-than"></i>
@@ -70,8 +94,8 @@ const Reactgalerie = () => {
       <div className="galery">
         <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
           <Masonry columnsCount={3} gutter="10px">
-            {images.map((image, i) => (
-              <img key={i} src={image} style={{ padding: "8px", width: "100%", display: "block", cursor: "pointer" }} alt="" onClick={() => viewImage(image, i)} />
+            {filteredImages.map((image, i) => (
+              <img key={i} src={image.src} style={{ padding: "8px", width: "100%", display: "block", cursor: "pointer" }} alt="" onClick={() => viewImage(image.src, i)} />
             ))}
           </Masonry>
         </ResponsiveMasonry>
