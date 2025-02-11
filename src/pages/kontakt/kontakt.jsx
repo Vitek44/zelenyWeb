@@ -8,20 +8,29 @@ import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 export default function Kontakt() {
   const { t } = useTranslation();
-  const containerStyle = {
+  const [mapLoaded, setMapLoaded] = useState(false);
+
+  const mapContainerStyle = {
+    height: "500px",
     width: "100%",
-    height: "400px",
   };
 
-  // Souřadnice pro umístění markeru
-  const location = {
+  // Souřadnice pro zobrazení mapy
+  const center = {
+    lat: 49.94061279296875, // Poskytnutá šířka
+    lng: 15.798074722290039, // Poskytnutá délka
+  };
+
+  // Pozice markeru
+  const markerPosition = {
     lat: 49.94061279296875,
     lng: 15.798074722290039,
   };
 
-  // Tvůj API klíč
-  const apiKey = "AIzaSyCyevr6cxshBwp7VCA2jwkroF5jg-GUFqY";
-
+  // Funkce se volá, když je mapa načtena
+  const onLoad = () => {
+    setMapLoaded(true);
+  };
   return (
     <>
       <Helmet>
@@ -78,18 +87,19 @@ export default function Kontakt() {
           </div>
         </div>
         <div class="map">
-          <LoadScript googleMapsApiKey={apiKey}>
-            <GoogleMap
-              mapContainerStyle={containerStyle}
-              center={location}
-              zoom={14}
-              options={{
-                mapId: "8a0e442282ecc32a", // Přidání mapId pro vlastní mapovou konfiguraci
-              }}
-            >
-              {/* Marker s vlastní ikonou (zelený marker) */}
-              <Marker position={location} title="My location" icon="" />
-            </GoogleMap>
+          <LoadScript googleMapsApiKey="AIzaSyCyevr6cxshBwp7VCA2jwkroF5jg-GUFqY" onLoad={onLoad}>
+            {mapLoaded && (
+              <GoogleMap
+                mapContainerStyle={mapContainerStyle}
+                center={center}
+                zoom={16}
+                options={{
+                  mapId: "8a0e442282ecc32a", // Přidání mapId pro vlastní mapovou konfiguraci
+                }} // Můžeš upravit hodnotu zoomu podle potřeby
+              >
+                <Marker position={markerPosition} icon="http://maps.google.com/mapfiles/ms/icons/green-dot.png" />
+              </GoogleMap>
+            )}
           </LoadScript>
         </div>
       </div>
