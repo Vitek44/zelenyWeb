@@ -68,15 +68,6 @@ export default function Navbar() {
   };
 
   let navigate = useNavigate();
-  const handleLinkClick = (path, id) => {
-    navigate(path);
-    setTimeout(() => {
-      window.scrollTo({
-        top: document.getElementById(id) ? document.getElementById(id).offsetTop - 150 : 0,
-        behavior: "smooth",
-      });
-    }, 100);
-  };
 
   // Add event listener for clicking outside
   useEffect(() => {
@@ -85,14 +76,24 @@ export default function Navbar() {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
-
+  const handleClick = (event, path, id) => {
+    navigate(path);
+    setTimeout(() => {
+      event.preventDefault(); // Zabrání standardnímu chování odkazu
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+        history.replaceState(null, "", window.location.pathname); // Odstraní #
+      }
+    }, 100);
+  };
   return (
     <nav>
       <div className={scroll ? "container" : "container scroll-wide"}>
         <div className={scroll ? "navbar" : "navbar scroll"}>
           {/* Logo */}
           <div className="navLogo" data-aos="fade-right">
-            <a href="/">
+            <a href="#home" onClick={(e) => handleClick(e, "/", "home")}>
               <img src="/img/px_logo_site.png" className="logo" alt="Zeleny logo" />
             </a>
           </div>
@@ -101,7 +102,7 @@ export default function Navbar() {
           <div className="navMenu">
             <ul className={isOpen ? "show" : "hide"}>
               <li data-aos="fade-down">
-                <a onClick={() => handleLinkClick("/", "services")}>
+                <a href="#services" onClick={(e) => handleClick(e, "/", "services")}>
                   <span data-content={t("nav-li4")}>{t("nav-li4")}</span>
                 </a>
               </li>
@@ -116,12 +117,12 @@ export default function Navbar() {
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="150">
-                <a onClick={() => handleLinkClick("/", "about")}>
+                <a href="#about" onClick={(e) => handleClick(e, "/", "about")}>
                   <span data-content={t("nav-li1")}>{t("nav-li1")}</span>
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="200">
-                <a onClick={() => handleLinkClick("/kontakt", "")}>
+                <a href="/kontakt">
                   <span data-content={t("nav-li6")}>{t("nav-li6")}</span>
                 </a>
               </li>

@@ -184,7 +184,7 @@
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
-  margin: 6rem 0rem 0rem 0rem;
+  padding: 10rem 0 0 0;
 }
 
 .aboutmeText {
@@ -271,40 +271,6 @@
 
 .kontakt {
   padding: 6rem 0;
-}
-
-.kontakt input {
-  width: 100%;
-  padding: 1rem;
-  border-radius: 5px;
-  border: 2px solid var(--green);
-}
-
-.kontakt textarea {
-  width: 100%;
-  height: 100px;
-  resize: none;
-  padding: 1rem;
-  border-radius: 5px;
-  border: 2px solid var(--green);
-  font-family: Arial, sans-serif;
-}
-
-.form-group {
-  display: flex;
-  gap: 1rem;
-  width: 100%;
-  margin: 1rem 0;
-  justify-content: flex-end;
-}
-
-.kontakt-btn {
-  background-color: var(--green);
-  color: white;
-  padding: 1rem 2rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
 }
 
 @media screen and (max-width: 768px) {

@@ -70,7 +70,7 @@
   "bar_text3": "Zkušenosti v oboru: ",
   "title5": "recenze",
   "subtitle5": "Co o mě říkají zákaznici",
-  "title6": "kontakt",
+  "title6": "Kontakt",
   "subtitle6": "Kontaktní formulář",
   "title7": "stoly",
   "subtitle7": "Podobné produkty",
@@ -105,5 +105,6 @@
   "bez_dph": "bez DHP",
   "Produkt_btn": "Zeptat se na stůl",
   "let": " let",
-  "configuratorTitle": "Konfigurátor"
+  "configuratorTitle": "Konfigurátor",
+  "main-title": "Tvorba Interiérů"
 }
