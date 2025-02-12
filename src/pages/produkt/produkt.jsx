@@ -10,6 +10,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import SliderProduct from "../../components/sliderProduct/sliderProduct";
 import i18next from "i18next";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function Produkt({ id }) {
   useEffect(() => {
@@ -91,7 +92,6 @@ function Produkt({ id }) {
       try {
         const response = await fetch("https://api.exchangerate-api.com/v4/latest/CZK");
         const data = await response.json();
-        console.log("API odpověď:", data); // Debugging
         setExchangeRate(data.rates.EUR);
       } catch (error) {
         console.error("Chyba při načítání kurzu měny:", error);
@@ -113,6 +113,13 @@ function Produkt({ id }) {
 
   return (
     <>
+      <HelmetProvider>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{`${getData.Nazev} | Filip Zelený`}</title>
+          <link rel="canonical" href="http://mysite.com/example" />
+        </Helmet>
+      </HelmetProvider>
       <Navbar />
       <div className="produkt-main">
         <div className="container">

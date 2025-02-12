@@ -3,6 +3,7 @@ import Navbar from "../../components/navbar/navbar";
 import { useTranslation } from "react-i18next";
 import "./configurator.css";
 import { useNavigate } from "react-router-dom";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function Konfigurator() {
   let navigate = useNavigate();
@@ -40,6 +41,13 @@ function Konfigurator() {
 
   return (
     <>
+      <HelmetProvider>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{t("configuratorTitle")} | Filip Zelený</title>
+          <link rel="canonical" href="https://www.filipzeleny.cz/konfigurator" />
+        </Helmet>
+      </HelmetProvider>
       <Navbar />
       <div className="configurator-main">
         <div className="container">

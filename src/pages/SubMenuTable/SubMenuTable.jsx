@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 //Navbar
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 //Translation
 import { useTranslation } from "react-i18next";
@@ -66,11 +66,13 @@ function SubMenu() {
   };
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{t("SubMenuTable.title")} | Filip Zelený</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{t("SubMenuTable.title")} | Filip Zelený</title>
+          <link rel="canonical" href="https://www.filipzeleny.cz/stoly" />
+        </Helmet>
+      </HelmetProvider>
       <Navbar />
       <div className="stoly-main">
         <div className="container">
