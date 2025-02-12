@@ -169,6 +169,7 @@ function App() {
             </h3>
           </div>
         </div>
+        <SliderRev />
         <div className="title">
           <h2>{t("title4")}</h2>
           <h1>{t("subtitle4")}</h1>
