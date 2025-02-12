@@ -16,7 +16,6 @@ function Interiery() {
         <div class="container">
           <div class="podmenu-title">
             <h1>Interiéry</h1>
-            <img src="/img/Underline 1.svg" alt="" />
           </div>
         </div>
         <div className="container">

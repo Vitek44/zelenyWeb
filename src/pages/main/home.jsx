@@ -32,15 +32,18 @@ function App() {
   }, []);
 
   let navigate = useNavigate();
-  const handleLinkClick = (path, id) => {
+  const handleClick = (event, path, id) => {
     navigate(path);
     setTimeout(() => {
-      window.scrollTo({
-        top: document.getElementById(id) ? document.getElementById(id).offsetTop - 150 : 0,
-        behavior: "smooth",
-      });
+      event.preventDefault(); // Zabrání standardnímu chování odkazu
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+        history.replaceState(null, "", window.location.pathname); // Odstraní #
+      }
     }, 100);
   };
+
   const { t } = useTranslation();
   const { ref, inView } = useInView({
     triggerOnce: true, // Trigger the animation only once
@@ -60,10 +63,12 @@ function App() {
           <div className="content-slider">
             <h1 data-aos="fade-up">{t("content-slider")}</h1>
             <div className="button-group">
-              <button className="btn-green" data-aos="fade-up" data-aos-delay="50" onClick={() => handleLinkClick("/", "services")}>
-                <span>{t("green_btn")}</span>
-                <i className="fa-solid fa-arrow-right"></i>
-              </button>
+              <a href="#services" onClick={(e) => handleClick(e, "/", "services")}>
+                <button className="btn-green" data-aos="fade-up" data-aos-delay="50" onClick={() => handleLinkClick("/", "services")}>
+                  <span>{t("green_btn")}</span>
+                  <i className="fa-solid fa-arrow-right"></i>
+                </button>
+              </a>
               <a href="/kontakt">
                 <button className="btn-white" data-aos="fade-up" data-aos-delay="100">
                   <span>{t("white_btn")}</span>
@@ -79,7 +84,7 @@ function App() {
           <h1>{t("subtitle1")}</h1>
         </div>
         <div className="services">
-          <div className="service" data-aos="zoom-in" onClick={() => handleLinkClick("/stoly", "")}>
+          <a href="/stoly" className="service" data-aos="zoom-in">
             <div className="serviceContent">
               <h1 className="main-text">{t("service1")}</h1>
               <div className="hover-text">
@@ -97,8 +102,8 @@ function App() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="service" data-aos="zoom-in" data-aos-delay="100" onClick={() => handleLinkClick("/interiery", "")}>
+          </a>
+          <a href="/interiery" className="service" data-aos="zoom-in" data-aos-delay="100">
             <div className="serviceContent">
               <h1 className="main-text">{t("service2")}</h1>
               <div className="hover-text">
@@ -116,16 +121,16 @@ function App() {
                 </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
-        <div className="configurator" data-aos="zoom-in" data-aos-delay="200" onClick={() => handleLinkClick("/konfigurator", "")}>
+        <a href="/konfigurator" className="configurator" data-aos="zoom-in" data-aos-delay="200">
           <div className="configuratorImg">
             <img src="img/configurator2.png" alt="" />
             <div className="onfiguratorContent">
               <h3>{t("configurator_text")}</h3>
             </div>
           </div>
-        </div>
+        </a>
         <div className="title">
           <h2>{t("title2")}</h2>
           <h1>{t("subtitle2")}</h1>

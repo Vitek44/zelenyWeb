@@ -71,3 +71,7 @@
 .scroll-wide {
   padding: 0 !important;
 }
+
+a {
+  text-decoration: none;
+}
