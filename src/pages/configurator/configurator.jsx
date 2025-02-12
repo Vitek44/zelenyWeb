@@ -1,117 +1,140 @@
-import React from "react";
-
-//Navbar
+import React, { useState } from "react";
 import Navbar from "../../components/navbar/navbar";
-
-//Translation
 import { useTranslation } from "react-i18next";
-
-//css
 import "./configurator.css";
 import { useNavigate } from "react-router-dom";
 
 function Konfigurator() {
   let navigate = useNavigate();
-  const handleLinkClick = (path, id) => {
-    navigate(path);
-    setTimeout(() => {
-      window.scrollTo({
-        top: document.getElementById(id) ? document.getElementById(id).offsetTop - 150 : 0,
-        behavior: "smooth",
-      });
-    }, 100);
-  };
   const { t } = useTranslation();
+
+  const [selectedShape, setSelectedShape] = useState("");
+  const [selectedType, setSelectedType] = useState("");
+  const [selectedLegs, setSelectedLegs] = useState("");
+  const [dimensions, setDimensions] = useState({
+    height: "",
+    length: "",
+    thickness: "",
+    width: "",
+  });
+
+  const handleSelect = (category, value) => {
+    if (category === "shape") setSelectedShape(value);
+    if (category === "type") setSelectedType(value);
+    if (category === "legs") setSelectedLegs(value);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setDimensions((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = () => {
+    console.log("Vybrané parametry:", {
+      tvar: selectedShape,
+      typ: selectedType,
+      nohy: selectedLegs,
+      rozměry: dimensions,
+    });
+  };
+
   return (
     <>
       <Navbar />
-      {/*<div className="outofservice">
-        <div className="container">
-          <h1>Omlouvám se, ale konfigurátor momentálně není k dispozici.</h1>
-          <p>Pro zatím využijte náš kontaktní formulář</p>
-          <button className="btn-green" onClick={() => handleLinkClick("/", "kontakt")}>
-            <span>Kontakt</span>
-            <i className="fa-solid fa-arrow-right"></i>
-          </button>
-        </div>
-      </div>*/}
-      <div className="configurator-content">
+      <div className="configurator-main">
         <div className="container">
           <div className="podmenu-title">
             <h1>{t("configuratorTitle")}</h1>
-            <img src="/img/Underline 1.svg" alt="" />
           </div>
           <div className="configurator-section">
-            <div className="configurator3D"></div>
-            <div className="configurator-choose">
-              <ul>
-                <li>
-                  Tvar stolu
-                  <ul className="dropdown">
-                    <li>
-                      <i className="fa-regular fa-square" style={{ fontSize: "30px" }}></i>
-                    </li>
-                    <li>
-                      <i className="fa-regular fa-circle" style={{ fontSize: "30px" }}></i>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Dřevo
-                  <ul className="dropdown">
-                    <li>
-                      <img src="../../img/wood1.png" alt="" />
-                    </li>
-                    <li>
-                      <img src="../../img/wood2.png" alt="" />
-                    </li>
-                    <li>
-                      <img src="../../img/wood3.png" alt="" />
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Typ nožiček
-                  <ul className="dropdown">
-                    <li>Křivý</li>
-                    <li>Rovný</li>
-                    <li>Nabackhand</li>
-                  </ul>
-                </li>
-                <li>
-                  Barva
-                  <ul className="dropdown">
-                    <li>
-                      <i className="fa-solid fa-circle" style={{ color: "red", fontSize: "30px" }}></i>
-                    </li>
-                    <li>
-                      <i className="fa-solid fa-circle" style={{ color: "brown", fontSize: "30px" }}></i>
-                    </li>
-                    <li>
-                      <i className="fa-solid fa-circle" style={{ color: "green", fontSize: "30px" }}></i>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-              <div className="configurator-dimensions">
+            <div className="configurator-picture">
+              <img src="../../img/01c.png" alt="" />
+            </div>
+            <div className="configurator-content">
+              <div className="configurator-label">
+                <h5>Tvar desky</h5>
+              </div>
+              <div className="configurator-item">
+                <div className="c-item-row">
+                  <span onClick={() => handleSelect("shape", "Čtverec")} className={selectedShape === "Čtverec" ? "selected" : ""}>
+                    <img src="../../img/rectangle.png" alt="" />
+                  </span>
+                  <span onClick={() => handleSelect("shape", "Kruh")} className={selectedShape === "Kruh" ? "selected" : ""}>
+                    <img src="../../img/circle.png" alt="" />
+                  </span>
+                </div>
+              </div>
+              <div className="configurator-label">
+                <h5>Typ desky</h5>
+              </div>
+              <div className="configurator-item">
+                <div className="c-item-row">
+                  <span onClick={() => handleSelect("type", "Dřevěná")} className={selectedType === "Dřevěná" ? "selected" : ""}>
+                    <img src="../../img/wood3.png" alt="" />
+                  </span>
+                  <span onClick={() => handleSelect("type", "Skleněná")} className={selectedType === "Skleněná" ? "selected" : ""}>
+                    <img src="../../img/wood2.png" alt="" />
+                  </span>
+                  <span onClick={() => handleSelect("type", "Kovová")} className={selectedType === "Kovová" ? "selected" : ""}>
+                    <img src="../../img/wood1.png" alt="" />
+                  </span>
+                </div>
+              </div>
+              <div className="configurator-label">
+                <h5>Typ nožiček</h5>
+              </div>
+              <div className="configurator-item">
+                <div className="c-item-row">
+                  <span onClick={() => handleSelect("legs", "Klasické")} className={selectedLegs === "Klasické" ? "selected" : ""}>
+                    <img src="../../img/leg1.png" alt="" />
+                  </span>
+                  <span onClick={() => handleSelect("legs", "Moderní")} className={selectedLegs === "Moderní" ? "selected" : ""}>
+                    <img src="../../img/leg2.png" alt="" />
+                  </span>
+                  <span onClick={() => handleSelect("legs", "Designové")} className={selectedLegs === "Designové" ? "selected" : ""}>
+                    <img src="../../img/leg3.png" alt="" />
+                  </span>
+                  <span onClick={() => handleSelect("legs", "Křivý")} className={selectedLegs === "Křivý" ? "selected" : ""}>
+                    <img src="../../img/leg4.png" alt="" />
+                  </span>
+                  <span onClick={() => handleSelect("legs", "Rovný")} className={selectedLegs === "Rovný" ? "selected" : ""}>
+                    <img src="../../img/leg5.png" alt="" />
+                  </span>
+                  <span onClick={() => handleSelect("legs", "Cvrkec")} className={selectedLegs === "Cvrkec" ? "selected" : ""}>
+                    <img src="../../img/leg6.png" alt="" />
+                  </span>
+                </div>
+              </div>
+              <div className="configurator-parametres">
                 <label>
-                  Délka
-                  <input type="number" placeholder="cm" />
+                  <div className="configurator-label">
+                    <h5>Výška</h5>
+                  </div>
+                  <input type="number" name="height" placeholder={"cm"} value={dimensions.height} onChange={handleInputChange} />
                 </label>
                 <label>
-                  Šířka
-                  <input type="number" placeholder="cm" />
+                  <div className="configurator-label">
+                    <h5>Délka</h5>
+                  </div>
+                  <input type="number" name="length" placeholder={"cm"} value={dimensions.length} onChange={handleInputChange} />
                 </label>
                 <label>
-                  Výška
-                  <input type="number" placeholder="cm" />
+                  <div className="configurator-label">
+                    <h5>Tloušťka</h5>
+                  </div>
+                  <input type="number" name="thickness" placeholder={"cm"} value={dimensions.thickness} onChange={handleInputChange} />
                 </label>
                 <label>
-                  Hloubka
-                  <input type="number" placeholder="cm" />
+                  <div className="configurator-label">
+                    <h5>Šířka</h5>
+                  </div>
+                  <input type="number" name="width" placeholder={"cm"} value={dimensions.width} onChange={handleInputChange} />
                 </label>
               </div>
             </div>
+          </div>
+          <div className="configurator-send">
+            <button onClick={handleSubmit}>Odeslat konfiguraci</button>
           </div>
         </div>
       </div>

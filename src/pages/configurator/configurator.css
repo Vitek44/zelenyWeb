@@ -1,139 +1,133 @@
-.outofservice {
-  height: 100vh;
+.configurator-main {
+  padding: 12rem 0;
+}
+.configurator-section {
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-color: #3b3b3b;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.outofservice h1 {
-  font-size: 3rem;
-  color: var(--green);
-  margin-bottom: 2rem;
+.configurator-picture {
+  width: 60%;
+  height: 500px;
+  margin-right: 1rem;
 }
 
-.outofservice p {
-  font-size: 1.5rem;
-  color: white;
-  margin-bottom: 2rem;
+.configurator-picture img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .configurator-content {
-  margin: 12rem 0 2rem 0;
-}
-
-.configurator-section {
-  width: 100%;
-  height: 600px;
-  display: flex;
-}
-
-.configurator3D {
-  width: 50%;
+  width: 40%;
+  margin-left: 1rem;
   height: 100%;
-  background-image: url(../../img/01c.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
-.configurator-choose {
-  width: 50%;
-  height: 100%;
-  background-color: var(--darkblue);
+.configurator-label {
+  padding: 0.3rem 0.2rem;
+}
+
+.configurator-label h5 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.configurator-item {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  color: var(--white);
-}
-
-.configurator-choose ul {
-  list-style: none;
-  color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  padding: 0.5rem 1rem;
   width: 100%;
-  padding: 1rem 0;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+.configurator-item:hover {
+  box-shadow: 0 4px 15px var(--green);
+  border-color: #000;
+}
+.c-item-row {
   display: flex;
-  flex-direction: column;
-  position: relative;
+  align-items: center;
+  width: 55%;
+  height: auto;
 }
 
-.configurator-choose ul li {
-  font-weight: 400;
-  display: flex;
-  flex-direction: column;
+.c-item-row span {
+  padding: 0.5rem;
+  background-color: none;
+}
+.configurator-item img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.selected {
   background-color: var(--green);
-  align-items: flex-start;
-  padding: 1rem;
-  margin: 0.5rem 0;
-  position: relative;
+  transform: scale(1.1);
+  transition: transform 0.3s;
+}
+.configurator-send {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2rem 0;
+}
+.configurator-send button {
+  background-color: var(--green);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
   cursor: pointer;
+  border-radius: 5px;
 }
-
-.configurator-choose ul li:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.configurator-choose ul li ul.dropdown {
-  position: absolute;
+.configurator-parametres {
   width: 100%;
-  background-color: var(--white);
-  color: black;
-  border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: none;
-  flex-direction: column;
-  padding: 0.5rem 0;
-  margin-top: 0.5rem;
-  z-index: 1000;
-}
-
-.configurator-choose ul li:hover ul.dropdown {
-  display: flex;
-  position: relative;
-  flex-direction: row;
-}
-
-.configurator-choose ul li ul.dropdown li {
-  padding: 0.75rem;
-  transition: background 0.3s;
-  background-color: white;
-}
-
-.configurator-choose ul li ul.dropdown li:hover {
-  background-color: var(--green);
-  color: var(--white);
-}
-
-.configurator-choose ul li:has(> ul.dropdown:visible) ~ li {
-  margin-top: 3rem;
-}
-
-.configurator-dimensions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-top: 1.5rem;
-  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px; /* Přidá mezery mezi inputy */
 }
 
-.configurator-dimensions label {
+.configurator-parametres label {
   display: flex;
   flex-direction: column;
   font-weight: bold;
-  color: var(--white);
 }
 
-.configurator-dimensions input {
-  padding: 0.75rem;
-  border: 2px solid var(--green);
-  border-radius: 6px;
-  background: var(--white);
-  color: black;
-  font-size: 1rem;
+.configurator-parametres input {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
   outline: none;
+  width: 100%;
+}
+
+input:focus {
+  box-shadow: 0 4px 15px var(--green);
+  border-color: #000;
+}
+
+@media screen and (max-width: 1450px) {
+  .configurator-section {
+    flex-direction: column;
+  }
+  .configurator-picture {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0;
+  }
+
+  .configurator-content {
+    width: 100%;
+    margin-left: 0;
+  }
 }
