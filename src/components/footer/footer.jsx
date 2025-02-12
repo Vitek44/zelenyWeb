@@ -5,13 +5,15 @@ import { useTranslation } from "react-i18next";
 export default function Footer() {
   let navigate = useNavigate();
 
-  const scrollToId = (path, id) => {
+  const handleClick = (event, path, id) => {
     navigate(path);
     setTimeout(() => {
-      window.scrollTo({
-        top: document.getElementById(id) ? document.getElementById(id).offsetTop - 150 : 0,
-        behavior: "smooth",
-      });
+      event.preventDefault(); // Zabrání standardnímu chování odkazu
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+        history.replaceState(null, "", window.location.pathname); // Odstraní #
+      }
     }, 100);
   };
   const { t } = useTranslation();
@@ -33,8 +35,8 @@ export default function Footer() {
               <h3>{t("footer1")}</h3>
               <ul>
                 <li>
-                  <a onClick={() => scrollToId("/", "about")} className="link">
-                    {t("nav-li1")}
+                  <a href="#services" onClick={(e) => handleClick(e, "/", "services")} className="link">
+                    {t("nav-li4")}
                   </a>
                 </li>
                 <li>
@@ -48,8 +50,8 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="/stoly" className="link">
-                    {t("nav-li4")}
+                  <a href="#about" onClick={(e) => handleClick(e, "/", "about")} className="link">
+                    {t("nav-li1")}
                   </a>
                 </li>
                 <li>
@@ -58,7 +60,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a onClick={() => scrollToId("/kontakt", "")} className="link">
+                  <a href="/kontakt" className="link">
                     {t("nav-li6")}
                   </a>
                 </li>

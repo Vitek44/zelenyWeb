@@ -55,7 +55,7 @@ function App() {
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <Navbar />
-      <div className="slide">
+      <div className="slide" id="home">
         <div className="container">
           <div className="content-slider">
             <h1 data-aos="fade-up">{t("content-slider")}</h1>
@@ -64,9 +64,11 @@ function App() {
                 <span>{t("green_btn")}</span>
                 <i className="fa-solid fa-arrow-right"></i>
               </button>
-              <button className="btn-white" data-aos="fade-up" data-aos-delay="100" onClick={() => handleLinkClick("/", "kontakt")}>
-                <span>{t("white_btn")}</span>
-              </button>
+              <a href="/kontakt">
+                <button className="btn-white" data-aos="fade-up" data-aos-delay="100">
+                  <span>{t("white_btn")}</span>
+                </button>
+              </a>
             </div>
           </div>
         </div>
@@ -129,7 +131,6 @@ function App() {
           <h1>{t("subtitle2")}</h1>
         </div>
         <SliderProduct />
-
         <div className="about-wrap" id="about" data-aos="fade-up" ref={ref}>
           <div className="aboutme">
             <div className="aboutmeText">
@@ -163,7 +164,7 @@ function App() {
             </h3>
           </div>
         </div>
-        {/*<div className="title">
+        <div className="title">
           <h2>{t("title4")}</h2>
           <h1>{t("subtitle4")}</h1>
         </div>
@@ -179,34 +180,6 @@ function App() {
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
             ></iframe>
-          </div>
-        </div> */}
-
-        <div className="title">
-          <h2>{t("title5")}</h2>
-          <h1>{t("subtitle5")}</h1>
-        </div>
-        <SliderRev />
-        <div className="kontakt" id="kontakt">
-          <div className="title">
-            <h2>{t("title6")}</h2>
-            <h1>{t("subtitle6")}</h1>
-          </div>
-          <div className="kontakt-content">
-            <form>
-              <div className="form-group">
-                <input type="text" placeholder={t("phName")} data-aos="fade-right" />
-                <input type="text" placeholder="E-mail" data-aos="fade-left" data-aos-delay="50" />
-              </div>
-              <div className="form-group">
-                <textarea name="text" id="text" placeholder={t("phText")} data-aos="fade-right" data-aos-delay="100"></textarea>
-              </div>
-              <div className="form-group">
-                <button className="kontakt-btn" data-aos="fade-left" data-aos-delay="150">
-                  {t("send")}
-                </button>
-              </div>
-            </form>
           </div>
         </div>
       </div>
