@@ -61,16 +61,16 @@ function App() {
       <div className="slide" id="home">
         <div className="container">
           <div className="content-slider">
-            <h1 data-aos="fade-up">{t("content-slider")}</h1>
+            <h1 data-aos="zoom-in">{t("content-slider")}</h1>
             <div className="button-group">
               <a href="#services" onClick={(e) => handleClick(e, "/", "services")}>
-                <button className="btn-green" data-aos="fade-up" data-aos-delay="50" onClick={() => handleLinkClick("/", "services")}>
+                <button className="btn-green" data-aos="zoom-in" data-aos-delay="50" onClick={() => handleLinkClick("/", "services")}>
                   <span>{t("green_btn")}</span>
                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
               </a>
               <a href="/kontakt">
-                <button className="btn-white" data-aos="fade-up" data-aos-delay="100">
+                <button className="btn-white" data-aos="zoom-in" data-aos-delay="100">
                   <span>{t("white_btn")}</span>
                 </button>
               </a>
