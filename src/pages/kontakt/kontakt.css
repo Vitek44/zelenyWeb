@@ -77,3 +77,17 @@
   filter: grayscale(100%);
   border: none;
 }
+
+@media (max-width: 768px) {
+  .kontakt-content {
+    flex-direction: column;
+  }
+
+  .kontakt-info {
+    width: 100%;
+  }
+
+  .kontakt-form {
+    width: 100%;
+  }
+}

@@ -63,7 +63,7 @@ function App() {
       <div className="slide" id="home">
         <div className="container">
           <div className="content-slider">
-            <h1 data-aos="zoom-in">{t("content-slider")}</h1>
+            <h1>{t("content-slider")}</h1>
             <div className="button-group">
               <a href="#services" onClick={(e) => handleClick(e, "/", "services")}>
                 <button className="btn-green" data-aos="fade-up">
@@ -171,15 +171,27 @@ function App() {
           <h1>{t("subtitle5")}</h1>
         </div>
         <SliderRev />
+        {/* <div className="title">
         <div className="title">
           <h2>{t("title4")}</h2>
           <h1>{t("subtitle4")}</h1>
         </div>
         <div className="video" data-aos="fade-up">
           <div className="movie">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8qN9ZWcHrvY?si=q5xGjN10-eTWHG1O&autoplay=1&mute=1" title="YouTube video player" frameBorder="0" allow="accelerometer;autoplay;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/8qN9ZWcHrvY?si=q5xGjN10-eTWHG1O&autoplay=1&mute=1"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer;autoplay;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
+      </div> 
+      </div>*/}
       </div>
       <BtnUpDown />
       <Footer />
