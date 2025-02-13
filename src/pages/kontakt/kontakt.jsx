@@ -11,7 +11,7 @@ export default function Kontakt() {
   const [mapLoaded, setMapLoaded] = useState(false);
 
   const mapContainerStyle = {
-    height: "500px",
+    height: "400px",
     width: "100%",
   };
 
@@ -99,7 +99,7 @@ export default function Kontakt() {
                   mapId: "8a0e442282ecc32a", // Přidání mapId pro vlastní mapovou konfiguraci
                 }} // Můžeš upravit hodnotu zoomu podle potřeby
               >
-                <Marker position={markerPosition} icon="http://maps.google.com/mapfiles/ms/icons/green-dot.png" />
+                <Marker position={markerPosition} icon="/img/px_logo_site.png" />
               </GoogleMap>
             )}
           </LoadScript>

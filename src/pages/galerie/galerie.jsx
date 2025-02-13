@@ -9,6 +9,7 @@ import { SlideshowLightbox } from "lightbox.js-react";
 //Translation
 import { useTranslation } from "react-i18next";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import BtnUpDown from "../../components/btnUpDown/btnUpDown";
 
 //css
 import "./galerie.css";
@@ -32,6 +33,7 @@ function Galerie() {
         <Reactgalerie />
       </div>
       <Footer />
+      <BtnUpDown />
     </>
   );
 }

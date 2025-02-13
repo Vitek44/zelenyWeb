@@ -16,6 +16,14 @@ export default function Navbar() {
   const [scroll, setScroll] = useState(true);
   const [isOpen, setisOpen] = useState(false);
 
+  const checkboxRef = useRef(null);
+
+  useEffect(() => {
+    if (checkboxRef.current) {
+      checkboxRef.current.checked = isOpen;
+    }
+  }, [isOpen]);
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY < 25) {
@@ -97,7 +105,6 @@ export default function Navbar() {
               <img src="/img/px_logo_site.png" className="logo" alt="Zeleny logo" />
             </a>
           </div>
-
           {/* Menu */}
           <div className="navMenu">
             <ul className={isOpen ? "show" : "hide"}>
@@ -149,7 +156,12 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          {!isOpen ? <i className="fa-solid fa-bars nav-changer" onClick={() => setisOpen(true)}></i> : <i className="fa-solid fa-xmark nav-changer" onClick={() => setisOpen(false)}></i>}
+          <input type="checkbox" id="checkbox" ref={checkboxRef} />
+          <div className={`toggle ${isOpen ? "active" : ""}`} onClick={() => setisOpen(!isOpen)}>
+            <div className="bars" id="bar1"></div>
+            <div className="bars" id="bar2"></div>
+            <div className="bars" id="bar3"></div>
+          </div>
         </div>
       </div>
     </nav>

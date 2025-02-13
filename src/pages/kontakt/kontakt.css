@@ -73,14 +73,12 @@
   border-radius: 5px;
 }
 
-.map iframe {
-  filter: grayscale(100%);
-  border: none;
+.map {
+  width: 100%;
 }
-
 @media (max-width: 768px) {
   .kontakt-content {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .kontakt-info {
@@ -89,5 +87,6 @@
 
   .kontakt-form {
     width: 100%;
+    margin-bottom: 4rem;
   }
 }
