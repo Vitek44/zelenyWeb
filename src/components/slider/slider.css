@@ -50,7 +50,7 @@
 .btn-white {
   padding: 1rem 4.1rem;
   background-color: var(--green);
-  color: white;
+  color: rgb(0, 0, 0);
   border: none;
   cursor: pointer;
   font-weight: 600;
@@ -78,7 +78,7 @@
   margin-left: 2rem;
   font-size: 16px;
   background-color: var(--green);
-  color: white;
+  color: rgb(255, 255, 255);
   padding: 0.75rem;
   border-radius: 8px;
   transform: rotate(0deg);
