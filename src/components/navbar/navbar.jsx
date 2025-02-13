@@ -112,7 +112,7 @@ export default function Navbar() {
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="100">
-                <a href="galerie">
+                <a href="/galerie">
                   <span data-content={t("nav-li3")}>{t("nav-li3")}</span>
                 </a>
               </li>

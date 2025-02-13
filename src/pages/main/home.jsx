@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/css";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { HashLink } from "react-router-hash-link";
 //Navbar
 import Navbar from "../../components/navbar/navbar";
@@ -52,11 +52,13 @@ function App() {
 
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{t("main-title")} | Filip Zelený</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{t("main-title")} | Filip Zelený</title>
+          <link rel="canonical" href="https://www.filipzeleny.cz" />
+        </Helmet>
+      </HelmetProvider>
       <Navbar />
       <div className="slide" id="home">
         <div className="container">
@@ -124,12 +126,7 @@ function App() {
           </a>
         </div>
         <a href="/konfigurator" className="configurator" data-aos="zoom-in" data-aos-delay="200">
-          <div className="configuratorImg">
-            <img src="img/configurator2.png" alt="" />
-            <div className="onfiguratorContent">
-              <h3>{t("configurator_text")}</h3>
-            </div>
-          </div>
+          <h3>{t("configurator_text")}</h3>
         </a>
         <div className="title">
           <h2>{t("title2")}</h2>
@@ -180,16 +177,7 @@ function App() {
         </div>
         <div className="video" data-aos="fade-up">
           <div className="movie">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/8qN9ZWcHrvY?si=q5xGjN10-eTWHG1O&autoplay=1&mute=1"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer;autoplay;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            ></iframe>
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8qN9ZWcHrvY?si=q5xGjN10-eTWHG1O&autoplay=1&mute=1" title="YouTube video player" frameBorder="0" allow="accelerometer;autoplay;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
           </div>
         </div>
       </div>

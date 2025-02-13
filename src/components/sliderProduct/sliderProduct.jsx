@@ -58,6 +58,7 @@ const SliderProduct = () => {
           768: {
             perPage: 1,
             gap: "1rem",
+            arrows: false,
           },
           1024: {
             perPage: 2,

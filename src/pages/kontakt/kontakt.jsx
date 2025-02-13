@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import "./kontakt.css";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
@@ -33,11 +33,13 @@ export default function Kontakt() {
   };
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{t("title6")} | Filip Zelený</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{t("title6")} | Filip Zelený</title>
+          <link rel="canonical" href="https://www.filipzeleny.cz/kontakt" />
+        </Helmet>
+      </HelmetProvider>
       <Navbar />
       <div className="kontakt-wrapper">
         <div className="container">
