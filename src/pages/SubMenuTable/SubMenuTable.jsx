@@ -100,7 +100,7 @@ function SubMenu() {
                     <div className="text-row">
                       <span>{formatCena(item.Cena)} Kč</span>
                       <div className="text-btns">
-                        <button className="info" onMouseEnter={() => setHoveredId(item.Id)} onMouseLeave={() => setHoveredId(null)}>
+                        <button className="info" title="Infomrace o produktu" onMouseEnter={() => setHoveredId(item.Id)} onMouseLeave={() => setHoveredId(null)}>
                           <i className="fa-solid fa-info"></i>
                         </button>
                         {hoveredId === item.Id && (
@@ -125,7 +125,7 @@ function SubMenu() {
                             </p>
                           </div>
                         )}
-                        <button className="lupa" onClick={() => handleLinkClick(`/stoly/produkt?id=${item.Id}`)} title="Detail produktu">
+                        <button className="lupa" onClick={() => handleLinkClick(`/stoly/produkt?id=${item.Id}`)} title="Zobrazit produkt">
                           <i className="fa-solid fa-magnifying-glass"></i>
                         </button>
                       </div>

@@ -145,7 +145,7 @@ function App() {
               <p>{t("quote")}</p>
             </div>
             <div className="aboutmeImg">
-              <img src="img/image-removebg-preview 1.png" alt="" />
+              <img src="img/image-removebg-preview 1.png" alt="Filip Zelený" />
             </div>
           </div>
           <div className="bar">
