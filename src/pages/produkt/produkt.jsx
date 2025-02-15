@@ -124,7 +124,10 @@ function Produkt({ id }) {
       <div className="produkt-main">
         <div className="container">
           <div className="produkt-title" data-aos="fade-down">
-            <h1>{getData?.Nazev || "Žolík stolík"}</h1>
+            <a href="/stoly" title="Zpět na stoly">
+              <i className="fa-solid fa-arrow-left"></i>
+            </a>
+            <h1>{getData?.Nazev || "Stůl"}</h1>
           </div>
           <div className="produkt-wrap">
             <div className="produkt-gallery" data-aos="fade-right">

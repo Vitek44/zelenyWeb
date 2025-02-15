@@ -109,27 +109,39 @@ export default function Navbar() {
           <div className="navMenu">
             <ul className={isOpen ? "show" : "hide"}>
               <li data-aos="fade-down">
-                <a href="#services" onClick={(e) => handleClick(e, "/", "services")}>
+                <a
+                  href="#services"
+                  onClick={(e) => {
+                    setisOpen(!isOpen);
+                    handleClick(e, "/", "services");
+                  }}
+                >
                   <span data-content={t("nav-li4")}>{t("nav-li4")}</span>
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="50">
-                <a href="/konfigurator">
+                <a href="/konfigurator" onClick={() => setisOpen(!isOpen)}>
                   <span data-content={t("nav-li2")}>{t("nav-li2")}</span>
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="100">
-                <a href="/galerie">
+                <a href="/galerie" onClick={() => setisOpen(!isOpen)}>
                   <span data-content={t("nav-li3")}>{t("nav-li3")}</span>
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="150">
-                <a href="#about" onClick={(e) => handleClick(e, "/", "about")}>
+                <a
+                  href="#about"
+                  onClick={(e) => {
+                    setisOpen(!isOpen);
+                    handleClick(e, "/", "about");
+                  }}
+                >
                   <span data-content={t("nav-li1")}>{t("nav-li1")}</span>
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="200">
-                <a href="/kontakt">
+                <a href="/kontakt" onClick={() => setisOpen(!isOpen)}>
                   <span data-content={t("nav-li6")}>{t("nav-li6")}</span>
                 </a>
               </li>

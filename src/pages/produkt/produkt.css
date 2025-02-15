@@ -11,8 +11,44 @@
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
-  border-bottom: 4px solid var(--green);
   width: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+.produkt-title h1 {
+  border-bottom: 4px solid var(--green);
+}
+
+.produkt-title i {
+  font-size: 24px;
+  margin-right: 1.5rem;
+  padding: 0.75rem;
+  border-radius: 20%;
+  color: var(--green);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.produkt-title i:hover {
+  color: white;
+  background-color: var(--green);
+  padding: 0.75rem;
+  border-radius: 50%;
+  transition: all 0.3s;
+  animation: rotate infinite 1.5s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .produkt-wrap {

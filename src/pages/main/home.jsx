@@ -68,7 +68,9 @@ function App() {
               <a href="#services" onClick={(e) => handleClick(e, "/", "services")}>
                 <button className="btn-green" data-aos="fade-up">
                   <span>{t("green_btn")}</span>
-                  <i className="fa-solid fa-arrow-right"></i>
+                  <div class="arrow-bg">
+                    <i className="fa-solid fa-arrow-right"></i>
+                  </div>
                 </button>
               </a>
               <a href="/kontakt">

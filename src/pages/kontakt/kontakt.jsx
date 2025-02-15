@@ -73,17 +73,13 @@ export default function Kontakt() {
             </div>
             <div class="kontakt-form">
               <form>
-                <div className="form-group">
-                  <input type="text" placeholder={t("phName")} data-aos="fade-right" />
-                  <input type="text" placeholder="E-mail" data-aos="fade-left" data-aos-delay="50" />
-                  <input type="text" placeholder={t("phSubject")} data-aos="fade-right" data-aos-delay="100" />
-                  <textarea name="text" id="text" placeholder={t("phText")} data-aos="fade-right" data-aos-delay="150"></textarea>
-                </div>
-                <div className="form-group">
-                  <button className="kontakt-btn" data-aos="fade-left" data-aos-delay="200">
-                    {t("send")}
-                  </button>
-                </div>
+                <input type="text" placeholder={t("phName")} data-aos="fade-right" />
+                <input type="text" placeholder="E-mail" data-aos="fade-left" data-aos-delay="50" />
+                <input type="text" placeholder={t("phSubject")} data-aos="fade-right" data-aos-delay="100" />
+                <textarea name="text" id="text" placeholder={t("phText")} data-aos="fade-right" data-aos-delay="150"></textarea>
+                <button className="kontakt-btn" data-aos="fade-left" data-aos-delay="200">
+                  {t("send")}
+                </button>
               </form>
             </div>
           </div>
@@ -99,7 +95,7 @@ export default function Kontakt() {
                   mapId: "8a0e442282ecc32a", // Přidání mapId pro vlastní mapovou konfiguraci
                 }} // Můžeš upravit hodnotu zoomu podle potřeby
               >
-                <Marker position={markerPosition} icon="/img/px_logo_site.png" />
+                <Marker position={markerPosition} icon="/img/map_dot.svg" />
               </GoogleMap>
             )}
           </LoadScript>
