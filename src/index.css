@@ -7,8 +7,8 @@
   font-family: "Maven Pro", serif;
 }
 @font-face {
-  font-family: "CustomFont"; /* Name your font family */
-  src: url("/font/SignikaNegative-Regular.ttf"); /* Locate the .ttf file within your directory*/
+  font-family: "Maven Pro"; /* Name your font family */
+  src: url("/font/MavenPro-VariableFont_wght.ttf"); /* Locate the .ttf file within your directory*/
 }
 
 * {
@@ -74,4 +74,5 @@
 
 a {
   text-decoration: none;
+  color: black;
 }

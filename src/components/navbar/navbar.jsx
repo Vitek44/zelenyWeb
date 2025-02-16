@@ -16,6 +16,14 @@ export default function Navbar() {
   const [scroll, setScroll] = useState(true);
   const [isOpen, setisOpen] = useState(false);
 
+  const checkboxRef = useRef(null);
+
+  useEffect(() => {
+    if (checkboxRef.current) {
+      checkboxRef.current.checked = isOpen;
+    }
+  }, [isOpen]);
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY < 25) {
@@ -97,32 +105,43 @@ export default function Navbar() {
               <img src="/img/px_logo_site.png" className="logo" alt="Zeleny logo" />
             </a>
           </div>
-
           {/* Menu */}
           <div className="navMenu">
             <ul className={isOpen ? "show" : "hide"}>
               <li data-aos="fade-down">
-                <a href="#services" onClick={(e) => handleClick(e, "/", "services")}>
+                <a
+                  href="#services"
+                  onClick={(e) => {
+                    setisOpen(!isOpen);
+                    handleClick(e, "/", "services");
+                  }}
+                >
                   <span data-content={t("nav-li4")}>{t("nav-li4")}</span>
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="50">
-                <a href="/konfigurator">
+                <a href="/konfigurator" onClick={() => setisOpen(!isOpen)}>
                   <span data-content={t("nav-li2")}>{t("nav-li2")}</span>
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="100">
-                <a href="galerie">
+                <a href="/galerie" onClick={() => setisOpen(!isOpen)}>
                   <span data-content={t("nav-li3")}>{t("nav-li3")}</span>
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="150">
-                <a href="#about" onClick={(e) => handleClick(e, "/", "about")}>
+                <a
+                  href="#about"
+                  onClick={(e) => {
+                    setisOpen(!isOpen);
+                    handleClick(e, "/", "about");
+                  }}
+                >
                   <span data-content={t("nav-li1")}>{t("nav-li1")}</span>
                 </a>
               </li>
               <li data-aos="fade-down" data-aos-delay="200">
-                <a href="/kontakt">
+                <a href="/kontakt" onClick={() => setisOpen(!isOpen)}>
                   <span data-content={t("nav-li6")}>{t("nav-li6")}</span>
                 </a>
               </li>
@@ -149,7 +168,12 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          {!isOpen ? <i className="fa-solid fa-bars nav-changer" onClick={() => setisOpen(true)}></i> : <i className="fa-solid fa-xmark nav-changer" onClick={() => setisOpen(false)}></i>}
+          <input type="checkbox" id="checkbox" ref={checkboxRef} />
+          <div className={`toggle ${isOpen ? "active" : ""}`} onClick={() => setisOpen(!isOpen)}>
+            <div className="bars" id="bar1"></div>
+            <div className="bars" id="bar2"></div>
+            <div className="bars" id="bar3"></div>
+          </div>
         </div>
       </div>
     </nav>

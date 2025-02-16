@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 //Navbar
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 //Translation
 import { useTranslation } from "react-i18next";
@@ -64,13 +64,41 @@ function SubMenu() {
   const formatCena = (cena) => {
     return cena.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   };
+
+  const [exchangeRate, setExchangeRate] = useState(25); // Defaultní kurz
+
+  useEffect(() => {
+    const fetchExchangeRate = async () => {
+      try {
+        const response = await fetch("https://api.exchangerate-api.com/v4/latest/CZK");
+        const data = await response.json();
+        setExchangeRate(data.rates.EUR);
+      } catch (error) {
+        console.error("Chyba při načítání kurzu měny:", error);
+      }
+    };
+
+    fetchExchangeRate();
+  }, []);
+
+  const getFormattedPrice = (price) => {
+    if (!price || isNaN(price) || !exchangeRate || exchangeRate <= 0 || exchangeRate > 10) {
+      return "0 Kč"; // Ochrana proti nesmyslnému kurzu
+    }
+    if (i18next.language === "de" || i18next.language === "en") {
+      return (price * exchangeRate).toFixed(2) + " €";
+    }
+    return price.toLocaleString("cs-CZ") + " Kč";
+  };
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{t("SubMenuTable.title")} | Filip Zelený</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{t("SubMenuTable.title")} | Filip Zelený</title>
+          <link rel="canonical" href="https://www.filipzeleny.cz/stoly" />
+        </Helmet>
+      </HelmetProvider>
       <Navbar />
       <div className="stoly-main">
         <div className="container">
@@ -80,10 +108,6 @@ function SubMenu() {
         </div>
         <div className="stoly-wrapper" id="produkty-stolu" data-aos="fade-up">
           <div className="container">
-            <div className="title">
-              <h2>Nabídka</h2>
-              <h1>{t("Product.title")}</h1>
-            </div>
             <div className="stoly-contnet">
               {data.map((item) => (
                 <div className="stoly-card" key={item.Id}>
@@ -96,9 +120,9 @@ function SubMenu() {
                       </p>
                     </p>
                     <div className="text-row">
-                      <span>{formatCena(item.Cena)} Kč</span>
+                      <span>{formatCena(getFormattedPrice(item.Cena))}</span>
                       <div className="text-btns">
-                        <button className="info" onMouseEnter={() => setHoveredId(item.Id)} onMouseLeave={() => setHoveredId(null)}>
+                        <button className="info" title="Infomrace o produktu" onMouseEnter={() => setHoveredId(item.Id)} onMouseLeave={() => setHoveredId(null)}>
                           <i className="fa-solid fa-info"></i>
                         </button>
                         {hoveredId === item.Id && (
@@ -123,7 +147,7 @@ function SubMenu() {
                             </p>
                           </div>
                         )}
-                        <button className="lupa" onClick={() => handleLinkClick(`/stoly/produkt?id=${item.Id}`)} title="Detail produktu">
+                        <button className="lupa" onClick={() => handleLinkClick(`/stoly/produkt?id=${item.Id}`)} title="Zobrazit produkt">
                           <i className="fa-solid fa-magnifying-glass"></i>
                         </button>
                       </div>
@@ -136,14 +160,9 @@ function SubMenu() {
         </div>
         <div className="container">
           <div className="services1">
-            <div className="configurator" data-aos="zoom-in" data-aos-delay="200" onClick={() => handleLinkClick("/konfigurator", "")}>
-              <div className="configuratorImg">
-                <img src="img/configurator2.png" alt="" />
-                <div className="onfiguratorContent">
-                  <h3>{t("configurator_text")}</h3>
-                </div>
-              </div>
-            </div>
+            <a href="/konfigurator" className="configurator" data-aos="zoom-in" data-aos-delay="200">
+              <h3>{t("configurator_text")}</h3>
+            </a>
           </div>
         </div>
       </div>

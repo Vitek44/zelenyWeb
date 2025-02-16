@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/css";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { HashLink } from "react-router-hash-link";
 //Navbar
 import Navbar from "../../components/navbar/navbar";
@@ -52,21 +52,25 @@ function App() {
 
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{t("main-title")} | Filip Zelený</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{t("main-title")} | Filip Zelený</title>
+          <link rel="canonical" href="https://www.filipzeleny.cz" />
+        </Helmet>
+      </HelmetProvider>
       <Navbar />
       <div className="slide" id="home">
         <div className="container">
           <div className="content-slider">
-            <h1 data-aos="fade-up">{t("content-slider")}</h1>
+            <h1>{t("content-slider")}</h1>
             <div className="button-group">
               <a href="#services" onClick={(e) => handleClick(e, "/", "services")}>
-                <button className="btn-green" data-aos="fade-up" data-aos-delay="50" onClick={() => handleLinkClick("/", "services")}>
+                <button className="btn-green" data-aos="fade-up">
                   <span>{t("green_btn")}</span>
-                  <i className="fa-solid fa-arrow-right"></i>
+                  <div class="arrow-bg">
+                    <i className="fa-solid fa-arrow-right"></i>
+                  </div>
                 </button>
               </a>
               <a href="/kontakt">
@@ -124,12 +128,7 @@ function App() {
           </a>
         </div>
         <a href="/konfigurator" className="configurator" data-aos="zoom-in" data-aos-delay="200">
-          <div className="configuratorImg">
-            <img src="img/configurator2.png" alt="" />
-            <div className="onfiguratorContent">
-              <h3>{t("configurator_text")}</h3>
-            </div>
-          </div>
+          <h3>{t("configurator_text")}</h3>
         </a>
         <div className="title">
           <h2>{t("title2")}</h2>
@@ -148,7 +147,7 @@ function App() {
               <p>{t("quote")}</p>
             </div>
             <div className="aboutmeImg">
-              <img src="img/image-removebg-preview 1.png" alt="" />
+              <img src="img/image-removebg-preview 1.png" alt="Filip Zelený" />
             </div>
           </div>
           <div className="bar">
@@ -174,6 +173,7 @@ function App() {
           <h1>{t("subtitle5")}</h1>
         </div>
         <SliderRev />
+        {/* <div className="title">
         <div className="title">
           <h2>{t("title4")}</h2>
           <h1>{t("subtitle4")}</h1>
@@ -192,6 +192,8 @@ function App() {
             ></iframe>
           </div>
         </div>
+      </div> 
+      </div>*/}
       </div>
       <BtnUpDown />
       <Footer />

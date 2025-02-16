@@ -57,8 +57,8 @@
   "configurator_text": "Create your own table",
   "title3": "About Me",
   "subtitle3": "Filip Zelený",
-  "title4": "Video",
-  "subtitle4": "Table Making",
+  "title4": "KNOW-HOW",
+  "subtitle4": "What does the production of a table look like?",
   "video_text1": "Handcrafting",
   "video_text2": "Craftsmen carefully process the wood, using both traditional tools and modern techniques. Each table is unique, created from quality materials with an emphasis on aesthetics and functionality. The footage captures both the work process and the finished products, which are the result of masterful craftsmanship.",
   "text": "I have dedicated my life to making tables, furniture, and custom kitchen units. Each piece is unique, crafted with love and precision from honest Czech wood.",
@@ -98,5 +98,6 @@
   "Vyska2": "Table height",
   "bez_dph": "without DHP",
   "Produkt_btn": "Ask about the table",
-  "main-title": "Interior Design"
+  "main-title": "Interior Design",
+  "phSubject": "Subject"
 }

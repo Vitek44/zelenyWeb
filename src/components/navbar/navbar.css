@@ -165,6 +165,10 @@ ul li a span::before {
   transition: clip-path 275ms ease, -webkit-clip-path 275ms ease;
 }
 
+#checkbox {
+  display: none;
+}
+
 @media (max-width: 1200px) {
   .navbar ul li {
     padding: 0 1.25rem;
@@ -172,12 +176,60 @@ ul li a span::before {
 }
 
 @media (max-width: 1024px) {
-  nav .nav-changer {
-    display: block;
-    color: black;
-    font-size: 2rem;
+  .toggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
-    padding-right: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition-duration: 0.5s;
+  }
+
+  .bars {
+    width: 100%;
+    height: 4px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 4px;
+  }
+
+  #bar2 {
+    transition-duration: 0.8s;
+  }
+
+  #bar1,
+  #bar3 {
+    width: 70%;
+  }
+
+  #checkbox:checked + .toggle .bars {
+    position: absolute;
+    transition-duration: 0.5s;
+  }
+
+  #checkbox:checked + .toggle #bar2 {
+    transform: scaleX(0);
+    transition-duration: 0.5s;
+  }
+
+  #checkbox:checked + .toggle #bar1 {
+    width: 100%;
+    transform: rotate(45deg);
+    transition-duration: 0.5s;
+  }
+
+  #checkbox:checked + .toggle #bar3 {
+    width: 100%;
+    transform: rotate(-45deg);
+    transition-duration: 0.5s;
+  }
+
+  #checkbox:checked + .toggle {
+    transition-duration: 0.5s;
+    transform: rotate(180deg);
   }
 
   .navbar ul {
@@ -214,7 +266,14 @@ ul li a span::before {
     margin: 1.5rem 1rem !important;
   }
   .navLogo img {
-    width: 80px;
+    width: 110px;
+  }
+}
+
+/* Skryje toggle menu, pokud šířka přesáhne 768px */
+@media (min-width: 1024px) {
+  .toggle {
+    display: none;
   }
 }
 

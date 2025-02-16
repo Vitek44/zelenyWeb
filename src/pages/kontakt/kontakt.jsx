@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import "./kontakt.css";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
@@ -11,7 +11,7 @@ export default function Kontakt() {
   const [mapLoaded, setMapLoaded] = useState(false);
 
   const mapContainerStyle = {
-    height: "500px",
+    height: "400px",
     width: "100%",
   };
 
@@ -33,11 +33,13 @@ export default function Kontakt() {
   };
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{t("title6")} | Filip Zelený</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{t("title6")} | Filip Zelený</title>
+          <link rel="canonical" href="https://www.filipzeleny.cz/kontakt" />
+        </Helmet>
+      </HelmetProvider>
       <Navbar />
       <div className="kontakt-wrapper">
         <div className="container">
@@ -71,17 +73,13 @@ export default function Kontakt() {
             </div>
             <div class="kontakt-form">
               <form>
-                <div className="form-group">
-                  <input type="text" placeholder={t("phName")} data-aos="fade-right" />
-                  <input type="text" placeholder="E-mail" data-aos="fade-left" data-aos-delay="50" />
-                  <input type="text" placeholder={t("phSubject")} data-aos="fade-right" data-aos-delay="100" />
-                  <textarea name="text" id="text" placeholder={t("phText")} data-aos="fade-right" data-aos-delay="150"></textarea>
-                </div>
-                <div className="form-group">
-                  <button className="kontakt-btn" data-aos="fade-left" data-aos-delay="200">
-                    {t("send")}
-                  </button>
-                </div>
+                <input type="text" placeholder={t("phName")} data-aos="fade-right" />
+                <input type="text" placeholder="E-mail" data-aos="fade-left" data-aos-delay="50" />
+                <input type="text" placeholder={t("phSubject")} data-aos="fade-right" data-aos-delay="100" />
+                <textarea name="text" id="text" placeholder={t("phText")} data-aos="fade-right" data-aos-delay="150"></textarea>
+                <button className="kontakt-btn" data-aos="fade-left" data-aos-delay="200">
+                  {t("send")}
+                </button>
               </form>
             </div>
           </div>
@@ -97,7 +95,7 @@ export default function Kontakt() {
                   mapId: "8a0e442282ecc32a", // Přidání mapId pro vlastní mapovou konfiguraci
                 }} // Můžeš upravit hodnotu zoomu podle potřeby
               >
-                <Marker position={markerPosition} icon="http://maps.google.com/mapfiles/ms/icons/green-dot.png" />
+                <Marker position={markerPosition} icon="/img/map_dot.svg" />
               </GoogleMap>
             )}
           </LoadScript>

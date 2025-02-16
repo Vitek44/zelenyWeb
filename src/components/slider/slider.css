@@ -50,7 +50,7 @@
 .btn-white {
   padding: 1rem 4.1rem;
   background-color: var(--green);
-  color: white;
+  color: rgb(0, 0, 0);
   border: none;
   cursor: pointer;
   font-weight: 600;
@@ -72,20 +72,35 @@
   cursor: pointer;
   font-weight: 600;
   border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.btn-green .arrow-bg {
+  background-color: var(--green);
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-left: 2rem;
 }
 
 .btn-green i {
-  margin-left: 2rem;
   font-size: 16px;
-  background-color: var(--green);
-  color: white;
-  padding: 0.75rem;
-  border-radius: 8px;
-  transform: rotate(0deg);
+  color: rgb(255, 255, 255);
   transition: transform 0.3s;
 }
 
 .btn-green:hover i {
-  transform: rotate(90deg);
-  transition: transform 0.3s;
+  animation: bounce infinite 0.7s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

@@ -59,8 +59,8 @@
 
   "title3": "O mně",
   "subtitle3": "Filip Zelený",
-  "title4": "video",
-  "subtitle4": "Výroba stolu",
+  "title4": "KNOW-HOW",
+  "subtitle4": "Jak vypadá výroba stolu?",
   "video_text1": "Ruční výroba",
   "video_text2": "Řemeslníci pečlivě opracovávají dřevo, používají tradiční nástroje i moderní techniky. Každý stůl je originál, vznikající z kvalitních materiálů s ohledem na estetiku i funkčnost. Záběry zachycují jak samotnou práci, tak hotové produkty, které jsou výsledkem mistrovské zručnosti.",
   "text": "Svůj život jsem zasvětil výrobě stolů, nábytku a kuchyňských linek na míru. Každý kus je originál, vyráběný s láskou a precizností z poctivého českého dřeva.",
@@ -106,5 +106,6 @@
   "Produkt_btn": "Zeptat se na stůl",
   "let": " let",
   "configuratorTitle": "Konfigurátor",
-  "main-title": "Tvorba Interiérů"
+  "main-title": "Tvorba Interiérů",
+  "phSubject": "Předmět"
 }

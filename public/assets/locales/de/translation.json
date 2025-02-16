@@ -57,8 +57,8 @@
   "configurator_text": "Erstellen Sie Ihre eigene Tabelle",
   "title3": "Über mich",
   "subtitle3": "Filip Zelený",
-  "title4": "Video",
-  "subtitle4": "Tischherstellung",
+  "title4": "KNOW-HOW",
+  "subtitle4": "Wie sieht die Herstellung eines Tisches aus?",
   "video_text1": "Handarbeit",
   "video_text2": "Handwerker bearbeiten das Holz sorgfältig und verwenden sowohl traditionelle Werkzeuge als auch moderne Techniken. Jeder Tisch ist ein Unikat, hergestellt aus hochwertigen Materialien mit Fokus auf Ästhetik und Funktionalität. Die Aufnahmen zeigen sowohl den Arbeitsprozess als auch die fertigen Produkte, die das Ergebnis meisterhafter Handwerkskunst sind.",
   "text": "Mein Leben habe ich der Herstellung von Tischen, Möbeln und maßgefertigten Küchen gewidmet. Jedes Stück ist ein Unikat, gefertigt mit Liebe und Präzision aus ehrlichem tschechischem Holz.",
@@ -98,5 +98,6 @@
   "Vyska2": "Tischhöhe",
   "bez_dph": "ohne DHP",
   "Produkt_btn": "Nach dem Tisch fragen",
-  "main-title": "Innenraumgestaltung"
+  "main-title": "Innenraumgestaltung",
+  "phSubject": "Fach"
 }
