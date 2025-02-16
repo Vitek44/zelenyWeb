@@ -58,14 +58,12 @@ const Login = () => {
   return (
     <>
       <ToastContainer position="bottom-right" autoClose={500} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" transition:Bounce />
-      <div className="login-container">
-        <div>
+      <div class="login-wrapper">
+        <div className="login-container">
           <input type="text" placeholder="Jméno" value={username} onChange={(e) => setUsername(e.target.value)} required onKeyDown={handleKeyDown} />
-        </div>
-        <div>
           <input type="password" placeholder="Heslo" value={password} onChange={(e) => setPassword(e.target.value)} required onKeyDown={handleKeyDown} />
+          <button onClick={handleLogin}>Přihlásit se</button>
         </div>
-        <button onClick={handleLogin}>Přihlásit se</button>
       </div>
     </>
   );

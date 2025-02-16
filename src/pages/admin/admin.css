@@ -1,0 +1,101 @@
+.admin-wrapper {
+  padding: 4rem 0;
+  background-color: #272c38;
+}
+
+.admin-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.stul-card {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.stul-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.card-title h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  color: white;
+}
+
+.edit {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-right: 0.5rem;
+}
+
+.edit:hover {
+  background-color: #dfdddd;
+}
+
+.delete {
+  background-color: #d40303;
+  color: #ffffff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.delete:hover {
+  background-color: #ff0000;
+}
+
+.add-card {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.add-card h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.add-card i {
+  font-size: 28px;
+  transform: rotate(0deg);
+  transition: all 0.3s ease;
+  padding: 0.75rem;
+  border-radius: 0%;
+}
+
+.add-card:hover i {
+  transform: rotate(90deg);
+  transition: all 0.3s ease;
+  background-color: var(--green);
+  border-radius: 25%;
+}
