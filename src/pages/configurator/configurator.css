@@ -144,7 +144,9 @@ input:focus {
   box-shadow: 0 4px 15px var(--green);
   border-color: #000;
 }
-
+canvas {
+  touch-action: none;
+}
 @media screen and (max-width: 1450px) {
   .configurator-section {
     flex-direction: column;

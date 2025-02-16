@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@react-google-maps/api": "^2.20.6",
+    "@react-three/drei": "^9.121.5",
+    "@react-three/fiber": "^8.17.14",
     "@splidejs/react-splide": "^0.7.12",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "aos": "^2.3.4",
@@ -31,7 +33,8 @@
     "react-slick": "^0.30.3",
     "react-swipeable": "^7.0.2",
     "react-toastify": "^11.0.3",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "three": "^0.173.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
