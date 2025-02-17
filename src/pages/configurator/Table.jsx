@@ -6,8 +6,8 @@ import { useCustomization } from "./context/Customization";
 
 // Table komponenta pro zobrazení modelu
 const Table = (props) => {
-  const { nodes, materials } = useGLTF("./models/table.gltf"); // Cesta k modelu
-  const { shape, setShape } = useCustomization();
+  const { nodes, materials } = useGLTF("./models/table1.gltf"); // Cesta k modelu
+  const { shape, setShape, legs, setLegs } = useCustomization();
 
   const woodTextureProps = useTexture({
     map: "../../textures/Wood/Wood_011_Base_Color.jpg",
@@ -24,34 +24,83 @@ const Table = (props) => {
   return (
     <group {...props} dispose={null}>
       <mesh
-        geometry={nodes.Cube.geometry}
-        position={[0, 1.433, 0]}
-        rotation={[-Math.PI, 0, -Math.PI]}
-        scale={[-1, -0.05, -1]}
-        visible={shape === 1}
-      >
-        <meshStandardMaterial {...woodTextureProps} />
-      </mesh>
-
+        geometry={nodes.ctverec001.geometry}
+        material={materials["Material.005"]}
+        position={[0, 1.295, 0]}
+        scale={[1.174, 0.037, 1.174]}
+        visible={shape === 10}
+      />
       <mesh
-        geometry={nodes.Cylinder.geometry}
-        position={[0, 1.428, 0]}
-        rotation={[-Math.PI, 0, -Math.PI]}
-        scale={[-1, -0.05, -1]}
+        geometry={nodes.kruh.geometry}
+        material={materials.dřevo}
+        position={[0, 1.302, 0]}
+        scale={[1.455, 0.043, 1.455]}
         visible={shape === 2}
-      >
-        <meshStandardMaterial {...woodTextureProps} />
-      </mesh>
+      />
       <mesh
-        geometry={nodes.Cube001.geometry}
-        position={[0, 0.694, 0]}
-        rotation={[-Math.PI, 0, -Math.PI]}
-        scale={[-0.085, -0.687, -0.085]}
+        geometry={nodes.obdelnik.geometry}
+        material={materials["Material.004"]}
+        position={[0, 1.302, 0]}
+        scale={[1.129, 0.043, 1.129]}
+        visible={shape === 1}
+      />
+      <mesh
+        geometry={nodes.ctverec003.geometry}
+        material={materials["Material.011"]}
+        position={[0, 1.295, 0]}
+        scale={[0.918, 0.037, 0.918]}
+        visible={shape === 11}
+      />
+      <mesh
+        geometry={nodes.Nohy001.geometry}
+        material={materials["Material.003"]}
+        position={[0, 1.295, 0]}
+        scale={[1, 0.037, 1]}
+        visible={legs === 1}
+      />
+      <mesh
+        geometry={nodes.Nohy02.geometry}
+        material={materials["Material.006"]}
+        position={[0, 0.602, 0]}
+        rotation={[0, Math.PI / 2, 0]}
+        scale={[0.208, 0.033, 0.72]}
+        visible={legs === 2}
+      />
+      <mesh
+        geometry={nodes.nohy03.geometry}
+        material={materials["Material.002"]}
+        position={[0, 1.295, 0]}
+        scale={[0.918, 0.037, 0.918]}
+        visible={legs === 3}
       >
+        {" "}
         <meshStandardMaterial {...metalTextureProps} />
       </mesh>
+      <mesh
+        geometry={nodes.nohy04.geometry}
+        material={materials["Material.009"]}
+        position={[0, 1.312, 0]}
+        scale={[0.918, 0.049, 0.918]}
+        visible={legs === 4}
+      />
+      <mesh
+        geometry={nodes.nohy05.geometry}
+        material={materials["Material.010"]}
+        position={[0, 1.295, 0]}
+        scale={[0.918, 0.037, 0.918]}
+        visible={legs === 5}
+      />
+
+      <mesh
+        geometry={nodes.nohy06.geometry}
+        material={materials["Material.012"]}
+        position={[0, 0.602, 0]}
+        rotation={[0, Math.PI / 2, 0]}
+        scale={[0.208, 0.033, 0.72]}
+        visible={legs === 6}
+      />
     </group>
   );
 };
-useGLTF.preload("./models/table.gltf");
+useGLTF.preload("./models/table1.gltf");
 export default Table;

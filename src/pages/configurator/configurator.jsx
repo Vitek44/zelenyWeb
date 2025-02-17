@@ -11,11 +11,12 @@ import {
   CustomizationProvider,
 } from "./context/Customization";
 import Configuratoring from "./configuratoring";
+import { Environment } from "@react-three/drei";
 
 function Konfigurator() {
   let navigate = useNavigate();
   const { t } = useTranslation();
-  const { shape, setShape } = useCustomization();
+  const { shape, setShape, legs, setLegs } = useCustomization();
 
   const [selectedShape, setSelectedShape] = useState("");
   const [selectedType, setSelectedType] = useState("");
@@ -69,8 +70,10 @@ function Konfigurator() {
             <CustomizationProvider>
               <div className="configurator-picture">
                 <Canvas dpr={[1, 2]}>
-                  <color attach="background" args={["#213547"]} />
-                  <fog attach="fog" args={["#213547", 10, 20]} />
+                  {/* <color attach="background" args={["#ffffff"]} />
+                  <fog attach="fog" args={["#ffffff", 10, 20]} /> */}
+
+                  <color attach="background" args={["#ffffff"]} />
                   <Experience />
                 </Canvas>
               </div>

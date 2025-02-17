@@ -4,11 +4,14 @@ const CustomizationContext = createContext({});
 
 export const CustomizationProvider = (props) => {
   const [shape, setShape] = useState(1);
+  const [legs, setLegs] = useState(1);
   return (
     <CustomizationContext.Provider
       value={{
         shape,
         setShape,
+        legs,
+        setLegs,
       }}
     >
       {props.children}

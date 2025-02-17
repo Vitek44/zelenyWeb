@@ -1,7 +1,7 @@
 import { useCustomization } from "./context/Customization";
 
 const Configurator = () => {
-  const { shape, setShape } = useCustomization();
+  const { shape, setShape, legs, setLegs } = useCustomization();
 
   return (
     <>
@@ -17,12 +17,74 @@ const Configurator = () => {
           >
             <div className="item__label">
               {" "}
-              <img src="../../img/rectangle.png" alt="" />
+              <img src="../../img/circle.png" alt="" />
             </div>
           </div>
           <div
             className={`item ${shape === 2 ? "item--active" : ""}`}
             onClick={() => setShape(2)}
+          >
+            <div className="item__label">
+              {" "}
+              <img src="../../img/circle.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="configurator-label">
+        <h5>Typ nožek</h5>
+      </div>
+      <div className="configurator-item">
+        <div className="c-item-row">
+          {" "}
+          <div
+            className={`item ${legs === 1 ? "item--active" : ""}`}
+            onClick={() => setLegs(1)}
+          >
+            <div className="item__label">
+              {" "}
+              <img src="../../img/circle.png" alt="" />
+            </div>
+          </div>
+          <div
+            className={`item ${legs === 2 ? "item--active" : ""}`}
+            onClick={() => setLegs(2)}
+          >
+            <div className="item__label">
+              {" "}
+              <img src="../../img/circle.png" alt="" />
+            </div>
+          </div>
+          <div
+            className={`item ${legs === 3 ? "item--active" : ""}`}
+            onClick={() => setLegs(3)}
+          >
+            <div className="item__label">
+              {" "}
+              <img src="../../img/circle.png" alt="" />
+            </div>
+          </div>
+          <div
+            className={`item ${legs === 4 ? "item--active" : ""}`}
+            onClick={() => setLegs(4)}
+          >
+            <div className="item__label">
+              {" "}
+              <img src="../../img/circle.png" alt="" />
+            </div>
+          </div>
+          <div
+            className={`item ${legs === 5 ? "item--active" : ""}`}
+            onClick={() => setLegs(5)}
+          >
+            <div className="item__label">
+              {" "}
+              <img src="../../img/circle.png" alt="" />
+            </div>
+          </div>
+          <div
+            className={`item ${legs === 6 ? "item--active" : ""}`}
+            onClick={() => setLegs(6)}
           >
             <div className="item__label">
               {" "}
