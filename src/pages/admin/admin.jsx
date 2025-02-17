@@ -34,9 +34,9 @@ const Admin = () => {
       <div className="admin-wrapper">
         <div className="container">
           <div className="admin-content">
-            <div class="add-card" onClick={() => setModalOpen(true)}>
+            <div className="add-card" onClick={() => setModalOpen(true)}>
               <h3>Nový stůl</h3>
-              <i class="fa-solid fa-plus"></i>
+              <i className="fa-solid fa-plus"></i>
             </div>
             {data.map((item) => (
               <div className="stul-card">
@@ -59,44 +59,46 @@ const Admin = () => {
       </div>
       {modalOpen ? (
         <div className="modal-wrapper">
-          <div class="modal">
-            <div class="modal-header">
+          <div className="modal">
+            <div className="modal-header">
               <h3>Nový stůl</h3>
               <button className="close-modal" onClick={() => setModalOpen(false)} title="Zavřít okno">
-                <i class="fa-solid fa-xmark"></i>
+                <i className="fa-solid fa-xmark"></i>
               </button>
             </div>
-            <div class="modal-content">
-              <div class="form-group">
+            <div className="modal-content">
+              <div className="form-group">
                 <input type="text" name="nazev" id="nazev" placeholder="Název stolu" />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <input type="text" placeholder="Materiál" />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <input type="number" placeholder="Výška stolu" />
                 <input type="number" placeholder="Šířka stolu" />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <input type="number" placeholder="Tloušťka desky" />
                 <input type="number" placeholder="Délka desky" />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <textarea name="" id="" placeholder="Popis - česky"></textarea>
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <textarea name="" id="" placeholder="Popis - anglicky"></textarea>
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <textarea name="" id="" placeholder="Popis - německy"></textarea>
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <input type="text" name="" id="" placeholder="Cena" />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <input type="file" name="" id="" />
               </div>
-              <button className="save-btn">Uložit</button>
+              <div className="modal-btn">
+                <button className="save-btn">Uložit</button>
+              </div>
             </div>
           </div>
         </div>
