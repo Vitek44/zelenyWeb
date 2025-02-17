@@ -59,14 +59,14 @@ const Table = (props) => {
       />
       <mesh
         geometry={nodes.Nohy001.geometry}
-        material={materials["Material.003"]}
+        material={materials["Material.010"]}
         position={[0, 1.295, 0]}
         scale={[1, 0.037, 1]}
         visible={legs === 1}
       />
       <mesh
         geometry={nodes.Nohy02.geometry}
-        material={materials["Material.006"]}
+        material={materials["Material.010"]}
         position={[0, 0.602, 0]}
         rotation={[0, Math.PI / 2, 0]}
         scale={[0.208, 0.033, 0.72]}
@@ -74,7 +74,7 @@ const Table = (props) => {
       />
       <mesh
         geometry={nodes.nohy03.geometry}
-        material={materials["Material.002"]}
+        material={materials["Material.010"]}
         position={[0, 1.295, 0]}
         scale={[0.918, 0.037, 0.918]}
         visible={legs === 3}
@@ -84,7 +84,7 @@ const Table = (props) => {
       </mesh>
       <mesh
         geometry={nodes.nohy04.geometry}
-        material={materials["Material.009"]}
+        material={materials["Material.010"]}
         position={[0.55, 1.312, -0.55]}
         scale={[0.918, 0.049, 0.918]}
         visible={legs === 4}
@@ -99,7 +99,7 @@ const Table = (props) => {
 
       <mesh
         geometry={nodes.nohy06.geometry}
-        material={materials["Material.012"]}
+        material={materials["Material.010"]}
         position={[0, 0.602, 0]}
         rotation={[0, Math.PI / 2, 0]}
         scale={[0.208, 0.033, 0.72]}
