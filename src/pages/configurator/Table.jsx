@@ -29,21 +29,27 @@ const Table = (props) => {
         position={[0, 1.295, 0]}
         scale={[1.174, 0.037, 1.174]}
         visible={shape === 10}
-      />
+      >
+        <meshStandardMaterial {...metalTextureProps} />
+      </mesh>
       <mesh
         geometry={nodes.kruh.geometry}
         material={materials.dřevo}
         position={[0, 1.302, 0]}
         scale={[1.455, 0.043, 1.455]}
         visible={shape === 2}
-      />
+      >
+        <meshStandardMaterial {...woodTextureProps} />
+      </mesh>
       <mesh
         geometry={nodes.obdelnik.geometry}
         material={materials["Material.004"]}
         position={[0, 1.302, 0]}
         scale={[1.129, 0.043, 1.129]}
         visible={shape === 1}
-      />
+      >
+        <meshStandardMaterial {...woodTextureProps} />
+      </mesh>
       <mesh
         geometry={nodes.ctverec003.geometry}
         material={materials["Material.011"]}
@@ -79,7 +85,7 @@ const Table = (props) => {
       <mesh
         geometry={nodes.nohy04.geometry}
         material={materials["Material.009"]}
-        position={[0, 1.312, 0]}
+        position={[0.55, 1.312, -0.55]}
         scale={[0.918, 0.049, 0.918]}
         visible={legs === 4}
       />
