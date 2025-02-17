@@ -1,6 +1,7 @@
 .admin-wrapper {
   padding: 4rem 0;
   background-color: #272c38;
+  height: 100vh;
 }
 
 .admin-content {
@@ -194,6 +195,14 @@
   font-family: "Poppins", sans-serif;
   min-height: 50px;
   max-height: 150px;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  margin: 0 0.5rem;
 }
 
 .form-group input:focus {
