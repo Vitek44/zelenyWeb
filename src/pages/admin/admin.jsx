@@ -38,38 +38,74 @@ const Admin = () => {
     popisDE: "",
     cena: "",
     file: "",
+    file2: "",
+    file3: "",
+    file4: "",
     typ: "",
   });
   const _changeCreditals = (e) => {
     setCreditals({ ...creditals, [e.target.name]: e.target.value });
   };
-  const fetchData = (Id) => {
-    const requiredFields = ["nazev", "material", "vyska", "sirka", "tloustka", "delka", "cena"];
-    const isValid = requiredFields.every((field) => creditals[field]?.trim());
+  const handleUpload = async () => {
+    const urls = [];
 
-    if (!isValid) {
-      toast.error("Vyplňte všechny požadované údaje");
+    for (const file of files) {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      try {
+        const response = await fetch("https://designjj-test.eu/php/postImg.php", {
+          method: "POST",
+          body: formData,
+        });
+        const result = await response.json();
+
+        if (result.success) {
+          const shortUrl = result.url.replace("/public_html/", "/");
+          toast.success(result.message);
+          urls.push(shortUrl);
+          console.log("URL:", shortUrl);
+        } else {
+          toast.error(result.message);
+        }
+      } catch (error) {
+        toast.error("Chyba při nahrávání obrázku.");
+        console.error("Chyba:", error);
+      }
+    }
+
+    return urls;
+  };
+
+  const fetchData = async () => {
+    const imageUrls = await handleUpload();
+
+    if (imageUrls.length === 0) {
+      toast.error("Obrázky se nepodařilo nahrát.");
       return;
     }
 
     fetch("https://designjj-test.eu/php/saveTable.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(creditals, Id),
+      body: JSON.stringify({
+        ...creditals,
+        images: imageUrls, // Pole URL obrázků
+      }),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          setCreditals(data);
           loadData();
           setModalOpen(false);
           toast.success("Stůl byl úspěšně uložen");
         } else {
-          console.error("Chyba při načítání dat");
+          toast.error("Nepodařilo se uložit stůl.");
         }
       })
       .catch((err) => {
-        console.error("Chyba při načítání dat:", err);
+        toast.error("Chyba při ukládání do databáze.");
+        console.error("Chyba při ukládání:", err);
       });
   };
 
@@ -98,6 +134,7 @@ const Admin = () => {
 
   const editTable = (Id) => {
     const tableData = data.find((item) => item.Id === Id);
+
     if (tableData) {
       setCreditals({
         nazev: tableData.Nazev,
@@ -112,7 +149,13 @@ const Admin = () => {
         cena: tableData.Cena,
         typ: tableData.Typ,
         Id: tableData.Id,
+        file: tableData.URL,
+        file2: tableData.URL1,
+        file3: tableData.URL2,
+        file4: tableData.URL3,
       });
+
+      console.log("Data:", tableData);
 
       setModalOpen(true);
     } else {
@@ -120,37 +163,15 @@ const Admin = () => {
     }
   };
 
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState([]);
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-  };
-
-  const handleUpload = async () => {
-    const formData = new FormData();
-    formData.append("file", file);
-
-    try {
-      const response = await fetch("https://designjj-test.eu/php/postImg.php", {
-        method: "POST",
-        body: formData,
-      });
-      const result = await response.json();
-
-      if (result.success) {
-        toast.success(result.message);
-        console.log("URL obrázku:", result.url);
-      } else {
-        toast.error(result.message);
-      }
-    } catch (error) {
-      toast.error("Chyba při nahrávání obrázku.");
-      console.error("Chyba:", error);
-    }
+    setFiles([...e.target.files]);
   };
 
   useEffect(() => {
     loadData();
+    console.log("Data:", data);
   }, []);
   return (
     <>
@@ -159,7 +180,12 @@ const Admin = () => {
       <div className="admin-wrapper">
         <div className="container">
           <div className="admin-content">
-            <div className="add-card" onClick={() => setModalOpen(true)}>
+            <div
+              className="add-card"
+              onClick={() => {
+                setModalOpen(true);
+              }}
+            >
               <h3>Nový stůl</h3>
               <i className="fa-solid fa-plus"></i>
             </div>
@@ -187,7 +213,14 @@ const Admin = () => {
           <div className="modal">
             <div className="modal-header">
               <h3>Nový stůl</h3>
-              <button className="close-modal" onClick={() => setModalOpen(false)} title="Zavřít okno">
+              <button
+                className="close-modal"
+                onClick={() => {
+                  setModalOpen(false);
+                  setCreditals({});
+                }}
+                title="Zavřít okno"
+              >
                 <i className="fa-solid fa-xmark"></i>
               </button>
             </div>
@@ -223,7 +256,13 @@ const Admin = () => {
                 <input type="number" name="cena" placeholder="Cena" value={creditals.cena} onChange={_changeCreditals} />
               </div>
               <div className="form-group">
-                <input type="file" name="file" onChange={handleFileChange} />
+                <div className="file-upload">
+                  <label htmlFor="fileInput" className="custom-file-label">
+                    Vyberte obrázky
+                  </label>
+                  <input id="fileInput" type="file" name="files" multiple onChange={handleFileChange} style={{ display: "none" }} />
+                </div>
+                <div className="uploaded-images">{files.length > 0 ? files.map((file, index) => <img key={index} src={URL.createObjectURL(file)} alt={`Nahraný obrázek ${index + 1}`} className="modal-img" />) : <p>Žádné obrázky nejsou vybrané.</p>}</div>
               </div>
               <div className="modal-btn">
                 <button className="save-btn" onClick={fetchData} title="Uložit stůl">
