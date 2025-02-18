@@ -57,11 +57,11 @@ const SliderRev = () => {
             gap: "1rem",
           },
           768: {
-            perPage: 2,
+            perPage: 1,
             gap: "1rem",
           },
           1024: {
-            perPage: 3,
+            perPage: 2,
             gap: "1rem",
           },
         },
