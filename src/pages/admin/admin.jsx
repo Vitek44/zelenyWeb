@@ -226,7 +226,7 @@ const Admin = () => {
                 <input type="file" name="file" onChange={handleFileChange} />
               </div>
               <div className="modal-btn">
-                <button className="save-btn" onClick={(fetchData, handleUpload)} title="Uložit stůl">
+                <button className="save-btn" onClick={fetchData} title="Uložit stůl">
                   Uložit
                 </button>
               </div>

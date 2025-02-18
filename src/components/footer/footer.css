@@ -155,6 +155,20 @@ footer {
   font-weight: 300;
 }
 
+@media (max-width: 1034px) {
+  .footer-content {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-main {
+    width: 100%;
+  }
+
+  .footer-menu {
+    margin-left: 4rem;
+  }
+}
 @media (max-width: 768px) {
   .footer {
     flex-direction: column;
