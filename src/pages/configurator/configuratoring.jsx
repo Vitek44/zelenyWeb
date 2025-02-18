@@ -1,7 +1,8 @@
 import { useCustomization } from "./context/Customization";
 
 const Configurator = () => {
-  const { shape, setShape, legs, setLegs } = useCustomization();
+  const { shape, setShape, legs, setLegs, material, setMaterial } =
+    useCustomization();
 
   return (
     <>
@@ -17,12 +18,21 @@ const Configurator = () => {
           >
             <div className="item__label">
               {" "}
-              <img src="../../img/circle.png" alt="" />
+              <img src="../../img/rectangle.png" alt="" />
             </div>
           </div>
           <div
             className={`item ${shape === 2 ? "item--active" : ""}`}
             onClick={() => setShape(2)}
+          >
+            <div className="item__label">
+              {" "}
+              <img src="../../img/rectangle.png" alt="" />
+            </div>
+          </div>
+          <div
+            className={`item ${shape === 3 ? "item--active" : ""}`}
+            onClick={() => setShape(3)}
           >
             <div className="item__label">
               {" "}
@@ -32,18 +42,40 @@ const Configurator = () => {
         </div>
       </div>
       <div className="configurator-label">
+        <h5>Barva desky</h5>
+      </div>
+      <div className="configurator-item">
+        <div className="c-item-row">
+          <div
+            className={`item ${material === "wood1" ? "item--active" : ""}`}
+            onClick={() => setMaterial("wood1")}
+          >
+            <div className="item__label">
+              <img src="../../img/wood1.png" alt="" />
+            </div>
+          </div>
+          <div
+            className={`item ${material === "wood2" ? "item--active" : ""}`}
+            onClick={() => setMaterial("wood2")}
+          >
+            <div className="item__label">
+              <img src="../../img/wood2.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="configurator-label">
         <h5>Typ nožek</h5>
       </div>
       <div className="configurator-item">
         <div className="c-item-row">
-          {" "}
           <div
             className={`item ${legs === 1 ? "item--active" : ""}`}
             onClick={() => setLegs(1)}
           >
             <div className="item__label">
-              {" "}
-              <img src="../../img/circle.png" alt="" />
+              <img src="../../img/leg4.png" alt="" />
             </div>
           </div>
           <div
@@ -52,7 +84,7 @@ const Configurator = () => {
           >
             <div className="item__label">
               {" "}
-              <img src="../../img/circle.png" alt="" />
+              <img src="../../img/leg5.png" alt="" />
             </div>
           </div>
           <div
@@ -61,7 +93,7 @@ const Configurator = () => {
           >
             <div className="item__label">
               {" "}
-              <img src="../../img/circle.png" alt="" />
+              <img src="../../img/leg6.png" alt="" />
             </div>
           </div>
           <div
@@ -70,7 +102,7 @@ const Configurator = () => {
           >
             <div className="item__label">
               {" "}
-              <img src="../../img/circle.png" alt="" />
+              <img src="../../img/leg1.png" alt="" />
             </div>
           </div>
           <div
@@ -91,7 +123,22 @@ const Configurator = () => {
               <img src="../../img/circle.png" alt="" />
             </div>
           </div>
+          <div
+            className={`item ${legs === 7 ? "item--active" : ""}`}
+            onClick={() => setLegs(7)}
+          >
+            <div className="item__label">
+              {" "}
+              <img src="../../img/circle.png" alt="" />
+            </div>
+          </div>
         </div>
+      </div>
+      <div className="configurator-label">
+        <h5>Barva nožek</h5>
+      </div>
+      <div className="configurator-item">
+        <div className="c-item-row"></div>
       </div>
     </>
   );
