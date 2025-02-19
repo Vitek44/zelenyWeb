@@ -255,12 +255,19 @@
   color: black;
   border-radius: 5px;
   cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-.file-upload label {
+.file-upload .custom-file-label {
   cursor: pointer;
-}
-
-.file-upload:hover label {
-  color: var(--green);
+  padding: 0.75rem;
+  border-radius: 5px;
+  background-color: var(--green);
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-right: 1rem;
 }

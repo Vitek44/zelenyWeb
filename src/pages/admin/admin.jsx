@@ -48,11 +48,9 @@ const Admin = () => {
   };
   const handleUpload = async () => {
     const urls = [];
-
     for (const file of files) {
       const formData = new FormData();
       formData.append("file", file);
-
       try {
         const response = await fetch("https://designjj-test.eu/php/postImg.php", {
           method: "POST",
@@ -73,13 +71,11 @@ const Admin = () => {
         console.error("Chyba:", error);
       }
     }
-
     return urls;
   };
 
   const fetchData = async () => {
     const imageUrls = await handleUpload();
-
     if (imageUrls.length === 0) {
       toast.error("Obrázky se nepodařilo nahrát.");
       return;
@@ -171,7 +167,7 @@ const Admin = () => {
 
   useEffect(() => {
     loadData();
-    console.log("Data:", data);
+    console.log("Data:", creditals);
   }, []);
   return (
     <>
