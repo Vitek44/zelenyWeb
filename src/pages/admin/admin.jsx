@@ -47,10 +47,19 @@ const Admin = () => {
     setCreditals({ ...creditals, [e.target.name]: e.target.value });
   };
   const handleUpload = async () => {
-    const urls = [];
-    for (const file of files) {
+    if (!files || files.length === 0) {
+      toast.error("Nebyl vybrán žádný soubor.");
+      return creditals.file ? [creditals.file, creditals.file2, creditals.file3, creditals.file4].filter(Boolean) : [];
+    }
+
+    const urls = [creditals.file, creditals.file2, creditals.file3, creditals.file4].filter(Boolean); // Zachování starých URL obrázků
+
+    const newFiles = files.filter((file) => file instanceof File); // Filtrování pouze nových souborů
+
+    for (const file of newFiles) {
       const formData = new FormData();
       formData.append("file", file);
+
       try {
         const response = await fetch("https://designjj-test.eu/php/postImg.php", {
           method: "POST",
@@ -58,20 +67,18 @@ const Admin = () => {
         });
         const result = await response.json();
 
-        if (result.success) {
-          const shortUrl = result.url.replace("/public_html/", "/");
-          toast.success(result.message);
-          urls.push(shortUrl);
-          console.log("URL:", shortUrl);
+        if (result.success && result.url) {
+          urls.push(result.url.replace("/public_html/", "/")); // Přidání nového obrázku do seznamu
         } else {
-          toast.error(result.message);
+          toast.error(result.message || "Soubor nebyl nahrán.");
         }
       } catch (error) {
         toast.error("Chyba při nahrávání obrázku.");
         console.error("Chyba:", error);
       }
     }
-    return urls;
+
+    return urls.slice(0, 4); // Vrátíme max. 4 obrázky (pokud je třeba limit)
   };
 
   const fetchData = async () => {
@@ -151,7 +158,7 @@ const Admin = () => {
         file4: tableData.URL3,
       });
 
-      console.log("Data:", tableData);
+      setFiles([tableData.URL, tableData.URL1, tableData.URL2, tableData.URL3].filter(Boolean));
 
       setModalOpen(true);
     } else {
@@ -159,15 +166,21 @@ const Admin = () => {
     }
   };
 
+  useEffect(() => {
+    console.log("Aktualizované Creditals:", creditals);
+    console.log("Files:", files);
+  }, [creditals]);
+
   const [files, setFiles] = useState([]);
 
-  const handleFileChange = (e) => {
-    setFiles([...e.target.files]);
+  const handleFileChange = (event) => {
+    const newFiles = Array.from(event.target.files).slice(0, 4); // Omezíme na max 4 soubory
+    setFiles(newFiles);
   };
 
+  const displayedImages = files.map((file) => (file instanceof File ? URL.createObjectURL(file) : file));
   useEffect(() => {
     loadData();
-    console.log("Data:", creditals);
   }, []);
   return (
     <>
@@ -180,6 +193,23 @@ const Admin = () => {
               className="add-card"
               onClick={() => {
                 setModalOpen(true);
+                setCreditals({
+                  nazev: "",
+                  material: "",
+                  vyska: "",
+                  sirka: "",
+                  tloustka: "",
+                  delka: "",
+                  popisCZ: "",
+                  popisEN: "",
+                  popisDE: "",
+                  cena: "",
+                  typ: "",
+                  file: "",
+                  file2: "",
+                  file3: "",
+                  file4: "",
+                });
               }}
             >
               <h3>Nový stůl</h3>
@@ -213,7 +243,6 @@ const Admin = () => {
                 className="close-modal"
                 onClick={() => {
                   setModalOpen(false);
-                  setCreditals({});
                 }}
                 title="Zavřít okno"
               >
@@ -256,9 +285,15 @@ const Admin = () => {
                   <label htmlFor="fileInput" className="custom-file-label">
                     Vyberte obrázky
                   </label>
-                  <input id="fileInput" type="file" name="files" multiple onChange={handleFileChange} style={{ display: "none" }} />
+                  <input id="fileInput" type="file" name="files" multiple accept="image/*" onChange={handleFileChange} style={{ display: "none" }} />
                 </div>
-                <div className="uploaded-images">{files.length > 0 ? files.map((file, index) => <img key={index} src={URL.createObjectURL(file)} alt={`Nahraný obrázek ${index + 1}`} className="modal-img" />) : <p>Žádné obrázky nejsou vybrané.</p>}</div>
+
+                {/* Zobrazení obrázků */}
+                <div className="uploaded-images">
+                  {displayedImages.map((file, index) => (
+                    <img key={index} src={file} alt={`Obrázek ${index + 1}`} className="modal-img" />
+                  ))}
+                </div>
               </div>
               <div className="modal-btn">
                 <button className="save-btn" onClick={fetchData} title="Uložit stůl">
