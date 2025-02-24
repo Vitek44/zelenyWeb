@@ -101,6 +101,8 @@ const Admin = () => {
         if (data.success) {
           loadData();
           setModalOpen(false);
+          setCreditals({ ...creditals, file: "", file2: "", file3: "", file4: "" });
+          setFiles([]);
           toast.success("Stůl byl úspěšně uložen");
         } else {
           toast.error("Nepodařilo se uložit stůl.");
@@ -182,6 +184,29 @@ const Admin = () => {
   useEffect(() => {
     loadData();
   }, []);
+
+  const clearFiles = async (Id) => {
+    try {
+      const response = await fetch("https://designjj-test.eu/php/removeImage.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ Id: Id }),
+      });
+
+      const data = await response.json();
+
+      if (data.status === "success") {
+        setFiles([]); // Vyčistí lokální state
+        loadData(); // Načte nová data
+        setCreditals({ ...creditals, file: "", file2: "", file3: "", file4: "" });
+      } else {
+        console.error("Chyba:", data.message);
+      }
+    } catch (error) {
+      console.error("Fetch error:", error);
+    }
+  };
+
   return (
     <>
       <ToastContainer position="bottom-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
@@ -243,6 +268,8 @@ const Admin = () => {
                 className="close-modal"
                 onClick={() => {
                   setModalOpen(false);
+                  setCreditals({});
+                  setFiles([]);
                 }}
                 title="Zavřít okno"
               >
@@ -287,7 +314,6 @@ const Admin = () => {
                   </label>
                   <input id="fileInput" type="file" name="files" multiple accept="image/*" onChange={handleFileChange} style={{ display: "none" }} />
                 </div>
-
                 {/* Zobrazení obrázků */}
                 <div className="uploaded-images">
                   {displayedImages.map((file, index) => (
@@ -295,6 +321,9 @@ const Admin = () => {
                   ))}
                 </div>
               </div>
+              <button className="delete-img" onClick={() => clearFiles(creditals.Id)}>
+                Smazat obrázky
+              </button>
               <div className="modal-btn">
                 <button className="save-btn" onClick={fetchData} title="Uložit stůl">
                   Uložit
