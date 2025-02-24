@@ -41,7 +41,7 @@ const Admin = () => {
     file2: "",
     file3: "",
     file4: "",
-    typ: "",
+    typ: "Hranatý",
   });
   const _changeCreditals = (e) => {
     setCreditals({ ...creditals, [e.target.name]: e.target.value });

@@ -228,10 +228,12 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin-right: 0.5rem;
   font-size: 18px;
+  transition: all 0.3s ease;
 }
 
 .save-btn:hover {
   background-color: #7c973c;
+  transition: all 0.3s ease;
 }
 
 .modal-img {
