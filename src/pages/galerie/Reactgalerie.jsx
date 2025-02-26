@@ -80,13 +80,13 @@ const Reactgalerie = () => {
             <i className="fa-solid fa-x"></i>
           </button>
           <button className="prev" onClick={() => imageAction("prev")}>
-            <i className="fa-solid fa-less-than"></i>
+            <i className="fa-solid fa-chevron-left"></i>
           </button>
           <div {...handlers} className="swipeable-image-container">
             <img src={lightbox.img} alt="" draggable="false" />
           </div>
           <button className="next" onClick={() => imageAction("next")}>
-            <i className="fa-solid fa-greater-than"></i>
+            <i className="fa-solid fa-chevron-right"></i>
           </button>
         </div>
       )}
