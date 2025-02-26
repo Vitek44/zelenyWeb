@@ -50,33 +50,33 @@ export default function Kontakt() {
         <div className="container">
           <div className="kontakt-content">
             <div className="kontakt-info">
-              <div className="kontakt-item">
+              <div className="kontakt-item" data-aos="fade-right">
                 <i className="fa-solid fa-user"></i>
                 <h5>Filip Zelený</h5>
               </div>
-              <div className="kontakt-item">
+              <div className="kontakt-item" data-aos="fade-right" data-aos-delay="50">
                 <i className="fa-solid fa-map-location-dot"></i>
                 <h5>Chrudim, Pod Mostem 42</h5>
               </div>
-              <div className="kontakt-item">
+              <div className="kontakt-item" data-aos="fade-right" data-aos-delay="100">
                 <i className="fa-solid fa-envelope"></i>
                 <h5>info@filipzeleny.cz</h5>
               </div>
-              <div className="kontakt-item">
+              <div className="kontakt-item" data-aos="fade-right" data-aos-delay="150">
                 <i className="fa-solid fa-phone"></i>
                 <h5>+420 776 010 780</h5>
               </div>
-              <div className="kontakt-item">
+              <div className="kontakt-item" data-aos="fade-right" data-aos-delay="200">
                 <i className="fa-solid fa-address-card"></i>
                 <h5>IČO: 17124344</h5>
               </div>
             </div>
             <div class="kontakt-form">
               <form>
-                <input type="text" placeholder={t("phName")} data-aos="fade-right" />
+                <input type="text" placeholder={t("phName")} data-aos="fade-left" />
                 <input type="text" placeholder="E-mail" data-aos="fade-left" data-aos-delay="50" />
-                <input type="text" placeholder={t("phSubject")} data-aos="fade-right" data-aos-delay="100" />
-                <textarea name="text" id="text" placeholder={t("phText")} data-aos="fade-right" data-aos-delay="150"></textarea>
+                <input type="text" placeholder={t("phSubject")} data-aos="fade-left" data-aos-delay="100" />
+                <textarea name="text" id="text" placeholder={t("phText")} data-aos="fade-left" data-aos-delay="150"></textarea>
                 <button className="kontakt-btn" data-aos="fade-left" data-aos-delay="200">
                   {t("send")}
                 </button>

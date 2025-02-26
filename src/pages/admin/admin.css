@@ -105,7 +105,7 @@
 }
 
 .modal-wrapper {
-  position: absolute;
+  position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
@@ -228,10 +228,12 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin-right: 0.5rem;
   font-size: 18px;
+  transition: all 0.3s ease;
 }
 
 .save-btn:hover {
   background-color: #7c973c;
+  transition: all 0.3s ease;
 }
 
 .modal-img {
@@ -255,12 +257,32 @@
   color: black;
   border-radius: 5px;
   cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-.file-upload label {
+.file-upload .custom-file-label {
   cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 5px;
+  background-color: var(--green);
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-right: 1rem;
 }
 
-.file-upload:hover label {
-  color: var(--green);
+.delete-img {
+  background-color: #d40303;
+  color: #ffffff;
+  padding: 0.75rem;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-left: 0.5rem;
 }

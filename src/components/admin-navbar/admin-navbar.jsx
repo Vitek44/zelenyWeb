@@ -16,7 +16,7 @@ const AdminNavbar = () => {
           </a>
         </li>
         <li>
-          <a href="/admin/admin-panel">
+          <a href="/admin/admin-gallery">
             <img src="../img/navImg.svg" alt="" />
           </a>
         </li>

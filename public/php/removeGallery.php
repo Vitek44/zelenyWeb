@@ -8,15 +8,19 @@ ini_set('display_errors', 1);
 
 // Získání dat z JSON vstupu
 $data = json_decode(file_get_contents('php://input'), true);
-$Id = $data['Id'] ?? null;
 
-if (!$Id || !is_numeric($Id)) {
-    echo json_encode(["status" => "invalid-id", "message" => "Chybí nebo je neplatné ID stolu"]);
+// Debugging
+
+$id = $data['id'] ?? null;
+
+
+if (!$id || !is_numeric($id)) {
+    echo json_encode(["status" => "invalid-id", "message" => "Chybí nebo je neplatné id stolu"]);
     exit;
 }
 
 // Kontrola počtu záznamů
-$countResult = $conn->query("SELECT COUNT(*) as count FROM Stoly_na_miru");
+$countResult = $conn->query("SELECT COUNT(*) as count FROM Galerie");
 if (!$countResult) {
     echo json_encode(["status" => "db-error", "message" => "Chyba při čtení záznamů"]);
     exit;
@@ -28,8 +32,8 @@ if ($countRow['count'] <= 1) {
 }
 
 // Odstranění záznamu
-$stmt = $conn->prepare("DELETE FROM Stoly_na_miru WHERE Id = ?");
-$stmt->bind_param("i", $Id);
+$stmt = $conn->prepare("DELETE FROM Galerie WHERE id = ?");
+$stmt->bind_param("i", $id);
 if ($stmt->execute()) {
     echo json_encode(["status" => "success", "message" => "Stůl byl úspěšně odstraněn"]);
 } else {
