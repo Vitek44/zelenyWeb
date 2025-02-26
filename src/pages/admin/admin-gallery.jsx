@@ -28,7 +28,7 @@ const Admin = () => {
   const [creditals, setCreditals] = useState({
     id: "",
     cesta: "",
-    kategorie: "",
+    kategorie: "Stoly",
     popis: "",
   });
   const _changeCreditals = (e) => {
@@ -162,8 +162,10 @@ const Admin = () => {
               <div className="stul-card">
                 <img src={item.cesta} alt="" />
                 <div className="card-title">
-                  <h3>{item.popis}</h3>
-                  <p>{item.kategorie}</p>
+                  <div class="card-title-content">
+                    <h3>{item.popis}</h3>
+                    <p>{item.kategorie}</p>
+                  </div>
                   <div className="card-btns">
                     <button className="delete" title="Smazat stůl" onClick={() => removeGallery(item.id)}>
                       <i className="fa-solid fa-trash"></i>
@@ -194,21 +196,21 @@ const Admin = () => {
             </div>
             <div className="modal-content">
               <div className="form-group">
-                <input type="text" name="popis" placeholder="Název stolu" value={creditals.popis} onChange={_changeCreditals} />
+                <input type="text" name="popis" placeholder="Popis" value={creditals.popis} onChange={_changeCreditals} />
               </div>
-              <div className="form-group">
-                <select name="kategorie" value={creditals?.kategorie || ""} onChange={(e) => setCreditals({ ...creditals, kategorie: e.target.value })}>
-                  <option value="Kuchyně">Kuchyně</option>
-                  <option value="Interiéry">Interiéry</option>
-                  <option value="Koupelny">Koupelny</option>
-                </select>
-              </div>
+              <div className="form-group"></div>
+              <select name="kategorie" value={creditals?.kategorie || ""} onChange={(e) => setCreditals({ ...creditals, kategorie: e.target.value })}>
+                <option value="Stoly">Stoly</option>
+                <option value="Interiéry">Interiéry</option>
+                <option value="Kuchyně">Kuchyně</option>
+                <option value="Skříně">Skříně</option>
+              </select>
               <div className="form-group">
                 <div className="file-upload">
                   <label htmlFor="fileInput" className="custom-file-label">
                     Vyberte obrázky
                   </label>
-                  <input id="fileInput" type="file" name="files" multiple accept="image/*" onChange={handleFileChange} style={{ display: "none" }} />
+                  <input id="fileInput" type="file" name="files" accept="image/*" onChange={handleFileChange} style={{ display: "none" }} />
                 </div>
                 {/* Zobrazení obrázků */}
                 <div className="uploaded-images">
@@ -217,9 +219,6 @@ const Admin = () => {
                   ))}
                 </div>
               </div>
-              <button className="delete-img" onClick={() => clearFiles(creditals.id)}>
-                Smazat obrázky
-              </button>
               <div className="modal-btn">
                 <button className="save-btn" onClick={fetchData} title="Uložit stůl">
                   Uložit

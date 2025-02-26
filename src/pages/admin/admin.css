@@ -20,9 +20,10 @@
 
 .stul-card img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 200px;
+  object-fit: cover;
   border-radius: 5px;
+  object-position: top;
 }
 
 .card-title {
@@ -38,6 +39,14 @@
   margin: 0;
   text-transform: uppercase;
   color: rgb(0, 0, 0);
+}
+
+.card-title p {
+  margin-top: 0.5rem;
+}
+
+.card-title-content {
+  margin-right: 0.5rem;
 }
 
 .edit {
