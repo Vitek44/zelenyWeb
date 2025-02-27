@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
@@ -10,6 +11,28 @@ import "./interiery.css";
 
 function Interiery() {
   const { t } = useTranslation();
+  const [data, setData] = useState([]);
+
+  const loadData = () => {
+    fetch(`https://designjj-test.eu/php/getGallery.php`, {
+      method: "POST",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setData(data.data);
+        } else {
+        }
+      })
+      .catch((err) => {
+        console.error("Chyba při načítání dat:", err);
+      });
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
   return (
     <>
       <HelmetProvider>
@@ -25,19 +48,16 @@ function Interiery() {
           <div class="podmenu-title">
             <h1>Interiéry</h1>
           </div>
-        </div>
-        <div className="container">
-          <div className="services1">
-            <div className="service">
-              <div className="serviceContent">
-                <h1 className="main-text">Kuchyně</h1>
+          <div class="interiery-content">
+            {data.map((item) => (
+              <div class="interiery-item">
+                <img src={item.cesta} alt={item.popis} />
+                <div class="hover-text2">
+                  <h3>{item.kategorie}</h3>
+                  <h1>{item.popis}</h1>
+                </div>
               </div>
-            </div>
-            <div className="service">
-              <div className="serviceContent">
-                <h1 className="main-text">Skříně</h1>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

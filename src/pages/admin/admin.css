@@ -295,3 +295,40 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin-left: 0.5rem;
 }
+
+@media (max-width: 1024px) {
+  .modal {
+    width: 100%;
+  }
+
+  .form-group {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .form-group input {
+    margin: 0.25rem 0;
+  }
+
+  .form-group textarea {
+    margin: 0.25rem 0;
+  }
+
+  .form-group select {
+    margin: 0.25rem 0;
+  }
+
+  .file-upload .custom-file-label {
+    margin: 0.25rem 0;
+    padding: 0.5rem;
+  }
+
+  .file-upload {
+    margin-left: 0 !important;
+  }
+
+  .delete-img {
+    margin: 0.25rem 0;
+    padding: 0.5rem;
+  }
+}
