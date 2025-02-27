@@ -11,6 +11,7 @@ import "aos/dist/aos.css";
 import SliderProduct from "../../components/sliderProduct/sliderProduct";
 import i18next from "i18next";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { div } from "three/tsl";
 
 function Produkt({ id }) {
   useEffect(() => {
@@ -20,6 +21,8 @@ function Produkt({ id }) {
     });
   }, []);
   const { t } = useTranslation();
+
+  const [modalOpen, setModalOpen] = useState(false);
 
   const [getData, setData] = useState([]);
 
@@ -176,11 +179,53 @@ function Produkt({ id }) {
                   <p>{formatCena(getFormattedPrice(cenaBezDPH) + " " + t("bez_dph"))}</p>
                 </div>
                 <div className="produkt-btn">
-                  <button>{t("Produkt_btn")}</button>
+                  <button className="modalOpen" onClick={() => setModalOpen(true)}>
+                    {t("Produkt_btn")}
+                  </button>
                 </div>
               </div>
             </div>
           </div>
+          {modalOpen ? (
+            <div className="modal-wrapper">
+              <div className="modal">
+                <div className="modal-header">
+                  <h3>Poptávka</h3>
+                  <button
+                    className="close-modal"
+                    onClick={() => {
+                      setModalOpen(false);
+                    }}
+                    title="Zavřít okno"
+                  >
+                    <i className="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+                <div class="modal-content">
+                  <div className="form-group">
+                    <input type="text" name="nazev" value={getData.Nazev} />
+                  </div>
+                  <div className="form-group">
+                    <input type="text" name="jmeno" placeholder="Firma / Jméno" />
+                  </div>
+                  <div className="form-group">
+                    <input type="text" name="email" placeholder="Email" />
+                  </div>
+                  <div className="form-group">
+                    <input type="text" name="telefon" placeholder="Telefon" />
+                  </div>
+                  <div className="form-group">
+                    <textarea name="zprava" placeholder="Zpráva"></textarea>
+                  </div>
+                  <div className="modal-btn">
+                    <button className="save-btn">{t("Produkt_btn")}</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
           <div class="desc-wrapper">
             <div class="desc-content">
               <div class="desc-title">Popis stolu</div>

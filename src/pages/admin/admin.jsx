@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import AdminNavbar from "../../components/admin-navbar/admin-navbar";
 import "./admin.css";
 import { ToastContainer, toast } from "react-toastify";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const Admin = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -209,6 +210,13 @@ const Admin = () => {
 
   return (
     <>
+      <HelmetProvider>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{`Admin panel | Filip Zelený`}</title>
+          <link rel="canonical" href="hhttps://www.filipzeleny.cz/admin/admin-panel" />
+        </Helmet>
+      </HelmetProvider>
       <ToastContainer position="bottom-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
       <AdminNavbar />
       <div className="admin-wrapper">
