@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import AdminNavbar from "../../components/admin-navbar/admin-navbar";
 import "./admin.css";
 import { ToastContainer, toast } from "react-toastify";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const Admin = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -144,6 +145,13 @@ const Admin = () => {
 
   return (
     <>
+      <HelmetProvider>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{`Admin panel | Filip Zelený`}</title>
+          <link rel="canonical" href="hhttps://www.filipzeleny.cz/admin/admin-gallery" />
+        </Helmet>
+      </HelmetProvider>
       <ToastContainer position="bottom-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
       <AdminNavbar />
       <div className="admin-wrapper">
@@ -198,13 +206,14 @@ const Admin = () => {
               <div className="form-group">
                 <input type="text" name="popis" placeholder="Popis" value={creditals.popis} onChange={_changeCreditals} />
               </div>
-              <div className="form-group"></div>
-              <select name="kategorie" value={creditals?.kategorie || ""} onChange={(e) => setCreditals({ ...creditals, kategorie: e.target.value })}>
-                <option value="Stoly">Stoly</option>
-                <option value="Interiéry">Interiéry</option>
-                <option value="Kuchyně">Kuchyně</option>
-                <option value="Skříně">Skříně</option>
-              </select>
+              <div className="form-group">
+                <select name="kategorie" value={creditals?.kategorie || ""} onChange={(e) => setCreditals({ ...creditals, kategorie: e.target.value })}>
+                  <option value="Stoly">Stoly</option>
+                  <option value="Interiéry">Interiéry</option>
+                  <option value="Kuchyně">Kuchyně</option>
+                  <option value="Skříně">Skříně</option>
+                </select>
+              </div>
               <div className="form-group">
                 <div className="file-upload">
                   <label htmlFor="fileInput" className="custom-file-label">
