@@ -20,9 +20,10 @@
 
 .stul-card img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 200px;
+  object-fit: cover;
   border-radius: 5px;
+  object-position: top;
 }
 
 .card-title {
@@ -38,6 +39,14 @@
   margin: 0;
   text-transform: uppercase;
   color: rgb(0, 0, 0);
+}
+
+.card-title p {
+  margin-top: 0.5rem;
+}
+
+.card-title-content {
+  margin-right: 0.5rem;
 }
 
 .edit {
@@ -106,7 +115,7 @@
 
 .modal-wrapper {
   position: fixed;
-  z-index: 1;
+  z-index: 99999999;
   left: 0;
   top: 0;
   width: 100%;
@@ -285,4 +294,41 @@
   cursor: pointer;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin-left: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  .modal {
+    width: 100%;
+  }
+
+  .form-group {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .form-group input {
+    margin: 0.25rem 0;
+  }
+
+  .form-group textarea {
+    margin: 0.25rem 0;
+  }
+
+  .form-group select {
+    margin: 0.25rem 0;
+  }
+
+  .file-upload .custom-file-label {
+    margin: 0.25rem 0;
+    padding: 0.5rem;
+  }
+
+  .file-upload {
+    margin-left: 0 !important;
+  }
+
+  .delete-img {
+    margin: 0.25rem 0;
+    padding: 0.5rem;
+  }
 }

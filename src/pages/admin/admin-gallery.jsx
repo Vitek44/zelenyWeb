@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import AdminNavbar from "../../components/admin-navbar/admin-navbar";
 import "./admin.css";
 import { ToastContainer, toast } from "react-toastify";
-
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import Swal from "sweetalert2";
 const Admin = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -28,7 +29,7 @@ const Admin = () => {
   const [creditals, setCreditals] = useState({
     id: "",
     cesta: "",
-    kategorie: "",
+    kategorie: "Stoly",
     popis: "",
   });
   const _changeCreditals = (e) => {
@@ -103,29 +104,40 @@ const Admin = () => {
   };
 
   const removeGallery = (Id) => {
-    if (confirm("Opravdu chcete odstranit tento text?")) {
-      fetch("https://designjj-test.eu/php/removeGallery.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json", // 🔹 Přidej správné hlavičky
-        },
-        body: JSON.stringify({ id: Id }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.status === "success") {
-            loadData();
-            toast.success("Stůl byl úspěšně smazán");
-          } else {
-            console.error("Chyba:", data.message);
-            toast.error("Chyba: " + data.message);
-            console.log(Id);
-          }
+    Swal.fire({
+      title: "Opravdu chcete smazat tento obrázek?",
+      text: "Tento proces je nevratný!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#98ba49",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Smazat",
+      cancelButtonText: "Zrušit",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch("https://designjj-test.eu/php/removeGallery.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json", // 🔹 Přidej správné hlavičky
+          },
+          body: JSON.stringify({ id: Id }),
         })
-        .catch((err) => {
-          console.error("Chyba při načítání dat:", err);
-        });
-    }
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.status === "success") {
+              loadData();
+              toast.success("Stůl byl úspěšně smazán");
+            } else {
+              console.error("Chyba:", data.message);
+              toast.error("Chyba: " + data.message);
+              console.log(Id);
+            }
+          })
+          .catch((err) => {
+            console.error("Chyba při načítání dat:", err);
+          });
+      }
+    });
   };
 
   useEffect(() => {}, [creditals]);
@@ -144,6 +156,13 @@ const Admin = () => {
 
   return (
     <>
+      <HelmetProvider>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{`Admin panel | Filip Zelený`}</title>
+          <link rel="canonical" href="hhttps://www.filipzeleny.cz/admin/admin-gallery" />
+        </Helmet>
+      </HelmetProvider>
       <ToastContainer position="bottom-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
       <AdminNavbar />
       <div className="admin-wrapper">
@@ -162,8 +181,10 @@ const Admin = () => {
               <div className="stul-card">
                 <img src={item.cesta} alt="" />
                 <div className="card-title">
-                  <h3>{item.popis}</h3>
-                  <p>{item.kategorie}</p>
+                  <div class="card-title-content">
+                    <h3>{item.popis}</h3>
+                    <p>{item.kategorie}</p>
+                  </div>
                   <div className="card-btns">
                     <button className="delete" title="Smazat stůl" onClick={() => removeGallery(item.id)}>
                       <i className="fa-solid fa-trash"></i>
@@ -194,13 +215,14 @@ const Admin = () => {
             </div>
             <div className="modal-content">
               <div className="form-group">
-                <input type="text" name="popis" placeholder="Název stolu" value={creditals.popis} onChange={_changeCreditals} />
+                <input type="text" name="popis" placeholder="Popis" value={creditals.popis} onChange={_changeCreditals} />
               </div>
               <div className="form-group">
                 <select name="kategorie" value={creditals?.kategorie || ""} onChange={(e) => setCreditals({ ...creditals, kategorie: e.target.value })}>
-                  <option value="Kuchyně">Kuchyně</option>
+                  <option value="Stoly">Stoly</option>
                   <option value="Interiéry">Interiéry</option>
-                  <option value="Koupelny">Koupelny</option>
+                  <option value="Kuchyně">Kuchyně</option>
+                  <option value="Skříně">Skříně</option>
                 </select>
               </div>
               <div className="form-group">
@@ -208,7 +230,7 @@ const Admin = () => {
                   <label htmlFor="fileInput" className="custom-file-label">
                     Vyberte obrázky
                   </label>
-                  <input id="fileInput" type="file" name="files" multiple accept="image/*" onChange={handleFileChange} style={{ display: "none" }} />
+                  <input id="fileInput" type="file" name="files" accept="image/*" onChange={handleFileChange} style={{ display: "none" }} />
                 </div>
                 {/* Zobrazení obrázků */}
                 <div className="uploaded-images">
@@ -217,9 +239,6 @@ const Admin = () => {
                   ))}
                 </div>
               </div>
-              <button className="delete-img" onClick={() => clearFiles(creditals.id)}>
-                Smazat obrázky
-              </button>
               <div className="modal-btn">
                 <button className="save-btn" onClick={fetchData} title="Uložit stůl">
                   Uložit

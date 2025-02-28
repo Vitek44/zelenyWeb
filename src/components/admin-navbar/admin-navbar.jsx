@@ -12,12 +12,12 @@ const AdminNavbar = () => {
       <ul>
         <li>
           <a href="/admin/admin-panel">
-            <img src="../img/navStoly.svg" alt="" />
+            <i className="fa-solid fa-wrench"></i>
           </a>
         </li>
         <li>
           <a href="/admin/admin-gallery">
-            <img src="../img/navImg.svg" alt="" />
+            <i className="fa-solid fa-image"></i>
           </a>
         </li>
       </ul>

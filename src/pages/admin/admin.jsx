@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import AdminNavbar from "../../components/admin-navbar/admin-navbar";
 import "./admin.css";
 import { ToastContainer, toast } from "react-toastify";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const Admin = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -115,26 +117,37 @@ const Admin = () => {
   };
 
   const removeTable = (Id) => {
-    if (confirm("Opravdu chcete odstranit tento text?")) {
-      fetch("https://designjj-test.eu/php/removeTable.php", {
-        method: "POST",
+    Swal.fire({
+      title: "Opravdu chcete smazat tento stůl?",
+      text: "Tento proces je nevratný!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#98ba49",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Smazat",
+      cancelButtonText: "Zrušit",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch("https://designjj-test.eu/php/removeTable.php", {
+          method: "POST",
 
-        body: JSON.stringify({ Id: Id }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success) {
-            loadData();
-            toast.success("Stůl byl úspěšně smazán");
-          } else {
-            loadData();
-            toast.success("Stůl byl úspěšně smazán");
-          }
+          body: JSON.stringify({ Id: Id }),
         })
-        .catch((err) => {
-          console.error("Chyba při načítání dat:", err);
-        });
-    }
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.success) {
+              loadData();
+              toast.success("Stůl byl úspěšně smazán");
+            } else {
+              loadData();
+              toast.success("Stůl byl úspěšně smazán");
+            }
+          })
+          .catch((err) => {
+            console.error("Chyba při načítání dat:", err);
+          });
+      }
+    });
   };
 
   const editTable = (Id) => {
@@ -168,10 +181,7 @@ const Admin = () => {
     }
   };
 
-  useEffect(() => {
-    console.log("Aktualizované Creditals:", creditals);
-    console.log("Files:", files);
-  }, [creditals]);
+  useEffect(() => {}, [creditals]);
 
   const [files, setFiles] = useState([]);
 
@@ -209,6 +219,13 @@ const Admin = () => {
 
   return (
     <>
+      <HelmetProvider>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{`Admin panel | Filip Zelený`}</title>
+          <link rel="canonical" href="hhttps://www.filipzeleny.cz/admin/admin-panel" />
+        </Helmet>
+      </HelmetProvider>
       <ToastContainer position="bottom-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
       <AdminNavbar />
       <div className="admin-wrapper">
