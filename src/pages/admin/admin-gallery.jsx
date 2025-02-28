@@ -4,7 +4,7 @@ import AdminNavbar from "../../components/admin-navbar/admin-navbar";
 import "./admin.css";
 import { ToastContainer, toast } from "react-toastify";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-
+import Swal from "sweetalert2";
 const Admin = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -104,29 +104,40 @@ const Admin = () => {
   };
 
   const removeGallery = (Id) => {
-    if (confirm("Opravdu chcete odstranit tento text?")) {
-      fetch("https://designjj-test.eu/php/removeGallery.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json", // 🔹 Přidej správné hlavičky
-        },
-        body: JSON.stringify({ id: Id }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.status === "success") {
-            loadData();
-            toast.success("Stůl byl úspěšně smazán");
-          } else {
-            console.error("Chyba:", data.message);
-            toast.error("Chyba: " + data.message);
-            console.log(Id);
-          }
+    Swal.fire({
+      title: "Opravdu chcete smazat tento obrázek?",
+      text: "Tento proces je nevratný!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#98ba49",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Smazat",
+      cancelButtonText: "Zrušit",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch("https://designjj-test.eu/php/removeGallery.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json", // 🔹 Přidej správné hlavičky
+          },
+          body: JSON.stringify({ id: Id }),
         })
-        .catch((err) => {
-          console.error("Chyba při načítání dat:", err);
-        });
-    }
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.status === "success") {
+              loadData();
+              toast.success("Stůl byl úspěšně smazán");
+            } else {
+              console.error("Chyba:", data.message);
+              toast.error("Chyba: " + data.message);
+              console.log(Id);
+            }
+          })
+          .catch((err) => {
+            console.error("Chyba při načítání dat:", err);
+          });
+      }
+    });
   };
 
   useEffect(() => {}, [creditals]);
