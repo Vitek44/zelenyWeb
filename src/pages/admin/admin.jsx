@@ -11,6 +11,46 @@ const Admin = () => {
 
   const [data, setData] = useState([]);
 
+  const verifyToken = () => {
+    fetch("https://designjj-test.eu/php/verify-token.php") // Nahraď cestou k PHP skriptu
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Chyba při načítání dat z PHP");
+        }
+        return response.json(); // Očekáváme JSON odpověď
+      })
+      .then((data) => {
+        // Debugging - výpis tokenů pro ladění
+
+        const sessionToken = data.sessionToken; // Token ze session
+        const databaseToken = data.databaseToken; // Token z databáze
+
+        // Kontrola, jestli jsou tokeny správně načteny
+        if (sessionToken === undefined || databaseToken === undefined) {
+          console.error("Jedna nebo obě hodnoty tokenu chybí.");
+          return;
+        }
+
+        // Porovnání tokenů
+        if (sessionToken === databaseToken) {
+          // Tokeny se shodují – přesměrování na admin-panel
+          toast.success("Přihlášení proběhlo úspěšně");
+        } else {
+          // Tokeny se neshodují – zůstaň na /admin/
+          console.log("Tokeny se neshodují.");
+          window.location.href = "/admin/";
+        }
+      })
+      .catch((error) => {
+        console.error("Chyba:", error);
+        alert("Session vypršela.");
+      });
+  };
+
+  useEffect(() => {
+    verifyToken();
+  }, []);
+
   const loadData = () => {
     fetch(`https://designjj-test.eu/php/getProdukt.php`, {
       method: "POST",

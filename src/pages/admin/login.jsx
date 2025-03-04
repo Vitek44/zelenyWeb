@@ -31,6 +31,10 @@ const Login = () => {
     getData();
   }, []);
 
+  const sendTokenToDatabase = () => {
+    fetch("https://designjj-test.eu/php/token.php");
+  };
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -44,6 +48,7 @@ const Login = () => {
   const handleLogin = () => {
     // Akce při přihlášení (například ověření přihlašovacích údajů)
     if (loginData.some((test) => test.jmeno === username && test.heslo === password)) {
+      sendTokenToDatabase();
       toast.info("Přihlašovaní ...");
       setTimeout(() => {
         navigate("/admin/admin-panel");
@@ -62,7 +67,9 @@ const Login = () => {
         <div className="login-container">
           <input type="text" placeholder="Jméno" value={username} onChange={(e) => setUsername(e.target.value)} required onKeyDown={handleKeyDown} />
           <input type="password" placeholder="Heslo" value={password} onChange={(e) => setPassword(e.target.value)} required onKeyDown={handleKeyDown} />
-          <button onClick={handleLogin}>Přihlásit se</button>
+          <a onClick={handleLogin}>
+            <button>Přihlásit se</button>
+          </a>
         </div>
       </div>
     </>
