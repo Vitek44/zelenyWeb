@@ -3,38 +3,43 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once 'ini.php'; // Předpokládám, že tento soubor obsahuje připojení k databázi pomocí MySQLi
-
+// Spuštění session (musí být jako první)
 session_start();
 
 // Generování tokenu
-$token = bin2hex(random_bytes(16));
+$token = bin2hex(random_bytes(8));
 
-var_dump($token);
+// Uložení tokenu do session
+$_SESSION['token'] = $token;
 
-// Uložení tokenu do databáze (používáme MySQLi)
+// Uložení tokenu do cookies (musí být před jakýmkoliv výstupem)
+setcookie("token", $token, time() + 3600, "/", "", false, true);
+
+// Připojení k databázi
+require_once 'ini.php'; 
+
+// Uložení tokenu do databáze
 try {
-    // Příprava SQL dotazu pro vložení tokenu
+    // Příprava dotazu
     $sql = "INSERT INTO tokens (token) VALUES (?)";
     $stmt = $conn->prepare($sql);
     
     if ($stmt) {
-        // Navázání hodnoty tokenu
         $stmt->bind_param("s", $token);
-        
-        // Spuštění dotazu
         $stmt->execute();
-        
-        // Uzavření statementu
         $stmt->close();
+
+        // ✅ Přesměrování na /admin/admin-panel po úspěšném uložení
+        header("Location: /admin/admin-panel");
+        exit(); // Ukončí skript, aby se nepokračovalo v provádění
     } else {
         throw new Exception("Chyba při přípravě dotazu: " . $conn->error);
     }
 } catch (Exception $e) {
-    // Pokud dojde k chybě při vykonávání dotazu
     echo 'Chyba při ukládání tokenu: ' . $e->getMessage();
 }
 
-// Uložení tokenu do session
-$_SESSION['token'] = $token;
+// Debug - zobrazíme session a cookies (vypíše se jen při chybě)
+echo "Session token: " . ($_SESSION['token'] ?? 'není nastaven') . "<br>";
+echo "Cookie token: " . ($_COOKIE['token'] ?? 'není nastaven') . "<br>";
 ?>
