@@ -21,6 +21,13 @@ const AdminNavbar = () => {
           </a>
         </li>
       </ul>
+      <div class="logout">
+        <li>
+          <a href="https://designjj-test.eu/php/logout.php">
+            <i className="fa-solid fa-right-from-bracket"></i>
+          </a>
+        </li>
+      </div>
     </nav>
   );
 };

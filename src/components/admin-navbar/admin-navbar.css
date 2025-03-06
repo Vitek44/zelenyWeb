@@ -26,6 +26,7 @@
   width: 100%;
   align-items: center;
   margin-top: 2rem;
+  height: 20%;
 }
 
 .admin-navbar li a {
@@ -49,6 +50,12 @@
   color: black;
 }
 
+.logout {
+  display: flex;
+  height: 100%;
+  align-items: end;
+}
+
 @media (max-width: 1024px) {
   .admin-navbar {
     width: 100%;
@@ -68,6 +75,7 @@
     margin: 0;
     flex-direction: row;
     justify-content: flex-end;
+    height: unset;
   }
 
   .admin-navbar li a img {
@@ -87,5 +95,9 @@
   .admin-navbar li a {
     margin: 0;
     padding: 0 1rem;
+  }
+
+  .logout {
+    height: unset;
   }
 }
