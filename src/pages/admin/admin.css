@@ -1,7 +1,8 @@
 .admin-wrapper {
   padding: 4rem 0;
   background-color: #272c38;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
 }
 
 .admin-content {
@@ -19,9 +20,10 @@
 
 .stul-card img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 200px;
+  object-fit: cover;
   border-radius: 5px;
+  object-position: top;
 }
 
 .card-title {
@@ -37,6 +39,14 @@
   margin: 0;
   text-transform: uppercase;
   color: rgb(0, 0, 0);
+}
+
+.card-title p {
+  margin-top: 0.5rem;
+}
+
+.card-title-content {
+  margin-right: 0.5rem;
 }
 
 .edit {
@@ -104,8 +114,8 @@
 }
 
 .modal-wrapper {
-  position: absolute;
-  z-index: 1;
+  position: fixed;
+  z-index: 99999999;
   left: 0;
   top: 0;
   width: 100%;
@@ -227,8 +237,107 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin-right: 0.5rem;
   font-size: 18px;
+  transition: all 0.3s ease;
 }
 
 .save-btn:hover {
   background-color: #7c973c;
+  transition: all 0.3s ease;
+}
+
+.modal-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 3px solid var(--green);
+  transition: all 0.3s ease;
+  filter: brightness(1);
+}
+
+.modal-img:hover {
+  cursor: pointer;
+  filter: brightness(0.6);
+  transition: all 0.3s ease;
+}
+
+.modal .file-upload {
+  margin-left: 0.5rem;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.file-upload .custom-file-label {
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 5px;
+  background-color: var(--green);
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-right: 1rem;
+}
+
+.delete-img {
+  background-color: #d40303;
+  color: #ffffff;
+  padding: 0.75rem;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  .modal {
+    width: 100%;
+  }
+
+  .form-group {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .form-group input {
+    margin: 0.25rem 0;
+  }
+
+  .form-group textarea {
+    margin: 0.25rem 0;
+  }
+
+  .form-group select {
+    margin: 0.25rem 0;
+  }
+
+  .file-upload .custom-file-label {
+    margin: 0.25rem 0;
+    padding: 0.5rem;
+  }
+
+  .file-upload {
+    margin-left: 0 !important;
+  }
+
+  .delete-img {
+    margin: 0.25rem 0;
+    padding: 0.5rem;
+  }
+
+  .modal-wrapper {
+    overflow: auto !important;
+    height: 100%;
+  }
+
+  .modal {
+    top: 60%;
+  }
 }

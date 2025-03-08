@@ -43,7 +43,13 @@
   background-color: var(--green, #4caf50);
   animation: progress 5s linear infinite;
 }
+.item--active {
+  background-color: var(--green);
+}
 
+.item__label {
+  padding: 1rem 1rem;
+}
 @keyframes progress {
   0% {
     width: 0;

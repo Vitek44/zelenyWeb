@@ -74,6 +74,7 @@ function Konfigurator() {
                   <fog attach="fog" args={["#ffffff", 10, 20]} /> */}
 
                   <color attach="background" args={["#ffffff"]} />
+
                   <Experience />
                 </Canvas>
               </div>

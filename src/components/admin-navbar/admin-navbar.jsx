@@ -12,15 +12,22 @@ const AdminNavbar = () => {
       <ul>
         <li>
           <a href="/admin/admin-panel">
-            <img src="../img/navStoly.svg" alt="" />
+            <i className="fa-solid fa-wrench"></i>
           </a>
         </li>
         <li>
-          <a href="/admin/admin-panel">
-            <img src="../img/navImg.svg" alt="" />
+          <a href="/admin/admin-gallery">
+            <i className="fa-solid fa-image"></i>
           </a>
         </li>
       </ul>
+      <div class="logout">
+        <li>
+          <a href="https://designjj-test.eu/php/logout.php">
+            <i className="fa-solid fa-right-from-bracket"></i>
+          </a>
+        </li>
+      </div>
     </nav>
   );
 };

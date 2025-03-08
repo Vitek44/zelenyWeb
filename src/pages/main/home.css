@@ -254,6 +254,22 @@
   padding: 6rem 0;
 }
 
+@media (max-width: 1034px) {
+  .bar {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .bar h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .aboutmeText p {
+    font-size: 16px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .content-slider h1 {
     font-size: 38px;
@@ -305,14 +321,5 @@
 
   .form-group {
     flex-direction: column;
-  }
-
-  .bar {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .bar h3 {
-    margin-bottom: 0.5rem;
   }
 }

@@ -90,6 +90,7 @@ function SubMenu() {
     }
     return price.toLocaleString("cs-CZ") + " Kč";
   };
+
   return (
     <>
       <HelmetProvider>
@@ -115,9 +116,7 @@ function SubMenu() {
                   <div className="stoly-text">
                     <h1>{item.Nazev}</h1>
                     <p>
-                      <p>
-                        {i18next.language === "de" ? item.PopisekDE : i18next.language === "en" ? item.PopisekEN : item.Popisek} , {item.Vyska}x{item.Sirka} cm
-                      </p>
+                      {(i18next.language === "de" ? item.PopisDE : i18next.language === "en" ? item.PopisEN : item.Popis).split(",")[0]}, {item.Vyska}x{item.Sirka} cm
                     </p>
                     <div className="text-row">
                       <span>{formatCena(getFormattedPrice(item.Cena))}</span>

@@ -89,6 +89,12 @@
 @media (max-width: 768px) {
   .kontakt-content {
     flex-direction: column-reverse;
+    height: 100%;
+  }
+
+  .kontakt-content input,
+  .kontakt-content textarea {
+    margin-bottom: 1rem;
   }
 
   .kontakt-info {
@@ -98,5 +104,15 @@
   .kontakt-form {
     width: 100%;
     margin-bottom: 4rem;
+  }
+}
+
+@media (max-width: 1034px) {
+  .kontakt-item i {
+    font-size: 24px;
+  }
+
+  .kontakt-item h5 {
+    font-size: 16px;
   }
 }

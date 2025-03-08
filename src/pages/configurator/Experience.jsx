@@ -9,14 +9,24 @@ import Table from "./Table"; // Import z Table.jsx
 const Experience = () => {
   return (
     <PresentationControls
-      speed={1.5}
-      global
-      zoom={1.5} // Vypnutí zoomu při otáčení
+      speed={0.75}
+      global={true}
+      zoom={1} // Vypnutí zoomu při otáčení
       polar={[-0.1, Math.PI / 4]}
     >
-      <Stage environment="city" intensity={0.6} contactShadow={false}>
+      <Stage
+        environment="apartment"
+        intensity={0.1}
+        contactShadow={{ opacity: 0.4, blur: 2 }}
+        adjustCamera={1.2}
+        preset={"rembrandt"}
+      >
         <Suspense fallback={null}>
-          <Table scale={[1.5, 1.5, 1.5]} /> {/* Zvětšení objektu */}
+          <Table
+            scale={[2.0, 2.0, 2.0]}
+            rotation={[0, Math.PI / 4, 0]}
+            position={[0, -1, 0]}
+          />
         </Suspense>
       </Stage>
     </PresentationControls>
