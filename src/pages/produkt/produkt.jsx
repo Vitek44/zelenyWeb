@@ -11,6 +11,8 @@ import "aos/dist/aos.css";
 import SliderProduct from "../../components/sliderProduct/sliderProduct";
 import i18next from "i18next";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { div } from "three/tsl";
 
 function Produkt({ id }) {
@@ -114,8 +116,67 @@ function Produkt({ id }) {
     return price.toLocaleString("cs-CZ") + " Kč";
   };
 
+  const [formData, setFormData] = useState({
+    id: "",
+    nazev: "",
+    jmeno: "",
+    email: "",
+    telefon: "",
+    zprava: "",
+  });
+
+  useEffect(() => {
+    if (getData) {
+      setFormData((prev) => ({
+        ...prev,
+        id: getData.Id || "",
+        nazev: getData.Nazev || "",
+      }));
+    }
+  }, [getData]); // Spustí se, když se `getData` změní
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSend = () => {
+    if (!formData.jmeno || !formData.email || !formData.telefon || !formData.zprava) {
+      toast.error("Vyplňte všechny povinné údaje.");
+      return;
+    }
+    fetch("https://designjj-test.eu/php/sendEmail.php", {
+      method: "POST", // Správná metoda
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData), // Převod objektu na JSON
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          toast.success("Zpráva byla odeslána.");
+          setModalOpen(false);
+          setFormData({
+            id: "",
+            nazev: "",
+            jmeno: "",
+            email: "",
+            telefon: "",
+            zprava: "",
+          });
+        } else {
+          toast.error("Nepodařilo se odeslat zprávu.");
+        }
+      })
+      .catch((err) => {
+        console.error("Chyba při odesílání zprávy:", err);
+        toast.error("Chyba při komunikaci se serverem.");
+      });
+  };
+
   return (
     <>
+      <ToastContainer position="bottom-right" autoClose={500} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" transition:Bounce />
       <HelmetProvider>
         <Helmet>
           <meta charSet="utf-8" />
@@ -141,7 +202,7 @@ function Produkt({ id }) {
                 <h5>{t("Typ_desky")}:</h5>
                 <div className="item-row">
                   <p>{getData.Material}</p>
-                  <img src="/img/typ_desky.svg" alt="" />
+                  <img src={`/img/${getData.Material}.png`} alt={getData.Material} />
                 </div>
               </div>
               <div className="produkt-item" data-aos="fade-left" data-aos-delay="50">
@@ -190,35 +251,44 @@ function Produkt({ id }) {
             <div className="modal-wrapper">
               <div className="modal">
                 <div className="modal-header">
-                  <h3>Poptávka</h3>
+                  <h3>
+                    Poptávka stolu <span>{getData.Nazev}</span>
+                  </h3>
                   <button
                     className="close-modal"
                     onClick={() => {
                       setModalOpen(false);
+                      setFormData({
+                        id: "",
+                        nazev: "",
+                        jmeno: "",
+                        email: "",
+                        telefon: "",
+                        zprava: "",
+                      });
                     }}
                     title="Zavřít okno"
                   >
                     <i className="fa-solid fa-xmark"></i>
                   </button>
                 </div>
-                <div class="modal-content">
+                <div className="modal-content">
                   <div className="form-group">
-                    <input type="text" name="nazev" value={getData.Nazev} />
+                    <input type="text" name="jmeno" placeholder="Firma / Jméno" value={formData.jmeno} onChange={handleChange} />
                   </div>
                   <div className="form-group">
-                    <input type="text" name="jmeno" placeholder="Firma / Jméno" />
+                    <input type="text" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
                   </div>
                   <div className="form-group">
-                    <input type="text" name="email" placeholder="Email" />
+                    <input type="text" name="telefon" placeholder="Telefon" value={formData.telefon} onChange={handleChange} />
                   </div>
                   <div className="form-group">
-                    <input type="text" name="telefon" placeholder="Telefon" />
-                  </div>
-                  <div className="form-group">
-                    <textarea name="zprava" placeholder="Zpráva"></textarea>
+                    <textarea name="zprava" placeholder="Zpráva" value={formData.zprava} onChange={handleChange}></textarea>
                   </div>
                   <div className="modal-btn">
-                    <button className="save-btn">{t("Produkt_btn")}</button>
+                    <button className="save-btn" onClick={handleSend}>
+                      {t("Produkt_btn")}
+                    </button>
                   </div>
                 </div>
               </div>
@@ -226,15 +296,15 @@ function Produkt({ id }) {
           ) : (
             ""
           )}
-          <div class="desc-wrapper">
-            <div class="desc-content">
-              <div class="desc-title">Popis stolu</div>
-              <div class="desc-text">
+          <div className="desc-wrapper">
+            <div className="desc-content">
+              <div className="desc-title">Popis stolu</div>
+              <div className="desc-text">
                 <p>{i18next.language === "de" ? getData.PopisDE : i18next.language === "en" ? getData.PopisEN : getData.Popis}</p>
               </div>
             </div>
           </div>
-          <div class="title">
+          <div className="title">
             <h2>{t("title7")}</h2>
             <h1>{t("subtitle7")}</h1>
           </div>

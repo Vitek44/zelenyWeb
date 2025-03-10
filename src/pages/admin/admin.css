@@ -157,6 +157,11 @@
   margin: 0 0.5rem;
 }
 
+.modal-header h3 span {
+  font-weight: 500;
+  color: var(--green);
+}
+
 .modal-header .close-modal {
   background-color: transparent;
   color: #d40303;
@@ -339,5 +344,9 @@
 
   .modal {
     top: 60%;
+  }
+
+  .modal-header {
+    margin-bottom: 1rem;
   }
 }

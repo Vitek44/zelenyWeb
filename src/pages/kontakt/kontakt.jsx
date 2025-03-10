@@ -17,14 +17,14 @@ export default function Kontakt() {
 
   // Souřadnice pro zobrazení mapy
   const center = {
-    lat: 49.94061279296875, // Poskytnutá šířka
-    lng: 15.798074722290039, // Poskytnutá délka
+    lat: 49.9387325, // Poskytnutá šířka
+    lng: 15.80052, // Poskytnutá délka
   };
 
   // Pozice markeru
   const markerPosition = {
-    lat: 49.94061279296875,
-    lng: 15.798074722290039,
+    lat: 49.9387325, // Poskytnutá šířka
+    lng: 15.80052,
   };
 
   // Funkce se volá, když je mapa načtena
