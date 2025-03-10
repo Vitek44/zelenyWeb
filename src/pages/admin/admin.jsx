@@ -334,7 +334,17 @@ const Admin = () => {
                 <input type="text" name="nazev" placeholder="Název stolu" value={creditals.nazev} onChange={_changeCreditals} />
               </div>
               <div className="form-group">
-                <input type="text" name="material" placeholder="Materiál" value={creditals.material} onChange={_changeCreditals} />
+                <select name="material" id="material" value={creditals?.material || ""} onChange={(e) => setCreditals({ ...creditals, material: e.target.value })}>
+                  <option disabled value="">
+                    -- Vybere materiál --
+                  </option>
+                  <option value="Dub">Dub</option>
+                  <option value="Jasan">Jasan</option>
+                  <option value="Ořech">Ořech</option>
+                  <option value="Americký ořech">Americký ořech</option>
+                  <option value="Kaštan">Kaštan</option>
+                  <option value="Oliva">Oliva</option>
+                </select>
                 <select name="typ" value={creditals?.typ || ""} onChange={(e) => setCreditals({ ...creditals, typ: e.target.value })}>
                   <option disabled value="">
                     -- Vybere materiál --
