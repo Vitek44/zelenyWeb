@@ -235,7 +235,7 @@ function Produkt({ id }) {
               </div>
               <div className="produkt-akce" data-aos="fade-left" data-aos-delay="250">
                 <div className="produkt-cena">
-                  <span>{"ID#" + getData.Prodej_id}</span>
+                  <span>{"ID#" + getData.Id}</span>
                   <h3>{formatCena(getFormattedPrice(getData.Cena) + ",-")}</h3>
                   <p>{formatCena(getFormattedPrice(cenaBezDPH) + " " + t("bez_dph"))}</p>
                 </div>
