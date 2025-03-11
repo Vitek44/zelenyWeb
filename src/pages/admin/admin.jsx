@@ -392,10 +392,10 @@ const Admin = () => {
                   ))}
                 </div>
               </div>
-              <button className="delete-img" onClick={() => clearFiles(creditals.Id)}>
-                Smazat obrázky
-              </button>
               <div className="modal-btn">
+                <button className="delete-img" onClick={() => clearFiles(creditals.Id)}>
+                  Smazat obrázky
+                </button>
                 <button className="save-btn" onClick={fetchData} title="Uložit stůl">
                   Uložit
                 </button>
