@@ -62,7 +62,7 @@
   height: 100%;
 }
 
-.kontakt-form form {
+.kontakt-form {
   display: flex;
   flex-direction: column;
   height: 100%;
