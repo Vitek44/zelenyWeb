@@ -11,7 +11,6 @@ import {
   CustomizationProvider,
 } from "./context/Customization";
 import Configuratoring from "./configuratoring";
-import { Environment } from "@react-three/drei";
 
 function Konfigurator() {
   let navigate = useNavigate();

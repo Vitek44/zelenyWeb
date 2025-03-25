@@ -39,6 +39,33 @@ const Configurator = () => {
               <img src="../../img/circle.png" alt="" />
             </div>
           </div>
+          <div
+            className={`item ${shape === 4 ? "item--active" : ""}`}
+            onClick={() => setShape(4)}
+          >
+            <div className="item__label">
+              {" "}
+              <img src="../../img/circle.png" alt="" />
+            </div>
+          </div>
+          <div
+            className={`item ${shape === 5 ? "item--active" : ""}`}
+            onClick={() => setShape(5)}
+          >
+            <div className="item__label">
+              {" "}
+              <img src="../../img/circle.png" alt="" />
+            </div>
+          </div>
+          <div
+            className={`item ${shape === 6 ? "item--active" : ""}`}
+            onClick={() => setShape(6)}
+          >
+            <div className="item__label">
+              {" "}
+              <img src="../../img/circle.png" alt="" />
+            </div>
+          </div>
         </div>
       </div>
       <div className="configurator-label">

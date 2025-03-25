@@ -30,6 +30,42 @@ const Table = (props) => {
   return (
     <group {...props} dispose={null}>
       <mesh
+        geometry={nodes["6table"].geometry}
+        material={nodes["6table"].material}
+        position={[0, 1.302, 0]}
+        scale={[1.425, 0.043, 1.425]}
+        visible={shape === 6}
+      >
+        <meshStandardMaterial
+          {...(material === "wood1" ? wood1TextureProps : wood2TextureProps)}
+        />
+      </mesh>
+      <mesh
+        geometry={nodes["8table"].geometry}
+        material={nodes["8table"].material}
+        position={[0, 1.302, 0]}
+        scale={[1.425, 0.043, 1.425]}
+        visible={shape === 5}
+      >
+        <meshStandardMaterial
+          {...(material === "wood1" ? wood1TextureProps : wood2TextureProps)}
+        />
+      </mesh>
+
+      <mesh
+        geometry={nodes.Plane.geometry}
+        material={nodes.Plane.material}
+        position={[0, 1.295, 0]}
+        rotation={[-Math.PI, -1.571, 0]}
+        scale={[1.639, 1, 1]}
+        visible={shape === 4}
+      >
+        <meshStandardMaterial
+          {...(material === "wood1" ? wood1TextureProps : wood2TextureProps)}
+        />
+      </mesh>
+
+      <mesh
         geometry={nodes.obdelnik.geometry}
         position={[0, 1.302, 0]}
         scale={[1.129, 0.043, 1.129]}
@@ -74,7 +110,7 @@ const Table = (props) => {
         material={materials["Material.014"]}
         position={[0, 1.295, 0]}
         scale={[1.174, 0.037, 1.174]}
-        visible={shape === 6}
+        visible={shape === 51}
       />
       <mesh
         geometry={nodes.Nohy001.geometry}
