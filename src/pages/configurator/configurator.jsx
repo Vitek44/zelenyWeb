@@ -6,10 +6,7 @@ import Experience from "./Experience";
 import "./configurator.css";
 import { useNavigate } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import {
-  useCustomization,
-  CustomizationProvider,
-} from "./context/Customization";
+import { useCustomization, CustomizationProvider } from "./context/Customization";
 import Configuratoring from "./configuratoring";
 import { Environment } from "@react-three/drei";
 
@@ -54,10 +51,7 @@ function Konfigurator() {
         <Helmet>
           <meta charSet="utf-8" />
           <title>{t("configuratorTitle")} | Filip Zelený</title>
-          <link
-            rel="canonical"
-            href="https://www.filipzeleny.cz/konfigurator"
-          />
+          <link rel="canonical" href="https://www.filipzeleny.cz/konfigurator" />
         </Helmet>
       </HelmetProvider>
       <Navbar />
@@ -78,11 +72,15 @@ function Konfigurator() {
                   <Experience />
                 </Canvas>
               </div>
+
               <div className="configurator-content">
                 <Configuratoring />
               </div>
             </CustomizationProvider>
           </div>
+        </div>
+        <div className="configurator-send">
+          <button onClick={handleSubmit}>Odeslat konfiguraci</button>
         </div>
       </div>
     </>

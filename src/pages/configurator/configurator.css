@@ -1,5 +1,5 @@
 .configurator-main {
-  padding: 12rem 0;
+  padding: 12rem 0 0 0;
 }
 .configurator-section {
   width: 100%;
@@ -50,6 +50,7 @@
 .item__label {
   padding: 1rem 1rem;
 }
+
 @keyframes progress {
   0% {
     width: 0;
