@@ -6,7 +6,7 @@ import { useCustomization } from "./context/Customization";
 
 // Table komponenta pro zobrazení modelu
 const Table = (props) => {
-  const { nodes, materials } = useGLTF("./models/table.gltf"); // Cesta k modelu
+  const { nodes, materials } = useGLTF("/models/table.gltf"); // Cesta k modelu
   const { shape, setShape, legs, setLegs, material } = useCustomization();
 
   const wood1TextureProps = useTexture({
@@ -70,5 +70,5 @@ const Table = (props) => {
     </group>
   );
 };
-useGLTF.preload("./models/table.gltf");
+useGLTF.preload("/models/table.gltf");
 export default Table;
