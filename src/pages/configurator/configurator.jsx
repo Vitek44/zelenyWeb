@@ -1,15 +1,11 @@
-import React, { useState } from "react";
-import Navbar from "../../components/navbar/navbar";
+import { useRef, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Canvas } from "@react-three/fiber";
 import Experience from "./Experience";
 import "./configurator.css";
 import { useNavigate } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import {
-  useCustomization,
-  CustomizationProvider,
-} from "./context/Customization";
+import { useCustomization, CustomizationProvider } from "./context/Customization";
 import Configuratoring from "./configuratoring";
 
 function Konfigurator() {
@@ -53,35 +49,29 @@ function Konfigurator() {
         <Helmet>
           <meta charSet="utf-8" />
           <title>{t("configuratorTitle")} | Filip Zelený</title>
-          <link
-            rel="canonical"
-            href="https://www.filipzeleny.cz/konfigurator"
-          />
+          <link rel="canonical" href="https://www.filipzeleny.cz/konfigurator" />
         </Helmet>
       </HelmetProvider>
-      <Navbar />
+      <a href="/" className="back-btn">
+        <i className="fa-solid fa-arrow-left"></i>
+      </a>
       <div className="configurator-main">
-        <div className="container">
-          <div className="podmenu-title">
-            <h1>{t("configuratorTitle")}</h1>
-          </div>
-          <div className="configurator-section">
-            <CustomizationProvider>
-              <div className="configurator-picture">
-                <Canvas dpr={[1, 2]}>
-                  {/* <color attach="background" args={["#ffffff"]} />
+        <div className="configurator-section">
+          <CustomizationProvider>
+            <div className="configurator-picture">
+              <Canvas dpr={[1, 2]}>
+                {/* <color attach="background" args={["#ffffff"]} />
                   <fog attach="fog" args={["#ffffff", 10, 20]} /> */}
 
-                  <color attach="background" args={["#ffffff"]} />
+                <color attach="background" args={["#f7f7f7"]} />
 
-                  <Experience />
-                </Canvas>
-              </div>
-              <div className="configurator-content">
-                <Configuratoring />
-              </div>
-            </CustomizationProvider>
-          </div>
+                <Experience />
+              </Canvas>
+            </div>
+            <div className="configurator-content">
+              <Configuratoring />
+            </div>
+          </CustomizationProvider>
         </div>
       </div>
     </>

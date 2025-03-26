@@ -6,19 +6,9 @@ const Experience = () => {
   return (
     <>
       <Stage environment="city" intensity={1.5} adjustcamera={2}>
-        <Tables
-          scale={[2.0, 2.0, 2.0]}
-          rotation={[0, Math.PI / 4, 0]}
-          position={[0, -1, 0]}
-        />
+        <Tables scale={[2.0, 2.0, 2.0]} rotation={[0, Math.PI / 4, 0]} position={[0, -1, 0]} />
       </Stage>
-      <OrbitControls
-        makeDefault
-        minPolarAngle={0}
-        maxPolarAngle={Math.PI / 2}
-        minDistance={5}
-        maxDistance={7.5}
-      />
+      <OrbitControls makeDefault minPolarAngle={0} maxPolarAngle={Math.PI / 2} minDistance={5} maxDistance={7.5} />
     </>
   );
 };
