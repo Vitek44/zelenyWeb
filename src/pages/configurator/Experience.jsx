@@ -1,6 +1,6 @@
 import { PresentationControls, Stage, OrbitControls, MeshReflectorMaterial } from "@react-three/drei"; // Import pro ovládání a stage
 import { Suspense } from "react";
-import Table from "./Table"; // Import z Table.jsx
+import Tables from "./Table"; // Import z Table.jsx
 
 const Experience = () => {
   return (
@@ -21,5 +21,17 @@ const Experience = () => {
     </>
   );
 };
-
 export default Experience;
+
+{
+  /*
+  npx gltfjsx@6.5.3 public/models/table.gltf
+✅ OrbitControls – pro ovládání kamery
+✅ Stage – automatické nasvícení scény
+✅ Environment – HDRI pro realističtější vzhled
+✅ useGLTF & useTexture – načítání modelů a textur
+✅ Html – pro popisky možností konfigurace
+✅ Bounds – lepší automatické přizpůsobení kamery
+✅ Reflector – pokud chceš lesklé povrchy 
+*/
+}

@@ -11,6 +11,46 @@ const Admin = () => {
 
   const [data, setData] = useState([]);
 
+  const verifyToken = () => {
+    fetch("https://designjj-test.eu/php/verify-token.php") // Nahraď cestou k PHP skriptu
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Chyba při načítání dat z PHP");
+        }
+        return response.json(); // Očekáváme JSON odpověď
+      })
+      .then((data) => {
+        // Debugging - výpis tokenů pro ladění
+
+        const sessionToken = data.sessionToken; // Token ze session
+        const databaseToken = data.databaseToken; // Token z databáze
+
+        // Kontrola, jestli jsou tokeny správně načteny
+        if (sessionToken === undefined || databaseToken === undefined) {
+          console.error("Jedna nebo obě hodnoty tokenu chybí.");
+          return;
+        }
+
+        // Porovnání tokenů
+        if (sessionToken === databaseToken) {
+          // Tokeny se shodují – přesměrování na admin-panel
+          toast.success("Přihlášení proběhlo úspěšně");
+        } else {
+          // Tokeny se neshodují – zůstaň na /admin/
+          console.log("Tokeny se neshodují.");
+          window.location.href = "/admin/";
+        }
+      })
+      .catch((error) => {
+        console.error("Chyba:", error);
+        alert("Session vypršela.");
+      });
+  };
+
+  useEffect(() => {
+    verifyToken();
+  }, []);
+
   const loadData = () => {
     fetch(`https://designjj-test.eu/php/getProdukt.php`, {
       method: "POST",
@@ -30,7 +70,7 @@ const Admin = () => {
   const [creditals, setCreditals] = useState({
     Id: "",
     nazev: "",
-    material: "",
+    material: "Dub",
     vyska: "",
     sirka: "",
     tloustka: "",
@@ -298,8 +338,22 @@ const Admin = () => {
                 <input type="text" name="nazev" placeholder="Název stolu" value={creditals.nazev} onChange={_changeCreditals} />
               </div>
               <div className="form-group">
-                <input type="text" name="material" placeholder="Materiál" value={creditals.material} onChange={_changeCreditals} />
+                <select name="material" id="material" value={creditals?.material || ""} onChange={(e) => setCreditals({ ...creditals, material: e.target.value })}>
+                  <option disabled value="">
+                    -- Vybere materiál --
+                  </option>
+                  <option value="Dub">Dub</option>
+                  <option value="Jasan">Jasan</option>
+                  <option value="Ořech">Ořech</option>
+                  <option value="Americký ořech">Americký ořech</option>
+                  <option value="Kaštan">Kaštan</option>
+                  <option value="Oliva">Oliva</option>
+                  <option value="Bříza">Bříza</option>
+                </select>
                 <select name="typ" value={creditals?.typ || ""} onChange={(e) => setCreditals({ ...creditals, typ: e.target.value })}>
+                  <option disabled value="">
+                    -- Vybere materiál --
+                  </option>
                   <option value="Hranatý">Hranatý</option>
                   <option value="Kulatý">Kulatý</option>
                 </select>
@@ -338,10 +392,10 @@ const Admin = () => {
                   ))}
                 </div>
               </div>
-              <button className="delete-img" onClick={() => clearFiles(creditals.Id)}>
-                Smazat obrázky
-              </button>
               <div className="modal-btn">
+                <button className="delete-img" onClick={() => clearFiles(creditals.Id)}>
+                  Smazat obrázky
+                </button>
                 <button className="save-btn" onClick={fetchData} title="Uložit stůl">
                   Uložit
                 </button>

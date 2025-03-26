@@ -5,6 +5,8 @@ import "./kontakt.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Kontakt() {
   const { t } = useTranslation();
@@ -17,22 +19,65 @@ export default function Kontakt() {
 
   // Souřadnice pro zobrazení mapy
   const center = {
-    lat: 49.94061279296875, // Poskytnutá šířka
-    lng: 15.798074722290039, // Poskytnutá délka
+    lat: 49.9387325, // Poskytnutá šířka
+    lng: 15.80052, // Poskytnutá délka
   };
 
   // Pozice markeru
   const markerPosition = {
-    lat: 49.94061279296875,
-    lng: 15.798074722290039,
+    lat: 49.9387325, // Poskytnutá šířka
+    lng: 15.80052,
   };
 
   // Funkce se volá, když je mapa načtena
   const onLoad = () => {
     setMapLoaded(true);
   };
+
+  const [formData, setFormData] = useState({
+    jmeno: "",
+    email: "",
+    predmet: "",
+    zprava: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSend = () => {
+    if (!formData.jmeno || !formData.email || !formData.predmet || !formData.zprava) {
+      toast.error("Vyplňte všechny povinné údaje.");
+      return;
+    }
+    fetch("https://designjj-test.eu/php/sendEmail2.php", {
+      method: "POST", // Správná metoda
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData), // Převod objektu na JSON
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          toast.success("Zpráva byla odeslána.");
+          setFormData({
+            jmeno: "",
+            email: "",
+            predmet: "",
+            zprava: "",
+          });
+        } else {
+          toast.error("Nepodařilo se odeslat zprávu.");
+        }
+      })
+      .catch((err) => {
+        console.error("Chyba při odesílání zprávy:", err);
+      });
+  };
   return (
     <>
+      <ToastContainer position="bottom-right" autoClose={500} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" transition:Bounce />
       <HelmetProvider>
         <Helmet>
           <meta charSet="utf-8" />
@@ -72,15 +117,13 @@ export default function Kontakt() {
               </div>
             </div>
             <div class="kontakt-form">
-              <form>
-                <input type="text" placeholder={t("phName")} data-aos="fade-left" />
-                <input type="text" placeholder="E-mail" data-aos="fade-left" data-aos-delay="50" />
-                <input type="text" placeholder={t("phSubject")} data-aos="fade-left" data-aos-delay="100" />
-                <textarea name="text" id="text" placeholder={t("phText")} data-aos="fade-left" data-aos-delay="150"></textarea>
-                <button className="kontakt-btn" data-aos="fade-left" data-aos-delay="200">
-                  {t("send")}
-                </button>
-              </form>
+              <input type="text" name="jmeno" placeholder={t("phName")} data-aos="fade-left" value={formData.jmeno} onChange={handleChange} />
+              <input type="text" name="email" placeholder="E-mail" data-aos="fade-left" data-aos-delay="50" value={formData.email} onChange={handleChange} />
+              <input type="text" name="predmet" placeholder={t("phSubject")} data-aos="fade-left" data-aos-delay="100" value={formData.predmet} onChange={handleChange} />
+              <textarea name="zprava" id="text" placeholder={t("phText")} data-aos="fade-left" data-aos-delay="150" value={formData.zprava} onChange={handleChange}></textarea>
+              <button className="kontakt-btn" data-aos="fade-left" data-aos-delay="200" onClick={handleSend}>
+                {t("send")}
+              </button>
             </div>
           </div>
         </div>
