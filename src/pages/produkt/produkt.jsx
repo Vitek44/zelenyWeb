@@ -198,50 +198,50 @@ function Produkt({ id }) {
               <ImageGallery items={images} showFullscreenButton={false} showPlayButton={false} />
             </div>
             <div className="produkt-content">
-              <div className="produkt-item" data-aos="fade-left">
+              <div className="produkt-item">
                 <h5>{t("Typ_desky")}:</h5>
                 <div className="item-row">
                   <p>{getData.Material}</p>
                   <img src={`/img/${getData.Material}.png`} alt={getData.Material} />
                 </div>
               </div>
-              <div className="produkt-item" data-aos="fade-left" data-aos-delay="50">
+              <div className="produkt-item">
                 <h5>{t("Sirka")}:</h5>
                 <div className="item-row">
                   <p>{getData.Sirka + " cm"}</p>
                   <img src="/img/sirka.svg" alt="" />
                 </div>
               </div>
-              <div className="produkt-item" data-aos="fade-left" data-aos-delay="100">
+              <div className="produkt-item">
                 <h5>{t("Vyska")}:</h5>
                 <div className="item-row">
                   <p>{getData.Vyska + " cm"}</p>
                   <img src="/img/vyska.svg" alt="" />
                 </div>
               </div>
-              <div className="produkt-item" data-aos="fade-left" data-aos-delay="150">
+              <div className="produkt-item">
                 <h5>{t("Tloustka")}:</h5>
                 <div className="item-row">
                   <p>{getData.Tloustka + " cm"}</p>
                   <img src="/img/tloustka.svg" alt="" />
                 </div>
               </div>
-              <div className="produkt-item" data-aos="fade-left" data-aos-delay="200">
+              <div className="produkt-item">
                 <h5>{t("Vyska2")}:</h5>
                 <div className="item-row">
                   <p>{getData.Uhlopricka + " cm"}</p>
                   <img src="/img/vyska2.svg" alt="" />
                 </div>
               </div>
-              <div className="produkt-akce" data-aos="fade-left" data-aos-delay="250">
+              <div className="produkt-akce">
                 <div className="produkt-cena">
                   <span>{"ID#" + getData.Id}</span>
                   <h3>{formatCena(getFormattedPrice(getData.Cena) + ",-")}</h3>
-                  <p>{formatCena(getFormattedPrice(cenaBezDPH) + " " + t("bez_dph"))}</p>
                 </div>
                 <div className="produkt-btn">
                   <button className="modalOpen" onClick={() => setModalOpen(true)}>
                     {t("Produkt_btn")}
+                    <i className="fa-solid fa-basket-shopping"></i>
                   </button>
                 </div>
               </div>
@@ -287,7 +287,7 @@ function Produkt({ id }) {
                   </div>
                   <div className="modal-btn">
                     <button className="save-btn" onClick={handleSend}>
-                      {t("Produkt_btn")}
+                      {t("Send_btn")}
                     </button>
                   </div>
                 </div>

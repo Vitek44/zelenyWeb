@@ -8,12 +8,12 @@
   "content-slider": "Vytváříme jedinečné interiéry na míru, které odrážejí váš styl a potřeby",
   "green_btn": "Zobrazit více",
   "white_btn": "Kontakt",
-  "service1_item1": "Stoly konferenční",
-  "service1_item2": "Stoly do kuchyně",
-  "service1_item3": "Stoly do pokoje",
-  "service2_item1": "Stoly konferenční",
-  "service2_item2": "Kuchyně",
-  "service2_item3": "Vestavěné skříně",
+  "service1_item1": "Jídelní stoly",
+  "service1_item2": "Konferenční stoly",
+  "service1_item3": "A další",
+  "service2_item1": "Kuchyňské linky",
+  "service2_item2": "Vestavěné skříně",
+  "service2_item3": "A další",
   "welcome_to_react": "Welcome to React!",
   "slide_title_1": "Vytváříme jedinečné interiéry na míru, které odrážejí váš styl a potřeby",
   "slide_title_2": "Vytváříme jedinečné interiéry na míru, které odrážejí váš styl a potřeby",
@@ -103,9 +103,12 @@
   "Tloustka": "Tloušťka desky",
   "Vyska2": "Výška stolu",
   "bez_dph": "bez DHP",
-  "Produkt_btn": "Zeptat se na stůl",
+  "Produkt_btn": "K prodeji",
   "let": " let",
   "configuratorTitle": "Konfigurátor",
   "main-title": "Tvorba Interiérů",
-  "phSubject": "Předmět"
+  "phSubject": "Předmět",
+
+  "Send_btn": "Odeslat",
+  "contactMe": "Kontaktní formulář"
 }

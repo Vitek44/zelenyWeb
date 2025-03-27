@@ -80,7 +80,7 @@ const SliderProduct = () => {
               <h1>{item.Nazev}</h1>
               <p>
                 <p>
-                  {(i18next.language === "de" ? item.PopisDE : i18next.language === "en" ? item.PopisEN : item.Popis).split(",")[0]} , {item.Vyska}x{item.Sirka} cm
+                  {item.Material} | {item.Vyska}x{item.Sirka} cm
                 </p>
               </p>
             </div>

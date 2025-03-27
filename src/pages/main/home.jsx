@@ -88,25 +88,6 @@ function App() {
           <h1>{t("subtitle1")}</h1>
         </div>
         <div className="services">
-          <a href="/stoly" className="service" data-aos="zoom-in">
-            <div className="serviceContent">
-              <h1 className="main-text">{t("service1")}</h1>
-              <div className="hover-text">
-                <div className="service-item">
-                  <i className="fa-solid fa-circle"></i>
-                  <p>{t("service1_item1")}</p>
-                </div>
-                <div className="service-item">
-                  <i className="fa-solid fa-circle"></i>
-                  <p>{t("service1_item2")}</p>
-                </div>
-                <div className="service-item">
-                  <i className="fa-solid fa-circle"></i>
-                  <p>{t("service1_item3")}</p>
-                </div>
-              </div>
-            </div>
-          </a>
           <a href="/interiery" className="service" data-aos="zoom-in" data-aos-delay="100">
             <div className="serviceContent">
               <h1 className="main-text">{t("service2")}</h1>
@@ -122,6 +103,25 @@ function App() {
                 <div className="service-item">
                   <i className="fa-solid fa-circle"></i>
                   <p>{t("service2_item3")}</p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="/stoly" className="service" data-aos="zoom-in">
+            <div className="serviceContent">
+              <h1 className="main-text">{t("service1")}</h1>
+              <div className="hover-text">
+                <div className="service-item">
+                  <i className="fa-solid fa-circle"></i>
+                  <p>{t("service1_item1")}</p>
+                </div>
+                <div className="service-item">
+                  <i className="fa-solid fa-circle"></i>
+                  <p>{t("service1_item2")}</p>
+                </div>
+                <div className="service-item">
+                  <i className="fa-solid fa-circle"></i>
+                  <p>{t("service1_item3")}</p>
                 </div>
               </div>
             </div>

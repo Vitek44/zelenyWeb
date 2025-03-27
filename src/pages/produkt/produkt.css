@@ -138,6 +138,7 @@
   border-radius: 5px;
   cursor: pointer;
   text-transform: uppercase;
+  width: 160px;
 }
 
 .produkt-akce button:hover {
@@ -217,6 +218,21 @@
 
 .image-gallery-icon:hover {
   color: #87a541;
+}
+
+.modalOpen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalOpen i {
+  font-size: 16px;
+  margin-left: 0.75rem;
+}
+
+.produkt-main .modal-btn {
+  margin-left: 0.5rem;
 }
 
 @media screen and (max-width: 1024px) {
