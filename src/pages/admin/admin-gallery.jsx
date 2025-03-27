@@ -9,11 +9,9 @@ const Admin = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const [data, setData] = useState([]);
-  {
-    /* useEffect(() => {
+  useEffect(() => {
     verifyToken();
-  }, []); */
-  }
+  }, []);
   const verifyToken = () => {
     fetch("https://designjj-test.eu/php/verify-token.php") // Nahraď cestou k PHP skriptu
       .then((response) => {
