@@ -47,9 +47,11 @@ const Admin = () => {
       });
   };
 
-  useEffect(() => {
+  {
+    /* useEffect(() => {
     verifyToken();
-  }, []);
+  }, []); */
+  }
 
   const loadData = () => {
     fetch(`https://designjj-test.eu/php/getProdukt.php`, {

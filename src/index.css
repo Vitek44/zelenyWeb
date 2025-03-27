@@ -17,6 +17,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgb(255, 255, 255);
+}
+
 ::-webkit-scrollbar {
   width: 12px;
 }

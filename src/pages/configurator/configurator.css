@@ -72,7 +72,7 @@
 .configurator-content {
   width: 40%;
   margin-left: 1rem;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -212,6 +212,8 @@ canvas {
   border-radius: 25px;
   margin-bottom: 1rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  border: 2px solid transparent;
+  cursor: pointer;
 }
 
 .item-color-active {
@@ -240,7 +242,7 @@ canvas {
   padding: 0.5rem 1rem;
   width: 100%;
   border-radius: 5px;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .scale-item label {
@@ -275,7 +277,7 @@ canvas {
   padding: 1rem 1.5rem;
   border-radius: 5px;
   font-size: 32px;
-  position: absolute;
+  position: fixed;
   top: 1rem;
   left: 1rem;
   z-index: 999999;
