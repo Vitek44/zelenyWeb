@@ -193,7 +193,8 @@ canvas {
   font-weight: 700;
   margin: 2rem 0 4rem 0;
   border-bottom: 4px solid var(--green);
-  width: fit-content;
+  display: flex;
+  justify-content: space-between;
 }
 
 .configurator-item-color {
@@ -248,6 +249,10 @@ canvas {
 .scale-item label {
   margin-bottom: 0.5rem;
   font-size: 18px;
+}
+
+.configurator-main .language-dropdown {
+  top: 78px;
 }
 
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */

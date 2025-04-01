@@ -1,5 +1,8 @@
 import { useCustomization } from "./context/Customization";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import i18next from "i18next";
 
 const Configurator = () => {
   const { shape, setShape, legs, setLegs, material, setMaterial } = useCustomization();
@@ -30,10 +33,88 @@ const Configurator = () => {
     return ((value3 - min2) / (max2 - min2)) * 100;
   };
 
+  const checkboxRef = useRef(null);
+  const [isOpen, setisOpen] = useState(false);
+  useEffect(() => {
+    if (checkboxRef.current) {
+      checkboxRef.current.checked = isOpen;
+    }
+  }, [isOpen]);
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const { t } = useTranslation();
+  const languages = [
+    {
+      code: "cs",
+      name: "CZ",
+      country_code: "cz",
+    },
+    {
+      code: "en",
+      name: "EN",
+      country_code: "gb",
+    },
+    {
+      code: "de",
+      name: "DE",
+      country_code: "de",
+    },
+  ];
+
+  const currentLanguage = languages.find((lang) => lang.code === i18next.language);
+
+  const dropdownRef = useRef(null); // Reference for the dropdown menu
+
+  // Toggle the dropdown menu on click
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prev) => !prev);
+  };
+
+  // Close the dropdown if clicked outside
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsDropdownOpen(false);
+    }
+  };
+
+  const changeLanguage = (code) => {
+    i18next.changeLanguage(code);
+    setIsDropdownOpen(false);
+  };
+
+  let navigate = useNavigate();
+
+  // Add event listener for clicking outside
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
     <>
       <div class="table-title">
         <h1>Konfigurátor stolu</h1>
+        <div className="language-switch" ref={dropdownRef}>
+          <button className="language-button" onClick={toggleDropdown}>
+            <img src={`/img/${currentLanguage?.country_code}.svg`} alt={`${currentLanguage?.name} flag`} className="flag-img" />
+            {currentLanguage?.name.toUpperCase()}
+            <span>{isDropdownOpen ? "▲" : "▼"}</span>
+          </button>
+          {isDropdownOpen && (
+            <div className="language-dropdown">
+              {languages
+                .filter((lang) => lang.code !== i18next.language)
+                .map(({ code, name, country_code }) => (
+                  <button key={code} className="dropdown-item" onClick={() => changeLanguage(code)}>
+                    <img src={`/img/${country_code}.svg`} alt={`${name} flag`} className="flag-img" />
+                    {name.toUpperCase()}
+                  </button>
+                ))}
+            </div>
+          )}
+        </div>
       </div>
       <div className="configurator-label">
         <h5>Tvar desky</h5>

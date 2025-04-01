@@ -1,4 +1,4 @@
-.interiery-main {
+.interiery-wrap {
   padding: 12rem 0;
 }
 
@@ -56,4 +56,57 @@
   text-transform: uppercase;
   font-weight: 600;
   margin-bottom: 0.5rem;
+}
+
+.interiery-crossroad {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  width: 100%;
+}
+
+.crossroad-item {
+  background-image: url("../img/kuchyne.svg");
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  grid-column: span 4 / span 4;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 9rem 0;
+  color: white;
+}
+
+.crossroad-item h1 {
+  font-size: 30px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.crossroad-item:nth-child(2) {
+  background-image: url("../img/podlahy.svg");
+  grid-column: span 2 / span 2;
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+.crossroad-item:nth-child(3) {
+  background-image: url("../img/pokoje.svg");
+  grid-column: span 2 / span 2;
+  grid-column-start: 3;
+  grid-row-start: 2;
+}
+
+.crossroad-item:nth-child(4) {
+  background-image: url("/img/skrine.svg");
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+  grid-column-start: 5;
+  grid-row-start: 1;
 }

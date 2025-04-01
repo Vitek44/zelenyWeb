@@ -22,6 +22,7 @@ import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 //css
 import "./home.css";
+import { Data } from "@react-google-maps/api";
 
 function App() {
   useEffect(() => {
@@ -49,6 +50,27 @@ function App() {
     triggerOnce: true, // Trigger the animation only once
     threshold: 0.1, // Trigger when 10% of the element is in view
   });
+
+  const [data, setData] = useState([]);
+
+  const getIg = () => {
+    fetch("https://designjj-test.eu/php/ig.php")
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.instagram) {
+          setData(result.instagram);
+        } else {
+          console.error("Chyba při načítání dat:", result.error);
+        }
+      })
+      .catch((err) => {
+        console.error("Chyba při načítání dat:", err);
+      });
+  };
+
+  useEffect(() => {
+    getIg();
+  }, []);
 
   return (
     <>
@@ -163,8 +185,7 @@ function App() {
             </h3>
             <h3>
               {t("bar_text3")}
-              {inView ? <CountUp end={1500} duration={3} delay={0.5} /> : null}
-              {t("let")}
+              {inView ? <CountUp end={data} duration={3} delay={0.5} /> : null}
             </h3>
           </div>
         </div>

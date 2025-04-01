@@ -29,7 +29,7 @@
   border-radius: 5px;
   cursor: pointer;
   background-repeat: no-repeat;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../img/01c.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../img/intereiery.webp");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -38,7 +38,7 @@
 }
 
 .service:nth-child(2) {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../img/intereiery.webp");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../img/01c.png");
 }
 
 .serviceContent {
@@ -93,11 +93,11 @@
 }
 
 .service:hover {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("../img/01c.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("../img/intereiery.webp");
 }
 
 .service:hover:nth-child(2):hover {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("../img/intereiery.webp");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("../img/01c.png");
 }
 
 .service-item {
