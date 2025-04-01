@@ -1,9 +1,5 @@
 .configurator-main {
-  background-color: #f7f7f7;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 12rem 0 0 0;
 }
 .configurator-section {
   width: 100%;
@@ -60,6 +56,7 @@
 .item__label {
   padding: 0.5rem;
 }
+
 @keyframes progress {
   0% {
     width: 0;
