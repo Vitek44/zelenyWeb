@@ -1,6 +1,11 @@
-import { PresentationControls, Stage, OrbitControls, MeshReflectorMaterial } from "@react-three/drei"; // Import pro ovládání a stage
+import {
+  PresentationControls,
+  Stage,
+  OrbitControls,
+  MeshReflectorMaterial,
+} from "@react-three/drei"; // Import pro ovládání a stage
 import { Suspense } from "react";
-import Table from "./Table"; // Import z Table.jsx
+import Table from "./Cvrkec"; // Import z Table.jsx
 
 const Experience = () => {
   return (
@@ -9,15 +14,32 @@ const Experience = () => {
         speed={0.75}
         global={true}
         zoom={1} // Vypnutí zoomu při otáčení
-        polar={[-0.1, Math.PI / 4]}
+        polar={[0, Math.PI / 4]}
       >
-        <Stage environment="apartment" intensity={0.1} contactShadow={{ opacity: 0.4, blur: 2 }} adjustCamera={1.2} preset={"rembrandt"}>
+        <Stage
+          environment={null} // Můžeš zkusit "apartment" nebo "studio" pro jemnější světlo
+          intensity={5} // Přirozenější intenzita
+          contactShadow={false}
+          adjustCamera={1.2}
+        >
           <Suspense fallback={null}>
-            <Table scale={[2.0, 2.0, 2.0]} rotation={[0, Math.PI / 4, 0]} position={[0, -1, 0]} />
+            <Table
+              scale={[2.0, 2.0, 2.0]}
+              rotation={[0, Math.PI / 4, 0]}
+              position={[0, 0, 0]}
+            >
+              <meshStandardMaterial roughness={0.8} metalness={0.1} />
+            </Table>
           </Suspense>
         </Stage>
       </PresentationControls>
-      <OrbitControls enableZoom={true} minDistance={5} maxDistance={8} enablePan={false} enableRotate={false} />
+      <OrbitControls
+        enableZoom={true}
+        minDistance={6}
+        maxDistance={9}
+        enablePan={false}
+        enableRotate={false}
+      />
     </>
   );
 };
