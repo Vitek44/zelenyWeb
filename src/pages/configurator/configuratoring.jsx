@@ -260,7 +260,7 @@ const Configurator = () => {
                 }}
               />
             </div>
-          </div>{" "}
+          </div>
         </div>
         <div class="scale-item">
           <label>Tloušťka desky</label>
@@ -307,7 +307,7 @@ const Configurator = () => {
                 }}
               />
             </div>
-          </div>{" "}
+          </div>
         </div>
         <div class="scale-item">
           <label>Výška stolu</label>
@@ -357,6 +357,7 @@ const Configurator = () => {
           </div>{" "}
         </div>
       </div>
+
       <div className="configurator-label">
         <h5>Typ nožek</h5>
         <hr></hr>
@@ -398,6 +399,28 @@ const Configurator = () => {
               <img src="../../img/circle.png" alt="" />
             </div>
           </div>
+        </div>
+      </div>
+      <div className="configurator-label">
+        <h5>Barva nožiček</h5>
+        <hr></hr>
+      </div>
+      <div className="configurator-item-color">
+        <div className={`item-color ${material === "legs1" ? "item-color-active" : ""}`} onClick={() => setMaterial("legs1")}>
+          <img src="../../img/wood1.png" alt="" />
+          <h5>Podle dřeva</h5>
+        </div>
+        <div className={`item-color ${material === "leg2" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg2")}>
+          <img src="../../img/black.png" alt="" />
+          <h5>Černá</h5>
+        </div>
+        <div className={`item-color ${material === "leg3" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg3")}>
+          <img src="../../img/white.png" alt="" />
+          <h5>Bílá</h5>
+        </div>
+        <div className={`item-color ${material === "leg4" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg4")}>
+          <img src="../../img/steel.jpeg" alt="" />
+          <h5>Broušená ocel</h5>
         </div>
       </div>
     </>

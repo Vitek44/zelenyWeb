@@ -176,7 +176,6 @@ function App() {
             <h3>
               {t("bar_text1")}
               {inView ? <CountUp end={50} duration={3} delay={0.5} /> : null}
-              {t("let")}
             </h3>
             <h3>
               {t("bar_text2")}

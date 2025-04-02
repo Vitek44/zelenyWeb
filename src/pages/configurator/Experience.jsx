@@ -1,6 +1,6 @@
 import { PresentationControls, Stage, OrbitControls, MeshReflectorMaterial } from "@react-three/drei"; // Import pro ovládání a stage
 import { Suspense } from "react";
-import Tables from "./Table"; // Import z Table.jsx
+import Table from "./Table"; // Import z Table.jsx
 
 const Experience = () => {
   return (
