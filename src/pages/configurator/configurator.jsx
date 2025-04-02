@@ -65,19 +65,18 @@ function Konfigurator() {
 
                 <color attach="background" args={["#f7f7f7"]} />
 
-                  <Experience />
-                </Canvas>
-              </div>
+                <Experience />
+              </Canvas>
+            </div>
 
-              <div className="configurator-content">
-                <Configuratoring />
-              </div>
-            </CustomizationProvider>
-          </div>
+            <div className="configurator-content">
+              <Configuratoring />
+            </div>
+          </CustomizationProvider>
         </div>
-        <div className="configurator-send">
-          <button onClick={handleSubmit}>Odeslat konfiguraci</button>
-        </div>
+      </div>
+      <div className="configurator-send">
+        <button onClick={handleSubmit}>Odeslat konfiguraci</button>
       </div>
     </>
   );

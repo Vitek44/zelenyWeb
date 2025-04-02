@@ -43,21 +43,27 @@ function Interiery() {
         </Helmet>
       </HelmetProvider>
       <Navbar />
-      <div class="interiery-main">
-        <div class="container">
-          <div class="podmenu-title">
-            <h1>Interiéry</h1>
+      <div class="interiery-wrap">
+        <div class="podmenu-title">
+          <h1>Interiéry</h1>
+        </div>
+        <div class="interiery-crossroad">
+          <div class="crossroad-item">
+            <h1>Kuchyně</h1>
           </div>
-          <div class="interiery-content">
-            {data.map((item) => (
-              <div class="interiery-item">
-                <img src={item.cesta} alt={item.popis} />
-                <div class="hover-text2">
-                  <h3>{item.kategorie}</h3>
-                  <h1>{item.popis}</h1>
-                </div>
-              </div>
-            ))}
+          <div class="crossroad-item">
+            <h1>Podlahy</h1>
+          </div>
+          <div class="crossroad-item">
+            <h1>Dětské pokoje</h1>
+          </div>
+          <div class="crossroad-item">
+            <h1>Vestavěné skříně</h1>
+          </div>
+        </div>
+        <div class="container">
+          <div class="interiery-modal-wrap">
+            <div class="interiery-modal"></div>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@
   align-items: flex-start;
   width: 100%;
   margin-bottom: 12rem;
-  height: 400px;
+  height: 500px;
 }
 
 .kontakt-info {
@@ -16,11 +16,16 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  height: 500px;
 }
 
 .kontakt-form {
   width: 40%;
+}
+
+.kontakt-form h3 {
+  font-size: 28px;
+  font-weight: 600;
 }
 
 .kontakt-item {
@@ -40,6 +45,10 @@
 .kontakt-item h5 {
   font-size: 18px;
   font-weight: 600;
+}
+
+.kontakt-item a h5:hover {
+  color: var(--green);
 }
 
 .kontakt-wrapper input {

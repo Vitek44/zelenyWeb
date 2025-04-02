@@ -12,7 +12,6 @@ const Admin = () => {
   useEffect(() => {
     verifyToken();
   }, []);
-
   const verifyToken = () => {
     fetch("https://designjj-test.eu/php/verify-token.php") // Nahraď cestou k PHP skriptu
       .then((response) => {

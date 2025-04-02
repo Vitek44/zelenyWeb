@@ -22,6 +22,7 @@ import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 //css
 import "./home.css";
+import { Data } from "@react-google-maps/api";
 
 function App() {
   useEffect(() => {
@@ -49,6 +50,27 @@ function App() {
     triggerOnce: true, // Trigger the animation only once
     threshold: 0.1, // Trigger when 10% of the element is in view
   });
+
+  const [data, setData] = useState([]);
+
+  const getIg = () => {
+    fetch("https://designjj-test.eu/php/ig.php")
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.instagram) {
+          setData(result.instagram);
+        } else {
+          console.error("Chyba při načítání dat:", result.error);
+        }
+      })
+      .catch((err) => {
+        console.error("Chyba při načítání dat:", err);
+      });
+  };
+
+  useEffect(() => {
+    getIg();
+  }, []);
 
   return (
     <>
@@ -88,25 +110,6 @@ function App() {
           <h1>{t("subtitle1")}</h1>
         </div>
         <div className="services">
-          <a href="/stoly" className="service" data-aos="zoom-in">
-            <div className="serviceContent">
-              <h1 className="main-text">{t("service1")}</h1>
-              <div className="hover-text">
-                <div className="service-item">
-                  <i className="fa-solid fa-circle"></i>
-                  <p>{t("service1_item1")}</p>
-                </div>
-                <div className="service-item">
-                  <i className="fa-solid fa-circle"></i>
-                  <p>{t("service1_item2")}</p>
-                </div>
-                <div className="service-item">
-                  <i className="fa-solid fa-circle"></i>
-                  <p>{t("service1_item3")}</p>
-                </div>
-              </div>
-            </div>
-          </a>
           <a href="/interiery" className="service" data-aos="zoom-in" data-aos-delay="100">
             <div className="serviceContent">
               <h1 className="main-text">{t("service2")}</h1>
@@ -122,6 +125,25 @@ function App() {
                 <div className="service-item">
                   <i className="fa-solid fa-circle"></i>
                   <p>{t("service2_item3")}</p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="/stoly" className="service" data-aos="zoom-in">
+            <div className="serviceContent">
+              <h1 className="main-text">{t("service1")}</h1>
+              <div className="hover-text">
+                <div className="service-item">
+                  <i className="fa-solid fa-circle"></i>
+                  <p>{t("service1_item1")}</p>
+                </div>
+                <div className="service-item">
+                  <i className="fa-solid fa-circle"></i>
+                  <p>{t("service1_item2")}</p>
+                </div>
+                <div className="service-item">
+                  <i className="fa-solid fa-circle"></i>
+                  <p>{t("service1_item3")}</p>
                 </div>
               </div>
             </div>
@@ -154,7 +176,6 @@ function App() {
             <h3>
               {t("bar_text1")}
               {inView ? <CountUp end={50} duration={3} delay={0.5} /> : null}
-              {t("let")}
             </h3>
             <h3>
               {t("bar_text2")}
@@ -163,8 +184,7 @@ function App() {
             </h3>
             <h3>
               {t("bar_text3")}
-              {inView ? <CountUp end={1500} duration={3} delay={0.5} /> : null}
-              {t("let")}
+              {inView ? <CountUp end={data} duration={3} delay={0.5} /> : null}
             </h3>
           </div>
         </div>
