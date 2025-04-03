@@ -406,7 +406,7 @@ const Configurator = () => {
         <hr></hr>
       </div>
       <div className="configurator-item-color">
-        <div className={`item-color ${material === "legs1" ? "item-color-active" : ""}`} onClick={() => setMaterial("legs1")}>
+        <div className={`item-color ${material === "leg1" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg1")}>
           <img src="../../img/wood1.png" alt="" />
           <h5>Podle dřeva</h5>
         </div>
