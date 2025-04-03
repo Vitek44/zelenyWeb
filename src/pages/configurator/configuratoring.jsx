@@ -5,20 +5,20 @@ import { useNavigate } from "react-router-dom";
 import i18next from "i18next";
 
 const Configurator = () => {
-  const { shape, setShape, edge, setEdge, legs, setLegs, material, setMaterial, legColor, setLegColor } = useCustomization();
-  const [value, setValue] = useState(160);
+  const { shape, setShape, edge, setEdge, legs, setLegs, material, setMaterial, legColor, setLegColor, delka, setDelka } = useCustomization();
+
   const [value1, setValue1] = useState(80);
   const [value2, setValue2] = useState(30);
   const [value3, setValue3] = useState(65);
-  const min = 20;
-  const max = 200;
+  const min = 0;
+  const max = 100;
 
   const min2 = 10;
   const max2 = 100;
 
   // Výpočet pozice popisku
   const getLeftPosition = () => {
-    return ((value - min) / (max - min)) * 100;
+    return ((delka - min) / (max - min)) * 100;
   };
 
   const getLeftPosition1 = () => {
@@ -226,7 +226,7 @@ const Configurator = () => {
                   whiteSpace: "nowrap",
                 }}
               >
-                {value} cm
+                {delka} cm
               </div>
 
               {/* Posuvník */}
@@ -234,14 +234,14 @@ const Configurator = () => {
                 type="range"
                 min={min}
                 max={max}
-                value={value}
+                value={delka}
                 id="sirka-desky"
-                onChange={(e) => setValue(Number(e.target.value))}
+                onChange={(e) => setDelka(Number(e.target.value))}
                 className="slider"
                 style={{
                   width: "100%",
                   height: "6px",
-                  background: `linear-gradient(to right,#1A1A1A 0%, #1A1A1A ${((value - min) / (max - min)) * 100}%, #C4C4C4 ${((value - min) / (max - min)) * 100}%, #C4C4C4 100%)`,
+                  background: `linear-gradient(to right,#1A1A1A 0%, #1A1A1A ${((delka - min) / (max - min)) * 100}%, #C4C4C4 ${((delka - min) / (max - min)) * 100}%, #C4C4C4 100%)`,
                   borderRadius: "5px",
                   outline: "none",
                   appearance: "none",

@@ -8,6 +8,7 @@ export const CustomizationProvider = (props) => {
   const [legs, setLegs] = useState(1);
   const [material, setMaterial] = useState("wood1");
   const [legColor, setLegColor] = useState("#8B4513");
+  const [delka, setDelka] = useState(1);
   return (
     <CustomizationContext.Provider
       value={{
@@ -21,6 +22,8 @@ export const CustomizationProvider = (props) => {
         setMaterial,
         legColor,
         setLegColor,
+        delka,
+        setDelka,
       }}
     >
       {props.children}

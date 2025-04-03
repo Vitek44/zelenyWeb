@@ -7,7 +7,7 @@ import { useCustomization } from "./context/Customization";
 
 const Table = (props) => {
   const { nodes, materials } = useGLTF("/models/cvrkec.gltf"); // Cesta k modelu
-  const { shape, edge, legs, material, legColor } = useCustomization();
+  const { shape, edge, legs, material, legColor, delka } = useCustomization();
 
   const wood1TextureProps = useTexture({
     map: "../../textures/Wood/Wood_011_Base_Color.jpg",
@@ -17,11 +17,10 @@ const Table = (props) => {
     map: "../../textures/Wood/Wood_013_COLOR.jpg",
     normalMap: "../../textures/Wood/Wood_013_NORM.jpg",
   });
-  var delka = 2;
 
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.Ctverec.geometry} position={[0, 0, 0]} scale={[1, 0.015, 1]} visible={edge === 1 && shape === 1}>
+      <mesh geometry={nodes.Ctverec.geometry} position={[0, 0, 0]} scale={[delka, 0.015, 1]} visible={edge === 1 && shape === 1}>
         <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : wood2TextureProps)} />
       </mesh>
       <mesh geometry={nodes.Ctverec45.geometry} position={[0, 0, 0]} scale={[1, 0.005, 1]} visible={edge === 2 && shape === 1}>
