@@ -178,7 +178,7 @@ const Configurator = () => {
         </div>
       </div>
       <div className="configurator-label">
-        <h5>Barva desky</h5>
+        <h5>Barva desky1</h5>
         <hr></hr>
       </div>
       <div className="configurator-item-color">
