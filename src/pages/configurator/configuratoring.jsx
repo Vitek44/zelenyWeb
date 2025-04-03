@@ -5,20 +5,20 @@ import { useNavigate } from "react-router-dom";
 import i18next from "i18next";
 
 const Configurator = () => {
-  const { shape, setShape, legs, setLegs, material, setMaterial } = useCustomization();
-  const [value, setValue] = useState(160);
+  const { shape, setShape, edge, setEdge, legs, setLegs, material, setMaterial, legColor, setLegColor, delka, setDelka } = useCustomization();
+
   const [value1, setValue1] = useState(80);
   const [value2, setValue2] = useState(30);
   const [value3, setValue3] = useState(65);
-  const min = 20;
-  const max = 200;
+  const min = 0;
+  const max = 100;
 
   const min2 = 10;
   const max2 = 100;
 
   // Výpočet pozice popisku
   const getLeftPosition = () => {
-    return ((value - min) / (max - min)) * 100;
+    return ((delka - min) / (max - min)) * 100;
   };
 
   const getLeftPosition1 = () => {
@@ -127,30 +127,58 @@ const Configurator = () => {
               <img src="../../img/Rectangle 147.svg" alt="" />
             </div>
           </div>
-          <div className={`item ${shape === 3 ? "item--active" : ""}`} onClick={() => setShape(3)}>
+          <div className={`item ${shape === 2 ? "item--active" : ""}`} onClick={() => setShape(2)}>
             <div className="item__label">
               <img src="../../img/Ellipse 15.svg" alt="" />
             </div>
           </div>
-          <div className={`item ${shape === 4 ? "item--active" : ""}`} onClick={() => setShape(4)}>
+          <div className={`item ${shape === 3 ? "item--active" : ""}`} onClick={() => setShape(3)}>
             <div className="item__label">
               <img src="../../img/Vector 111.svg" alt="" />
             </div>
           </div>
-          <div className={`item ${shape === 5 ? "item--active" : ""}`} onClick={() => setShape(5)}>
+          <div className={`item ${shape === 4 ? "item--active" : ""}`} onClick={() => setShape(4)}>
             <div className="item__label">
               <img src="../../img/Polygon 5.svg" alt="" />
             </div>
           </div>
-          <div className={`item ${shape === 6 ? "item--active" : ""}`} onClick={() => setShape(6)}>
+          {/*
+          <div
+            className={`item ${shape === 6 ? "item--active" : ""}`}
+            onClick={() => setShape(6)}
+          >
             <div className="item__label">
               <img src="../../img/Polygon 4.svg" alt="" />
+            </div>
+          </div>
+          */}
+        </div>
+      </div>
+      <div className="configurator-label">
+        <h5>Tvar hrany</h5>
+        <hr></hr>
+      </div>
+      <div className="configurator-item">
+        <div className="c-item-row">
+          <div className={`item ${edge === 1 ? "item--active" : ""}`} onClick={() => setEdge(1)}>
+            <div className="item__label">
+              <img src="../../img/klasika.jpg" alt="" />
+            </div>
+          </div>
+          <div className={`item ${edge === 2 ? "item--active" : ""}`} onClick={() => setEdge(2)}>
+            <div className="item__label">
+              <img src="../../img/45hranes.jpg" alt="" />
+            </div>
+          </div>
+          <div className={`item ${edge === 3 ? "item--active" : ""}`} onClick={() => setEdge(3)}>
+            <div className="item__label">
+              <img src="../../img/radius.jpg" alt="" />
             </div>
           </div>
         </div>
       </div>
       <div className="configurator-label">
-        <h5>Barva desky</h5>
+        <h5>Barva desky1</h5>
         <hr></hr>
       </div>
       <div className="configurator-item-color">
@@ -159,6 +187,14 @@ const Configurator = () => {
           <h5>Dub</h5>
         </div>
         <div className={`item-color ${material === "wood2" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood2")}>
+          <img src="../../img/wood2.png" alt="" />
+          <h5>Bříza</h5>
+        </div>
+        <div className={`item-color ${material === "wood3 " ? "item-color-active" : ""}`} onClick={() => setMaterial("wood3")}>
+          <img src="../../img/wood2.png" alt="" />
+          <h5>Bříza</h5>
+        </div>
+        <div className={`item-color ${material === "wood4" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood4")}>
           <img src="../../img/wood2.png" alt="" />
           <h5>Bříza</h5>
         </div>
@@ -190,7 +226,7 @@ const Configurator = () => {
                   whiteSpace: "nowrap",
                 }}
               >
-                {value} cm
+                {delka} cm
               </div>
 
               {/* Posuvník */}
@@ -198,14 +234,14 @@ const Configurator = () => {
                 type="range"
                 min={min}
                 max={max}
-                value={value}
+                value={delka}
                 id="sirka-desky"
-                onChange={(e) => setValue(Number(e.target.value))}
+                onChange={(e) => setDelka(Number(e.target.value))}
                 className="slider"
                 style={{
                   width: "100%",
                   height: "6px",
-                  background: `linear-gradient(to right,#1A1A1A 0%, #1A1A1A ${((value - min) / (max - min)) * 100}%, #C4C4C4 ${((value - min) / (max - min)) * 100}%, #C4C4C4 100%)`,
+                  background: `linear-gradient(to right,#1A1A1A 0%, #1A1A1A ${((delka - min) / (max - min)) * 100}%, #C4C4C4 ${((delka - min) / (max - min)) * 100}%, #C4C4C4 100%)`,
                   borderRadius: "5px",
                   outline: "none",
                   appearance: "none",
@@ -405,6 +441,7 @@ const Configurator = () => {
         <h5>Barva nožiček</h5>
         <hr></hr>
       </div>
+      <input type="color" value={legColor} onChange={(e) => setLegColor(e.target.value)} />
       <div className="configurator-item-color">
         <div className={`item-color ${material === "leg1" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg1")}>
           <img src="../../img/wood1.png" alt="" />
@@ -428,137 +465,3 @@ const Configurator = () => {
 };
 
 export default Configurator;
-
-{
-  /*<div className="configurator-content">
-              <div className="configurator-label">
-                <h5>Tvar desky</h5>
-              </div>
-              <div className="configurator-item">
-                <div className="c-item-row">zkouska</div>
-              </div>
-              <div className="configurator-label">
-                <h5>Typ desky</h5>
-              </div>
-              <div className="configurator-item">
-                <div className="c-item-row">
-                  <span
-                    onClick={() => handleSelect("type", "Dřevěná")}
-                    className={selectedType === "Dřevěná" ? "selected" : ""}
-                  >
-                    <img src="../../img/wood3.png" alt="" />
-                  </span>
-                  <span
-                    onClick={() => handleSelect("type", "Skleněná")}
-                    className={selectedType === "Skleněná" ? "selected" : ""}
-                  >
-                    <img src="../../img/wood2.png" alt="" />
-                  </span>
-                  <span
-                    onClick={() => handleSelect("type", "Kovová")}
-                    className={selectedType === "Kovová" ? "selected" : ""}
-                  >
-                    <img src="../../img/wood1.png" alt="" />
-                  </span>
-                </div>
-              </div>
-              <div className="configurator-label">
-                <h5>Typ nožiček</h5>
-              </div>
-              <div className="configurator-item">
-                <div className="c-item-row">
-                  <span
-                    onClick={() => handleSelect("legs", "Klasické")}
-                    className={selectedLegs === "Klasické" ? "selected" : ""}
-                  >
-                    <img src="../../img/leg1.png" alt="" />
-                  </span>
-                  <span
-                    onClick={() => handleSelect("legs", "Moderní")}
-                    className={selectedLegs === "Moderní" ? "selected" : ""}
-                  >
-                    <img src="../../img/leg2.png" alt="" />
-                  </span>
-                  <span
-                    onClick={() => handleSelect("legs", "Designové")}
-                    className={selectedLegs === "Designové" ? "selected" : ""}
-                  >
-                    <img src="../../img/leg3.png" alt="" />
-                  </span>
-                  <span
-                    onClick={() => handleSelect("legs", "Křivý")}
-                    className={selectedLegs === "Křivý" ? "selected" : ""}
-                  >
-                    <img src="../../img/leg4.png" alt="" />
-                  </span>
-                  <span
-                    onClick={() => handleSelect("legs", "Rovný")}
-                    className={selectedLegs === "Rovný" ? "selected" : ""}
-                  >
-                    <img src="../../img/leg5.png" alt="" />
-                  </span>
-                  <span
-                    onClick={() => handleSelect("legs", "Cvrkec")}
-                    className={selectedLegs === "Cvrkec" ? "selected" : ""}
-                  >
-                    <img src="../../img/leg6.png" alt="" />
-                  </span>
-                </div>
-              </div>
-              <div className="configurator-parametres">
-                <label>
-                  <div className="configurator-label">
-                    <h5>Výška</h5>
-                  </div>
-                  <input
-                    type="number"
-                    name="height"
-                    placeholder={"cm"}
-                    value={dimensions.height}
-                    onChange={handleInputChange}
-                  />
-                </label>
-                <label>
-                  <div className="configurator-label">
-                    <h5>Délka</h5>
-                  </div>
-                  <input
-                    type="number"
-                    name="length"
-                    placeholder={"cm"}
-                    value={dimensions.length}
-                    onChange={handleInputChange}
-                  />
-                </label>
-                <label>
-                  <div className="configurator-label">
-                    <h5>Tloušťka</h5>
-                  </div>
-                  <input
-                    type="number"
-                    name="thickness"
-                    placeholder={"cm"}
-                    value={dimensions.thickness}
-                    onChange={handleInputChange}
-                  />
-                </label>
-                <label>
-                  <div className="configurator-label">
-                    <h5>Šířka</h5>
-                  </div>
-                  <input
-                    type="number"
-                    name="width"
-                    placeholder={"cm"}
-                    value={dimensions.width}
-                    onChange={handleInputChange}
-                  />
-                </label>
-              </div>
-            </div>
-          </div>
-          <div className="configurator-send">
-            <button onClick={handleSubmit}>Odeslat konfiguraci</button>
-          </div>
-        </div> */
-}
