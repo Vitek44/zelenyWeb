@@ -7,8 +7,12 @@ export const CustomizationProvider = (props) => {
   const [edge, setEdge] = useState(1);
   const [legs, setLegs] = useState(1);
   const [material, setMaterial] = useState("wood1");
-  const [legColor, setLegColor] = useState("#8B4513");
-  const [delka, setDelka] = useState(1);
+  const [legColor, setLegColor] = useState("#000000");
+  const [delka, setDelka] = useState(80);
+  const [sirka, setSirka] = useState(160);
+  const [vyska, setVyska] = useState(70);
+  const [tloustka, setTloustka] = useState(30); // Tloušťka desky
+
   return (
     <CustomizationContext.Provider
       value={{
@@ -24,6 +28,12 @@ export const CustomizationProvider = (props) => {
         setLegColor,
         delka,
         setDelka,
+        sirka,
+        setSirka,
+        vyska,
+        setVyska,
+        tloustka,
+        setTloustka,
       }}
     >
       {props.children}

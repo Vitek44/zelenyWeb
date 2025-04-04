@@ -5,13 +5,20 @@ import { useNavigate } from "react-router-dom";
 import i18next from "i18next";
 
 const Configurator = () => {
-  const { shape, setShape, edge, setEdge, legs, setLegs, material, setMaterial, legColor, setLegColor, delka, setDelka } = useCustomization();
+  const { shape, setShape, edge, setEdge, legs, setLegs, material, setMaterial, legColor, setLegColor, delka, setDelka, sirka, setSirka, vyska, setVyska, tloustka, setTloustka, epoxid, setEpoxid } = useCustomization();
 
-  const [value1, setValue1] = useState(80);
-  const [value2, setValue2] = useState(30);
-  const [value3, setValue3] = useState(65);
-  const min = 0;
-  const max = 100;
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    if (shape === 2 || shape === 4) {
+      setVisible(false);
+    } else {
+      setVisible(true);
+    }
+  }, [shape]); // useEffect se spustí pouze, když se změní `shape`
+
+  const min = 40;
+  const max = 200;
 
   const min2 = 10;
   const max2 = 100;
@@ -22,15 +29,15 @@ const Configurator = () => {
   };
 
   const getLeftPosition1 = () => {
-    return ((value1 - min) / (max - min)) * 100;
+    return ((sirka - min) / (max - min)) * 100;
   };
 
   const getLeftPosition2 = () => {
-    return ((value2 - min2) / (max2 - min2)) * 100;
+    return ((tloustka - min2) / (max2 - min2)) * 100;
   };
 
   const getLeftPosition3 = () => {
-    return ((value3 - min2) / (max2 - min2)) * 100;
+    return ((vyska - min2) / (max2 - min2)) * 100;
   };
 
   const checkboxRef = useRef(null);
@@ -94,7 +101,7 @@ const Configurator = () => {
 
   return (
     <>
-      <div class="table-title">
+      <div className="table-title">
         <h1>Konfigurátor stolu</h1>
         <div className="language-switch" ref={dropdownRef}>
           <button className="language-button" onClick={toggleDropdown}>
@@ -122,25 +129,17 @@ const Configurator = () => {
       </div>
       <div className="configurator-item">
         <div className="c-item-row">
-          <div className={`item ${shape === 1 ? "item--active" : ""}`} onClick={() => setShape(1)}>
-            <div className="item__label">
-              <img src="../../img/Rectangle 147.svg" alt="" />
-            </div>
+          <div className={`item ${shape === 1 ? "item--active" : ""}`} title="Čtverec" onClick={() => setShape(1)}>
+            <img src="../../img/ctverec.svg" alt="" />
           </div>
-          <div className={`item ${shape === 2 ? "item--active" : ""}`} onClick={() => setShape(2)}>
-            <div className="item__label">
-              <img src="../../img/Ellipse 15.svg" alt="" />
-            </div>
+          <div className={`item ${shape === 2 ? "item--active" : ""}`} title="Kruh" onClick={() => setShape(2)}>
+            <img src="../../img/kruh.svg" alt="" />
           </div>
-          <div className={`item ${shape === 3 ? "item--active" : ""}`} onClick={() => setShape(3)}>
-            <div className="item__label">
-              <img src="../../img/Vector 111.svg" alt="" />
-            </div>
+          <div className={`item ${shape === 3 ? "item--active" : ""}`} title="Přírodní" onClick={() => setShape(3)}>
+            <img src="../../img/natura.svg" alt="" />
           </div>
-          <div className={`item ${shape === 4 ? "item--active" : ""}`} onClick={() => setShape(4)}>
-            <div className="item__label">
-              <img src="../../img/Polygon 5.svg" alt="" />
-            </div>
+          <div className={`item ${shape === 4 ? "item--active" : ""}`} title="Hexagon" onClick={() => setShape(4)}>
+            <img src="../../img/hexagon.svg" alt="" />
           </div>
           {/*
           <div
@@ -183,29 +182,88 @@ const Configurator = () => {
       </div>
       <div className="configurator-item-color">
         <div className={`item-color ${material === "wood1" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood1")}>
-          <img src="../../img/wood1.png" alt="" />
+          <img src="../../img/Dub.png" alt="" />
           <h5>Dub</h5>
         </div>
         <div className={`item-color ${material === "wood2" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood2")}>
-          <img src="../../img/wood2.png" alt="" />
+          <img src="../../img/Bříza.png" alt="" />
           <h5>Bříza</h5>
         </div>
-        <div className={`item-color ${material === "wood3 " ? "item-color-active" : ""}`} onClick={() => setMaterial("wood3")}>
-          <img src="../../img/wood2.png" alt="" />
-          <h5>Bříza</h5>
+        <div className={`item-color ${material === "wood7" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood7")}>
+          <img src="../../img/Jasan.png" alt="" />
+          <h5>Jasan</h5>
+        </div>
+        <div className={`item-color ${material === "wood3" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood3")}>
+          <img src="../../img/Ořech.png" alt="" />
+          <h5>Ořech</h5>
         </div>
         <div className={`item-color ${material === "wood4" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood4")}>
-          <img src="../../img/wood2.png" alt="" />
-          <h5>Bříza</h5>
+          <img src="../../img/Americký ořech.png" alt="" />
+          <h5>Americký ořech</h5>
+        </div>
+        <div className={`item-color ${material === "wood5" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood5")}>
+          <img src="../../img/Kaštan.png" alt="" />
+          <h5>Kaštan</h5>
+        </div>
+        <div className={`item-color ${material === "wood6" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood6")}>
+          <img src="../../img/Oliva.png" alt="" />
+          <h5>Oliva</h5>
         </div>
       </div>
       <div className="configurator-label">
         <h5>Rozměry</h5>
         <hr></hr>
       </div>
-      <div class="configurator-scale" style={{ position: "relative", width: "100%", maxWidth: "400px" }}>
-        <div class="scale-item">
-          <label>Délka desky</label>
+      <div className="configurator-scale" style={{ position: "relative", width: "100%", maxWidth: "400px" }}>
+        <div className="scale-item">
+          <label>{visible ? "Délka desky" : "Průměr desky"}</label> {/* Realně šírka !!!!!*/}
+          <div style={{ position: "relative", width: "100%" }}>
+            {/* Hodnota v thumbu */}
+            <div style={{ position: "relative", width: "100%" }}>
+              {/* Hodnota v thumbu */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "30px",
+                  left: `${getLeftPosition1()}%`,
+                  transform: "translateX(-50%)",
+                  background: "#8ABF37",
+                  color: "#1A1A1A",
+                  padding: "6px 12px",
+                  borderRadius: "20px",
+                  fontSize: "14px",
+                  fontWeight: "bold",
+                  boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {sirka} cm
+              </div>
+
+              {/* Posuvník */}
+              <input
+                type="range"
+                min={min}
+                max={max}
+                value={sirka}
+                id="sirka-desky"
+                onChange={(e) => setSirka(Number(e.target.value))}
+                className="slider"
+                style={{
+                  width: "100%",
+                  height: "6px",
+                  background: `linear-gradient(to right,#1A1A1A 0%, #1A1A1A ${((sirka - min) / (max - min)) * 100}%, #C4C4C4 ${((sirka - min) / (max - min)) * 100}%, #C4C4C4 100%)`,
+                  borderRadius: "5px",
+                  outline: "none",
+                  appearance: "none",
+                  cursor: "pointer",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+        <div className={visible ? "scale-item" : "scale-item-hidden"}>
+          <label>Šířka desky</label> {/* Realně délka !!!!!*/}
           <div style={{ position: "relative", width: "100%" }}>
             {/* Hodnota v thumbu */}
             <div style={{ position: "relative", width: "100%" }}>
@@ -251,54 +309,7 @@ const Configurator = () => {
             </div>
           </div>
         </div>
-        <div class="scale-item">
-          <label>Šířka desky</label>
-          <div style={{ position: "relative", width: "100%" }}>
-            {/* Hodnota v thumbu */}
-            <div style={{ position: "relative", width: "100%" }}>
-              {/* Hodnota v thumbu */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "30px",
-                  left: `${getLeftPosition1()}%`,
-                  transform: "translateX(-50%)",
-                  background: "#8ABF37",
-                  color: "#1A1A1A",
-                  padding: "6px 12px",
-                  borderRadius: "20px",
-                  fontSize: "14px",
-                  fontWeight: "bold",
-                  boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {value1} cm
-              </div>
-
-              {/* Posuvník */}
-              <input
-                type="range"
-                min={min}
-                max={max}
-                value={value1}
-                id="sirka-desky"
-                onChange={(e) => setValue1(Number(e.target.value))}
-                className="slider"
-                style={{
-                  width: "100%",
-                  height: "6px",
-                  background: `linear-gradient(to right,#1A1A1A 0%, #1A1A1A ${((value1 - min) / (max - min)) * 100}%, #C4C4C4 ${((value1 - min) / (max - min)) * 100}%, #C4C4C4 100%)`,
-                  borderRadius: "5px",
-                  outline: "none",
-                  appearance: "none",
-                  cursor: "pointer",
-                }}
-              />
-            </div>
-          </div>
-        </div>
-        <div class="scale-item">
+        <div className="scale-item">
           <label>Tloušťka desky</label>
           <div style={{ position: "relative", width: "100%" }}>
             {/* Hodnota v thumbu */}
@@ -320,7 +331,7 @@ const Configurator = () => {
                   whiteSpace: "nowrap",
                 }}
               >
-                {value2} mm
+                {tloustka} mm
               </div>
 
               {/* Posuvník */}
@@ -328,14 +339,14 @@ const Configurator = () => {
                 type="range"
                 min={min2}
                 max={max2}
-                value={value2}
+                value={tloustka}
                 id="sirka-desky"
-                onChange={(e) => setValue2(Number(e.target.value))}
+                onChange={(e) => setTloustka(Number(e.target.value))}
                 className="slider"
                 style={{
                   width: "100%",
                   height: "6px",
-                  background: `linear-gradient(to right,#1A1A1A 0%, #1A1A1A ${((value2 - min2) / (max2 - min2)) * 100}%, #C4C4C4 ${((value2 - min2) / (max2 - min2)) * 100}%, #C4C4C4 100%)`,
+                  background: `linear-gradient(to right,#1A1A1A 0%, #1A1A1A ${((tloustka - min2) / (max2 - min2)) * 100}%, #C4C4C4 ${((tloustka - min2) / (max2 - min2)) * 100}%, #C4C4C4 100%)`,
                   borderRadius: "5px",
                   outline: "none",
                   appearance: "none",
@@ -345,7 +356,7 @@ const Configurator = () => {
             </div>
           </div>
         </div>
-        <div class="scale-item">
+        <div className="scale-item">
           <label>Výška stolu</label>
           <div style={{ position: "relative", width: "100%" }}>
             {/* Hodnota v thumbu */}
@@ -367,7 +378,7 @@ const Configurator = () => {
                   whiteSpace: "nowrap",
                 }}
               >
-                {value3} cm
+                {vyska} cm
               </div>
 
               {/* Posuvník */}
@@ -375,14 +386,14 @@ const Configurator = () => {
                 type="range"
                 min={min2}
                 max={max2}
-                value={value3}
+                value={vyska}
                 id="sirka-desky"
-                onChange={(e) => setValue3(Number(e.target.value))}
+                onChange={(e) => setVyska(Number(e.target.value))}
                 className="slider"
                 style={{
                   width: "100%",
                   height: "6px",
-                  background: `linear-gradient(to right,#1A1A1A 0%, #1A1A1A ${((value3 - min2) / (max2 - min2)) * 100}%, #C4C4C4 ${((value3 - min2) / (max2 - min2)) * 100}%, #C4C4C4 100%)`,
+                  background: `linear-gradient(to right,#1A1A1A 0%, #1A1A1A ${((vyska - min2) / (max2 - min2)) * 100}%, #C4C4C4 ${((vyska - min2) / (max2 - min2)) * 100}%, #C4C4C4 100%)`,
                   borderRadius: "5px",
                   outline: "none",
                   appearance: "none",
@@ -415,24 +426,47 @@ const Configurator = () => {
               <img src="../../img/leg6.png" alt="" />
             </div>
           </div>
-          <div className={`item ${legs === 4 ? "item--active" : ""}`} onClick={() => setLegs(4)}>
+        </div>
+      </div>
+      <div className="configurator-label">
+        <h5>Typ epoxidu</h5>
+        <hr></hr>
+      </div>
+      <div className="configurator-item">
+        <div className="c-item-row">
+          <div className={`item ${epoxid === 7 ? "item--active" : ""}`} onClick={() => setEpoxid(7)}>
             <div className="item__label">
-              <img src="../../img/leg1.png" alt="" />
+              <img src="../../img/nic.png" alt="" />
             </div>
           </div>
-          <div className={`item ${legs === 5 ? "item--active" : ""}`} onClick={() => setLegs(5)}>
+          <div className={`item ${epoxid === 1 ? "item--active" : ""}`} onClick={() => setEpoxid(1)}>
             <div className="item__label">
-              <img src="../../img/circle.png" alt="" />
+              <img src="../../img/epoxid1.svg" alt="" />
             </div>
           </div>
-          <div className={`item ${legs === 6 ? "item--active" : ""}`} onClick={() => setLegs(6)}>
+          <div className={`item ${epoxid === 2 ? "item--active" : ""}`} onClick={() => setEpoxid(2)}>
             <div className="item__label">
-              <img src="../../img/circle.png" alt="" />
+              <img src="../../img/epoxid2.svg" alt="" />
             </div>
           </div>
-          <div className={`item ${legs === 7 ? "item--active" : ""}`} onClick={() => setLegs(7)}>
+          <div className={`item ${epoxid === 3 ? "item--active" : ""}`} onClick={() => setEpoxid(3)}>
             <div className="item__label">
-              <img src="../../img/circle.png" alt="" />
+              <img src="../../img/epoxid3.svg" alt="" />
+            </div>
+          </div>
+          <div className={`item ${epoxid === 1 ? "item--active" : ""}`} onClick={() => setEpoxid(4)}>
+            <div className="item__label">
+              <img src="../../img/epoxid4.svg" alt="" />
+            </div>
+          </div>
+          <div className={`item ${epoxid === 2 ? "item--active" : ""}`} onClick={() => setEpoxid(5)}>
+            <div className="item__label">
+              <img src="../../img/epoxid5.svg" alt="" />
+            </div>
+          </div>
+          <div className={`item ${epoxid === 3 ? "item--active" : ""}`} onClick={() => setEpoxid(6)}>
+            <div className="item__label">
+              <img src="../../img/epoxid6.svg" alt="" />
             </div>
           </div>
         </div>
@@ -441,9 +475,8 @@ const Configurator = () => {
         <h5>Barva nožiček</h5>
         <hr></hr>
       </div>
-      <input type="color" value={legColor} onChange={(e) => setLegColor(e.target.value)} />
       <div className="configurator-item-color">
-        <div className={`item-color ${material === "legs1" ? "item-color-active" : ""}`} onClick={() => setMaterial("legs1")}>
+        <div className={`item-color ${material === "leg1" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg1")}>
           <img src="../../img/wood1.png" alt="" />
           <h5>Podle dřeva</h5>
         </div>
@@ -458,6 +491,10 @@ const Configurator = () => {
         <div className={`item-color ${material === "leg4" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg4")}>
           <img src="../../img/steel.jpeg" alt="" />
           <h5>Broušená ocel</h5>
+        </div>
+        <div className={`item-color ${material === "leg5" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg5")}>
+          <input type="color" value={legColor} onChange={(e) => setLegColor(e.target.value)} />
+          <h5>Vlastní barva</h5>
         </div>
       </div>
     </>

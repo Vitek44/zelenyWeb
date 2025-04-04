@@ -18,8 +18,8 @@
 
 .configurator-picture img {
   object-fit: cover;
-  width: 100%;
-  height: 100%;
+  width: 90px;
+  height: 90px;
 }
 .progress {
   position: relative;
@@ -41,17 +41,20 @@
   animation: progress 5s linear infinite;
 }
 .item--active {
-  border: 2px solid var(--green);
-  border-radius: 5px;
+  filter: brightness(1) !important;
+  transform: scale(1.1) !important;
+  transition: transform 0.3s;
 }
 
 .item {
-  margin: 0.5rem;
-  border: 3px solid transparent;
-}
-
-.item__label {
-  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  background-color: #f7f7f7;
+  padding: 0;
+  filter: brightness(0.9);
+  transform: scale(1);
+  transition: transform 0.3s;
 }
 
 @keyframes progress {
@@ -100,10 +103,9 @@ hr {
   border-color: #000;
 }
 .c-item-row {
-  display: flex;
-  align-items: center;
-  width: 55%;
-  height: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
 }
 
 .c-item-row span {
@@ -111,10 +113,9 @@ hr {
   background-color: none;
 }
 .configurator-item img {
-  width: 35px;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 15px;
 }
 
 .selected {
@@ -218,12 +219,25 @@ canvas {
   border: 2px solid var(--green);
 }
 
+.scale-item-hidden {
+  display: none;
+}
+
 .item-color img {
   width: 35px;
   height: 35px;
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.item-color input {
+  width: 35px;
+  height: 35px;
+  border-radius: 50% !important;
+  border: none;
+  cursor: pointer;
   margin-right: 1rem;
 }
 
@@ -288,11 +302,11 @@ canvas {
 
 @media screen and (max-width: 1450px) {
   .configurator-section {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
   .configurator-picture {
     width: 100%;
-    height: auto;
+    height: 100%;
     justify-content: center;
     align-items: center;
     margin-right: 0;
@@ -300,6 +314,30 @@ canvas {
 
   .configurator-content {
     width: 100%;
+    height: 100%;
     margin-left: 0;
+    padding: 3rem 2rem;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+    height: auto;
+  }
+
+  .configurator-item-color {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .c-item-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .table-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .table-title h1 {
+    margin-bottom: 1rem;
   }
 }
