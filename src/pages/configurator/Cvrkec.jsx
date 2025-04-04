@@ -10,12 +10,20 @@ const Table = (props) => {
   const { shape, edge, legs, material, legColor, delka, sirka, vyska, tloustka } = useCustomization();
 
   const wood1TextureProps = useTexture({
+    map: "../../textures/Wood/Wood10_4K_BaseColor.png",
+    normalMap: "../../textures/Wood/Wood10_4K_Normal.png",
+  });
+  {
+    /*
     map: "../../textures/Wood/Wood_011_Base_Color.jpg",
     normalMap: "../../textures/Wood/Wood_011_Normal.jpg",
-  });
-  const wood2TextureProps = useTexture({
+      const wood2TextureProps = useTexture({
     map: "../../textures/Wood/Wood_013_COLOR.jpg",
-    normalMap: "../../textures/Wood/Wood_013_NORM.jpg",
+    normalMap: "../../textures/Wood/Wood_013_NORM.jpg",*/
+  }
+  const wood2TextureProps = useTexture({
+    map: "../../textures/Wood/Wood09_4K_BaseColor.png",
+    normalMap: "../../textures/Wood/Wood09_4K_Normal.png",
   });
 
   return (
