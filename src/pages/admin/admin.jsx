@@ -47,9 +47,11 @@ const Admin = () => {
       });
   };
 
-  useEffect(() => {
+  {
+    /*  useEffect(() => {
     verifyToken();
-  }, []);
+  }, []);*/
+  }
 
   const loadData = () => {
     fetch(`https://designjj-test.eu/php/getProdukt.php`, {
@@ -83,6 +85,7 @@ const Admin = () => {
     file2: "",
     file3: "",
     file4: "",
+    zakoupeno: 0,
     typ: "Hranatý",
   });
   const _changeCreditals = (e) => {
@@ -211,6 +214,7 @@ const Admin = () => {
         file2: tableData.URL1,
         file3: tableData.URL2,
         file4: tableData.URL3,
+        zakoupeno: tableData.Zakoupeno,
       });
 
       setFiles([tableData.URL, tableData.URL1, tableData.URL2, tableData.URL3].filter(Boolean));
@@ -257,6 +261,12 @@ const Admin = () => {
     }
   };
 
+  const [kDispozici, setKDispozici] = useState(true);
+
+  useEffect(() => {
+    setKDispozici(Number(creditals.zakoupeno) !== 1);
+  }, [creditals.zakoupeno]);
+
   return (
     <>
       <HelmetProvider>
@@ -291,6 +301,7 @@ const Admin = () => {
                   file2: "",
                   file3: "",
                   file4: "",
+                  zakoupeno: 0,
                 });
               }}
             >
@@ -302,6 +313,7 @@ const Admin = () => {
                 <img src={item.URL} alt="" />
                 <div className="card-title">
                   <h3>{item.Nazev}</h3>
+                  <span>{item.Zakoupeno}</span>
                   <div className="card-btns">
                     <button className="edit" title="Upravit stůl" onClick={() => editTable(item.Id)}>
                       <i className="fa-solid fa-pen-to-square"></i>
@@ -320,7 +332,7 @@ const Admin = () => {
         <div className="modal-wrapper">
           <div className="modal">
             <div className="modal-header">
-              <h3>Nový stůl</h3>
+              <h3>{creditals.nazev || "Nový stůl"}</h3>
               <button
                 className="close-modal"
                 onClick={() => {
@@ -377,6 +389,22 @@ const Admin = () => {
               </div>
               <div className="form-group">
                 <input type="number" name="cena" placeholder="Cena" value={creditals.cena} onChange={_changeCreditals} />
+              </div>
+              <div class="form-group">
+                <input
+                  type="checkbox"
+                  name="zakoupeno"
+                  checked={creditals.zakoupeno === 1}
+                  onChange={(e) =>
+                    _changeCreditals({
+                      target: {
+                        name: "zakoupeno",
+                        value: e.target.checked ? 1 : 0,
+                      },
+                    })
+                  }
+                />
+                <label htmlFor="zakoupeno">Zakoupeno</label>
               </div>
               <div className="form-group">
                 <div className="file-upload">

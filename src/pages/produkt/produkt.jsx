@@ -14,6 +14,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { div } from "three/tsl";
+import { use } from "react";
 
 function Produkt({ id }) {
   useEffect(() => {
@@ -174,6 +175,12 @@ function Produkt({ id }) {
       });
   };
 
+  const [kDispozici, setKDispozici] = useState(true);
+
+  useEffect(() => {
+    setKDispozici(Number(getData.Zakoupeno) !== 1);
+  }, [getData.Zakoupeno]);
+
   return (
     <>
       <ToastContainer position="bottom-right" autoClose={500} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" transition:Bounce />
@@ -206,17 +213,24 @@ function Produkt({ id }) {
                 </div>
               </div>
               <div className="produkt-item">
+                <h5>{t("Vyska2")}:</h5>
+                <div className="item-row">
+                  <p>{getData.Uhlopricka + " cm"}</p>
+                  <img src="/img/sirka.svg" alt="" />
+                </div>
+              </div>
+              <div className="produkt-item">
                 <h5>{t("Sirka")}:</h5>
                 <div className="item-row">
                   <p>{getData.Sirka + " cm"}</p>
-                  <img src="/img/sirka.svg" alt="" />
+                  <img src="/img/vyska.svg" alt="" />
                 </div>
               </div>
               <div className="produkt-item">
                 <h5>{t("Vyska")}:</h5>
                 <div className="item-row">
                   <p>{getData.Vyska + " cm"}</p>
-                  <img src="/img/vyska.svg" alt="" />
+                  <img src="/img/vyska2.svg" alt="" />
                 </div>
               </div>
               <div className="produkt-item">
@@ -226,21 +240,13 @@ function Produkt({ id }) {
                   <img src="/img/tloustka.svg" alt="" />
                 </div>
               </div>
-              <div className="produkt-item">
-                <h5>{t("Vyska2")}:</h5>
-                <div className="item-row">
-                  <p>{getData.Uhlopricka + " cm"}</p>
-                  <img src="/img/vyska2.svg" alt="" />
-                </div>
-              </div>
               <div className="produkt-akce">
                 <div className="produkt-cena">
-                  <span>{"ID#" + getData.Id}</span>
-                  <h3>{formatCena(getFormattedPrice(getData.Cena) + ",-")}</h3>
+                  <h3>{formatCena(getFormattedPrice(getData.Cena))}</h3>
                 </div>
                 <div className="produkt-btn">
-                  <button className="modalOpen" onClick={() => setModalOpen(true)}>
-                    {t("Produkt_btn")}
+                  <button className="modalOpen" onClick={() => setModalOpen(true)} disabled={!kDispozici}>
+                    {kDispozici ? t("Produkt_btn") : t("Vyprodano")}
                     <i className="fa-solid fa-basket-shopping"></i>
                   </button>
                 </div>
@@ -309,6 +315,13 @@ function Produkt({ id }) {
             <h1>{t("subtitle7")}</h1>
           </div>
           <SliderProduct />
+        </div>
+        <div className="container">
+          <div className="services1">
+            <a href="/konfigurator" className="configurator" data-aos="zoom-in" data-aos-delay="200">
+              <h3>{t("configurator_text")}</h3>
+            </a>
+          </div>
         </div>
       </div>
       <Footer />

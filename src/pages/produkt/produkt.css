@@ -138,7 +138,7 @@
   border-radius: 5px;
   cursor: pointer;
   text-transform: uppercase;
-  width: 160px;
+  width: fit-content;
 }
 
 .produkt-akce button:hover {
@@ -226,6 +226,18 @@
   align-items: center;
 }
 
+.modalOpen:disabled {
+  background-color: #c0c0c0;
+  color: white;
+  cursor: not-allowed;
+}
+
+.modalOpen:disabled:hover {
+  background-color: #cfcfcf;
+  color: white;
+  cursor: not-allowed;
+}
+
 .modalOpen i {
   font-size: 16px;
   margin-left: 0.75rem;
@@ -233,6 +245,10 @@
 
 .produkt-main .modal-btn {
   margin-left: 0.5rem;
+}
+
+.produkt-main .services1 {
+  margin-top: 10rem;
 }
 
 @media screen and (max-width: 1024px) {
