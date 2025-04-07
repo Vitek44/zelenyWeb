@@ -99,7 +99,7 @@ export default function Kontakt() {
               </div>
               <div className="kontakt-item" data-aos="fade-right" data-aos-delay="50">
                 <i className="fa-solid fa-map-location-dot"></i>
-                <h5>Chrudim, Pod Mostem 42</h5>
+                <h5>Chrudim, U Stadionu 749</h5>
               </div>
               <div className="kontakt-item" data-aos="fade-right" data-aos-delay="100">
                 <i className="fa-solid fa-envelope"></i>
