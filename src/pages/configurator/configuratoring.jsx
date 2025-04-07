@@ -23,6 +23,9 @@ const Configurator = () => {
   const min2 = 10;
   const max2 = 100;
 
+  const minVyska = 50;
+  const maxVyska = 140;
+
   // Výpočet pozice popisku
   const getLeftPosition = () => {
     return ((delka - min) / (max - min)) * 100;
@@ -37,7 +40,7 @@ const Configurator = () => {
   };
 
   const getLeftPosition3 = () => {
-    return ((vyska - min2) / (max2 - min2)) * 100;
+    return ((vyska - minVyska) / (maxVyska - minVyska)) * 100;
   };
 
   const checkboxRef = useRef(null);
@@ -130,16 +133,16 @@ const Configurator = () => {
       <div className="configurator-item">
         <div className="c-item-row">
           <div className={`item ${shape === 1 ? "item--active" : ""}`} title="Čtverec" onClick={() => setShape(1)}>
-            <img src="../../img/ctverec.svg" alt="" />
+            <img src="../../img/ctverec.svg" alt="" draggable="false" />
           </div>
           <div className={`item ${shape === 2 ? "item--active" : ""}`} title="Kruh" onClick={() => setShape(2)}>
-            <img src="../../img/kruh.svg" alt="" />
+            <img src="../../img/kruh.svg" alt="" draggable="false" />
           </div>
           <div className={`item ${shape === 3 ? "item--active" : ""}`} title="Přírodní" onClick={() => setShape(3)}>
-            <img src="../../img/natura.svg" alt="" />
+            <img src="../../img/natura.svg" alt="" draggable="false" />
           </div>
           <div className={`item ${shape === 4 ? "item--active" : ""}`} title="Hexagon" onClick={() => setShape(4)}>
-            <img src="../../img/hexagon.svg" alt="" />
+            <img src="../../img/hexagon.svg" alt="" draggable="false" />
           </div>
           {/*
           <div
@@ -161,17 +164,17 @@ const Configurator = () => {
         <div className="c-item-row">
           <div className={`item ${edge === 1 ? "item--active" : ""}`} onClick={() => setEdge(1)}>
             <div className="item__label">
-              <img src="../../img/klasika.jpg" alt="" />
+              <img src="../../img/kosa.svg" alt="" draggable="false" />
             </div>
           </div>
           <div className={`item ${edge === 2 ? "item--active" : ""}`} onClick={() => setEdge(2)}>
             <div className="item__label">
-              <img src="../../img/45hranes.jpg" alt="" />
+              <img src="../../img/kulatej.svg" alt="" draggable="false" />
             </div>
           </div>
           <div className={`item ${edge === 3 ? "item--active" : ""}`} onClick={() => setEdge(3)}>
             <div className="item__label">
-              <img src="../../img/radius.jpg" alt="" />
+              <img src="../../img/hrana.svg" alt="" draggable="false" />
             </div>
           </div>
         </div>
@@ -182,31 +185,31 @@ const Configurator = () => {
       </div>
       <div className="configurator-item-color">
         <div className={`item-color ${material === "wood1" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood1")}>
-          <img src="../../img/Dub.png" alt="" />
+          <img src="../../img/Dub.png" alt="" draggable="false" />
           <h5>Dub</h5>
         </div>
         <div className={`item-color ${material === "wood2" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood2")}>
-          <img src="../../img/Bříza.png" alt="" />
+          <img src="../../img/Bříza.png" alt="" draggable="false" />
           <h5>Bříza</h5>
         </div>
         <div className={`item-color ${material === "wood7" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood7")}>
-          <img src="../../img/Jasan.png" alt="" />
+          <img src="../../img/Jasan.png" alt="" draggable="false" />
           <h5>Jasan</h5>
         </div>
         <div className={`item-color ${material === "wood3" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood3")}>
-          <img src="../../img/Ořech.png" alt="" />
+          <img src="../../img/Ořech.png" alt="" draggable="false" />
           <h5>Ořech</h5>
         </div>
         <div className={`item-color ${material === "wood4" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood4")}>
-          <img src="../../img/Americký ořech.png" alt="" />
+          <img src="../../img/Americký ořech.png" alt="" draggable="false" />
           <h5>Americký ořech</h5>
         </div>
         <div className={`item-color ${material === "wood5" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood5")}>
-          <img src="../../img/Kaštan.png" alt="" />
+          <img src="../../img/Kaštan.png" alt="" draggable="false" />
           <h5>Kaštan</h5>
         </div>
         <div className={`item-color ${material === "wood6" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood6")}>
-          <img src="../../img/Oliva.png" alt="" />
+          <img src="../../img/Oliva.png" alt="" draggable="false" />
           <h5>Oliva</h5>
         </div>
       </div>
@@ -214,7 +217,7 @@ const Configurator = () => {
         <h5>Rozměry</h5>
         <hr></hr>
       </div>
-      <div className="configurator-scale" style={{ position: "relative", width: "100%", maxWidth: "400px" }}>
+      <div className="configurator-scale" style={{ position: "relative", width: "100%", maxWidth: "550px" }}>
         <div className="scale-item">
           <label>{visible ? "Délka desky" : "Průměr desky"}</label> {/* Realně šírka !!!!!*/}
           <div style={{ position: "relative", width: "100%" }}>
@@ -227,7 +230,7 @@ const Configurator = () => {
                   top: "30px",
                   left: `${getLeftPosition1()}%`,
                   transform: "translateX(-50%)",
-                  background: "#8ABF37",
+                  background: "#ffffff",
                   color: "#1A1A1A",
                   padding: "6px 12px",
                   borderRadius: "20px",
@@ -274,7 +277,7 @@ const Configurator = () => {
                   top: "30px",
                   left: `${getLeftPosition()}%`,
                   transform: "translateX(-50%)",
-                  background: "#8ABF37",
+                  background: "#ffffff",
                   color: "#1A1A1A",
                   padding: "6px 12px",
                   borderRadius: "20px",
@@ -321,7 +324,7 @@ const Configurator = () => {
                   top: "30px",
                   left: `${getLeftPosition2()}%`,
                   transform: "translateX(-50%)",
-                  background: "#8ABF37",
+                  background: "#ffffff",
                   color: "#1A1A1A",
                   padding: "6px 12px",
                   borderRadius: "20px",
@@ -337,8 +340,8 @@ const Configurator = () => {
               {/* Posuvník */}
               <input
                 type="range"
-                min={min2}
-                max={max2}
+                min={minVyska}
+                max={maxVyska}
                 value={tloustka}
                 id="sirka-desky"
                 onChange={(e) => setTloustka(Number(e.target.value))}
@@ -346,7 +349,7 @@ const Configurator = () => {
                 style={{
                   width: "100%",
                   height: "6px",
-                  background: `linear-gradient(to right,#1A1A1A 0%, #1A1A1A ${((tloustka - min2) / (max2 - min2)) * 100}%, #C4C4C4 ${((tloustka - min2) / (max2 - min2)) * 100}%, #C4C4C4 100%)`,
+                  background: `linear-gradient(to right,#1A1A1A 0%, #1A1A1A ${((tloustka - minVyska) / (maxVyska - minVyska)) * 100}%, #C4C4C4 ${((tloustka - minVyska) / (max2 - minVyska)) * 100}%, #C4C4C4 100%)`,
                   borderRadius: "5px",
                   outline: "none",
                   appearance: "none",
@@ -368,7 +371,7 @@ const Configurator = () => {
                   top: "30px",
                   left: `${getLeftPosition3()}%`,
                   transform: "translateX(-50%)",
-                  background: "#8ABF37",
+                  background: "#ffffff",
                   color: "#1A1A1A",
                   padding: "6px 12px",
                   borderRadius: "20px",
@@ -384,8 +387,8 @@ const Configurator = () => {
               {/* Posuvník */}
               <input
                 type="range"
-                min={min2}
-                max={max2}
+                min={minVyska}
+                max={maxVyska}
                 value={vyska}
                 id="sirka-desky"
                 onChange={(e) => setVyska(Number(e.target.value))}
@@ -393,7 +396,7 @@ const Configurator = () => {
                 style={{
                   width: "100%",
                   height: "6px",
-                  background: `linear-gradient(to right,#1A1A1A 0%, #1A1A1A ${((vyska - min2) / (max2 - min2)) * 100}%, #C4C4C4 ${((vyska - min2) / (max2 - min2)) * 100}%, #C4C4C4 100%)`,
+                  background: `linear-gradient(to right,#1A1A1A 0%, #1A1A1A ${((vyska - minVyska) / (maxVyska - minVyska)) * 100}%, #C4C4C4 ${((vyska - minVyska) / (maxVyska - minVyska)) * 100}%, #C4C4C4 100%)`,
                   borderRadius: "5px",
                   outline: "none",
                   appearance: "none",
@@ -413,17 +416,17 @@ const Configurator = () => {
         <div className="c-item-row">
           <div className={`item ${legs === 1 ? "item--active" : ""}`} onClick={() => setLegs(1)}>
             <div className="item__label">
-              <img src="../../img/leg4.png" alt="" />
+              <img src="../../img/leg4.png" alt="" draggable="false" />
             </div>
           </div>
           <div className={`item ${legs === 2 ? "item--active" : ""}`} onClick={() => setLegs(2)}>
             <div className="item__label">
-              <img src="../../img/leg5.png" alt="" />
+              <img src="../../img/leg5.png" alt="" draggable="false" />
             </div>
           </div>
           <div className={`item ${legs === 3 ? "item--active" : ""}`} onClick={() => setLegs(3)}>
             <div className="item__label">
-              <img src="../../img/leg6.png" alt="" />
+              <img src="../../img/leg6.png" alt="" draggable="false" />
             </div>
           </div>
           <div className={`item ${legs === 4 ? "item--active" : ""}`} onClick={() => setLegs(4)}>
@@ -441,37 +444,37 @@ const Configurator = () => {
         <div className="c-item-row">
           <div className={`item ${epoxid === 7 ? "item--active" : ""}`} onClick={() => setEpoxid(7)}>
             <div className="item__label">
-              <img src="../../img/nic.png" alt="" />
+              <img src="../../img/nic.png" alt="" draggable="false" />
             </div>
           </div>
           <div className={`item ${epoxid === 1 ? "item--active" : ""}`} onClick={() => setEpoxid(1)}>
             <div className="item__label">
-              <img src="../../img/epoxid1.svg" alt="" />
+              <img src="../../img/epoxid1.svg" alt="" draggable="false" />
             </div>
           </div>
           <div className={`item ${epoxid === 2 ? "item--active" : ""}`} onClick={() => setEpoxid(2)}>
             <div className="item__label">
-              <img src="../../img/epoxid2.svg" alt="" />
+              <img src="../../img/epoxid2.svg" alt="" draggable="false" />
             </div>
           </div>
           <div className={`item ${epoxid === 3 ? "item--active" : ""}`} onClick={() => setEpoxid(3)}>
             <div className="item__label">
-              <img src="../../img/epoxid3.svg" alt="" />
+              <img src="../../img/epoxid3.svg" alt="" draggable="false" />
             </div>
           </div>
           <div className={`item ${epoxid === 1 ? "item--active" : ""}`} onClick={() => setEpoxid(4)}>
             <div className="item__label">
-              <img src="../../img/epoxid4.svg" alt="" />
+              <img src="../../img/epoxid4.svg" alt="" draggable="false" />
             </div>
           </div>
           <div className={`item ${epoxid === 2 ? "item--active" : ""}`} onClick={() => setEpoxid(5)}>
             <div className="item__label">
-              <img src="../../img/epoxid5.svg" alt="" />
+              <img src="../../img/epoxid5.svg" alt="" draggable="false" />
             </div>
           </div>
           <div className={`item ${epoxid === 3 ? "item--active" : ""}`} onClick={() => setEpoxid(6)}>
             <div className="item__label">
-              <img src="../../img/epoxid6.svg" alt="" />
+              <img src="../../img/epoxid6.svg" alt="" draggable="false" />
             </div>
           </div>
         </div>
@@ -482,19 +485,19 @@ const Configurator = () => {
       </div>
       <div className="configurator-item-color">
         <div className={`item-color ${material === "leg1" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg1")}>
-          <img src="../../img/wood1.png" alt="" />
+          <img src="../../img/wood1.png" alt="" draggable="false" />
           <h5>Podle dřeva</h5>
         </div>
         <div className={`item-color ${material === "leg2" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg2")}>
-          <img src="../../img/black.png" alt="" />
+          <img src="../../img/black.png" alt="" draggable="false" />
           <h5>Černá</h5>
         </div>
         <div className={`item-color ${material === "leg3" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg3")}>
-          <img src="../../img/white.png" alt="" />
+          <img src="../../img/white.png" alt="" draggable="false" />
           <h5>Bílá</h5>
         </div>
         <div className={`item-color ${material === "leg4" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg4")}>
-          <img src="../../img/steel.jpeg" alt="" />
+          <img src="../../img/steel.jpeg" alt="" draggable="false" />
           <h5>Broušená ocel</h5>
         </div>
         <div className={`item-color ${material === "leg5" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg5")}>

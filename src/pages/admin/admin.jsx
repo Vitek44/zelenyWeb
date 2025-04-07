@@ -85,7 +85,7 @@ const Admin = () => {
     file2: "",
     file3: "",
     file4: "",
-    zakoupeno: 0,
+    zakoupeno: "",
     typ: "Hranatý",
   });
   const _changeCreditals = (e) => {
@@ -312,8 +312,10 @@ const Admin = () => {
               <div className="stul-card">
                 <img src={item.URL} alt="" />
                 <div className="card-title">
-                  <h3>{item.Nazev}</h3>
-                  <span>{item.Zakoupeno}</span>
+                  <div class="title-column">
+                    <h3>{item.Nazev}</h3>
+                    <span>{item.Zakoupeno === "1" ? "Zakoupeno" : ""}</span>
+                  </div>
                   <div className="card-btns">
                     <button className="edit" title="Upravit stůl" onClick={() => editTable(item.Id)}>
                       <i className="fa-solid fa-pen-to-square"></i>
@@ -394,12 +396,12 @@ const Admin = () => {
                 <input
                   type="checkbox"
                   name="zakoupeno"
-                  checked={creditals.zakoupeno === 1}
+                  checked={creditals.zakoupeno === "1"}
                   onChange={(e) =>
                     _changeCreditals({
                       target: {
                         name: "zakoupeno",
-                        value: e.target.checked ? 1 : 0,
+                        value: e.target.checked ? "1" : "0",
                       },
                     })
                   }
