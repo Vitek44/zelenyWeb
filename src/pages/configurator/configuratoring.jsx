@@ -426,6 +426,11 @@ const Configurator = () => {
               <img src="../../img/leg6.png" alt="" />
             </div>
           </div>
+          <div className={`item ${legs === 4 ? "item--active" : ""}`} onClick={() => setLegs(4)}>
+            <div className="item__label">
+              <img src="../../img/leg6.png" alt="" />
+            </div>
+          </div>
         </div>
       </div>
       <div className="configurator-label">

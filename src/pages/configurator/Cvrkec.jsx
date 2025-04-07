@@ -64,6 +64,15 @@ const Table = (props) => {
       <mesh geometry={nodes["2Noha44"].geometry} position={[-(sirka / 200 + sirka / 200) + sirka / 200, -vyska / 100, -(sirka / 200 + sirka / 200 - sirka / 200)]} scale={[0.05, vyska / 100, 0.05]} visible={shape === 2 || shape === 4}>
         <meshStandardMaterial color={legColor} />
       </mesh>
+      <mesh geometry={nodes["4Noha1"].geometry} material={nodes["4Noha1"].material} position={[-0.765, 0, -0.765]} rotation={[0, Math.PI / 2, 0]} scale={[-0.101, -1, -0.98]}>
+        <meshStandardMaterial color={legColor} />
+      </mesh>
+      <mesh geometry={nodes["5oha1001"].geometry} material={nodes["5oha1001"].material} position={[-0.765, 0, -0.765]} rotation={[Math.PI, -Math.PI / 2, 0]} scale={[-0.101, -1, -0.98]}>
+        <meshStandardMaterial color={legColor} />
+      </mesh>
+      <mesh geometry={nodes["3Noha1"].geometry} material={nodes["3Noha1"].material} scale={[1, 1, 0.173]}>
+        <meshStandardMaterial color={legColor} />
+      </mesh>
     </group>
   );
 };
