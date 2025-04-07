@@ -125,7 +125,7 @@ function Interiery() {
                 >
                   {data.map((item) => (
                     <SplideSlide>
-                      <div className="interiery-gallery-item" key={item.Id}>
+                      <div className={item.cesta} key={item.Id}>
                         <img src="/img/01c.png" alt="" />
                       </div>
                     </SplideSlide>
