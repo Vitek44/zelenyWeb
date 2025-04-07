@@ -40,37 +40,50 @@ const Table = (props) => {
       <mesh geometry={nodes.hexagon.geometry} scale={[sirka / 100, tloustka / 20, sirka / 100]} visible={shape === 4}>
         <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : wood2TextureProps)} />
       </mesh>
-      <mesh geometry={nodes["1Noha14"].geometry} position={[delka / 200 + delka / 200 - 0.1, -vyska / 100, -(sirka / 200 + sirka / 200 - 0.1)]} scale={[0.05, vyska / 100, 0.05]} visible={shape === 1 || shape === 3}>
+      <mesh geometry={nodes["1Noha14"].geometry} position={[delka / 200 + delka / 200 - 0.1, -vyska / 100, -(sirka / 200 + sirka / 200 - 0.1)]} scale={[0.05, vyska / 100, 0.05]} visible={(shape === 1 || shape === 3) && legs === 1}>
         <meshStandardMaterial color={legColor} />{" "}
       </mesh>
-      <mesh geometry={nodes["1Noha44"].geometry} position={[delka / 200 + delka / 200 - 0.1, -vyska / 100, sirka / 200 + sirka / 200 - 0.1]} scale={[0.05, vyska / 100, 0.05]} visible={shape === 1 || shape === 3}>
+      <mesh geometry={nodes["1Noha44"].geometry} position={[delka / 200 + delka / 200 - 0.1, -vyska / 100, sirka / 200 + sirka / 200 - 0.1]} scale={[0.05, vyska / 100, 0.05]} visible={(shape === 1 || shape === 3) && legs === 1}>
         <meshStandardMaterial color={legColor} />{" "}
       </mesh>
-      <mesh geometry={nodes["1Noha34"].geometry} position={[-(delka / 200 + delka / 200) + 0.1, -vyska / 100, -(sirka / 200 + sirka / 200 - 0.1)]} scale={[0.05, vyska / 100, 0.05]} visible={shape === 1 || shape === 3}>
+      <mesh geometry={nodes["1Noha34"].geometry} position={[-(delka / 200 + delka / 200) + 0.1, -vyska / 100, -(sirka / 200 + sirka / 200 - 0.1)]} scale={[0.05, vyska / 100, 0.05]} visible={(shape === 1 || shape === 3) && legs === 1}>
         <meshStandardMaterial color={legColor} />{" "}
       </mesh>
-      <mesh geometry={nodes["1Noha24"].geometry} position={[-(delka / 200 + delka / 200) + 0.1, -vyska / 100, sirka / 200 + sirka / 200 - 0.1]} scale={[0.05, vyska / 100, 0.05]} visible={shape === 1 || shape === 3}>
+      <mesh geometry={nodes["1Noha24"].geometry} position={[-(delka / 200 + delka / 200) + 0.1, -vyska / 100, sirka / 200 + sirka / 200 - 0.1]} scale={[0.05, vyska / 100, 0.05]} visible={(shape === 1 || shape === 3) && legs === 1}>
         <meshStandardMaterial color={legColor} />{" "}
       </mesh>
-      <mesh geometry={nodes["2Noha14"].geometry} position={[sirka / 200 + sirka / 200 - sirka / 200, -vyska / 100, -(sirka / 200 + sirka / 200 - sirka / 200)]} scale={[0.05, vyska / 100, 0.05]} visible={shape === 2 || shape === 4}>
+      <mesh geometry={nodes["2Noha14"].geometry} position={[sirka / 200 + sirka / 200 - sirka / 200, -vyska / 100, -(sirka / 200 + sirka / 200 - sirka / 200)]} scale={[0.05, vyska / 100, 0.05]} visible={(shape === 2 || shape === 4) && legs === 1}>
         <meshStandardMaterial color={legColor} />{" "}
       </mesh>
-      <mesh geometry={nodes["2Noha24"].geometry} position={[sirka / 200 + sirka / 200 - sirka / 200, -vyska / 100, sirka / 200 + sirka / 200 - sirka / 200]} scale={[0.05, vyska / 100, 0.05]} visible={shape === 2 || shape === 4}>
+      <mesh geometry={nodes["2Noha24"].geometry} position={[sirka / 200 + sirka / 200 - sirka / 200, -vyska / 100, sirka / 200 + sirka / 200 - sirka / 200]} scale={[0.05, vyska / 100, 0.05]} visible={(shape === 2 || shape === 4) && legs === 1}>
         <meshStandardMaterial color={legColor} />
       </mesh>
-      <mesh geometry={nodes["2Noha34"].geometry} position={[-(sirka / 200 + sirka / 200) + sirka / 200, -vyska / 100, sirka / 200 + sirka / 200 - sirka / 200]} scale={[0.05, vyska / 100, 0.05]} visible={shape === 2 || shape === 4}>
+      <mesh geometry={nodes["2Noha34"].geometry} position={[-(sirka / 200 + sirka / 200) + sirka / 200, -vyska / 100, sirka / 200 + sirka / 200 - sirka / 200]} scale={[0.05, vyska / 100, 0.05]} visible={(shape === 2 || shape === 4) && legs === 1}>
         <meshStandardMaterial color={legColor} />
       </mesh>
-      <mesh geometry={nodes["2Noha44"].geometry} position={[-(sirka / 200 + sirka / 200) + sirka / 200, -vyska / 100, -(sirka / 200 + sirka / 200 - sirka / 200)]} scale={[0.05, vyska / 100, 0.05]} visible={shape === 2 || shape === 4}>
+      <mesh geometry={nodes["2Noha44"].geometry} position={[-(sirka / 200 + sirka / 200) + sirka / 200, -vyska / 100, -(sirka / 200 + sirka / 200 - sirka / 200)]} scale={[0.05, vyska / 100, 0.05]} visible={(shape === 2 || shape === 4) && legs === 1}>
         <meshStandardMaterial color={legColor} />
       </mesh>
-      <mesh geometry={nodes["4Noha1"].geometry} material={nodes["4Noha1"].material} position={[-0.765, 0, -0.765]} rotation={[0, Math.PI / 2, 0]} scale={[-0.101, -1, -0.98]}>
+      <mesh geometry={nodes["4Noha1"].geometry} material={nodes["4Noha1"].material} position={[0, -vyska / 100, sirka / 170 + sirka / 150 - sirka / 235]} rotation={[0, Math.PI / 2, 0]} scale={[0.065, -vyska / 101, -delka / 140]} visible={legs === 4}>
         <meshStandardMaterial color={legColor} />
       </mesh>
-      <mesh geometry={nodes["5oha1001"].geometry} material={nodes["5oha1001"].material} position={[-0.765, 0, -0.765]} rotation={[Math.PI, -Math.PI / 2, 0]} scale={[-0.101, -1, -0.98]}>
+
+      <mesh geometry={nodes["4Noha1"].geometry} material={nodes["4Noha1"].material} position={[0, -vyska / 100, -(sirka / 170 + sirka / 150) + sirka / 235]} rotation={[0, Math.PI / 2, 0]} scale={[0.065, -vyska / 101, -delka / 140]} visible={legs === 4}>
         <meshStandardMaterial color={legColor} />
       </mesh>
-      <mesh geometry={nodes["3Noha1"].geometry} material={nodes["3Noha1"].material} scale={[1, 1, 0.173]}>
+
+      <mesh geometry={nodes["5oha1001"].geometry} material={nodes["5oha1001"].material} position={[0, -vyska / 100, sirka / 170 + sirka / 150 - sirka / 235]} rotation={[Math.PI, -Math.PI / 2, 0]} scale={[0.065, -vyska / 101, -delka / 140]} visible={legs === 3}>
+        <meshStandardMaterial color={legColor} />
+      </mesh>
+
+      <mesh geometry={nodes["5oha1001"].geometry} material={nodes["5oha1001"].material} position={[0, -vyska / 100, -(sirka / 170 + sirka / 150) + sirka / 235]} rotation={[Math.PI, -Math.PI / 2, 0]} scale={[0.065, -vyska / 101, -delka / 140]} visible={legs === 3}>
+        <meshStandardMaterial color={legColor} />
+      </mesh>
+
+      <mesh geometry={nodes["3Noha1"].geometry} position={[0, -vyska / 100, sirka / 170 + sirka / 150 - sirka / 235]} material={nodes["3Noha1"].material} scale={[delka / 105, vyska / 101, 0.06]} visible={legs === 2}>
+        <meshStandardMaterial color={legColor} />
+      </mesh>
+      <mesh geometry={nodes["3Noha1"].geometry} position={[0, -vyska / 100, -(sirka / 170 + sirka / 150) + sirka / 235]} material={nodes["3Noha1"].material} scale={[delka / 105, vyska / 101, 0.06]} visible={legs === 2}>
         <meshStandardMaterial color={legColor} />
       </mesh>
     </group>
