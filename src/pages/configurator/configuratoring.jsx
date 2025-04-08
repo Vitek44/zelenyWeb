@@ -340,8 +340,8 @@ const Configurator = () => {
               {/* Posuvník */}
               <input
                 type="range"
-                min={minVyska}
-                max={maxVyska}
+                min={min2}
+                max={max2}
                 value={tloustka}
                 id="sirka-desky"
                 onChange={(e) => setTloustka(Number(e.target.value))}
@@ -349,7 +349,7 @@ const Configurator = () => {
                 style={{
                   width: "100%",
                   height: "6px",
-                  background: `linear-gradient(to right,#1A1A1A 0%, #1A1A1A ${((tloustka - minVyska) / (maxVyska - minVyska)) * 100}%, #C4C4C4 ${((tloustka - minVyska) / (max2 - minVyska)) * 100}%, #C4C4C4 100%)`,
+                  background: `linear-gradient(to right,#1A1A1A 0%, #1A1A1A ${((tloustka - min2) / (max2 - min2)) * 100}%, #C4C4C4 ${((tloustka - min2) / (max2 - min2)) * 100}%, #C4C4C4 100%)`,
                   borderRadius: "5px",
                   outline: "none",
                   appearance: "none",
