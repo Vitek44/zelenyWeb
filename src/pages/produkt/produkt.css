@@ -278,6 +278,10 @@
   .item-row {
     width: 55%;
   }
+
+  .produkt-main .modal {
+    top: 50%;
+  }
 }
 
 @media screen and (max-width: 768px) {

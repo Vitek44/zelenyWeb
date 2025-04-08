@@ -75,9 +75,6 @@ function Konfigurator() {
           </CustomizationProvider>
         </div>
       </div>
-      <div className="configurator-send">
-        <button onClick={handleSubmit}>Odeslat konfiguraci</button>
-      </div>
     </>
   );
 }
