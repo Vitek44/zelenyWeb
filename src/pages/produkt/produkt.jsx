@@ -208,7 +208,7 @@ function Produkt({ id }) {
               <div className="produkt-item">
                 <h5>{t("Typ_desky")}:</h5>
                 <div className="item-row">
-                  <p>{getData.Material}</p>
+                  <p>{t(getData.Material)}</p>
                   <img src={`/img/${getData.Material}.png`} alt={getData.Material} />
                 </div>
               </div>

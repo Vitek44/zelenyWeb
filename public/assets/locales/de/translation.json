@@ -99,5 +99,14 @@
   "bez_dph": "ohne DHP",
   "Produkt_btn": "Nach dem Tisch fragen",
   "main-title": "Innenraumgestaltung",
-  "phSubject": "Fach"
+  "phSubject": "Fach",
+
+  "Oliva": "Olivenbaum",
+  "Ořech": "Walnuss",
+  "Dub": "Eiche",
+  "Jasan": "Esche",
+  "Bříza": "Birke",
+  "Kaštan": "Edelkastanie",
+  "Topol": "Pappel",
+  "Americký ořech": "Amerikanische Walnuss"
 }

@@ -116,5 +116,14 @@
   "table_configurator": "Konfigurátor stolu",
   "desk-shape": "Tvar desky",
   "edge-shape": "Tvar hrany",
-  "desk_color": "Barva desky"
+  "desk_color": "Barva desky",
+
+  "Oliva": "Oliva",
+  "Ořech": "Ořech",
+  "Americký ořech": "Americký ořech",
+  "Jasan": "Jasan",
+  "Kaštan": "Kaštan",
+  "Bříza": "Bříza",
+  "Topol": "Topol",
+  "Dub": "Dub"
 }

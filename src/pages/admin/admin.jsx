@@ -371,6 +371,7 @@ const Admin = () => {
                   <option value="Kaštan">Kaštan</option>
                   <option value="Oliva">Oliva</option>
                   <option value="Bříza">Bříza</option>
+                  <option value="Topol">Topol</option>
                 </select>
                 <select name="typ" value={creditals?.typ || ""} onChange={(e) => setCreditals({ ...creditals, typ: e.target.value })}>
                   <option disabled value="">
