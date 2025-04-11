@@ -105,7 +105,7 @@ const Configurator = () => {
   return (
     <>
       <div className="table-title">
-        <h1>Konfigurátor stolu</h1>
+        <h1>{t("table_configurator")}</h1>
         <div className="language-switch" ref={dropdownRef}>
           <button className="language-button" onClick={toggleDropdown}>
             <img src={`/img/${currentLanguage?.country_code}.svg`} alt={`${currentLanguage?.name} flag`} className="flag-img" />
@@ -127,7 +127,7 @@ const Configurator = () => {
         </div>
       </div>
       <div className="configurator-label">
-        <h5>Tvar desky</h5>
+        <h5>{t("desk_shape")}</h5>
         <hr></hr>
       </div>
       <div className="configurator-item">
@@ -157,7 +157,7 @@ const Configurator = () => {
         </div>
       </div>
       <div className="configurator-label">
-        <h5>Tvar hrany</h5>
+        <h5>{t("edge_shape")}</h5>
         <hr></hr>
       </div>
       <div className="configurator-item">
@@ -180,7 +180,7 @@ const Configurator = () => {
         </div>
       </div>
       <div className="configurator-label">
-        <h5>Barva desky1</h5>
+        <h5>{t("desk_color")}</h5>
         <hr></hr>
       </div>
       <div className="configurator-item-color">

@@ -38,13 +38,8 @@ const Table = (props) => {
       <mesh geometry={nodes.Natural.geometry} position={[0, 0, 0]} scale={[delka / 90, tloustka / 1000, sirka / 90]} visible={shape === 3}>
         <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : wood4TextureProps)} />
       </mesh>
-<<<<<<< HEAD
-      <mesh geometry={nodes.hexagon.geometry} scale={[sirka / 100, tloustka / 20, sirka / 100]} visible={shape === 4}>
-        <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : wood4TextureProps)} />
-=======
       <mesh geometry={nodes.hexagon.geometry} scale={[sirka / 100, tloustka / 20, sirka / 100]} visible={shape === 4} rotation={[0, 11, 0]}>
         <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : wood2TextureProps)} />
->>>>>>> 7d42eec7c9bf77d1e044ccbe40cf727c2716faeb
       </mesh>
       <mesh geometry={nodes["1Noha14"].geometry} position={[delka / 200 + delka / 200 - 0.1, -vyska / 100, -(sirka / 200 + sirka / 200 - 0.1)]} scale={[0.05, vyska / 100, 0.05]} visible={(shape === 1 || shape === 3) && legs === 1}>
         <meshStandardMaterial color={legColor} />{" "}
