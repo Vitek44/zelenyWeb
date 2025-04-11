@@ -192,23 +192,23 @@ const Configurator = () => {
           <img src="../../img/Bříza.png" alt="" draggable="false" />
           <h5>Bříza</h5>
         </div>
-        <div className={`item-color ${material === "wood7" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood7")}>
+        <div className={`item-color ${material === "wood3" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood3")}>
           <img src="../../img/Jasan.png" alt="" draggable="false" />
           <h5>Jasan</h5>
         </div>
-        <div className={`item-color ${material === "wood3" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood3")}>
+        <div className={`item-color ${material === "wood4" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood4")}>
           <img src="../../img/Ořech.png" alt="" draggable="false" />
           <h5>Ořech</h5>
         </div>
-        <div className={`item-color ${material === "wood4" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood4")}>
+        <div className={`item-color ${material === "wood5" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood5")}>
           <img src="../../img/Americký ořech.png" alt="" draggable="false" />
           <h5>Americký ořech</h5>
         </div>
-        <div className={`item-color ${material === "wood5" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood5")}>
+        <div className={`item-color ${material === "wood6" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood6")}>
           <img src="../../img/Kaštan.png" alt="" draggable="false" />
           <h5>Kaštan</h5>
         </div>
-        <div className={`item-color ${material === "wood6" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood6")}>
+        <div className={`item-color ${material === "wood7" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood7")}>
           <img src="../../img/Oliva.png" alt="" draggable="false" />
           <h5>Oliva</h5>
         </div>

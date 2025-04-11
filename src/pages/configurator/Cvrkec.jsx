@@ -13,32 +13,33 @@ const Table = (props) => {
     map: "../../textures/Wood/Wood10_4K_BaseColor.png",
     normalMap: "../../textures/Wood/Wood10_4K_Normal.png",
   });
-  {
-    /*
-    map: "../../textures/Wood/Wood_011_Base_Color.jpg",
-    normalMap: "../../textures/Wood/Wood_011_Normal.jpg",
-      const wood2TextureProps = useTexture({
-    map: "../../textures/Wood/Wood_013_COLOR.jpg",
-    normalMap: "../../textures/Wood/Wood_013_NORM.jpg",*/
-  }
+
   const wood2TextureProps = useTexture({
     map: "../../textures/Wood/Wood09_4K_BaseColor.png",
     normalMap: "../../textures/Wood/Wood09_4K_Normal.png",
+  });
+  const wood3TextureProps = useTexture({
+    map: "../../textures/Wood/Wood_013_COLOR.jpg",
+    normalMap: "../../textures/Wood/Wood_013_NORM.jpg",
+  });
+  const wood4TextureProps = useTexture({
+    map: "../../textures/Wood/Wood_011_Base_Color.jpg",
+    normalMap: "../../textures/Wood/Wood_011_Normal.jpg",
   });
 
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.Ctverec.geometry} position={[0, 0, 0]} scale={[delka / 100, tloustka / 1000, sirka / 100]} visible={shape === 1}>
-        <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : wood2TextureProps)} />
+        <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : wood4TextureProps)} />
       </mesh>
       <mesh geometry={nodes.Kruh.geometry} position={[0, 0, 0]} scale={[sirka / 100, tloustka / 1000, sirka / 100]} visible={shape === 2}>
-        <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : wood2TextureProps)} />
+        <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : wood4TextureProps)} />
       </mesh>
       <mesh geometry={nodes.Natural.geometry} position={[0, 0, 0]} scale={[delka / 90, tloustka / 1000, sirka / 90]} visible={shape === 3}>
-        <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : wood2TextureProps)} />
+        <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : wood4TextureProps)} />
       </mesh>
       <mesh geometry={nodes.hexagon.geometry} scale={[sirka / 100, tloustka / 20, sirka / 100]} visible={shape === 4}>
-        <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : wood2TextureProps)} />
+        <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : wood4TextureProps)} />
       </mesh>
       <mesh geometry={nodes["1Noha14"].geometry} position={[delka / 200 + delka / 200 - 0.1, -vyska / 100, -(sirka / 200 + sirka / 200 - 0.1)]} scale={[0.05, vyska / 100, 0.05]} visible={(shape === 1 || shape === 3) && legs === 1}>
         <meshStandardMaterial color={legColor} />{" "}
