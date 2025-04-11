@@ -10,13 +10,13 @@ const Table = (props) => {
   const { shape, edge, legs, material, legColor, delka, sirka, vyska, tloustka } = useCustomization();
 
   const wood1TextureProps = useTexture({
-    map: "../../textures/Wood/Wood10_4K_BaseColor.png",
-    normalMap: "../../textures/Wood/Wood10_4K_Normal.png",
+    map: "../../textures/Wood/Wood_011_Base_Color.jpg",
+    normalMap: "../../textures/Wood/Wood_011_Normal.jpg",
   });
 
   const wood2TextureProps = useTexture({
-    map: "../../textures/Wood/Wood09_4K_BaseColor.png",
-    normalMap: "../../textures/Wood/Wood09_4K_Normal.png",
+    map: "../../textures/Wood/Wood_013_COLOR.jpg",
+    normalMap: "../../textures/Wood/Wood_013_NORM.jpg",
   });
   const wood3TextureProps = useTexture({
     map: "../../textures/Wood/Wood_013_COLOR.jpg",
@@ -38,8 +38,13 @@ const Table = (props) => {
       <mesh geometry={nodes.Natural.geometry} position={[0, 0, 0]} scale={[delka / 90, tloustka / 1000, sirka / 90]} visible={shape === 3}>
         <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : wood4TextureProps)} />
       </mesh>
+<<<<<<< HEAD
       <mesh geometry={nodes.hexagon.geometry} scale={[sirka / 100, tloustka / 20, sirka / 100]} visible={shape === 4}>
         <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : wood4TextureProps)} />
+=======
+      <mesh geometry={nodes.hexagon.geometry} scale={[sirka / 100, tloustka / 20, sirka / 100]} visible={shape === 4} rotation={[0, 11, 0]}>
+        <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : wood2TextureProps)} />
+>>>>>>> 7d42eec7c9bf77d1e044ccbe40cf727c2716faeb
       </mesh>
       <mesh geometry={nodes["1Noha14"].geometry} position={[delka / 200 + delka / 200 - 0.1, -vyska / 100, -(sirka / 200 + sirka / 200 - 0.1)]} scale={[0.05, vyska / 100, 0.05]} visible={(shape === 1 || shape === 3) && legs === 1}>
         <meshStandardMaterial color={legColor} />{" "}
@@ -65,28 +70,60 @@ const Table = (props) => {
       <mesh geometry={nodes["2Noha44"].geometry} position={[-(sirka / 200 + sirka / 200) + sirka / 200, -vyska / 100, -(sirka / 200 + sirka / 200 - sirka / 200)]} scale={[0.05, vyska / 100, 0.05]} visible={(shape === 2 || shape === 4) && legs === 1}>
         <meshStandardMaterial color={legColor} />
       </mesh>
-      <mesh geometry={nodes["4Noha1"].geometry} material={nodes["4Noha1"].material} position={[0, -vyska / 100, sirka / 170 + sirka / 150 - sirka / 235]} rotation={[0, Math.PI / 2, 0]} scale={[0.065, -vyska / 101, -delka / 140]} visible={legs === 4}>
+      <mesh geometry={nodes["4Noha1"].geometry} material={nodes["4Noha1"].material} position={[0, -vyska / 100, sirka / 170 + sirka / 150 - sirka / 235]} rotation={[0, Math.PI / 2, 0]} scale={[0.065, -vyska / 101, -delka / 140]} visible={(shape === 1 || shape === 3) && legs === 4}>
         <meshStandardMaterial color={legColor} />
       </mesh>
 
-      <mesh geometry={nodes["4Noha1"].geometry} material={nodes["4Noha1"].material} position={[0, -vyska / 100, -(sirka / 170 + sirka / 150) + sirka / 235]} rotation={[0, Math.PI / 2, 0]} scale={[0.065, -vyska / 101, -delka / 140]} visible={legs === 4}>
+      <mesh geometry={nodes["4Noha1"].geometry} material={nodes["4Noha1"].material} position={[0, -vyska / 100, -(sirka / 170 + sirka / 150) + sirka / 235]} rotation={[0, Math.PI / 2, 0]} scale={[0.065, -vyska / 101, -delka / 140]} visible={(shape === 1 || shape === 3) && legs === 4}>
         <meshStandardMaterial color={legColor} />
       </mesh>
 
-      <mesh geometry={nodes["5oha1001"].geometry} material={nodes["5oha1001"].material} position={[0, -vyska / 100, sirka / 170 + sirka / 150 - sirka / 235]} rotation={[Math.PI, -Math.PI / 2, 0]} scale={[0.065, -vyska / 101, -delka / 140]} visible={legs === 3}>
+      {/*}KULATY{*/}
+      <mesh geometry={nodes["4Noha1"].geometry} material={nodes["4Noha1"].material} position={[0, -vyska / 100, sirka / 175 + sirka / 158 - sirka / 200]} rotation={[0, Math.PI / 2, 0]} scale={[0.065, -vyska / 101, -sirka / 250]} visible={(shape === 2 || shape === 4) && legs === 4}>
         <meshStandardMaterial color={legColor} />
       </mesh>
 
-      <mesh geometry={nodes["5oha1001"].geometry} material={nodes["5oha1001"].material} position={[0, -vyska / 100, -(sirka / 170 + sirka / 150) + sirka / 235]} rotation={[Math.PI, -Math.PI / 2, 0]} scale={[0.065, -vyska / 101, -delka / 140]} visible={legs === 3}>
+      <mesh geometry={nodes["4Noha1"].geometry} material={nodes["4Noha1"].material} position={[0, -vyska / 100, -(sirka / 175 + sirka / 158) + sirka / 200]} rotation={[0, Math.PI / 2, 0]} scale={[0.065, -vyska / 101, -sirka / 250]} visible={(shape === 2 || shape === 4) && legs === 4}>
+        <meshStandardMaterial color={legColor} />
+      </mesh>
+      {/*}KULATY{*/}
+
+      {/*}HRANATY{*/}
+      <mesh geometry={nodes["5oha1001"].geometry} material={nodes["5oha1001"].material} position={[0, -vyska / 100, sirka / 190 + sirka / 150 - sirka / 205]} rotation={[Math.PI, -Math.PI / 2, 0]} scale={[0.065, -vyska / 101, -sirka / 220]} visible={(shape === 2 || shape === 4) && legs === 3}>
         <meshStandardMaterial color={legColor} />
       </mesh>
 
-      <mesh geometry={nodes["3Noha1"].geometry} position={[0, -vyska / 100, sirka / 170 + sirka / 150 - sirka / 235]} material={nodes["3Noha1"].material} scale={[delka / 105, vyska / 101, 0.06]} visible={legs === 2}>
+      <mesh geometry={nodes["5oha1001"].geometry} material={nodes["5oha1001"].material} position={[0, -vyska / 100, -(sirka / 190 + sirka / 150) + sirka / 205]} rotation={[Math.PI, -Math.PI / 2, 0]} scale={[0.065, -vyska / 101, -sirka / 220]} visible={(shape === 2 || shape === 4) && legs === 3}>
         <meshStandardMaterial color={legColor} />
       </mesh>
-      <mesh geometry={nodes["3Noha1"].geometry} position={[0, -vyska / 100, -(sirka / 170 + sirka / 150) + sirka / 235]} material={nodes["3Noha1"].material} scale={[delka / 105, vyska / 101, 0.06]} visible={legs === 2}>
+
+      {/*}HRANATY{*/}
+
+      <mesh geometry={nodes["5oha1001"].geometry} material={nodes["5oha1001"].material} position={[0, -vyska / 100, sirka / 170 + sirka / 150 - sirka / 235]} rotation={[Math.PI, -Math.PI / 2, 0]} scale={[0.065, -vyska / 101, -delka / 140]} visible={(shape === 1 || shape === 3) && legs === 3}>
         <meshStandardMaterial color={legColor} />
       </mesh>
+
+      <mesh geometry={nodes["5oha1001"].geometry} material={nodes["5oha1001"].material} position={[0, -vyska / 100, -(sirka / 170 + sirka / 150) + sirka / 235]} rotation={[Math.PI, -Math.PI / 2, 0]} scale={[0.065, -vyska / 101, -delka / 140]} visible={(shape === 1 || shape === 3) && legs === 3}>
+        <meshStandardMaterial color={legColor} />
+      </mesh>
+
+      {/*}HRANATY{*/}
+      <mesh geometry={nodes["3Noha1"].geometry} position={[0, -vyska / 100, sirka / 170 + sirka / 150 - sirka / 235]} material={nodes["3Noha1"].material} scale={[delka / 105, vyska / 101, 0.06]} visible={(shape === 1 || shape === 3) && legs === 2}>
+        <meshStandardMaterial color={legColor} />
+      </mesh>
+      <mesh geometry={nodes["3Noha1"].geometry} position={[0, -vyska / 100, -(sirka / 170 + sirka / 150) + sirka / 235]} material={nodes["3Noha1"].material} scale={[delka / 105, vyska / 101, 0.06]} visible={(shape === 1 || shape === 3) && legs === 2}>
+        <meshStandardMaterial color={legColor} />
+      </mesh>
+      {/*}HRANATY{*/}
+
+      {/*}KULATY{*/}
+      <mesh geometry={nodes["3Noha1"].geometry} position={[0, -vyska / 100, sirka / 200 + sirka / 160 - sirka / 200]} material={nodes["3Noha1"].material} scale={[sirka / 180, vyska / 101, 0.06]} visible={(shape === 2 || shape === 4) && legs === 2}>
+        <meshStandardMaterial color={legColor} />
+      </mesh>
+      <mesh geometry={nodes["3Noha1"].geometry} position={[0, -vyska / 100, -(sirka / 200 + sirka / 160) + sirka / 200]} material={nodes["3Noha1"].material} scale={[sirka / 180, vyska / 101, 0.06]} visible={(shape === 2 || shape === 4) && legs === 2}>
+        <meshStandardMaterial color={legColor} />
+      </mesh>
+      {/*}KULATY{*/}
     </group>
   );
 };

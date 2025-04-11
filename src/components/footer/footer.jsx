@@ -60,6 +60,11 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
+                  <a href="/stoly" className="link">
+                    {t("SubMenuTable.title")}
+                  </a>
+                </li>
+                <li>
                   <a href="/kontakt" className="link">
                     {t("nav-li6")}
                   </a>
