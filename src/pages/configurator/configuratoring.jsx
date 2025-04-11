@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import i18next from "i18next";
 
 const Configurator = () => {
-  const { shape, setShape, edge, setEdge, legs, setLegs, material, setMaterial, legColor, setLegColor, delka, setDelka, sirka, setSirka, vyska, setVyska, tloustka, setTloustka, epoxid, setEpoxid } = useCustomization();
+  const { shape, setShape, edge, setEdge, legs, setLegs, material, setMaterial, legColor, setLegColor, delka, setDelka, sirka, setSirka, vyska, setVyska, tloustka, setTloustka, epoxid, setEpoxid, barvaEpoxidu, setbarvaEpoxidu } = useCustomization();
 
   const [visible, setVisible] = useState(true);
 
@@ -437,6 +437,32 @@ const Configurator = () => {
         </div>
       </div>
       <div className="configurator-label">
+        <h5>Barva nožiček</h5>
+        <hr></hr>
+      </div>
+      <div className="configurator-item-color">
+        <div className={`item-color ${material === "leg1" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg1")}>
+          <img src="../../img/wood1.png" alt="" draggable="false" />
+          <h5>Podle dřeva</h5>
+        </div>
+        <div className={`item-color ${material === "leg2" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg2")}>
+          <img src="../../img/black.png" alt="" draggable="false" />
+          <h5>Černá</h5>
+        </div>
+        <div className={`item-color ${material === "leg3" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg3")}>
+          <img src="../../img/white.png" alt="" draggable="false" />
+          <h5>Bílá</h5>
+        </div>
+        <div className={`item-color ${material === "leg4" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg4")}>
+          <img src="../../img/steel.jpeg" alt="" draggable="false" />
+          <h5>Broušená ocel</h5>
+        </div>
+        <div className={`item-color ${material === "leg5" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg5")}>
+          <input type="color" value={legColor} onChange={(e) => setLegColor(e.target.value)} />
+          <h5>Vlastní barva</h5>
+        </div>
+      </div>
+      <div className="configurator-label">
         <h5>Typ epoxidu</h5>
         <hr></hr>
       </div>
@@ -480,30 +506,17 @@ const Configurator = () => {
         </div>
       </div>
       <div className="configurator-label">
-        <h5>Barva nožiček</h5>
+        <h5>Barva epoxidu</h5>
         <hr></hr>
       </div>
       <div className="configurator-item-color">
-        <div className={`item-color ${material === "leg1" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg1")}>
-          <img src="../../img/wood1.png" alt="" draggable="false" />
-          <h5>Podle dřeva</h5>
-        </div>
-        <div className={`item-color ${material === "leg2" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg2")}>
-          <img src="../../img/black.png" alt="" draggable="false" />
-          <h5>Černá</h5>
-        </div>
-        <div className={`item-color ${material === "leg3" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg3")}>
-          <img src="../../img/white.png" alt="" draggable="false" />
-          <h5>Bílá</h5>
-        </div>
-        <div className={`item-color ${material === "leg4" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg4")}>
-          <img src="../../img/steel.jpeg" alt="" draggable="false" />
-          <h5>Broušená ocel</h5>
-        </div>
-        <div className={`item-color ${material === "leg5" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg5")}>
-          <input type="color" value={legColor} onChange={(e) => setLegColor(e.target.value)} />
+        <div className={`item-color ${barvaEpoxidu === "epoxid" ? "item-color-active" : ""}`} onClick={() => setbarvaEpoxidu("epoxid")}>
+          <input type="color" onChange={(e) => setbarvaEpoxidu(e.target.value)} />
           <h5>Vlastní barva</h5>
         </div>
+      </div>
+      <div className="configurator-send">
+        <button>Odeslat konfiguraci</button>
       </div>
     </>
   );

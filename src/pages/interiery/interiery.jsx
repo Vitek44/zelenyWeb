@@ -37,6 +37,8 @@ function Interiery() {
 
   const [modalOpen, setModalOpen] = useState(false);
 
+  const [selectedCategory, setSelectedCategory] = useState("");
+
   return (
     <>
       <HelmetProvider>
@@ -52,17 +54,43 @@ function Interiery() {
           <h1>Interiéry</h1>
         </div>
         <div class="interiery-crossroad">
-          <div class="crossroad-item" onClick={() => setModalOpen(true)}>
+          <div
+            class="crossroad-item"
+            onClick={() => {
+              setSelectedCategory("Kuchyně");
+              setModalOpen(true);
+            }}
+          >
             <h1>Kuchyně</h1>
           </div>
-          <div class="crossroad-item">
+
+          <div
+            class="crossroad-item"
+            onClick={() => {
+              setSelectedCategory("Podlahy");
+              setModalOpen(true);
+            }}
+          >
             <h1>Podlahy</h1>
           </div>
-          <div class="crossroad-item">
-            <h1>Dětské pokoje</h1>
+
+          <div
+            class="crossroad-item"
+            onClick={() => {
+              setSelectedCategory("Interiéry");
+              setModalOpen(true);
+            }}
+          >
+            <h1>Interiéry</h1>
           </div>
-          <div class="crossroad-item">
-            <h1>Vestavěné skříně</h1>
+          <div
+            class="crossroad-item"
+            onClick={() => {
+              setSelectedCategory("Skříně");
+              setModalOpen(true);
+            }}
+          >
+            <h1>Skříně</h1>
           </div>
         </div>
         {modalOpen ? (
@@ -70,7 +98,7 @@ function Interiery() {
             <div class="interiery-modal">
               <div class="interiery-form">
                 <div className="modal-header">
-                  <h3>Laces</h3> {/* David je mega zhulenej. Poznamenáno 7.4.2025. 18:05*/}
+                  <h3>{selectedCategory}</h3>
                   <button
                     className="close-modal"
                     onClick={() => {
@@ -100,7 +128,6 @@ function Interiery() {
               <div class="interiery-gallery">
                 <Splide
                   options={{
-                    type: "loop",
                     perPage: 3,
                     perMove: 1,
                     gap: "3rem",
@@ -123,13 +150,15 @@ function Interiery() {
                     },
                   }}
                 >
-                  {data.map((item) => (
-                    <SplideSlide>
-                      <div className={item.cesta} key={item.Id}>
-                        <img src="/img/01c.png" alt="" />
-                      </div>
-                    </SplideSlide>
-                  ))}
+                  {data
+                    .filter((item) => item.kategorie === selectedCategory)
+                    .map((item) => (
+                      <SplideSlide key={item.Id}>
+                        <div className="interiery-gallery-item">
+                          <img src={item.cesta} alt={item.popis} />
+                        </div>
+                      </SplideSlide>
+                    ))}
                 </Splide>
               </div>
             </div>

@@ -198,7 +198,7 @@ function Produkt({ id }) {
             <a href="/stoly" title="Zpět na stoly">
               <i className="fa-solid fa-arrow-left"></i>
             </a>
-            <h1>{getData?.Nazev || "Stůl"}</h1>
+            <h1>{i18next.language === "de" ? getData.NazevDE : i18next.language === "en" ? getData.NazevEN : getData.Nazev}</h1>
           </div>
           <div className="produkt-wrap">
             <div className="produkt-gallery" data-aos="fade-right">
@@ -258,7 +258,7 @@ function Produkt({ id }) {
               <div className="modal">
                 <div className="modal-header">
                   <h3>
-                    Poptávka stolu <span>{getData.Nazev}</span>
+                    Poptávka stolu <span>{i18next.language === "de" ? getData.NazevDE : i18next.language === "en" ? getData.NazevEN : getData.Nazev}</span>
                   </h3>
                   <button
                     className="close-modal"
@@ -286,7 +286,7 @@ function Produkt({ id }) {
                     <input type="text" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
                   </div>
                   <div className="form-group">
-                    <input type="text" name="telefon" placeholder="Telefon" value={formData.telefon} onChange={handleChange} />
+                    <input type="number" name="telefon" placeholder="Telefon" value={formData.telefon} onChange={handleChange} />
                   </div>
                   <div className="form-group">
                     <textarea name="zprava" placeholder="Zpráva" value={formData.zprava} onChange={handleChange}></textarea>

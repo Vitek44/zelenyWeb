@@ -47,11 +47,9 @@ const Admin = () => {
       });
   };
 
-  {
-    /*  useEffect(() => {
+  useEffect(() => {
     verifyToken();
-  }, []);*/
-  }
+  }, []);
 
   const loadData = () => {
     fetch(`https://designjj-test.eu/php/getProdukt.php`, {
@@ -72,6 +70,8 @@ const Admin = () => {
   const [creditals, setCreditals] = useState({
     Id: "",
     nazev: "",
+    nazevEN: "",
+    nazevDE: "",
     material: "Dub",
     vyska: "",
     sirka: "",
@@ -199,6 +199,8 @@ const Admin = () => {
     if (tableData) {
       setCreditals({
         nazev: tableData.Nazev,
+        nazevEN: tableData.NazevEN,
+        nazevDE: tableData.NazevDE,
         material: tableData.Material,
         vyska: tableData.Vyska,
         sirka: tableData.Sirka,
@@ -350,6 +352,12 @@ const Admin = () => {
             <div className="modal-content">
               <div className="form-group">
                 <input type="text" name="nazev" placeholder="Název stolu" value={creditals.nazev} onChange={_changeCreditals} />
+              </div>
+              <div className="form-group">
+                <input type="text" name="nazevEN" placeholder="Název EN" value={creditals.nazevEN} onChange={_changeCreditals} />
+              </div>
+              <div className="form-group">
+                <input type="text" name="nazevDE" placeholder="Název DE" value={creditals.nazevDE} onChange={_changeCreditals} />
               </div>
               <div className="form-group">
                 <select name="material" id="material" value={creditals?.material || ""} onChange={(e) => setCreditals({ ...creditals, material: e.target.value })}>
