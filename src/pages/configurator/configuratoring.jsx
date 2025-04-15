@@ -186,35 +186,35 @@ const Configurator = () => {
       <div className="configurator-item-color">
         <div className={`item-color ${material === "wood1" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood1")}>
           <img src="../../img/Dub.png" alt="" draggable="false" />
-          <h5>Dub</h5>
+          <h5>{t("material1")}</h5>
         </div>
         <div className={`item-color ${material === "wood2" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood2")}>
           <img src="../../img/Bříza.png" alt="" draggable="false" />
-          <h5>Bříza</h5>
+          <h5>{t("material2")}</h5>
         </div>
         <div className={`item-color ${material === "wood3" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood3")}>
           <img src="../../img/Jasan.png" alt="" draggable="false" />
-          <h5>Jasan</h5>
+          <h5>{t("material3")}</h5>
         </div>
         <div className={`item-color ${material === "wood4" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood4")}>
           <img src="../../img/Ořech.png" alt="" draggable="false" />
-          <h5>Ořech</h5>
+          <h5>{t("material4")}</h5>
         </div>
         <div className={`item-color ${material === "wood5" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood5")}>
           <img src="../../img/Americký ořech.png" alt="" draggable="false" />
-          <h5>Americký ořech</h5>
+          <h5>{t("material5")}</h5>
         </div>
         <div className={`item-color ${material === "wood6" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood6")}>
           <img src="../../img/Kaštan.png" alt="" draggable="false" />
-          <h5>Kaštan</h5>
+          <h5>{t("material6")}</h5>
         </div>
         <div className={`item-color ${material === "wood7" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood7")}>
           <img src="../../img/Oliva.png" alt="" draggable="false" />
-          <h5>Oliva</h5>
+          <h5>{t("material7")}</h5>
         </div>
       </div>
       <div className="configurator-label">
-        <h5>Rozměry</h5>
+        <h5>{t("sizes")}</h5>
         <hr></hr>
       </div>
       <div className="configurator-scale" style={{ position: "relative", width: "100%", maxWidth: "550px" }}>
@@ -266,7 +266,7 @@ const Configurator = () => {
           </div>
         </div>
         <div className={visible ? "scale-item" : "scale-item-hidden"}>
-          <label>Šířka desky</label> {/* Realně délka !!!!!*/}
+          <label>{t("width")}</label> {/* Realně délka !!!!!*/}
           <div style={{ position: "relative", width: "100%" }}>
             {/* Hodnota v thumbu */}
             <div style={{ position: "relative", width: "100%" }}>
@@ -313,7 +313,7 @@ const Configurator = () => {
           </div>
         </div>
         <div className="scale-item">
-          <label>Tloušťka desky</label>
+          <label>{t("thickness")}</label>
           <div style={{ position: "relative", width: "100%" }}>
             {/* Hodnota v thumbu */}
             <div style={{ position: "relative", width: "100%" }}>
@@ -360,7 +360,7 @@ const Configurator = () => {
           </div>
         </div>
         <div className="scale-item">
-          <label>Výška stolu</label>
+          <label>{t("table_height")}</label>
           <div style={{ position: "relative", width: "100%" }}>
             {/* Hodnota v thumbu */}
             <div style={{ position: "relative", width: "100%" }}>
@@ -409,7 +409,7 @@ const Configurator = () => {
       </div>
 
       <div className="configurator-label">
-        <h5>Typ nožek</h5>
+        <h5>{t("leg_type")}</h5>
         <hr></hr>
       </div>
       <div className="configurator-item">
@@ -434,36 +434,46 @@ const Configurator = () => {
               <img src="../../img/leg6.png" alt="" />
             </div>
           </div>
+          <div className={`item ${legs === 5 ? "item--active" : ""}`} onClick={() => setLegs(5)}>
+            <div className="item__label">
+              <img src="../../img/leg6.png" alt="" />
+            </div>
+          </div>
+          <div className={`item ${legs === 6 ? "item--active" : ""}`} onClick={() => setLegs(6)}>
+            <div className="item__label">
+              <img src="../../img/leg6.png" alt="" />
+            </div>
+          </div>
         </div>
       </div>
       <div className="configurator-label">
-        <h5>Barva nožiček</h5>
+        <h5>{t("leg_color")}</h5>
         <hr></hr>
       </div>
       <div className="configurator-item-color">
         <div className={`item-color ${material === "leg1" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg1")}>
           <img src="../../img/wood1.png" alt="" draggable="false" />
-          <h5>Podle dřeva</h5>
+          <h5>{t("leg_1")}</h5>
         </div>
         <div className={`item-color ${material === "leg2" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg2")}>
           <img src="../../img/black.png" alt="" draggable="false" />
-          <h5>Černá</h5>
+          <h5>{t("leg_2")}</h5>
         </div>
         <div className={`item-color ${material === "leg3" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg3")}>
           <img src="../../img/white.png" alt="" draggable="false" />
-          <h5>Bílá</h5>
+          <h5>{t("leg_3")}</h5>
         </div>
         <div className={`item-color ${material === "leg4" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg4")}>
           <img src="../../img/steel.jpeg" alt="" draggable="false" />
-          <h5>Broušená ocel</h5>
+          <h5>{t("leg_4")}</h5>
         </div>
         <div className={`item-color ${material === "leg5" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg5")}>
           <input type="color" value={legColor} onChange={(e) => setLegColor(e.target.value)} />
-          <h5>Vlastní barva</h5>
+          <h5>{t("color")}</h5>
         </div>
       </div>
       <div className="configurator-label">
-        <h5>Typ epoxidu</h5>
+        <h5>{t("epoxid_type")}</h5>
         <hr></hr>
       </div>
       <div className="configurator-item">
@@ -506,17 +516,17 @@ const Configurator = () => {
         </div>
       </div>
       <div className="configurator-label">
-        <h5>Barva epoxidu</h5>
+        <h5>{t("epoxid_color")}</h5>
         <hr></hr>
       </div>
       <div className="configurator-item-color">
         <div className={`item-color ${barvaEpoxidu === "epoxid" ? "item-color-active" : ""}`} onClick={() => setbarvaEpoxidu("epoxid")}>
           <input type="color" onChange={(e) => setbarvaEpoxidu(e.target.value)} />
-          <h5>Vlastní barva</h5>
+          <h5>{t("color")}</h5>
         </div>
       </div>
       <div className="configurator-send">
-        <button>Odeslat konfiguraci</button>
+        <button>{t("send_conf")}</button>
       </div>
     </>
   );
