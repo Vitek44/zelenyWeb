@@ -131,7 +131,7 @@ function Interiery() {
                     .filter((item) => item.kategorie === selectedCategory)
                     .map((item) => (
                       <div className="interiery-gallery-item" key={item.Id}>
-                        <img src="/img/01c.png" alt={item.popis} />
+                        <img src={item.cesta} alt={item.popis} />
                       </div>
                     ))}
                 </div>
