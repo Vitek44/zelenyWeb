@@ -51,7 +51,7 @@ function Interiery() {
       <Navbar />
       <div class="interiery-wrap">
         <div class="podmenu-title">
-          <h1>Interiéry</h1>
+          <h1>{t("Int_title")}</h1>
         </div>
         <div class="interiery-crossroad">
           <div
@@ -61,7 +61,7 @@ function Interiery() {
               setModalOpen(true);
             }}
           >
-            <h1>Kuchyně</h1>
+            <h1>{t("Int_cat_1")}</h1>
           </div>
 
           <div
@@ -71,7 +71,7 @@ function Interiery() {
               setModalOpen(true);
             }}
           >
-            <h1>Podlahy</h1>
+            <h1>{t("Int_cat_2")}</h1>
           </div>
 
           <div
@@ -81,7 +81,7 @@ function Interiery() {
               setModalOpen(true);
             }}
           >
-            <h1>Interiéry</h1>
+            <h1>{t("Int_cat_3")}</h1>
           </div>
           <div
             class="crossroad-item"
@@ -90,7 +90,7 @@ function Interiery() {
               setModalOpen(true);
             }}
           >
-            <h1>Skříně</h1>
+            <h1>{t("Int_cat_4")}</h1>
           </div>
         </div>
         {modalOpen ? (
@@ -122,7 +122,7 @@ function Interiery() {
                   <textarea type="text" placeholder="Zpráva" />
                 </div>
                 <div class="modal-btn">
-                  <button className="save-btn">Odeslat</button>
+                  <button className="save-btn">{t("snd_btn")}</button>
                 </div>
               </div>
               <div class="interiery-gallery">

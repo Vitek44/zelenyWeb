@@ -118,7 +118,7 @@ export default function Kontakt() {
               <div className="kontakt-item">
                 <i class="fa-brands fa-square-instagram"></i>
                 <a href="https://www.instagram.com/interiery_filipzeleny/" target="_blank">
-                  <h5>@filipzeleny</h5>
+                  <h5>@interiery_filipzeleny</h5>
                 </a>
               </div>
               <div className="kontakt-item">
