@@ -118,7 +118,14 @@
   "edge-shape": "Tvar hrany",
   "desk_color": "Barva desky",
 
-
+  "Oliva": "Oliva",
+  "Ořech": "Ořech",
+  "Americký ořech": "Americký ořech",
+  "Jasan": "Jasan",
+  "Kaštan": "Kaštan",
+  "Bříza": "Bříza",
+  "Topol": "Topol",
+  "Dub": "Dub",
 
   "sizes": "Rozměry",
   "width": "Šířka desky",
@@ -140,6 +147,8 @@
   "leg_1": "Podle dřeva",
   "leg_2": "Černá",
   "leg_3": "Bílá",
-  "leg_4": "Broušená ocel"
-
+  "leg_4": "Broušená ocel",
+  "desk_shape": "Tvar desky",
+  "edge_shape": "Tvar rohu",
+  "length": "Délka desky"
 }

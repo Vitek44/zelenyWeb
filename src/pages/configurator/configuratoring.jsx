@@ -102,6 +102,11 @@ const Configurator = () => {
     };
   }, []);
 
+  useEffect(() => {
+    console.log(legColor);
+    console.log(material);
+  }, []);
+
   return (
     <>
       <div className="table-title">
@@ -219,7 +224,7 @@ const Configurator = () => {
       </div>
       <div className="configurator-scale" style={{ position: "relative", width: "100%", maxWidth: "550px" }}>
         <div className="scale-item">
-          <label>{visible ? "Délka desky" : "Průměr desky"}</label> {/* Realně šírka !!!!!*/}
+          <label>{visible ? t("length") : t("diameter")}</label> {/* Realně šírka !!!!!*/}
           <div style={{ position: "relative", width: "100%" }}>
             {/* Hodnota v thumbu */}
             <div style={{ position: "relative", width: "100%" }}>
@@ -451,25 +456,21 @@ const Configurator = () => {
         <hr></hr>
       </div>
       <div className="configurator-item-color">
-        <div className={`item-color ${material === "leg1" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg1")}>
+        <div className={`item-color ${legColor === "leg1" ? "item-color-active" : ""}`} onClick={() => setLegColor("leg1")}>
           <img src="../../img/wood1.png" alt="" draggable="false" />
           <h5>{t("leg_1")}</h5>
         </div>
-        <div className={`item-color ${material === "leg2" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg2")}>
+        <div className={`item-color ${legColor === "leg2" ? "item-color-active" : ""}`} onClick={() => setLegColor("leg2")}>
           <img src="../../img/black.png" alt="" draggable="false" />
           <h5>{t("leg_2")}</h5>
         </div>
-        <div className={`item-color ${material === "leg3" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg3")}>
+        <div className={`item-color ${legColor === "leg3" ? "item-color-active" : ""}`} onClick={() => setLegColor("leg3")}>
           <img src="../../img/white.png" alt="" draggable="false" />
           <h5>{t("leg_3")}</h5>
         </div>
-        <div className={`item-color ${material === "leg4" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg4")}>
+        <div className={`item-color ${legColor === "leg4" ? "item-color-active" : ""}`} onClick={() => setLegColor("leg4")}>
           <img src="../../img/steel.jpeg" alt="" draggable="false" />
           <h5>{t("leg_4")}</h5>
-        </div>
-        <div className={`item-color ${material === "leg5" ? "item-color-active" : ""}`} onClick={() => setMaterial("leg5")}>
-          <input type="color" value={legColor} onChange={(e) => setLegColor(e.target.value)} />
-          <h5>{t("color")}</h5>
         </div>
       </div>
       <div className="configurator-label">

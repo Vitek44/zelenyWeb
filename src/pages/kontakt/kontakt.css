@@ -6,31 +6,29 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  flex-direction: column;
   width: 100%;
   margin-bottom: 12rem;
-}
-
-.kontakt-info {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   height: 500px;
 }
 
-.kontakt-form {
-  width: 100%;
+.kontakt-info {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .kontakt-form h3 {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 
 .kontakt-item {
   display: flex;
-  padding: 1rem 0;
+  padding: 1rem 0.5rem;
   align-items: center;
   justify-content: space-between;
   text-align: left;
@@ -60,15 +58,12 @@
 
 .kontakt-wrapper textarea {
   width: 100%;
-  height: 100px;
+  height: 150px;
   resize: none;
   padding: 1rem;
   border-radius: 5px;
   border: 2px solid var(--green);
   font-family: Arial, sans-serif;
-}
-.kontakt-form {
-  height: 100%;
 }
 
 .kontakt-form {
@@ -76,6 +71,7 @@
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
+  width: 40%;
 }
 
 .form-group {

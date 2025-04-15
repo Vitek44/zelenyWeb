@@ -126,40 +126,15 @@ function Interiery() {
                 </div>
               </div>
               <div class="interiery-gallery">
-                <Splide
-                  options={{
-                    perPage: 3,
-                    perMove: 1,
-                    gap: "3rem",
-                    pagination: true,
-                    arrows: false,
-                    breakpoints: {
-                      768: {
-                        perPage: 1,
-                        gap: "1rem",
-                      },
-                      1024: {
-                        perPage: 2,
-                      },
-                      1440: {
-                        perPage: 2,
-                      },
-                      1980: {
-                        perPage: 3,
-                      },
-                    },
-                  }}
-                >
+                <div className="interiery-gallery-group">
                   {data
                     .filter((item) => item.kategorie === selectedCategory)
                     .map((item) => (
-                      <SplideSlide key={item.Id}>
-                        <div className="interiery-gallery-item">
-                          <img src={item.cesta} alt={item.popis} />
-                        </div>
-                      </SplideSlide>
+                      <div className="interiery-gallery-item" key={item.Id}>
+                        <img src="/img/01c.png" alt={item.popis} />
+                      </div>
                     ))}
-                </Splide>
+                </div>
               </div>
             </div>
           </div>

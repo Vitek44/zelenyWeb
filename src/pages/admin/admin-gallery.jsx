@@ -257,6 +257,7 @@ const Admin = () => {
               </div>
               <div className="form-group">
                 <select name="kategorie" value={creditals?.kategorie || ""} onChange={(e) => setCreditals({ ...creditals, kategorie: e.target.value })}>
+                  <option value="">-- Zvolte typ --</option>
                   <option value="Stoly">Stoly</option>
                   <option value="Interiéry">Interiéry</option>
                   <option value="Kuchyně">Kuchyně</option>

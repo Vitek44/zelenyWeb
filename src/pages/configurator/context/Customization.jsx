@@ -7,7 +7,7 @@ export const CustomizationProvider = (props) => {
   const [edge, setEdge] = useState(1);
   const [legs, setLegs] = useState(1);
   const [material, setMaterial] = useState("wood1");
-  const [legColor, setLegColor] = useState("#000000");
+  const [legColor, setLegColor] = useState("leg2");
   const [delka, setDelka] = useState(80);
   const [sirka, setSirka] = useState(160);
   const [vyska, setVyska] = useState(70);
