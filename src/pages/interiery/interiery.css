@@ -187,9 +187,14 @@
 
 .interiery-gallery-item img {
   width: 100%;
-  height: 300px;
   object-fit: contain;
   border-radius: 5px;
+}
+
+.interiery-gallery-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 2rem;
 }
 
 @media (max-width: 768px) {

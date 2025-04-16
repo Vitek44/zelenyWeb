@@ -83,7 +83,13 @@ export default function Footer() {
                 <li>
                   <i className="fa-brands fa-instagram"></i>{" "}
                   <a href="https://www.instagram.com/interiery_filipzeleny/" className="link" target="_blank">
-                    Filip Zelený
+                    @interiery_filipzeleny
+                  </a>
+                </li>
+                <li>
+                  <i class="fa-brands fa-square-facebook"></i>
+                  <a href="https://www.facebook.com/people/Interi%C3%A9ry-Filip-Zelen%C3%BD/61551922541364/" target="_blank">
+                    Interiéry_filipzeleny
                   </a>
                 </li>
               </ul>

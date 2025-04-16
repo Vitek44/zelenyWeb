@@ -73,6 +73,18 @@ export default function Kontakt() {
         console.error("Chyba při odesílání zprávy:", err);
       });
   };
+
+  const handleClick = (event, path, id) => {
+    navigate(path);
+    setTimeout(() => {
+      event.preventDefault(); // Zabrání standardnímu chování odkazu
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+        history.replaceState(null, "", window.location.pathname); // Odstraní #
+      }
+    }, 100);
+  };
   return (
     <>
       <ToastContainer position="bottom-right" autoClose={500} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" transition:Bounce />
@@ -98,6 +110,10 @@ export default function Kontakt() {
                 <h5>Filip Zelený</h5>
               </div>
               <div className="kontakt-item">
+                <i className="fa-solid fa-address-card"></i>
+                <h5>IČO: 17124344</h5>
+              </div>
+              <div className="kontakt-item">
                 <i className="fa-solid fa-map-location-dot"></i>
                 <h5>Chrudim, U Stadionu 749</h5>
               </div>
@@ -112,13 +128,9 @@ export default function Kontakt() {
                 </a>
               </div>
               <div className="kontakt-item">
-                <i className="fa-solid fa-address-card"></i>
-                <h5>IČO: 17124344</h5>
-              </div>
-              <div className="kontakt-item">
                 <i class="fa-brands fa-square-instagram"></i>
                 <a href="https://www.instagram.com/interiery_filipzeleny/" target="_blank">
-                  <h5>@filipzeleny</h5>
+                  <h5>@interiery_filipzeleny</h5>
                 </a>
               </div>
               <div className="kontakt-item">
