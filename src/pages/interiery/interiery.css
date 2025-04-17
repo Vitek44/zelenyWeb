@@ -11,7 +11,7 @@
 
 .interiery-content {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
@@ -188,12 +188,13 @@
 .interiery-gallery-item img {
   width: 100%;
   object-fit: contain;
+  height: 300px;
   border-radius: 5px;
 }
 
 .interiery-gallery-group {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
@@ -232,5 +233,13 @@
 
   .crossroad-item {
     padding: 4rem 0;
+  }
+
+  .interiery-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .interiery-item img {
+    height: 200px;
   }
 }
