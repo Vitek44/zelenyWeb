@@ -23,12 +23,13 @@ export function Model(props) {
       <mesh geometry={nodes['4Noha1'].geometry} material={nodes['4Noha1'].material} position={[-0.765, 0, -0.765]} rotation={[0, 1.571, 0]} scale={[-0.101, -1, -0.98]} />
       <mesh geometry={nodes['5oha1001'].geometry} material={nodes['5oha1001'].material} position={[-0.765, 0, -0.765]} rotation={[Math.PI, -Math.PI / 2, 0]} scale={[-0.101, -1, -0.98]} />
       <mesh geometry={nodes.Ctverec.geometry} material={materials['texture2.003']} scale={[1, 0.015, 1]} />
-      <mesh geometry={nodes.Cube.geometry} material={nodes.Cube.material} position={[3.511, 1.289, 0]} rotation={[-Math.PI, 0, -Math.PI]} scale={[-0.063, -0.014, -0.101]} />
+      <mesh geometry={nodes.Cube.geometry} material={nodes.Cube.material} position={[-3.816, 1.289, 0]} rotation={[0, -1.571, 0]} scale={[-0.063, -0.014, -0.101]} />
       <mesh geometry={nodes.hexagon.geometry} material={nodes.hexagon.material} scale={[1.2, 1, 1.2]} />
       <mesh geometry={nodes.hexagon45.geometry} material={nodes.hexagon45.material} scale={[1.2, 1, 1.2]} />
       <mesh geometry={nodes.Kruh.geometry} material={nodes.Kruh.material} scale={[1, 0.015, 1]} />
       <mesh geometry={nodes.Natural.geometry} material={nodes.Natural.material} position={[0, 1.434, 0]} scale={[1, 0.03, 1.6]} />
-      <mesh geometry={nodes['7Noha001'].geometry} material={nodes['7Noha001'].material} position={[0.9, -0.5, -0.9]} rotation={[-3.133, -0.02, -2.359]} scale={[0.05, 0.5, 0.05]} />
+      <mesh geometry={nodes['10Noha'].geometry} material={nodes['10Noha'].material} position={[-0.764, 0, -0.77]} rotation={[0, 0, -Math.PI / 2]} scale={[-1.097, -0.762, -0.101]} />
+      <mesh geometry={nodes['11Noha'].geometry} material={nodes['11Noha'].material} position={[-0.041, -0.465, 0.676]} rotation={[Math.PI, 0, Math.PI]} scale={[0.057, 0.515, 0.278]} />
     </group>
   )
 }
