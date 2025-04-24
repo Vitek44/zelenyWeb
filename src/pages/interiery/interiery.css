@@ -1,5 +1,6 @@
 .interiery-wrap {
   padding: 12rem 0;
+  overflow-x: hidden !important;
 }
 
 .interiery-title {
@@ -80,6 +81,12 @@
   align-items: center;
   padding: 9rem 0;
   color: white;
+  transition: 0.2s ease-out;
+}
+
+.crossroad-item:hover {
+  transform: scale(1.01);
+  transition: 0.2s ease-in;
 }
 
 .crossroad-item h1 {

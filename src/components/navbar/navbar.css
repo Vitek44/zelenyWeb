@@ -32,6 +32,12 @@ nav {
 .navLogo img {
   width: 130px;
   height: auto;
+  transition: transform 0.3s;
+}
+
+.navLogo:hover img {
+  transform: scale(1.05);
+  transition: transform 0.3s;
 }
 
 ul li {

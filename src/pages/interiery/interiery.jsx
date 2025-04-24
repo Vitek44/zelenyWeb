@@ -110,16 +110,16 @@ function Interiery() {
                   </button>
                 </div>
                 <div class="interiery-form-item">
-                  <input type="text" placeholder="Jméno" />
+                  <input type="text" placeholder={t("phName")} />
                 </div>
                 <div class="interiery-form-item">
                   <input type="text" placeholder="E-mail" />
                 </div>
                 <div class="interiery-form-item">
-                  <input type="text" placeholder="Telefon" />
+                  <input type="text" placeholder={t("phPhone")} />
                 </div>
                 <div class="interiery-form-item">
-                  <textarea type="text" placeholder="Zpráva" />
+                  <textarea type="text" placeholder={t("phText")} />
                 </div>
                 <div class="modal-btn">
                   <button className="save-btn">{t("snd_btn")}</button>
