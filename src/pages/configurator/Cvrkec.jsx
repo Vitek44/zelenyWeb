@@ -55,100 +55,22 @@ const Table = (props) => {
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.Ctverec.geometry} position={[0, 0, 0]} scale={[delka / 100, tloustka / 1000, sirka / 100]} visible={shape === 1}>
-        <meshStandardMaterial
-          {...(material === "wood1"
-            ? wood1TextureProps
-            : material === "wood2"
-            ? wood2TextureProps
-            : material === "wood3"
-            ? wood3TextureProps
-            : material === "wood4"
-            ? wood4TextureProps
-            : material === "wood5"
-            ? wood5TextureProps
-            : material === "wood6"
-            ? wood6TextureProps
-            : material === "wood7"
-            ? wood7TextureProps
-            : defaultTextureProps)}
-        />
+        <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps)} />
       </mesh>
       <mesh geometry={nodes.Kruh.geometry} position={[0, 0, 0]} scale={[sirka / 100, tloustka / 1000, sirka / 100]} visible={shape === 2}>
-        <meshStandardMaterial
-          {...(material === "wood1"
-            ? wood1TextureProps
-            : material === "wood2"
-            ? wood2TextureProps
-            : material === "wood3"
-            ? wood3TextureProps
-            : material === "wood4"
-            ? wood4TextureProps
-            : material === "wood5"
-            ? wood5TextureProps
-            : material === "wood6"
-            ? wood6TextureProps
-            : material === "wood7"
-            ? wood7TextureProps
-            : defaultTextureProps)}
-        />
+        <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps)} />
       </mesh>
       <mesh geometry={nodes.Natural.geometry} position={[0, 0, 0]} scale={[delka / 90, tloustka / 1000, sirka / 90]} visible={shape === 3}>
-        <meshStandardMaterial
-          {...(material === "wood1"
-            ? wood1TextureProps
-            : material === "wood2"
-            ? wood2TextureProps
-            : material === "wood3"
-            ? wood3TextureProps
-            : material === "wood4"
-            ? wood4TextureProps
-            : material === "wood5"
-            ? wood5TextureProps
-            : material === "wood6"
-            ? wood6TextureProps
-            : material === "wood7"
-            ? wood7TextureProps
-            : defaultTextureProps)}
-        />
+        <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps)} />
       </mesh>
       <mesh geometry={nodes.hexagon.geometry} scale={[sirka / 100, tloustka / 20, sirka / 100]} visible={shape === 4} rotation={[0, 11, 0]}>
-        <meshStandardMaterial
-          {...(material === "wood1"
-            ? wood1TextureProps
-            : material === "wood2"
-            ? wood2TextureProps
-            : material === "wood3"
-            ? wood3TextureProps
-            : material === "wood4"
-            ? wood4TextureProps
-            : material === "wood5"
-            ? wood5TextureProps
-            : material === "wood6"
-            ? wood6TextureProps
-            : material === "wood7"
-            ? wood7TextureProps
-            : defaultTextureProps)}
-        />
+        <meshStandardMaterial {...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps)} />
       </mesh>
       <mesh geometry={nodes["1Noha14"].geometry} position={[delka / 200 + delka / 200 - 0.1, -vyska / 100, -(sirka / 200 + sirka / 200 - 0.1)]} scale={[0.05, vyska / 100, 0.05]} visible={(shape === 1 || shape === 3) && legs === 1}>
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -163,21 +85,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -192,21 +100,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -221,21 +115,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -250,21 +130,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -279,21 +145,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -308,21 +160,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -337,21 +175,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -366,21 +190,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -395,21 +205,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -424,21 +220,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -453,21 +235,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -482,21 +250,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -511,21 +265,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -540,21 +280,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -569,21 +295,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -598,21 +310,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -627,21 +325,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -657,21 +341,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -686,21 +356,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -717,21 +373,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -746,21 +388,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -776,21 +404,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -805,21 +419,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -835,21 +435,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -864,21 +450,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -895,21 +467,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -924,21 +482,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -954,21 +498,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -983,21 +513,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -1014,21 +530,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
@@ -1043,21 +545,7 @@ const Table = (props) => {
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
-                ...(material === "wood1"
-                  ? wood1TextureProps
-                  : material === "wood2"
-                  ? wood2TextureProps
-                  : material === "wood3"
-                  ? wood3TextureProps
-                  : material === "wood4"
-                  ? wood4TextureProps
-                  : material === "wood5"
-                  ? wood5TextureProps
-                  : material === "wood6"
-                  ? wood6TextureProps
-                  : material === "wood7"
-                  ? wood7TextureProps
-                  : defaultTextureProps),
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
               }
             : legColor === "leg2"
             ? leg2TextureProps
