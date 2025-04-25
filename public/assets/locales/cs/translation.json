@@ -63,7 +63,9 @@
   "subtitle4": "Jak vypadá výroba stolu?",
   "video_text1": "Ruční výroba",
   "video_text2": "Řemeslníci pečlivě opracovávají dřevo, používají tradiční nástroje i moderní techniky. Každý stůl je originál, vznikající z kvalitních materiálů s ohledem na estetiku i funkčnost. Záběry zachycují jak samotnou práci, tak hotové produkty, které jsou výsledkem mistrovské zručnosti.",
-  "text": "Svůj život jsem zasvětil výrobě stolů, nábytku a kuchyňských linek na míru. Každý kus je originál, vyráběný s láskou a precizností z poctivého českého dřeva.",
+  "text": "Zabývám se zakázkovou výrobou nábytku a interiérového vybavení – vždy s ohledem na konkrétní přání klienta a charakter prostoru, ve kterém bude nábytek sloužit. Každý kus vzniká na míru – promyšlený do detailu, funkční a přirozeně zapadající do celku.",
+  "text1": "Věřím, že dobře navržený interiér nestojí na jedné výrazné věci, ale na souhře všech prvků. Proto kladu důraz na materiály, design i praktické využití.",
+  "text2": "Vyrábím kuchyně, vestavěné skříně, obývací stěny, pracovní kouty, vybavení komerčních prostor i drobnější solitéry. Ať už jde o jeden výrazný kus nebo kompletní řešení interiéru, mým cílem je vždy výsledek lahodící vašemu oku, který bude dobře fungovat a dlouho vydrží.",
   "quote": "Když si něco zaslouží být uděláno dobře, udělej to srdcem a rukama.",
   "bar_text1": "Počet spokojených zákazníku: ",
   "bar_text2": "Zkušenosti v oboru: ",
@@ -150,5 +152,15 @@
   "leg_4": "Broušená ocel",
   "desk_shape": "Tvar desky",
   "edge_shape": "Tvar rohu",
-  "length": "Délka desky"
+  "length": "Délka desky",
+
+  "Int_cat_1": "Kuchyňské linky",
+  "Int_cat_2": "Obývací pokoje",
+  "Int_cat_3": "Ložnice",
+  "Int_cat_4": "Koupelny",
+  "Int_title": "Interiéry",
+
+  "phPhone": "Telefon",
+  "snd_btn": "Odeslat",
+  "diameter": "Průměr"
 }

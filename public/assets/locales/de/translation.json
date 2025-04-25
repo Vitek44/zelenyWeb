@@ -61,7 +61,9 @@
   "subtitle4": "Wie sieht die Herstellung eines Tisches aus?",
   "video_text1": "Handarbeit",
   "video_text2": "Handwerker bearbeiten das Holz sorgfältig und verwenden sowohl traditionelle Werkzeuge als auch moderne Techniken. Jeder Tisch ist ein Unikat, hergestellt aus hochwertigen Materialien mit Fokus auf Ästhetik und Funktionalität. Die Aufnahmen zeigen sowohl den Arbeitsprozess als auch die fertigen Produkte, die das Ergebnis meisterhafter Handwerkskunst sind.",
-  "text": "Mein Leben habe ich der Herstellung von Tischen, Möbeln und maßgefertigten Küchen gewidmet. Jedes Stück ist ein Unikat, gefertigt mit Liebe und Präzision aus ehrlichem tschechischem Holz.",
+  "text": "Ich beschäftige mich mit maßgefertigter Möbelherstellung und Innenausstattung – stets unter Berücksichtigung der individuellen Wünsche des Kunden und des Charakters des Raums, in dem die Möbel dienen sollen. Jedes Stück entsteht nach Maß – durchdacht bis ins Detail, funktional und harmonisch in das Gesamtbild eingefügt.",
+  "text1": "Ich bin überzeugt, dass ein gut gestalteter Innenraum nicht von einem einzigen auffälligen Element lebt, sondern vom Zusammenspiel aller Komponenten. Deshalb lege ich großen Wert auf Materialien, Design und praktische Nutzbarkeit.",
+  "text2": "Ich fertige Küchen, Einbauschränke, Wohnwände, Arbeitsecken, Ausstattung für Geschäftsräume sowie kleinere Einzelstücke. Ob es sich um ein einzelnes auffälliges Möbelstück oder eine komplette Innenraumlösung handelt – mein Ziel ist stets ein Ergebnis, das das Auge erfreut, gut funktioniert und lange hält.",
   "quote": "Wenn etwas es verdient, gut gemacht zu werden, dann tue es mit Herz und Händen.",
   "bar_text1": "Anzahl zufriedener Kunden: ",
   "bar_text2": "Erfahrung in der Branche: ",
@@ -137,5 +139,16 @@
   "desk_color": "Plattenfarbe",
   "table_color": "Tischfarbe",
   "table_config": "Tischkonfiguration",
-  "table_configurator": "Tischkonfigurator"
+  "table_configurator": "Tischkonfigurator",
+
+  "Int_cat_1": "Küchenzeilen",
+  "Int_cat_2": "Wohnzimmer",
+  "Int_cat_3": "Schlafzimmer",
+  "Int_cat_4": "Badezimmer",
+  "Int_title": "Innenräume",
+
+  "phPhone": "Ihre Telefonnummer",
+  "snd_btn": "Senden",
+  "diameter": "Durchmesser",
+  "configuratorTitle": "Konfigurator"
 }

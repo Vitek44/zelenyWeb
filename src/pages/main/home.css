@@ -168,8 +168,9 @@
 }
 
 .aboutmeText {
-  width: 50%;
+  width: 55%;
 }
+
 .aboutmeImg {
   display: flex;
   width: 40%;
@@ -190,7 +191,16 @@
 
 .aboutmeText p {
   font-size: 19px;
+  line-height: 1.5;
+}
+
+.aboutmeText .quote {
+  font-size: 19px;
   text-align: justify;
+  line-height: 1.5;
+  font-style: italic;
+  color: rgb(69, 69, 69);
+  font-size: 200;
 }
 /* bar */
 .bar {

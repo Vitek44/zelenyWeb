@@ -165,8 +165,12 @@ function App() {
                 <h1>{t("subtitle3")}</h1>
               </div>
               <p>{t("text")}</p>
+              <br />
+              <p>{t("text1")}</p>
+              <br />
+
+              <p>{t("text2")}</p>
               <br></br>
-              <p>{t("quote")}</p>
             </div>
             <div className="aboutmeImg">
               <img src="img/image-removebg-preview 1.png" alt="Filip Zelený" />

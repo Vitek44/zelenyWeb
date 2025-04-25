@@ -17,11 +17,6 @@
   overflow: hidden;
 }
 
-.configurator-picture img {
-  object-fit: cover;
-  width: 90px;
-  height: 90px;
-}
 .progress {
   position: relative;
   width: 100%;
@@ -55,6 +50,11 @@
   padding: 0;
   filter: brightness(0.9);
   transform: scale(1);
+  transition: transform 0.3s;
+}
+
+.item:hover {
+  transform: scale(1.1) !important;
   transition: transform 0.3s;
 }
 
@@ -113,6 +113,7 @@ hr {
   padding: 0.5rem;
   background-color: none;
 }
+
 .configurator-item img {
   width: 90px;
   height: 90px;
@@ -136,6 +137,13 @@ hr {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 14px;
+  transition: transform 0.3s;
+}
+
+.configurator-send button:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s;
 }
 .configurator-parametres {
   width: 100%;
@@ -300,6 +308,21 @@ canvas {
   left: 1rem;
   z-index: 999999;
   border-radius: 5px;
+  transition: transform 0.3s;
+}
+
+.back-btn:hover {
+  animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @media screen and (max-width: 1450px) {
@@ -337,7 +360,7 @@ canvas {
   }
 
   .c-item-row {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .table-title {

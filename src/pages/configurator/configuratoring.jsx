@@ -193,10 +193,6 @@ const Configurator = () => {
           <img src="../../img/Dub.png" alt="" draggable="false" />
           <h5>{t("material1")}</h5>
         </div>
-        <div className={`item-color ${material === "wood2" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood2")}>
-          <img src="../../img/Bříza.png" alt="" draggable="false" />
-          <h5>{t("material2")}</h5>
-        </div>
         <div className={`item-color ${material === "wood3" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood3")}>
           <img src="../../img/Jasan.png" alt="" draggable="false" />
           <h5>{t("material3")}</h5>

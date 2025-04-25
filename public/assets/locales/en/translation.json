@@ -61,7 +61,9 @@
   "subtitle4": "What does the production of a table look like?",
   "video_text1": "Handcrafting",
   "video_text2": "Craftsmen carefully process the wood, using both traditional tools and modern techniques. Each table is unique, created from quality materials with an emphasis on aesthetics and functionality. The footage captures both the work process and the finished products, which are the result of masterful craftsmanship.",
-  "text": "I have dedicated my life to making tables, furniture, and custom kitchen units. Each piece is unique, crafted with love and precision from honest Czech wood.",
+  "text": "I specialize in custom-made furniture and interior fittings – always with regard to the client’s specific wishes and the character of the space where the furniture will serve. Each piece is tailor-made – thoughtfully designed down to the last detail, functional, and naturally fitting into the whole.",
+  "text1": "I believe that a well-designed interior is not based on one dominant element, but on the harmony of all components. That’s why I emphasize materials, design, and practical use.",
+  "text2": "I create kitchens, built-in wardrobes, living room walls, workspaces, commercial interiors, and smaller standalone pieces. Whether it's a single striking item or a complete interior solution, my goal is always a result that pleases the eye, functions well, and lasts for years to come.",
   "quote": "If something deserves to be done well, do it with heart and hands.",
   "bar_text1": "Number of satisfied customers: ",
   "bar_text2": "Experience in the field: ",
@@ -135,5 +137,16 @@
   "edge_shape": "Edge Shape",
   "length": "Length",
   "desk_color": "Board Color",
-  "table_configurator": "Table Configurator"
+  "table_configurator": "Table Configurator",
+
+  "Int_cat_1": "Kitchen Units",
+  "Int_cat_2": "Living Rooms",
+  "Int_cat_3": "Bedrooms",
+  "Int_cat_4": "Bathrooms",
+  "Int_title": "Interiors",
+
+  "phPhone": "Your phone number",
+  "snd_btn": "Send",
+  "diameter": "Diameter",
+  "configuratorTitle": "Configurator"
 }
