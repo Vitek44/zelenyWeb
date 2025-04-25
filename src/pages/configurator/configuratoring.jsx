@@ -421,37 +421,42 @@ const Configurator = () => {
         <div className="c-item-row">
           <div className={`item ${legs === 1 ? "item--active" : ""}`} onClick={() => setLegs(1)}>
             <div className="item__label">
-              <img src="../../img/leg4.png" alt="" draggable="false" />
+              <img src="../../img/brany-6.png" alt="" draggable="false" />
             </div>
           </div>
           <div className={`item ${legs === 2 ? "item--active" : ""}`} onClick={() => setLegs(2)}>
             <div className="item__label">
-              <img src="../../img/leg5.png" alt="" draggable="false" />
+              <img src="../../img/brany.png" alt="" draggable="false" />
             </div>
           </div>
           <div className={`item ${legs === 3 ? "item--active" : ""}`} onClick={() => setLegs(3)}>
             <div className="item__label">
-              <img src="../../img/leg6.png" alt="" draggable="false" />
+              <img src="../../img/brany-2.png" alt="" draggable="false" />
             </div>
           </div>
           <div className={`item ${legs === 4 ? "item--active" : ""}`} onClick={() => setLegs(4)}>
             <div className="item__label">
-              <img src="../../img/leg6.png" alt="" />
+              <img src="../../img/brany-4.png" alt="" />
             </div>
           </div>
           <div className={`item ${legs === 5 ? "item--active" : ""}`} onClick={() => setLegs(5)}>
             <div className="item__label">
-              <img src="../../img/leg6.png" alt="" />
+              <img src="../../img/brany-3.png" alt="" />
             </div>
           </div>
           <div className={`item ${legs === 6 ? "item--active" : ""}`} onClick={() => setLegs(6)}>
             <div className="item__label">
-              <img src="../../img/leg6.png" alt="" />
+              <img src="../../img/brany-5.png" alt="" />
             </div>
           </div>
           <div className={`item ${legs === 7 ? "item--active" : ""}`} onClick={() => setLegs(7)}>
             <div className="item__label">
-              <img src="../../img/leg6.png" alt="" />
+              <img src="../../img/brany-1.png" alt="" />
+            </div>
+          </div>
+          <div className={`item ${legs === 8 ? "item--active" : ""}`} onClick={() => setLegs(8)}>
+            <div className="item__label">
+              <img src="../../img/brany-7.png" alt="" />
             </div>
           </div>
         </div>

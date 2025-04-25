@@ -680,6 +680,38 @@ const Table = (props) => {
             : null)}
         />
       </mesh>
+      {/*}hranatej bráško{*/}
+      <mesh geometry={nodes["15Noha1"].geometry} material={nodes["15Noha1"].material} position={[0, (-vyska / 200) * 2, 0]} rotation={[0, 0, -Math.PI / 2]} scale={[(vyska / 146) * 2, delka / 100, sirka / 1200]} visible={(shape === 1 || shape === 3) && legs === 8}>
+        <meshStandardMaterial
+          {...(legColor === "leg1"
+            ? {
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
+              }
+            : legColor === "leg2"
+            ? leg2TextureProps
+            : legColor === "leg3"
+            ? leg3TextureProps
+            : legColor === "leg4"
+            ? leg4TextureProps
+            : null)}
+        />
+      </mesh>
+      {/*}hranatej bráško{*/}
+      <mesh geometry={nodes["15Noha1"].geometry} material={nodes["15Noha1"].material} position={[0, (-vyska / 200) * 2, 0]} rotation={[0, 0, -Math.PI / 2]} scale={[(vyska / 146) * 2, sirka / 180, sirka / 2000]} visible={(shape === 2 || shape === 4) && legs === 8}>
+        <meshStandardMaterial
+          {...(legColor === "leg1"
+            ? {
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
+              }
+            : legColor === "leg2"
+            ? leg2TextureProps
+            : legColor === "leg3"
+            ? leg3TextureProps
+            : legColor === "leg4"
+            ? leg4TextureProps
+            : null)}
+        />
+      </mesh>
       {/*}KULATY{*/}
     </group>
   );

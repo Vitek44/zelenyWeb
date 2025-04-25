@@ -27,7 +27,8 @@
 				16,
 				17,
 				18,
-				19
+				19,
+				20
 			]
 		}
 	],
@@ -311,6 +312,21 @@
 				-0.46453338861465454,
 				0.6761545538902283
 			]
+		},
+		{
+			"mesh":20,
+			"name":"15Noha.1",
+			"rotation":[
+				0,
+				0,
+				-0.7071068286895752,
+				0.7071068286895752
+			],
+			"scale":[
+				-1.0972959995269775,
+				-1.2852622270584106,
+				-0.10073920339345932
+			]
 		}
 	],
 	"materials":[
@@ -584,6 +600,19 @@
 						"TEXCOORD_0":69
 					},
 					"indices":70
+				}
+			]
+		},
+		{
+			"name":"Cube.009",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":71,
+						"NORMAL":72,
+						"TEXCOORD_0":73
+					},
+					"indices":74
 				}
 			]
 		}
@@ -1227,6 +1256,40 @@
 			"componentType":5123,
 			"count":96,
 			"type":"SCALAR"
+		},
+		{
+			"bufferView":71,
+			"componentType":5126,
+			"count":144,
+			"max":[
+				0.7019240856170654,
+				0.7994009256362915,
+				10.199005126953125
+			],
+			"min":[
+				-0.7136147022247314,
+				-0.7994009256362915,
+				-10.199005126953125
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":72,
+			"componentType":5126,
+			"count":144,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":73,
+			"componentType":5126,
+			"count":144,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":74,
+			"componentType":5123,
+			"count":264,
+			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
@@ -1655,6 +1718,30 @@
 			"byteLength":192,
 			"byteOffset":396648,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":1728,
+			"byteOffset":396840,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":1728,
+			"byteOffset":398568,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":1152,
+			"byteOffset":400296,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":528,
+			"byteOffset":401448,
+			"target":34963
 		}
 	],
 	"samplers":[
@@ -1665,7 +1752,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":396840,
+			"byteLength":401976,
 			"uri":"cvrkec.bin"
 		}
 	]
