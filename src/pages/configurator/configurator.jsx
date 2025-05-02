@@ -69,9 +69,7 @@ function Konfigurator() {
               </Canvas>
             </div>
 
-            <div className="configurator-content">
-              <Configuratoring />
-            </div>
+            <Configuratoring />
           </CustomizationProvider>
         </div>
       </div>
