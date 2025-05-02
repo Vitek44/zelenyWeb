@@ -8,7 +8,7 @@ const Experience = () => {
       <PresentationControls
         speed={0.75}
         global={true}
-        zoom={1} // Vypnutí zoomu při otáčení
+        zoom={2} // Vypnutí zoomu při otáčení
         polar={[0, Math.PI / 4]}
       >
         <Stage
@@ -24,7 +24,6 @@ const Experience = () => {
           </Suspense>
         </Stage>
       </PresentationControls>
-      <OrbitControls enableZoom={true} minDistance={6} maxDistance={9} enablePan={false} enableRotate={false} />
     </>
   );
 };

@@ -12,6 +12,7 @@ export const CustomizationProvider = (props) => {
   const [sirka, setSirka] = useState(160);
   const [vyska, setVyska] = useState(70);
   const [tloustka, setTloustka] = useState(30); // Tloušťka desky
+  const [epoxid, setEpoxid] = useState(1); // Epoxidová pryskyřice
 
   return (
     <CustomizationContext.Provider
@@ -34,6 +35,8 @@ export const CustomizationProvider = (props) => {
         setVyska,
         tloustka,
         setTloustka,
+        epoxid,
+        setEpoxid,
       }}
     >
       {props.children}
