@@ -53,44 +53,55 @@ function Interiery() {
         <div class="podmenu-title">
           <h1>{t("Int_title")}</h1>
         </div>
-        <div class="interiery-crossroad">
-          <div
-            class="crossroad-item"
-            onClick={() => {
-              setSelectedCategory("Kuchyně");
-              setModalOpen(true);
-            }}
-          >
-            <h1>{t("Int_cat_1")}</h1>
-          </div>
+        <div class="container">
+          <div class="interiery-crossroad">
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Kuchyně");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_1")}</h1>
+            </div>
 
-          <div
-            class="crossroad-item"
-            onClick={() => {
-              setSelectedCategory("Podlahy");
-              setModalOpen(true);
-            }}
-          >
-            <h1>{t("Int_cat_2")}</h1>
-          </div>
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Obývací pokoje");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_2")}</h1>
+            </div>
 
-          <div
-            class="crossroad-item"
-            onClick={() => {
-              setSelectedCategory("Interiéry");
-              setModalOpen(true);
-            }}
-          >
-            <h1>{t("Int_cat_3")}</h1>
-          </div>
-          <div
-            class="crossroad-item"
-            onClick={() => {
-              setSelectedCategory("Skříně");
-              setModalOpen(true);
-            }}
-          >
-            <h1>{t("Int_cat_4")}</h1>
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Šatny");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_3")}</h1>
+            </div>
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Ložnice");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_4")}</h1>
+            </div>
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Koupelny");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_5")}</h1>
+            </div>
           </div>
         </div>
         {modalOpen ? (

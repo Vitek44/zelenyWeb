@@ -132,7 +132,7 @@
   "sizes": "Rozměry",
   "width": "Šířka desky",
   "thickness": "Tlouštka desky",
-  "table_height": "Výška sotlu",
+  "table_height": "Výška stolu",
   "leg_type": "Typ nožiček",
   "leg_color": "Barva nožiček",
   "epoxid_type": "Typ epoxidu",
@@ -154,13 +154,27 @@
   "edge_shape": "Tvar rohu",
   "length": "Délka desky",
 
-  "Int_cat_1": "Kuchyňské linky",
+  "Int_cat_1": "Kuchyňe",
   "Int_cat_2": "Obývací pokoje",
-  "Int_cat_3": "Ložnice",
-  "Int_cat_4": "Koupelny",
+  "Int_cat_3": "Šatny",
+  "Int_cat_4": "Ložnice",
+  "Int_cat_5": "Koupelny",
   "Int_title": "Interiéry",
 
   "phPhone": "Telefon",
   "snd_btn": "Odeslat",
-  "diameter": "Průměr"
+  "diameter": "Průměr",
+
+  "Všechno": "Všechno",
+  "Stoly": "Stoly",
+  "Interiéry": "Interiéry",
+  "Kuchyňe": "Kuchyňe",
+  "Skříně": "Skříně",
+  "Typ": "Typ",
+  "Nazev": "Název",
+
+  "Kulatý": "Kulatý",
+  "Hranatý": "Hranatý",
+
+  "Popis_stolu": "Popis stolu"
 }

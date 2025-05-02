@@ -141,14 +141,29 @@
   "table_config": "Tischkonfiguration",
   "table_configurator": "Tischkonfigurator",
 
-  "Int_cat_1": "Küchenzeilen",
+  "Int_cat_1": "Küchen",
   "Int_cat_2": "Wohnzimmer",
-  "Int_cat_3": "Schlafzimmer",
-  "Int_cat_4": "Badezimmer",
+  "Int_cat_3": "Ankleidezimmer",
+  "Int_cat_4": "Schlafzimmer",
+  "Int_cat_5": "Badezimmer",
   "Int_title": "Innenräume",
 
   "phPhone": "Ihre Telefonnummer",
   "snd_btn": "Senden",
   "diameter": "Durchmesser",
-  "configuratorTitle": "Konfigurator"
+  "configuratorTitle": "Konfigurator",
+
+  "Všechno": "Alles",
+  "Stoly": "Tische",
+  "Interiéry": "Innenräume",
+  "Kuchyňe": "Küchen",
+  "Skříně": "Schränke",
+  "Typ": "Typ",
+  "Nazev": "Name",
+  "Kulatý": "Rund",
+  "Hranatý": "Rechteckig",
+
+  "Popis_stolu": "Tischbeschreibung",
+  "title7": "Tische",
+  "subtitle7": "Ähnliche Produkte"
 }

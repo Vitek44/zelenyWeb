@@ -304,7 +304,7 @@ function Produkt({ id }) {
           )}
           <div className="desc-wrapper">
             <div className="desc-content">
-              <div className="desc-title">Popis stolu</div>
+              <div className="desc-title">{t("Popis_stolu")}</div>
               <div className="desc-text">
                 <p>{i18next.language === "de" ? getData.PopisDE : i18next.language === "en" ? getData.PopisEN : getData.Popis}</p>
               </div>

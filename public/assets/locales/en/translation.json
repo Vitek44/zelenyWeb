@@ -139,14 +139,31 @@
   "desk_color": "Board Color",
   "table_configurator": "Table Configurator",
 
-  "Int_cat_1": "Kitchen Units",
-  "Int_cat_2": "Living Rooms",
-  "Int_cat_3": "Bedrooms",
-  "Int_cat_4": "Bathrooms",
+  "Int_cat_1": "Kitchens",
+  "Int_cat_2": "Living rooms",
+  "Int_cat_3": "Dressing rooms",
+  "Int_cat_4": "Bedrooms",
+  "Int_cat_5": "Bathrooms",
+
   "Int_title": "Interiors",
 
   "phPhone": "Your phone number",
   "snd_btn": "Send",
   "diameter": "Diameter",
-  "configuratorTitle": "Configurator"
+  "configuratorTitle": "Configurator",
+
+  "Všechno": "All",
+  "Stoly": "Tables",
+  "Interiéry": "Interiors",
+  "Kuchyňe": "Kitchens",
+  "Skříně": "Cabinets",
+  "Typ": "Type",
+  "Nazev": "Name",
+  "Kulatý": "Round",
+  "Hranatý": "Square",
+
+  "Popis_stolu": "Table Description",
+
+  "title7": "Tables",
+  "subtitle7": "Similar products"
 }

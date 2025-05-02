@@ -37,7 +37,6 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-
   border-radius: 5px;
   transition: 0.2s ease-in;
   height: 100%;
@@ -61,17 +60,17 @@
 
 .interiery-crossroad {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
   width: 100%;
 }
 
 .crossroad-item {
-  background-image: url("../img/kuchyne.svg");
-  background-size: cover;
-  background-position: bottom;
+  background-size: fill;
   background-repeat: no-repeat;
-  grid-column: span 4 / span 4;
-  height: 100%;
+  background-position: center;
+  min-height: 250px;
   width: 100%;
   border-radius: 5px;
   cursor: pointer;
@@ -79,11 +78,33 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 9rem 0;
   color: white;
+  padding: 0;
   transition: 0.2s ease-out;
 }
 
+.crossroad-item:nth-child(1) {
+  background-image: url("../img/kuchyne.svg");
+  grid-row: span 2 / span 2;
+}
+
+.crossroad-item:nth-child(2) {
+  background-image: url("../img/pokoje.svg");
+}
+
+.crossroad-item:nth-child(3) {
+  background-image: url("../img/satny.svg");
+}
+
+.crossroad-item:nth-child(4) {
+  background-image: url("/img/loznice.svg");
+  grid-column-start: 2;
+}
+
+.crossroad-item:nth-child(5) {
+  background-image: url("/img/koupelny.svg");
+  grid-column-start: 3;
+}
 .crossroad-item:hover {
   transform: scale(1.01);
   transition: 0.2s ease-in;
@@ -93,28 +114,6 @@
   font-size: 30px;
   font-weight: 500;
   text-transform: uppercase;
-}
-
-.crossroad-item:nth-child(2) {
-  background-image: url("../img/podlahy.svg");
-  grid-column: span 2 / span 2;
-  grid-column-start: 1;
-  grid-row-start: 2;
-}
-
-.crossroad-item:nth-child(3) {
-  background-image: url("../img/pokoje.svg");
-  grid-column: span 2 / span 2;
-  grid-column-start: 3;
-  grid-row-start: 2;
-}
-
-.crossroad-item:nth-child(4) {
-  background-image: url("/img/skrine.svg");
-  grid-column: span 2 / span 2;
-  grid-row: span 2 / span 2;
-  grid-column-start: 5;
-  grid-row-start: 1;
 }
 
 .interiery-modal-wrap {
@@ -205,6 +204,25 @@
   gap: 2rem;
 }
 
+@media (max-width: 1200px) {
+  .interiery-crossroad {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .crossroad-item:nth-child(1) {
+    grid-row: span 2 / span 2;
+  }
+
+  .crossroad-item:nth-child(4) {
+    grid-column-start: unset;
+  }
+
+  .crossroad-item:nth-child(5) {
+    grid-column-start: unset;
+  }
+}
+
 @media (max-width: 768px) {
   .interiery-wrap {
     padding: 8rem 0;
@@ -215,35 +233,21 @@
   }
 
   .interiery-crossroad {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(5, 1fr);
   }
 
-  .crossroad-item:nth-child(2) {
-    grid-column: span 2 / span 2;
-    grid-column-start: 1;
-    grid-row-start: 1;
-  }
-
-  .crossroad-item:nth-child(3) {
-    grid-column: span 2 / span 2;
-    grid-column-start: 1;
-    grid-row-start: 2;
+  .crossroad-item:nth-child(1) {
+    grid-row: unset;
   }
 
   .crossroad-item:nth-child(4) {
-    grid-column: span 2 / span 2;
-    grid-row-start: 3;
-    grid-column-start: 1;
-    grid-row-start: 3;
+    grid-column-start: unset;
   }
 
-  .crossroad-item {
-    padding: 4rem 0;
-  }
-
-  .interiery-content {
-    grid-template-columns: repeat(2, 1fr);
+  .crossroad-item:nth-child(5) {
+    grid-column-start: unset;
   }
 
   .interiery-item img {

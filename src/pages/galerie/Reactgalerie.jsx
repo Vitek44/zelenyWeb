@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import { useTranslation } from "react-i18next";
 import "./galerie.css";
 
 const Reactgalerie = () => {
@@ -8,7 +9,7 @@ const Reactgalerie = () => {
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("Všechno");
   const [lightbox, setLightbox] = useState({ img: "", i: 0 });
-
+  const { t } = useTranslation();
   const categories = ["Všechno", "Stoly", "Interiéry", "Kuchyně", "Skříně"];
 
   // Základní URL pro obrázky (pokud jsou v databázi uložené relativně)
@@ -65,12 +66,14 @@ const Reactgalerie = () => {
 
   return (
     <>
-      <div className="galerie-choices">
-        {categories.map((category) => (
-          <button key={category} className={selectedCategory === category ? "active" : "galerie-selected"} onClick={() => setSelectedCategory(category)}>
-            {category}
-          </button>
-        ))}
+      <div class="container">
+        <div className="galerie-choices">
+          {categories.map((category) => (
+            <button key={category} className={selectedCategory === category ? "active" : "galerie-selected"} onClick={() => setSelectedCategory(category)}>
+              {t(category)}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Lightbox */}
