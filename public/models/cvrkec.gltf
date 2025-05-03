@@ -28,7 +28,8 @@
 				17,
 				18,
 				19,
-				20
+				20,
+				21
 			]
 		}
 	],
@@ -327,6 +328,15 @@
 				-1.2852622270584106,
 				-0.10073920339345932
 			]
+		},
+		{
+			"mesh":21,
+			"name":"20Noha",
+			"scale":[
+				0.15000000596046448,
+				0.034847795963287354,
+				0.49951979517936707
+			]
 		}
 	],
 	"materials":[
@@ -613,6 +623,19 @@
 						"TEXCOORD_0":73
 					},
 					"indices":74
+				}
+			]
+		},
+		{
+			"name":"Cube.001",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":75,
+						"NORMAL":76,
+						"TEXCOORD_0":77
+					},
+					"indices":78
 				}
 			]
 		}
@@ -1290,6 +1313,40 @@
 			"componentType":5123,
 			"count":264,
 			"type":"SCALAR"
+		},
+		{
+			"bufferView":75,
+			"componentType":5126,
+			"count":906,
+			"max":[
+				7.066666603088379,
+				27.69622039794922,
+				2.1210765838623047
+			],
+			"min":[
+				-7.066666603088379,
+				-1,
+				-2.1210765838623047
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":76,
+			"componentType":5126,
+			"count":906,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":77,
+			"componentType":5126,
+			"count":906,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":78,
+			"componentType":5123,
+			"count":1836,
+			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
@@ -1742,6 +1799,30 @@
 			"byteLength":528,
 			"byteOffset":401448,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":10872,
+			"byteOffset":401976,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":10872,
+			"byteOffset":412848,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":7248,
+			"byteOffset":423720,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":3672,
+			"byteOffset":430968,
+			"target":34963
 		}
 	],
 	"samplers":[
@@ -1752,7 +1833,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":401976,
+			"byteLength":434640,
 			"uri":"cvrkec.bin"
 		}
 	]
