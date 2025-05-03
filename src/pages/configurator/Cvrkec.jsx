@@ -713,6 +713,40 @@ const Table = (props) => {
         />
       </mesh>
       {/*}KULATY{*/}
+      {/*}HRANATÝ{*/}
+      <mesh geometry={nodes["20Noha"].geometry} position={[0, -vyska / 42, 0]} material={nodes["20Noha"].material} scale={[(delka / 1440) * 2, vyska / 1200, (sirka / 440) * 2]} visible={(shape === 1 || shape === 3) && legs === 9}>
+        {" "}
+        <meshStandardMaterial
+          {...(legColor === "leg1"
+            ? {
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
+              }
+            : legColor === "leg2"
+            ? leg2TextureProps
+            : legColor === "leg3"
+            ? leg3TextureProps
+            : legColor === "leg4"
+            ? leg4TextureProps
+            : null)}
+        />
+      </mesh>
+      {/*}KULATÝ{*/}
+      <mesh geometry={nodes["20Noha"].geometry} position={[0, -vyska / 42, 0]} material={nodes["20Noha"].material} scale={[(delka / 1440) * 2, vyska / 1200, (sirka / 440) * 2]} visible={(shape === 2 || shape === 4) && legs === 9}>
+        {" "}
+        <meshStandardMaterial
+          {...(legColor === "leg1"
+            ? {
+                ...(material === "wood1" ? wood1TextureProps : material === "wood2" ? wood2TextureProps : material === "wood3" ? wood3TextureProps : material === "wood4" ? wood4TextureProps : material === "wood5" ? wood5TextureProps : material === "wood6" ? wood6TextureProps : material === "wood7" ? wood7TextureProps : defaultTextureProps),
+              }
+            : legColor === "leg2"
+            ? leg2TextureProps
+            : legColor === "leg3"
+            ? leg3TextureProps
+            : legColor === "leg4"
+            ? leg4TextureProps
+            : null)}
+        />
+      </mesh>
     </group>
   );
 };
