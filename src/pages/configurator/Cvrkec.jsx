@@ -681,7 +681,7 @@ const Table = (props) => {
         />
       </mesh>
       {/*}hranatej bráško{*/}
-      <mesh geometry={nodes["15Noha1"].geometry} material={nodes["15Noha1"].material} position={[0, (-vyska / 200) * 2, 0]} rotation={[0, 0, -Math.PI / 2]} scale={[(vyska / 146) * 2, delka / 100, sirka / 1200]} visible={(shape === 1 || shape === 3) && legs === 8}>
+      <mesh geometry={nodes["15Noha1"].geometry} position={[0, (-vyska / 200) * 2, 0]} rotation={[0, 0, -Math.PI / 2]} scale={[(vyska / 146) * 2, delka / 100, sirka / 1200]} visible={(shape === 1 || shape === 3) && legs === 8}>
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
@@ -697,7 +697,7 @@ const Table = (props) => {
         />
       </mesh>
       {/*}hranatej bráško{*/}
-      <mesh geometry={nodes["15Noha1"].geometry} material={nodes["15Noha1"].material} position={[0, (-vyska / 200) * 2, 0]} rotation={[0, 0, -Math.PI / 2]} scale={[(vyska / 146) * 2, sirka / 180, sirka / 2000]} visible={(shape === 2 || shape === 4) && legs === 8}>
+      <mesh geometry={nodes["15Noha1"].geometry} position={[0, (-vyska / 200) * 2, 0]} rotation={[0, 0, -Math.PI / 2]} scale={[(vyska / 146) * 2, sirka / 180, sirka / 2000]} visible={(shape === 2 || shape === 4) && legs === 8}>
         <meshStandardMaterial
           {...(legColor === "leg1"
             ? {
