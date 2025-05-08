@@ -12,6 +12,7 @@ const Admin = () => {
   useEffect(() => {
     verifyToken();
   }, []);
+
   const verifyToken = () => {
     fetch("https://designjj-test.eu/php/verify-token.php") // Nahraď cestou k PHP skriptu
       .then((response) => {
@@ -259,9 +260,11 @@ const Admin = () => {
                 <select name="kategorie" value={creditals?.kategorie || ""} onChange={(e) => setCreditals({ ...creditals, kategorie: e.target.value })}>
                   <option value="">-- Zvolte typ --</option>
                   <option value="Stoly">Stoly</option>
-                  <option value="Interiéry">Interiéry</option>
+                  <option value="Obývací pokoje">Obývací pokoje</option>
+                  <option value="Šatny">Šatny</option>
+                  <option value="Ložnice">Ložnice</option>
+                  <option value="Koupelny">Koupelny</option>
                   <option value="Kuchyně">Kuchyně</option>
-                  <option value="Skříně">Skříně</option>
                 </select>
               </div>
               <div className="form-group">

@@ -5,9 +5,12 @@ import "./admin.css";
 import { ToastContainer, toast } from "react-toastify";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Swal from "sweetalert2";
+import { findSpan } from "three/examples/jsm/curves/NURBSUtils.js";
 
 const Admin = () => {
   const [modalOpen, setModalOpen] = useState(false);
+
+  const [igOpen, setIgOpen] = useState(false);
 
   const [data, setData] = useState([]);
 
@@ -46,9 +49,35 @@ const Admin = () => {
         alert("Session vypršela.");
       });
   };
-
   useEffect(() => {
     verifyToken();
+  }, []);
+
+  const [igData, setIgData] = useState(""); // nebo 0, pokud chceš číslo
+
+  const _changeIgData = (e) => {
+    setIgData(e.target.value);
+  };
+
+  const getIg = () => {
+    fetch("https://designjj-test.eu/php/ig.php", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          setIgData(data); // např. "255"
+        } else {
+          console.error("Data nebyla nalezena");
+        }
+      })
+      .catch((err) => {
+        console.error("Chyba při načítání dat:", err);
+      });
+  };
+
+  useEffect(() => {
+    getIg();
   }, []);
 
   const loadData = () => {
@@ -269,6 +298,28 @@ const Admin = () => {
     setKDispozici(Number(creditals.zakoupeno) !== 1);
   }, [creditals.zakoupeno]);
 
+  const updateIgData = () => {
+    fetch("https://designjj-test.eu/php/updateIg.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ instagram: igData }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setIgOpen(false);
+          toast.success("Počet sledujících byl úspěšně aktualizován.");
+        } else {
+          toast.error("Chyba: " + data.message);
+        }
+      })
+      .catch((err) => {
+        console.error("Chyba při odesílání dat:", err);
+      });
+  };
+
   return (
     <>
       <HelmetProvider>
@@ -280,6 +331,9 @@ const Admin = () => {
       </HelmetProvider>
       <ToastContainer position="bottom-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
       <AdminNavbar />
+      <div className="ig-edit" onClick={() => setIgOpen(true)}>
+        <i class="fa-brands fa-square-instagram"></i>
+      </div>
       <div className="admin-wrapper">
         <div className="container">
           <div className="admin-content">
@@ -332,6 +386,30 @@ const Admin = () => {
           </div>
         </div>
       </div>
+      {igOpen ? (
+        <div className="modal-wrapper">
+          <div className="modal">
+            <div className="modal-header">
+              <h3>Instagram</h3>
+              <button className="close-modal" onClick={() => setIgOpen(false)} title="Zavřít okno">
+                <i className="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <div className="modal-content">
+              <div className="form-group">
+                <input type="number" name="ig" placeholder="Počet sledujících" value={igData} onChange={_changeIgData} />
+              </div>
+              <div className="ig-modal-btn">
+                <button className="save-btn" onClick={updateIgData} title="Aktualizovat sledující">
+                  Aktualizovat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
       {modalOpen ? (
         <div className="modal-wrapper">
           <div className="modal">

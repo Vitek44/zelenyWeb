@@ -67,7 +67,7 @@
 }
 
 .crossroad-item {
-  background-size: fill;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   min-height: 250px;
@@ -84,25 +84,25 @@
 }
 
 .crossroad-item:nth-child(1) {
-  background-image: url("../img/kuchyne.svg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../img/kuchne.png");
   grid-row: span 2 / span 2;
 }
 
 .crossroad-item:nth-child(2) {
-  background-image: url("../img/pokoje.svg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../img/obyvaci pokoj.png");
 }
 
 .crossroad-item:nth-child(3) {
-  background-image: url("../img/satny.svg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../img/satny.png");
 }
 
 .crossroad-item:nth-child(4) {
-  background-image: url("/img/loznice.svg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("/img/loznice.png");
   grid-column-start: 2;
 }
 
 .crossroad-item:nth-child(5) {
-  background-image: url("/img/koupelny.svg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("/img/koupelny.png");
   grid-column-start: 3;
 }
 .crossroad-item:hover {
@@ -124,7 +124,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden !important;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(10px);
 }
 

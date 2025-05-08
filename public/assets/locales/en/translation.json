@@ -10,7 +10,6 @@
   "white_btn": "Contact",
   "service1_item1": "Conference Tables",
   "service1_item2": "Kitchen Tables",
-  "service1_item3": "Room Tables",
   "service2_item1": "Conference Tables",
   "service2_item2": "Kitchens",
   "service2_item3": "Built-in Wardrobes",
@@ -85,7 +84,7 @@
   "slideProduct_text_1": "AERO",
   "SubMenuTable.title": "Custom Tables",
   "Product.title": "Products",
-  "footertext": "Professional custom wooden furniture making from design to delivery. I’ll help you get a great table.",
+  "footertext": "Professional custom wooden furniture making from design to delivery.",
   "footer1": "Useful",
   "contants": "Contacts",
   "created": "Created by:",
@@ -152,18 +151,26 @@
   "diameter": "Diameter",
   "configuratorTitle": "Configurator",
 
-  "Všechno": "All",
-  "Stoly": "Tables",
   "Interiéry": "Interiors",
-  "Kuchyňe": "Kitchens",
   "Skříně": "Cabinets",
   "Typ": "Type",
   "Nazev": "Name",
   "Kulatý": "Round",
   "Hranatý": "Square",
 
+  "Všechno": "All",
+  "Stoly": "Tables",
+  "Kuchyně": "Kitchens",
+  "Obývací pokoje": "Living Rooms",
+  "Ložnice": "Bedrooms",
+  "Koupelny": "Bathrooms",
+  "Šatny": "Closets",
+
   "Popis_stolu": "Table Description",
 
   "title7": "Tables",
-  "subtitle7": "Similar products"
+  "subtitle7": "Similar products",
+  "contactMe": "Contact formular",
+  "let": " years",
+  "service1_item3": "and others"
 }

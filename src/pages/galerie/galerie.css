@@ -18,15 +18,15 @@
 }
 .galerie-choices {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(1, 1fr);
   justify-items: center;
-  gap: 4rem;
+  gap: 2rem;
   margin-bottom: 4rem;
 }
 
 .galerie-choices button {
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   width: 100%;
   background-color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
@@ -36,6 +36,7 @@
   border-radius: 5px;
   cursor: pointer;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .galerie-choices button:hover {
@@ -132,6 +133,12 @@
 @media screen and (max-width: 1345px) {
   .galerie-choices button {
     width: 100%;
+  }
+
+  .galerie-choices {
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    gap: 1rem;
   }
 }
 

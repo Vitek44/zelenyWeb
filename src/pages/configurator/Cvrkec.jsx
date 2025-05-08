@@ -714,7 +714,7 @@ const Table = (props) => {
       </mesh>
       {/*}KULATY{*/}
       {/*}HRANATÝ{*/}
-      <mesh geometry={nodes["20Noha"].geometry} position={[0, -vyska / 42, 0]} material={nodes["20Noha"].material} scale={[(delka / 1440) * 2, vyska / 1200, (sirka / 440) * 2]} visible={(shape === 1 || shape === 3) && legs === 9}>
+      <mesh geometry={nodes["20Noha"].geometry} position={[0, -vyska / 43.2, 0]} material={nodes["20Noha"].material} scale={[(delka / 1440) * 2, vyska / 1200, (sirka / 440) * 2]} visible={(shape === 1 || shape === 3) && legs === 9}>
         {" "}
         <meshStandardMaterial
           {...(legColor === "leg1"

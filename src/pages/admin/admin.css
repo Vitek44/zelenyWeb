@@ -232,6 +232,14 @@
   width: 100%;
 }
 
+.ig-modal-btn {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+
 .save-btn {
   background-color: var(--green);
   color: white;
@@ -243,6 +251,7 @@
   margin-right: 0.5rem;
   font-size: 18px;
   transition: all 0.3s ease;
+  margin-left: 0.5rem;
 }
 
 .save-btn:hover {
@@ -326,6 +335,28 @@ input[type="checkbox"]:checked::after {
   color: var(--green);
   font-weight: bold;
   font-size: 30px;
+}
+
+.ig-edit {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 1rem;
+  background-color: transparent;
+}
+
+.ig-edit i {
+  font-size: 50px;
+  color: white;
+  border-radius: 50%;
+  transform: scale(1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.ig-edit i:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease;
 }
 
 @media (max-width: 1024px) {

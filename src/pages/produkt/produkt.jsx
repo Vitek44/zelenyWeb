@@ -310,18 +310,18 @@ function Produkt({ id }) {
               </div>
             </div>
           </div>
+          <div className="container">
+            <div className="services1">
+              <a href="/konfigurator" className="configurator" data-aos="zoom-in" data-aos-delay="200">
+                <h3>{t("configurator_text")}</h3>
+              </a>
+            </div>
+          </div>
           <div className="title">
             <h2>{t("title7")}</h2>
             <h1>{t("subtitle7")}</h1>
           </div>
           <SliderProduct />
-        </div>
-        <div className="container">
-          <div className="services1">
-            <a href="/konfigurator" className="configurator" data-aos="zoom-in" data-aos-delay="200">
-              <h3>{t("configurator_text")}</h3>
-            </a>
-          </div>
         </div>
       </div>
       <Footer />

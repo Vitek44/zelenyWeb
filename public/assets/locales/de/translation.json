@@ -10,7 +10,7 @@
   "white_btn": "Kontakt",
   "service1_item1": "Konferenztische",
   "service1_item2": "Küchentische",
-  "service1_item3": "Wohnzimmertische",
+  "service1_item3": "und andere",
   "service2_item1": "Konferenztische",
   "service2_item2": "Küchen",
   "service2_item3": "Einbauschränke",
@@ -85,7 +85,7 @@
   "slideProduct_text_1": "AERO",
   "SubMenuTable.title": "Maßgefertigte Tische",
   "Product.title": "Produkte",
-  "footertext": "Professionelle Herstellung maßgefertigter Holzmöbel von der Planung bis zur Übergabe. Ich helfe Ihnen, einen großartigen Tisch zu bekommen.",
+  "footertext": "Professionelle Herstellung maßgefertigter Holzmöbel von der Planung bis zur Übergabe.",
   "footer1": "Nützliches",
   "contants": "Kontakte",
   "created": "Erstellt von:",
@@ -153,17 +153,24 @@
   "diameter": "Durchmesser",
   "configuratorTitle": "Konfigurator",
 
-  "Všechno": "Alles",
-  "Stoly": "Tische",
   "Interiéry": "Innenräume",
-  "Kuchyňe": "Küchen",
   "Skříně": "Schränke",
   "Typ": "Typ",
   "Nazev": "Name",
   "Kulatý": "Rund",
   "Hranatý": "Rechteckig",
 
+  "Všechno": "Alles",
+  "Stoly": "Tische",
+  "Kuchyně": "Küchen",
+  "Obývací pokoje": "Wohnzimmer",
+  "Ložnice": "Schlafzimmer",
+  "Koupelny": "Badezimmer",
+  "Šatny": "Garderoben",
+
   "Popis_stolu": "Tischbeschreibung",
   "title7": "Tische",
-  "subtitle7": "Ähnliche Produkte"
+  "subtitle7": "Ähnliche Produkte",
+  "contactMe": "Kontaktformular",
+  "let": " Jahre"
 }
