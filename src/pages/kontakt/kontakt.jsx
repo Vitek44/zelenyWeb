@@ -66,7 +66,8 @@ export default function Kontakt() {
             zprava: "",
           });
         } else {
-          toast.error("Nepodařilo se odeslat zprávu.");
+          console.error("Chyba ze serveru:", data.error);
+          toast.error(`Nepodařilo se odeslat zprávu: ${data.error || "Neznámá chyba."}`);
         }
       })
       .catch((err) => {

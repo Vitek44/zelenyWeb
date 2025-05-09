@@ -27,7 +27,6 @@ $jmeno = htmlspecialchars($_POST['jmeno']);
 $email = htmlspecialchars($_POST['email']);
 $telefon = htmlspecialchars($_POST['telefon']);
 $zprava = htmlspecialchars($_POST['zprava']);
-$id = htmlspecialchars($_POST['id']);
 
 $mail = new PHPMailer(true);
 
@@ -46,13 +45,12 @@ try {
     $mail->addAddress('vitejajan@gmail.com');  
 
     $mail->isHTML(true);
-    $mail->Subject = 'Poptávka stolu ' . $nazev;
-    $mail->Body = "<b>Poptávka stolu</b>: $nazev <br><br> 
+    $mail->Subject = 'Poptávka interiéru - ' . $nazev;
+    $mail->Body = "<b>Poptávka interiéru</b>: $nazev <br><br> 
                    Jméno: $jmeno <br> 
                    Email: $email <br> 
                    Telefon: $telefon <br> 
-                   Zpráva: $zprava <br>
-                   https://designjj-test.eu/stoly/produkt?id=$id"; 
+                   Zpráva: $zprava";
 
     $mail->send();
     

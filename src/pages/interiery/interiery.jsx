@@ -6,6 +6,8 @@ import Footer from "../../components/footer/footer";
 import { useTranslation } from "react-i18next";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "@splidejs/splide/css";
 
 //css
@@ -38,6 +40,52 @@ function Interiery() {
   const [modalOpen, setModalOpen] = useState(false);
 
   const [selectedCategory, setSelectedCategory] = useState("");
+
+  const [formData, setFormData] = useState({
+    nazev: selectedCategory,
+    jmeno: "",
+    email: "",
+    telefon: "",
+    zprava: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSend = () => {
+    if (!formData.jmeno || !formData.email || !formData.telefon || !formData.zprava) {
+      toast.error("Vyplňte všechny povinné údaje.");
+      return;
+    }
+    fetch("https://designjj-test.eu/php/sendInteriery.php", {
+      method: "POST", // Správná metoda
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData), // Převod objektu na JSON
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          toast.success("Zpráva byla odeslána.");
+          setModalOpen(false);
+          setFormData({
+            nazev: "",
+            jmeno: "",
+            email: "",
+            telefon: "",
+            zprava: "",
+          });
+        } else {
+          toast.error("Nepodařilo se odeslat zprávu.");
+        }
+      })
+      .catch((err) => {
+        console.error("Chyba při odesílání zprávy:", err);
+        toast.error("Chyba při komunikaci se serverem.");
+      });
+  };
 
   return (
     <>
@@ -109,7 +157,9 @@ function Interiery() {
             <div class="interiery-modal">
               <div class="interiery-form">
                 <div className="modal-header">
-                  <h3>{selectedCategory}</h3>
+                  <h3>
+                    Poptávkový formulář - <span>{selectedCategory}</span>
+                  </h3>
                   <button
                     className="close-modal"
                     onClick={() => {
@@ -121,19 +171,21 @@ function Interiery() {
                   </button>
                 </div>
                 <div class="interiery-form-item">
-                  <input type="text" placeholder={t("phName")} />
+                  <input type="text" name="jmeno" placeholder={t("phName")} value={formData.jmeno} onChange={handleChange} />
                 </div>
                 <div class="interiery-form-item">
-                  <input type="text" placeholder="E-mail" />
+                  <input type="text" name="email" placeholder="E-mail" value={formData.email} onChange={handleChange} />
                 </div>
                 <div class="interiery-form-item">
-                  <input type="text" placeholder={t("phPhone")} />
+                  <input type="number" name="telefon" placeholder={t("phPhone")} value={formData.telefon} onChange={handleChange} />
                 </div>
                 <div class="interiery-form-item">
-                  <textarea type="text" placeholder={t("phText")} />
+                  <textarea type="text" name="zprava" placeholder={t("phText")} value={formData.zprava} onChange={handleChange} />
                 </div>
                 <div class="modal-btn">
-                  <button className="save-btn">{t("snd_btn")}</button>
+                  <button className="save-btn" onClick={handleSend}>
+                    {t("snd_btn")}
+                  </button>
                 </div>
               </div>
               <div class="interiery-gallery">

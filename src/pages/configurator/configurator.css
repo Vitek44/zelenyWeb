@@ -370,4 +370,14 @@ canvas {
   .table-title h1 {
     margin-bottom: 1rem;
   }
+
+  .configurator-main .language-dropdown {
+    top: 520px;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .configurator-main .language-dropdown {
+    top: 570px;
+  }
 }

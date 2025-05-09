@@ -179,6 +179,10 @@
   box-shadow: none;
 }
 
+.interiery-modal .modal-btn {
+  justify-content: flex-end;
+}
+
 .modal-btn {
   margin-top: 1rem;
 }

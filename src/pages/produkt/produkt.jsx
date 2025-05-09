@@ -280,16 +280,16 @@ function Produkt({ id }) {
                 </div>
                 <div className="modal-content">
                   <div className="form-group">
-                    <input type="text" name="jmeno" placeholder="Firma / Jméno" value={formData.jmeno} onChange={handleChange} />
+                    <input type="text" name="jmeno" placeholder={t("phName")} value={formData.jmeno} onChange={handleChange} />
                   </div>
                   <div className="form-group">
                     <input type="text" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
                   </div>
                   <div className="form-group">
-                    <input type="number" name="telefon" placeholder="Telefon" value={formData.telefon} onChange={handleChange} />
+                    <input type="number" name="telefon" placeholder={t("phPhone")} value={formData.telefon} onChange={handleChange} />
                   </div>
                   <div className="form-group">
-                    <textarea name="zprava" placeholder="Zpráva" value={formData.zprava} onChange={handleChange}></textarea>
+                    <textarea name="zprava" placeholder={t("phText")} value={formData.zprava} onChange={handleChange}></textarea>
                   </div>
                   <div className="modal-btn">
                     <button className="save-btn" onClick={handleSend}>
@@ -310,12 +310,10 @@ function Produkt({ id }) {
               </div>
             </div>
           </div>
-          <div className="container">
-            <div className="services1">
-              <a href="/konfigurator" className="configurator" data-aos="zoom-in" data-aos-delay="200">
-                <h3>{t("configurator_text")}</h3>
-              </a>
-            </div>
+          <div className="services1">
+            <a href="/konfigurator" className="configurator" data-aos="zoom-in" data-aos-delay="200">
+              <h3>{t("configurator_text")}</h3>
+            </a>
           </div>
           <div className="title">
             <h2>{t("title7")}</h2>
