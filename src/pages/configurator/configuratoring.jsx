@@ -114,7 +114,7 @@ const Configurator = () => {
     email: "",
     telefon: "",
     zprava: "",
-    config: "tvar: " + shape + ", hrana: " + edge + ", nohy: " + legs + ", material: " + material + ", barva nohou: " + legColor + ", delka: " + delka + ", sirka: " + sirka + ", tloustka: " + tloustka + ", vyska: " + vyska,
+    config: "",
   });
 
   const handleChange = (e) => {
@@ -153,6 +153,30 @@ const Configurator = () => {
         console.error("Chyba při odesílání zprávy:", err);
         toast.error("Chyba při komunikaci se serverem.");
       });
+  };
+
+  const realShape = () => {
+    switch (shape) {
+      case 1:
+        return "Čtverec";
+      case 2:
+        return "Kruh";
+      case 3:
+        return "Přírodní";
+      case 4:
+        return "Hexagon";
+    }
+  };
+
+  const realEdge = () => {
+    switch (edge) {
+      case 1:
+        return "Hrana";
+      case 2:
+        return "Kosa";
+      case 3:
+        return "Kulatý";
+    }
   };
 
   return (
@@ -238,27 +262,27 @@ const Configurator = () => {
           <hr></hr>
         </div>
         <div className="configurator-item-color">
-          <div className={`item-color ${material === "wood1" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood1")}>
+          <div className={`item-color ${material === "Dub" ? "item-color-active" : ""}`} onClick={() => setMaterial("Dub")}>
             <img src="../../img/Dub.png" alt="" draggable="false" />
             <h5>{t("material1")}</h5>
           </div>
-          <div className={`item-color ${material === "wood3" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood3")}>
+          <div className={`item-color ${material === "Jasan" ? "item-color-active" : ""}`} onClick={() => setMaterial("Jasan")}>
             <img src="../../img/Jasan.png" alt="" draggable="false" />
             <h5>{t("material3")}</h5>
           </div>
-          <div className={`item-color ${material === "wood4" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood4")}>
+          <div className={`item-color ${material === "Ořech" ? "item-color-active" : ""}`} onClick={() => setMaterial("Ořech")}>
             <img src="../../img/Ořech.png" alt="" draggable="false" />
             <h5>{t("material4")}</h5>
           </div>
-          <div className={`item-color ${material === "wood5" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood5")}>
+          <div className={`item-color ${material === "Americký-ořech" ? "item-color-active" : ""}`} onClick={() => setMaterial("Americký-ořech")}>
             <img src="../../img/Americký ořech.png" alt="" draggable="false" />
             <h5>{t("material5")}</h5>
           </div>
-          <div className={`item-color ${material === "wood6" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood6")}>
+          <div className={`item-color ${material === "Kaštan" ? "item-color-active" : ""}`} onClick={() => setMaterial("Kaštan")}>
             <img src="../../img/Kaštan.png" alt="" draggable="false" />
             <h5>{t("material6")}</h5>
           </div>
-          <div className={`item-color ${material === "wood7" ? "item-color-active" : ""}`} onClick={() => setMaterial("wood7")}>
+          <div className={`item-color ${material === "Oliva" ? "item-color-active" : ""}`} onClick={() => setMaterial("Oliva")}>
             <img src="../../img/Oliva.png" alt="" draggable="false" />
             <h5>{t("material7")}</h5>
           </div>
@@ -516,19 +540,19 @@ const Configurator = () => {
           <hr></hr>
         </div>
         <div className="configurator-item-color">
-          <div className={`item-color ${legColor === "leg1" ? "item-color-active" : ""}`} onClick={() => setLegColor("leg1")}>
+          <div className={`item-color ${legColor === "Dřevo" ? "item-color-active" : ""}`} onClick={() => setLegColor("Dřevo")}>
             <img src="../../img/wood1.png" alt="" draggable="false" />
             <h5>{t("leg_1")}</h5>
           </div>
-          <div className={`item-color ${legColor === "leg2" ? "item-color-active" : ""}`} onClick={() => setLegColor("leg2")}>
+          <div className={`item-color ${legColor === "Černá" ? "item-color-active" : ""}`} onClick={() => setLegColor("Černá")}>
             <img src="../../img/black.png" alt="" draggable="false" />
             <h5>{t("leg_2")}</h5>
           </div>
-          <div className={`item-color ${legColor === "leg3" ? "item-color-active" : ""}`} onClick={() => setLegColor("leg3")}>
+          <div className={`item-color ${legColor === "Bílá" ? "item-color-active" : ""}`} onClick={() => setLegColor("Bílá")}>
             <img src="../../img/white.png" alt="" draggable="false" />
             <h5>{t("leg_3")}</h5>
           </div>
-          <div className={`item-color ${legColor === "leg4" ? "item-color-active" : ""}`} onClick={() => setLegColor("leg4")}>
+          <div className={`item-color ${legColor === "Ocel" ? "item-color-active" : ""}`} onClick={() => setLegColor("Ocel")}>
             <img src="../../img/steel.jpeg" alt="" draggable="false" />
             <h5>{t("leg_4")}</h5>
           </div>
@@ -585,6 +609,10 @@ const Configurator = () => {
           <button
             onClick={() => {
               setModalOpen(true);
+              setFormData({
+                ...formData,
+                config: "tvar: " + shape + ", hrana: " + edge + ", nohy: " + legs + ", material: " + material + ", barva nohou: " + legColor + ", delka: " + sirka + ", sirka: " + delka + ", tloustka: " + tloustka + ", vyska: " + vyska,
+              });
             }}
           >
             {t("send_conf")}
@@ -592,9 +620,9 @@ const Configurator = () => {
         </div>
       </div>
       {modalOpen ? (
-        <div class="interiery-modal-wrap">
-          <div class="interiery-modal">
-            <div class="interiery-form">
+        <div className="interiery-modal-wrap">
+          <div className="interiery-modal">
+            <div className="interiery-form">
               <div className="modal-header">
                 <h3>Odeslání konfigurace</h3>
                 <button
@@ -607,27 +635,107 @@ const Configurator = () => {
                   <i className="fa-solid fa-xmark"></i>
                 </button>
               </div>
-              <div class="interiery-form-item">
+              <div className="interiery-form-item">
                 <input type="text" name="jmeno" placeholder={t("phName")} value={formData.jmeno} onChange={handleChange} />
               </div>
-              <div class="interiery-form-item">
+              <div className="interiery-form-item">
                 <input type="text" name="email" placeholder="E-mail" value={formData.email} onChange={handleChange} />
               </div>
-              <div class="interiery-form-item">
+              <div className="interiery-form-item">
                 <input type="number" name="telefon" placeholder={t("phPhone")} value={formData.telefon} onChange={handleChange} />
               </div>
-              <div class="interiery-form-item">
+              <div className="interiery-form-item">
                 <textarea type="text" name="zprava" placeholder={t("phText")} value={formData.zprava} onChange={handleChange} />
               </div>
-              <div class="interiery-form-item">
+              <div className="interiery-form-item" style={{ display: "none" }}>
                 <input type="text" name="config" placeholder={t("phName")} value={formData.config} onChange={handleChange} />
               </div>
-
-              <div class="modal-btn">
+              <div className="modal-btn">
                 <button className="save-btn" onClick={handleSend}>
                   {t("snd_btn")}
                 </button>
               </div>
+              <table>
+                <tbody>
+                  <tr>
+                    <th>
+                      <h5>
+                        Tvar: <span>{realShape()}</span>
+                      </h5>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <h5>
+                        Hrana: <span>{realEdge()}</span>
+                      </h5>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <h5>
+                        Nohy: <span>{legs}</span>
+                      </h5>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <h5>
+                        Materiál: <span>{material}</span>
+                      </h5>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <h5>
+                        Barva nohou: <span>{legColor}</span>
+                      </h5>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <h5>
+                        Délka: <span>{delka}</span> cm
+                      </h5>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <h5>
+                        Šířka: <span>{sirka}</span> cm
+                      </h5>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <h5>
+                        Tloušťka: <span>{tloustka}</span> mm
+                      </h5>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <h5>
+                        Výška: <span>{vyska}</span> cm
+                      </h5>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <h5>
+                        Epoxid: <span>{epoxid}</span>
+                      </h5>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <h5>
+                        Barva epoxidu: <span>{barvaEpoxidu}</span>
+                      </h5>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
