@@ -8,6 +8,7 @@ const Configurator = () => {
   const { shape, setShape, edge, setEdge, legs, setLegs, material, setMaterial, legColor, setLegColor, delka, setDelka, sirka, setSirka, vyska, setVyska, tloustka, setTloustka, epoxid, setEpoxid, barvaEpoxidu, setbarvaEpoxidu } = useCustomization();
 
   const [visible, setVisible] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     if (shape === 2 || shape === 4) {
@@ -106,6 +107,53 @@ const Configurator = () => {
     console.log(legColor);
     console.log(material);
   }, []);
+
+  const [formData, setFormData] = useState({
+    nazev: "",
+    jmeno: "",
+    email: "",
+    telefon: "",
+    zprava: "",
+    config: "tvar: " + shape + ", hrana: " + edge + ", nohy: " + legs + ", material: " + material + ", barva nohou: " + legColor + ", delka: " + delka + ", sirka: " + sirka + ", tloustka: " + tloustka + ", vyska: " + vyska,
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSend = () => {
+    if (!formData.jmeno || !formData.email || !formData.telefon || !formData.zprava) {
+      toast.error("Vyplňte všechny povinné údaje.");
+      return;
+    }
+    fetch("https://designjj-test.eu/php/sendInteriery.php", {
+      method: "POST", // Správná metoda
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData), // Převod objektu na JSON
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          toast.success("Zpráva byla odeslána.");
+          setModalOpen(false);
+          setFormData({
+            nazev: "",
+            jmeno: "",
+            email: "",
+            telefon: "",
+            zprava: "",
+          });
+        } else {
+          toast.error("Nepodařilo se odeslat zprávu.");
+        }
+      })
+      .catch((err) => {
+        console.error("Chyba při odesílání zprávy:", err);
+        toast.error("Chyba při komunikaci se serverem.");
+      });
+  };
 
   return (
     <>
@@ -534,9 +582,56 @@ const Configurator = () => {
           </div>
         </div>
         <div className="configurator-send">
-          <button>{t("send_conf")}</button>
+          <button
+            onClick={() => {
+              setModalOpen(true);
+            }}
+          >
+            {t("send_conf")}
+          </button>
         </div>
       </div>
+      {modalOpen ? (
+        <div class="interiery-modal-wrap">
+          <div class="interiery-modal">
+            <div class="interiery-form">
+              <div className="modal-header">
+                <h3>Odeslání konfigurace</h3>
+                <button
+                  className="close-modal"
+                  onClick={() => {
+                    setModalOpen(false);
+                  }}
+                  title="Zavřít okno"
+                >
+                  <i className="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <div class="interiery-form-item">
+                <input type="text" name="jmeno" placeholder={t("phName")} value={formData.jmeno} onChange={handleChange} />
+              </div>
+              <div class="interiery-form-item">
+                <input type="text" name="email" placeholder="E-mail" value={formData.email} onChange={handleChange} />
+              </div>
+              <div class="interiery-form-item">
+                <input type="number" name="telefon" placeholder={t("phPhone")} value={formData.telefon} onChange={handleChange} />
+              </div>
+              <div class="interiery-form-item">
+                <textarea type="text" name="zprava" placeholder={t("phText")} value={formData.zprava} onChange={handleChange} />
+              </div>
+              <div class="interiery-form-item">
+                <input type="text" name="config" placeholder={t("phName")} value={formData.config} onChange={handleChange} />
+              </div>
+
+              <div class="modal-btn">
+                <button className="save-btn" onClick={handleSend}>
+                  {t("snd_btn")}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </>
   );
 };
