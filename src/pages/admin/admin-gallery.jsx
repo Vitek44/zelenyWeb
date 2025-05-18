@@ -14,7 +14,7 @@ const Admin = () => {
   }, []);
 
   const verifyToken = () => {
-    fetch("https://designjj-test.eu/php/verify-token.php") // Nahraď cestou k PHP skriptu
+    fetch("https://www.filipzeleny.cz/php/verify-token.php") // Nahraď cestou k PHP skriptu
       .then((response) => {
         if (!response.ok) {
           throw new Error("Chyba při načítání dat z PHP");
@@ -50,7 +50,7 @@ const Admin = () => {
   };
 
   const loadData = () => {
-    fetch(`https://designjj-test.eu/php/getGallery.php`, {
+    fetch(`https://www.filipzeleny.cz/php/getGallery.php`, {
       method: "POST",
     })
       .then((res) => res.json())
@@ -89,7 +89,7 @@ const Admin = () => {
       formData.append("file", file);
 
       try {
-        const response = await fetch("https://designjj-test.eu/php/postGallery.php", {
+        const response = await fetch("https://www.filipzeleny.cz/php/postGallery.php", {
           method: "POST",
           body: formData,
         });
@@ -116,7 +116,7 @@ const Admin = () => {
       return;
     }
 
-    fetch("https://designjj-test.eu/php/saveGallery.php", {
+    fetch("https://www.filipzeleny.cz/php/saveGallery.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -154,7 +154,7 @@ const Admin = () => {
       cancelButtonText: "Zrušit",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch("https://designjj-test.eu/php/removeGallery.php", {
+        fetch("https://www.filipzeleny.cz/php/removeGallery.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json", // 🔹 Přidej správné hlavičky

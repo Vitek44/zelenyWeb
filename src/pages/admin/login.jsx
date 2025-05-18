@@ -10,7 +10,7 @@ const Login = () => {
   const [loginData, setloginData] = React.useState([]);
 
   const getData = () => {
-    fetch("https://designjj-test.eu/php/login.php")
+    fetch("https://www.filipzeleny.cz/php/login.php")
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -32,7 +32,7 @@ const Login = () => {
   }, []);
 
   const sendTokenToDatabase = () => {
-    fetch("https://designjj-test.eu/php/token.php");
+    fetch("https://www.filipzeleny.cz/php/token.php");
   };
 
   const [username, setUsername] = useState("");

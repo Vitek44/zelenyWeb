@@ -54,7 +54,7 @@ function App() {
   const [data, setData] = useState([]);
 
   const getIg = () => {
-    fetch("https://designjj-test.eu/php/ig.php", {
+    fetch("https://www.filipzeleny.cz/php/ig.php", {
       method: "GET",
     })
       .then((res) => res.json())

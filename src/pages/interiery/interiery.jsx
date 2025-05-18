@@ -18,7 +18,7 @@ function Interiery() {
   const [data, setData] = useState([]);
 
   const loadData = () => {
-    fetch(`https://designjj-test.eu/php/getGallery.php`, {
+    fetch(`https://www.filipzeleny.cz/php/getGallery.php`, {
       method: "POST",
     })
       .then((res) => res.json())
@@ -58,7 +58,7 @@ function Interiery() {
       toast.error("Vyplňte všechny povinné údaje.");
       return;
     }
-    fetch("https://designjj-test.eu/php/sendInteriery.php", {
+    fetch("https://www.filipzeleny.cz/php/sendInteriery.php", {
       method: "POST", // Správná metoda
       headers: {
         "Content-Type": "application/json",
@@ -158,7 +158,7 @@ function Interiery() {
               <div class="interiery-form">
                 <div className="modal-header">
                   <h3>
-                    Poptávkový formulář - <span>{selectedCategory}</span>
+                    {t("Poptavkový_formular")} - <span>{t(selectedCategory)}</span>
                   </h3>
                   <button
                     className="close-modal"

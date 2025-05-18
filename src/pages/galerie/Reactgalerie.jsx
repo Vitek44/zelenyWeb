@@ -16,7 +16,7 @@ const Reactgalerie = () => {
 
   useEffect(() => {
     const loadData = () => {
-      fetch(`https://designjj-test.eu/php/getGallery.php`, {
+      fetch(`https://www.filipzeleny.cz/php/getGallery.php`, {
         method: "POST",
       })
         .then((res) => res.json())

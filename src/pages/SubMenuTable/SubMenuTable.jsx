@@ -25,7 +25,7 @@ function SubMenu() {
   const [data, setData] = useState([]);
 
   const loadData = () => {
-    fetch(`https://designjj-test.eu/php/getProdukt.php`, {
+    fetch(`https://www.filipzeleny.cz/php/getProdukt.php`, {
       method: "POST",
     })
       .then((res) => res.json())

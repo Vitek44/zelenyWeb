@@ -15,7 +15,7 @@ const Admin = () => {
   const [data, setData] = useState([]);
 
   const verifyToken = () => {
-    fetch("https://designjj-test.eu/php/verify-token.php") // Nahraď cestou k PHP skriptu
+    fetch("https://www.filipzeleny.cz/php/verify-token.php") // Nahraď cestou k PHP skriptu
       .then((response) => {
         if (!response.ok) {
           throw new Error("Chyba při načítání dat z PHP");
@@ -60,7 +60,7 @@ const Admin = () => {
   };
 
   const getIg = () => {
-    fetch("https://designjj-test.eu/php/ig.php", {
+    fetch("https://www.filipzeleny.cz/php/ig.php", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -81,7 +81,7 @@ const Admin = () => {
   }, []);
 
   const loadData = () => {
-    fetch(`https://designjj-test.eu/php/getProdukt.php`, {
+    fetch(`https://www.filipzeleny.cz/php/getProdukt.php`, {
       method: "POST",
     })
       .then((res) => res.json())
@@ -135,7 +135,7 @@ const Admin = () => {
       formData.append("file", file);
 
       try {
-        const response = await fetch("https://designjj-test.eu/php/postImg.php", {
+        const response = await fetch("https://www.filipzeleny.cz/php/postImg.php", {
           method: "POST",
           body: formData,
         });
@@ -162,7 +162,7 @@ const Admin = () => {
       return;
     }
 
-    fetch("https://designjj-test.eu/php/saveTable.php", {
+    fetch("https://www.filipzeleny.cz/php/saveTable.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -200,7 +200,7 @@ const Admin = () => {
       cancelButtonText: "Zrušit",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch("https://designjj-test.eu/php/removeTable.php", {
+        fetch("https://www.filipzeleny.cz/php/removeTable.php", {
           method: "POST",
 
           body: JSON.stringify({ Id: Id }),
@@ -272,7 +272,7 @@ const Admin = () => {
 
   const clearFiles = async (Id) => {
     try {
-      const response = await fetch("https://designjj-test.eu/php/removeImage.php", {
+      const response = await fetch("https://www.filipzeleny.cz/php/removeImage.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ Id: Id }),
@@ -299,7 +299,7 @@ const Admin = () => {
   }, [creditals.zakoupeno]);
 
   const updateIgData = () => {
-    fetch("https://designjj-test.eu/php/updateIg.php", {
+    fetch("https://www.filipzeleny.cz/php/updateIg.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

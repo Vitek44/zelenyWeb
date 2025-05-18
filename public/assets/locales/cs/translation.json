@@ -154,7 +154,7 @@
   "edge_shape": "Tvar rohu",
   "length": "Délka desky",
 
-  "Int_cat_1": "Kuchyňe",
+  "Int_cat_1": "Kuchyně",
   "Int_cat_2": "Obývací pokoje",
   "Int_cat_3": "Šatny",
   "Int_cat_4": "Ložnice",
@@ -180,5 +180,6 @@
   "Kulatý": "Kulatý",
   "Hranatý": "Hranatý",
 
-  "Popis_stolu": "Popis stolu"
+  "Popis_stolu": "Popis stolu",
+  "Poptavkový_formular": "Poptavkový formulář"
 }
