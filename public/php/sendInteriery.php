@@ -36,12 +36,12 @@ try {
     $mail->isSMTP();
     $mail->Host = 'mail.webglobe.cz';
     $mail->SMTPAuth = true;
-    $mail->Username = 'info@designjj-test.eu';
-    $mail->Password = 'Radegast12*'; 
+    $mail->Username = 'info@filipzeleny.cz';
+    $mail->Password = 'Dobraprace13052025'; 
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port = 465;
 
-    $mail->setFrom('info@designjj-test.eu', 'Poptávka stolu ' . $nazev);
+    $mail->setFrom('info@filipzeleny.cz', 'Poptávka stolu ' . $nazev);
     $mail->addAddress('vitejajan@gmail.com');  
 
     $mail->isHTML(true);

@@ -48,7 +48,7 @@ export default function Kontakt() {
       toast.error("Vyplňte všechny povinné údaje.");
       return;
     }
-    fetch("https://designjj-test.eu/php/sendEmail2.php", {
+    fetch("https://www.filipzeleny.cz/php/sendEmail2.php", {
       method: "POST", // Správná metoda
       headers: {
         "Content-Type": "application/json",

@@ -61,7 +61,7 @@
 .interiery-crossroad {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   gap: 1rem;
   width: 100%;
 }
@@ -105,6 +105,29 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("/img/koupelny.png");
   grid-column-start: 3;
 }
+
+.crossroad-item:nth-child(6) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("/img/detskepokoje.webp");
+  grid-row-start: 3;
+}
+
+.crossroad-item:nth-child(7) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("/img/skrine.webp");
+  grid-row-start: 3;
+}
+
+.crossroad-item:nth-child(8) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("/img/predsine.webp");
+  grid-row: span 2 / span 2;
+  grid-row-start: 3;
+}
+
+.crossroad-item:nth-child(9) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("/img/kancelare.webp");
+  grid-column: span 2 / span 2;
+  grid-row-start: 4;
+}
+
 .crossroad-item:hover {
   transform: scale(1.01);
   transition: 0.2s ease-in;
@@ -192,13 +215,13 @@
 }
 
 .interiery-gallery {
-  margin: 2rem 0;
+  margin-top: 1rem;
 }
 
 .interiery-gallery-item img {
   width: 100%;
   object-fit: contain;
-  height: 300px;
+  height: 250px;
   border-radius: 5px;
 }
 
@@ -225,6 +248,27 @@
   .crossroad-item:nth-child(5) {
     grid-column-start: unset;
   }
+
+  .crossroad-item:nth-child(6) {
+    grid-row-start: unset;
+  }
+
+  .crossroad-item:nth-child(7) {
+    grid-row-start: unset;
+  }
+
+  .crossroad-item:nth-child(8) {
+    grid-row-start: unset;
+    grid-row: unset;
+  }
+
+  .crossroad-item:nth-child(9) {
+    grid-row-start: unset;
+    grid-column: unset;
+  }
+  .interiery-gallery-item img {
+    height: 100px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -239,7 +283,7 @@
   .interiery-crossroad {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(9, 1fr);
   }
 
   .crossroad-item:nth-child(1) {
@@ -252,6 +296,20 @@
 
   .crossroad-item:nth-child(5) {
     grid-column-start: unset;
+  }
+
+  .crossroad-item:nth-child(6) {
+    grid-row-start: unset;
+  }
+  .crossroad-item:nth-child(7) {
+    grid-row-start: unset;
+  }
+  .crossroad-item:nth-child(8) {
+    grid-row: unset;
+  }
+  .crossroad-item:nth-child(9) {
+    grid-column: unset;
+    grid-row-start: unset;
   }
 
   .interiery-item img {

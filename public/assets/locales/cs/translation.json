@@ -45,6 +45,7 @@
   "subtitle2": "Nabídka produktů",
   "service3": "Stoly",
   "service4": "Konfigurátor",
+  "content-slider-text": "Zakázková výroba nábytku",
 
   "description1": "Ručně vyrobený z poctivého českého dřeva",
   "warehouse1": "Zbývají 2 ks skladem",
@@ -77,11 +78,11 @@
   "title7": "stoly",
   "subtitle7": "Podobné produkty",
 
-  "slideRev_text_1": "Kuchyň od Filipa je v luxusním provedení. Manželka mi může ráno dělat vajíčka",
-  "slideRev_text_2": "ten stůl splňuje očekávaní, pravidelně na něm s rodinou jíme a stůl stále nedotčenej",
-  "slideRev_text_3": "Skřín naprosto boží, dvířka top, panty top, police top. Zkrátka jsem v sedmém nebi",
-  "slideRev_text_4": "Pecka",
-  "slideRev_text_5": "Pecka",
+  "slideRev_text_1": "Skříň na míru přesně podle našich představ. Rychlá domluva, precizní práce a výsledek stojí za to.",
+  "slideRev_text_2": "Celý projekt byl dokončen v dohodnutém termínu a bez jakýchkoli problémů. Výsledek předčil naše očekávání.",
+  "slideRev_text_3": "Výsledný stůl působí moderně a zároveň útulně. Každý prvek byl pečlivě promyšlený.",
+  "slideRev_text_4": "Proces návrhu a realizace probíhal hladce a bez komplikací. Oceňuji profesionální přístup a schopnost přizpůsobit se našim požadavkům.",
+  "slideRev_text_5": "Stůl s epoxidovou pryskyřicí je naprostý unikát. Každý návštěvník se na něj ptá. Kvalita zpracování a design předčily naše očekávání.",
   "slideRev_name_1": "Pavel",
   "slideRev_name_2": "Josef",
   "slideRev_name_3": "Marek",
@@ -160,6 +161,10 @@
   "Int_cat_4": "Ložnice",
   "Int_cat_5": "Koupelny",
   "Int_title": "Interiéry",
+  "Int_cat_6": "Dětské pokoje",
+  "Int_cat_9": "Kanceláře",
+  "Int_cat_7": "Vestavěné skříně",
+  "Int_cat_8": "Předsíně",
 
   "phPhone": "Telefon",
   "snd_btn": "Odeslat",
@@ -181,5 +186,8 @@
   "Hranatý": "Hranatý",
 
   "Popis_stolu": "Popis stolu",
-  "Poptavkový_formular": "Poptavkový formulář"
+  "Poptavkový_formular": "Poptavkový formulář",
+
+  "config_provoz": "Konfigurátor je mimo provoz",
+  "config_provoz_text": "Omlouváme se, ale konfigurátor je momentálně ve vývoji. Pokud máte zájem o zakázkovou výrobu stolu, neváhejte nás kontaktovat na našem e-mailu nebo telefonním čísle. Děkujeme za pochopení."
 }

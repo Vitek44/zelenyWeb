@@ -30,7 +30,7 @@ function Produkt({ id }) {
   const [getData, setData] = useState([]);
 
   const loadData = () => {
-    fetch(`https://designjj-test.eu/php/getProdukt.php?id=${id}`, {
+    fetch(`https://www.filipzeleny.cz/php/getProdukt.php?id=${id}`, {
       method: "POST",
     })
       .then((res) => res.json())
@@ -145,7 +145,7 @@ function Produkt({ id }) {
       toast.error("Vyplňte všechny povinné údaje.");
       return;
     }
-    fetch("https://designjj-test.eu/php/sendEmail.php", {
+    fetch("https://www.filipzeleny.cz/php/sendEmail.php", {
       method: "POST", // Správná metoda
       headers: {
         "Content-Type": "application/json",
@@ -188,7 +188,7 @@ function Produkt({ id }) {
         <Helmet>
           <meta charSet="utf-8" />
           <title>{`${getData.Nazev} | Filip Zelený`}</title>
-          <link rel="canonical" href="http://mysite.com/example" />
+          <link rel="canonical" href="https://www.filipzeleny.cz/stoly/produkt" />
         </Helmet>
       </HelmetProvider>
       <Navbar />

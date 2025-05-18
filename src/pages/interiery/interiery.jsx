@@ -150,6 +150,42 @@ function Interiery() {
             >
               <h1>{t("Int_cat_5")}</h1>
             </div>
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Dětské pokoje");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_6")}</h1>
+            </div>
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Vestavěné skříně");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_7")}</h1>
+            </div>
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Předsíně");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_8")}</h1>
+            </div>
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Kanceláře");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_9")}</h1>
+            </div>
           </div>
         </div>
         {modalOpen ? (

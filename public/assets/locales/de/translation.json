@@ -72,11 +72,11 @@
   "subtitle5": "Was meine Kunden sagen",
   "title6": "Kontakt",
   "subtitle6": "Kontaktformular",
-  "slideRev_text_1": "Die Küche von Filip ist von luxuriöser Qualität. Meine Frau kann mir jetzt morgens Eier machen.",
-  "slideRev_text_2": "Dieser Tisch erfüllt die Erwartungen, wir essen regelmäßig mit der Familie daran, und er bleibt unversehrt.",
-  "slideRev_text_3": "Der Schrank ist absolut fantastisch, Türen top, Scharniere top, Regale top. Ich bin einfach im siebten Himmel.",
-  "slideRev_text_4": "Genial",
-  "slideRev_text_5": "Genial",
+  "slideRev_text_1": "Der maßgefertigte Schrank entsprach genau unseren Vorstellungen. Schnelle Absprache, präzise Arbeit und das Ergebnis lohnt sich.",
+  "slideRev_text_2": "Das gesamte Projekt wurde termingerecht und ohne Probleme abgeschlossen. Das Ergebnis hat unsere Erwartungen übertroffen.",
+  "slideRev_text_3": "Der fertige Tisch wirkt modern und zugleich gemütlich. Jedes Detail wurde sorgfältig durchdacht.",
+  "slideRev_text_4": "Der Entwurfs- und Umsetzungsprozess verlief reibungslos und unkompliziert. Ich schätze die professionelle Herangehensweise und die Fähigkeit, sich unseren Wünschen anzupassen.",
+  "slideRev_text_5": "Der Tisch mit Epoxidharz ist ein echtes Unikat. Jeder Besucher spricht ihn an. Die Verarbeitungsqualität und das Design haben unsere Erwartungen übertroffen.",
   "slideRev_name_1": "Pavel",
   "slideRev_name_2": "Josef",
   "slideRev_name_3": "Marek",
@@ -92,6 +92,7 @@
   "right": "2025 © FilipZeleny.cz Alle Rechte vorbehalten.",
   "phName": "Name / Firmenname",
   "phText": "Ihr text",
+  "content-slider-text": "Möbel nach Maß",
 
   "Typ_desky": "Plattentyp",
   "Sirka": "Plattenbreite",
@@ -147,6 +148,10 @@
   "Int_cat_4": "Schlafzimmer",
   "Int_cat_5": "Badezimmer",
   "Int_title": "Innenräume",
+  "Int_cat_6": "Kinderzimmer",
+  "Int_cat_9": "Büros",
+  "Int_cat_7": "Einbauschränke",
+  "Int_cat_8": "Flure",
 
   "phPhone": "Ihre Telefonnummer",
   "snd_btn": "Senden",
@@ -173,5 +178,8 @@
   "subtitle7": "Ähnliche Produkte",
   "contactMe": "Kontaktformular",
   "let": " Jahre",
-  "Poptavkový_formular": "Anfrageformular"
+  "Poptavkový_formular": "Anfrageformular",
+
+  "config_provoz": "Konfigurator außer Betrieb",
+  "config_provoz_text": "Wir entschuldigen uns, aber der Konfigurator befindet sich derzeit in der Entwicklung. Wenn Sie an einer maßgefertigten Tischproduktion interessiert sind, kontaktieren Sie uns gerne per E-Mail oder Telefon. Vielen Dank für Ihr Verständnis."
 }

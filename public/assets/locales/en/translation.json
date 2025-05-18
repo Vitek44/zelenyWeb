@@ -71,11 +71,11 @@
   "subtitle5": "What My Customers Say",
   "title6": "Contact",
   "subtitle6": "Contact Form",
-  "slideRev_text_1": "The kitchen from Filip is of luxurious quality. My wife can now make me eggs in the morning.",
-  "slideRev_text_2": "This table meets expectations, we regularly eat on it with the family, and it remains untouched.",
-  "slideRev_text_3": "The wardrobe is absolutely amazing, doors top-notch, hinges top-notch, shelves top-notch. Simply, I’m in seventh heaven.",
-  "slideRev_text_4": "Awesome",
-  "slideRev_text_5": "Awesome",
+  "slideRev_text_1": "The custom-made wardrobe matched our expectations perfectly. Quick communication, precise work, and the result is worth it.",
+  "slideRev_text_2": "The entire project was completed within the agreed timeframe and without any issues. The result exceeded our expectations.",
+  "slideRev_text_3": "The final table looks modern and cozy at the same time. Every detail was carefully thought out.",
+  "slideRev_text_4": "The design and realization process went smoothly and without complications. I appreciate the professional approach and the ability to adapt to our needs.",
+  "slideRev_text_5": "The epoxy resin table is a true original. Every visitor asks about it. The craftsmanship and design exceeded our expectations. Der maßgefertigte Schrank entsprach genau unseren Vorstellungen. Schnelle Absprache, präzise Arbeit und das Ergebnis lohnt sich.",
   "slideRev_name_1": "Pavel",
   "slideRev_name_2": "Josef",
   "slideRev_name_3": "Marek",
@@ -91,6 +91,7 @@
   "right": "2025 © FilipZeleny.cz All rights reserved.",
   "phName": "Name / Company name",
   "phText": "Your text",
+  "content-slider-text": "Custom furniture production",
 
   "Typ_desky": "Board type",
   "Sirka": "Board width",
@@ -143,6 +144,10 @@
   "Int_cat_3": "Dressing rooms",
   "Int_cat_4": "Bedrooms",
   "Int_cat_5": "Bathrooms",
+  "Int_cat_6": "Children's rooms",
+  "Int_cat_9": "Offices",
+  "Int_cat_7": "Built-in wardrobes",
+  "Int_cat_8": "Entryways",
 
   "Int_title": "Interiors",
 
@@ -173,5 +178,8 @@
   "contactMe": "Contact formular",
   "let": " years",
   "service1_item3": "and others",
-  "Poptavkový_formular": "Inquiry form"
+  "Poptavkový_formular": "Inquiry form",
+
+  "config_provoz": "Configurator is out of service",
+  "config_provoz_text": "We apologize, but the configurator is currently under development. If you are interested in custom table production, feel free to contact us via email or phone. Thank you for your understanding."
 }
