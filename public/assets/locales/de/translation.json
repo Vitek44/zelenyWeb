@@ -167,11 +167,15 @@
 
   "Všechno": "Alles",
   "Stoly": "Tische",
-  "Kuchyně": "Küchen",
   "Obývací pokoje": "Wohnzimmer",
+  "Šatny": "Garderoben",
   "Ložnice": "Schlafzimmer",
   "Koupelny": "Badezimmer",
-  "Šatny": "Garderoben",
+  "Kuchyně": "Küchen",
+  "Dětské pokoje": "Kinderzimmer",
+  "Vestavěné skříně": "Einbauschränke",
+  "Kanceláře": "Büros",
+  "Předsíně": "Flure",
 
   "Popis_stolu": "Tischbeschreibung",
   "title7": "Tische",

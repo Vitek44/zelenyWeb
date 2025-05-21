@@ -9,9 +9,11 @@ const Admin = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const [data, setData] = useState([]);
-  useEffect(() => {
+  {
+    /* useEffect(() => {
     verifyToken();
-  }, []);
+  }, []); */
+  }
 
   const verifyToken = () => {
     fetch("https://www.filipzeleny.cz/php/verify-token.php") // Nahraď cestou k PHP skriptu
@@ -265,6 +267,10 @@ const Admin = () => {
                   <option value="Ložnice">Ložnice</option>
                   <option value="Koupelny">Koupelny</option>
                   <option value="Kuchyně">Kuchyně</option>
+                  <option value="Dětské pokoje">Dětské pokoje</option>
+                  <option value="Vestavěné skříně">Vestavěné skříně</option>
+                  <option value="Kanceláře">Kanceláře</option>
+                  <option value="Předsíně">Předsíně</option>
                 </select>
               </div>
               <div className="form-group">

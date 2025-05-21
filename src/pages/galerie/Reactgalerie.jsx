@@ -10,7 +10,7 @@ const Reactgalerie = () => {
   const [selectedCategory, setSelectedCategory] = useState("Všechno");
   const [lightbox, setLightbox] = useState({ img: "", i: 0 });
   const { t } = useTranslation();
-  const categories = ["Všechno", "Stoly", "Obývací pokoje", "Šatny", "Ložnice", "Koupelny", "Kuchyně"];
+  const categories = ["Všechno", "Stoly", "Obývací pokoje", "Šatny", "Ložnice", "Koupelny", "Kuchyně", "Dětské pokoje", "Vestavěné skříně", "Kanceláře", "Předsíně"];
 
   // Základní URL pro obrázky (pokud jsou v databázi uložené relativně)
 

@@ -165,11 +165,15 @@
 
   "Všechno": "All",
   "Stoly": "Tables",
-  "Kuchyně": "Kitchens",
   "Obývací pokoje": "Living Rooms",
+  "Šatny": "Walk-in Closets",
   "Ložnice": "Bedrooms",
   "Koupelny": "Bathrooms",
-  "Šatny": "Closets",
+  "Kuchyně": "Kitchens",
+  "Dětské pokoje": "Children's Rooms",
+  "Vestavěné skříně": "Built-in Wardrobes",
+  "Kanceláře": "Offices",
+  "Předsíně": "Hallways",
 
   "Popis_stolu": "Table Description",
 

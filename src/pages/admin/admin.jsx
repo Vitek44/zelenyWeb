@@ -49,9 +49,11 @@ const Admin = () => {
         alert("Session vypršela.");
       });
   };
-  useEffect(() => {
+  {
+    /* useEffect(() => {
     verifyToken();
-  }, []);
+  }, []); */
+  }
 
   const [igData, setIgData] = useState(""); // nebo 0, pokud chceš číslo
 
