@@ -2,6 +2,9 @@
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
+header("Access-Control-Allow-Origin: https://www.filipzeleny.cz");
+header("Access-Control-Allow-Credentials: true");
+
 error_reporting(E_ALL);
 
 require_once 'ini.php'; // Předpokládám, že tento soubor obsahuje připojení k databázi pomocí MySQLi
