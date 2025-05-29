@@ -25,16 +25,20 @@
 
 .content-slider h1 {
   font-size: 56px;
-  margin-bottom: 2rem;
   font-weight: 400;
   text-align: center;
 }
 
 .content-slider p {
-  font-size: 22px;
-  font-style: italic;
-  font-weight: 3400;
+  margin-bottom: 1rem;
+  font-size: 26px;
+  font-weight: 400;
   text-align: center;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--green);
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
 }
 
 .content-slider h2 {

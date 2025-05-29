@@ -9,11 +9,10 @@ const Admin = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const [data, setData] = useState([]);
-  {
-    /* useEffect(() => {
+
+  useEffect(() => {
     verifyToken();
-  }, []); */
-  }
+  }, []);
 
   const verifyToken = () => {
     fetch("https://www.filipzeleny.cz/php/verify-token.php") // Nahraď cestou k PHP skriptu

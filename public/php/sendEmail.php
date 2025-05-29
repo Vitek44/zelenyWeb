@@ -43,7 +43,7 @@ try {
     $mail->Port = 465;
 
     $mail->setFrom('info@filipzeleny.cz', 'Poptávka stolu ' . $nazev);
-    $mail->addAddress('vitejajan@gmail.com');  
+    $mail->addAddress('info@filipzeleny.cz');  
 
     $mail->isHTML(true);
     $mail->Subject = 'Poptávka stolu ' . $nazev;

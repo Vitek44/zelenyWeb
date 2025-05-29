@@ -87,8 +87,8 @@ function App() {
       <div className="slide" id="home">
         <div className="container">
           <div className="content-slider">
-            <h1>{t("content-slider")}</h1>
             <p>{t("content-slider-text")}</p>
+            <h1>{t("content-slider")}</h1>
             <div className="button-group">
               <a href="#services" onClick={(e) => handleClick(e, "/", "services")}>
                 <button className="btn-green" data-aos="fade-up">

@@ -9,10 +9,10 @@ ini_set('display_errors', 1);
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
-    $ftpServer = 'ftp.designjj-test.eu';
-    $ftpUsername = 'designjj-test.eu';
-    $ftpPassword = 'Radegast12*';
-    $ftpPath = '/public_html/uploads';
+    $ftpServer = 'ftp.filipzeleny.cz';
+    $ftpUsername = 'filipzeleny.cz';
+    $ftpPassword = 'Dobraprace13052025';
+    $ftpPath = '/public_html/uploads/';
 
     $fileTmpPath = $_FILES['file']['tmp_name'];
     $fileName = basename($_FILES['file']['name']);

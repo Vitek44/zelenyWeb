@@ -145,6 +145,7 @@ function Produkt({ id }) {
       toast.error("Vyplňte všechny povinné údaje.");
       return;
     }
+    setModalOpen(false);
     fetch("https://www.filipzeleny.cz/php/sendEmail.php", {
       method: "POST", // Správná metoda
       headers: {
@@ -156,7 +157,6 @@ function Produkt({ id }) {
       .then((data) => {
         if (data.success) {
           toast.success("Zpráva byla odeslána.");
-          setModalOpen(false);
           setFormData({
             id: "",
             nazev: "",

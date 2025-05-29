@@ -24,7 +24,7 @@ if (!isset($_POST['jmeno'], $_POST['email'], $_POST['predmet'], $_POST['zprava']
 
 $jmeno = htmlspecialchars($_POST['jmeno']);
 $email = htmlspecialchars($_POST['email']);
-$telefon = htmlspecialchars($_POST['predmet']);
+$predmet = htmlspecialchars($_POST['predmet']);
 $zprava = htmlspecialchars($_POST['zprava']);
 
 $mail = new PHPMailer(true);
@@ -41,7 +41,7 @@ try {
     $mail->Port = 465;
 
     $mail->setFrom('info@filipzeleny.cz', 'Info ' . $nazev);
-    $mail->addAddress('vitejajan@gmail.com');  
+    $mail->addAddress('info@filipzeleny.cz');  
 
     $mail->isHTML(true);
     $mail->Subject = $predmet;
