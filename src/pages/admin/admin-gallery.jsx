@@ -10,36 +10,29 @@ const Admin = () => {
 
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    verifyToken();
-  }, []);
-
   const verifyToken = () => {
-    fetch("https://www.filipzeleny.cz/php/verify-token.php") // Nahraď cestou k PHP skriptu
+    fetch("https://www.filipzeleny.cz/php/verify-token.php", {
+      method: "GET",
+      credentials: "include", // <-- důležité
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Chyba při načítání dat z PHP");
         }
-        return response.json(); // Očekáváme JSON odpověď
+        return response.json();
       })
       .then((data) => {
-        // Debugging - výpis tokenů pro ladění
+        const sessionToken = data.sessionToken;
+        const databaseToken = data.databaseToken;
 
-        const sessionToken = data.sessionToken; // Token ze session
-        const databaseToken = data.databaseToken; // Token z databáze
-
-        // Kontrola, jestli jsou tokeny správně načteny
         if (sessionToken === undefined || databaseToken === undefined) {
           console.error("Jedna nebo obě hodnoty tokenu chybí.");
           return;
         }
 
-        // Porovnání tokenů
         if (sessionToken === databaseToken) {
-          // Tokeny se shodují – přesměrování na admin-panel
           toast.success("Přihlášení proběhlo úspěšně");
         } else {
-          // Tokeny se neshodují – zůstaň na /admin/
           console.log("Tokeny se neshodují.");
           window.location.href = "/admin/";
         }
@@ -49,6 +42,9 @@ const Admin = () => {
         alert("Session vypršela.");
       });
   };
+  useEffect(() => {
+    verifyToken();
+  }, []);
 
   const loadData = () => {
     fetch(`https://www.filipzeleny.cz/php/getGallery.php`, {
