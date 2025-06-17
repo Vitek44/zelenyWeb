@@ -48,7 +48,7 @@ export default function Kontakt() {
       toast.error("Vyplňte všechny povinné údaje.");
       return;
     }
-    fetch("https://designjj-test.eu/php/sendEmail2.php", {
+    fetch("https://www.filipzeleny.cz/php/sendEmail2.php", {
       method: "POST", // Správná metoda
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +66,8 @@ export default function Kontakt() {
             zprava: "",
           });
         } else {
-          toast.error("Nepodařilo se odeslat zprávu.");
+          console.error("Chyba ze serveru:", data.error);
+          toast.error(`Nepodařilo se odeslat zprávu: ${data.error || "Neznámá chyba."}`);
         }
       })
       .catch((err) => {

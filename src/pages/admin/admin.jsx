@@ -5,38 +5,38 @@ import "./admin.css";
 import { ToastContainer, toast } from "react-toastify";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Swal from "sweetalert2";
+import { findSpan } from "three/examples/jsm/curves/NURBSUtils.js";
 
 const Admin = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
+  const [igOpen, setIgOpen] = useState(false);
+
   const [data, setData] = useState([]);
 
   const verifyToken = () => {
-    fetch("https://designjj-test.eu/php/verify-token.php") // Nahraď cestou k PHP skriptu
+    fetch("https://www.filipzeleny.cz/php/verify-token.php", {
+      method: "GET",
+      credentials: "include", // <-- důležité
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Chyba při načítání dat z PHP");
         }
-        return response.json(); // Očekáváme JSON odpověď
+        return response.json();
       })
       .then((data) => {
-        // Debugging - výpis tokenů pro ladění
+        const sessionToken = data.sessionToken;
+        const databaseToken = data.databaseToken;
 
-        const sessionToken = data.sessionToken; // Token ze session
-        const databaseToken = data.databaseToken; // Token z databáze
-
-        // Kontrola, jestli jsou tokeny správně načteny
         if (sessionToken === undefined || databaseToken === undefined) {
           console.error("Jedna nebo obě hodnoty tokenu chybí.");
           return;
         }
 
-        // Porovnání tokenů
         if (sessionToken === databaseToken) {
-          // Tokeny se shodují – přesměrování na admin-panel
           toast.success("Přihlášení proběhlo úspěšně");
         } else {
-          // Tokeny se neshodují – zůstaň na /admin/
           console.log("Tokeny se neshodují.");
           window.location.href = "/admin/";
         }
@@ -46,13 +46,39 @@ const Admin = () => {
         alert("Session vypršela.");
       });
   };
-
   useEffect(() => {
     verifyToken();
   }, []);
 
+  const [igData, setIgData] = useState(""); // nebo 0, pokud chceš číslo
+
+  const _changeIgData = (e) => {
+    setIgData(e.target.value);
+  };
+
+  const getIg = () => {
+    fetch("https://www.filipzeleny.cz/php/ig.php", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          setIgData(data); // např. "255"
+        } else {
+          console.error("Data nebyla nalezena");
+        }
+      })
+      .catch((err) => {
+        console.error("Chyba při načítání dat:", err);
+      });
+  };
+
+  useEffect(() => {
+    getIg();
+  }, []);
+
   const loadData = () => {
-    fetch(`https://designjj-test.eu/php/getProdukt.php`, {
+    fetch(`https://www.filipzeleny.cz/php/getProdukt.php`, {
       method: "POST",
     })
       .then((res) => res.json())
@@ -106,7 +132,7 @@ const Admin = () => {
       formData.append("file", file);
 
       try {
-        const response = await fetch("https://designjj-test.eu/php/postImg.php", {
+        const response = await fetch("https://www.filipzeleny.cz/php/postImg.php", {
           method: "POST",
           body: formData,
         });
@@ -133,7 +159,7 @@ const Admin = () => {
       return;
     }
 
-    fetch("https://designjj-test.eu/php/saveTable.php", {
+    fetch("https://www.filipzeleny.cz/php/saveTable.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -171,7 +197,7 @@ const Admin = () => {
       cancelButtonText: "Zrušit",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch("https://designjj-test.eu/php/removeTable.php", {
+        fetch("https://www.filipzeleny.cz/php/removeTable.php", {
           method: "POST",
 
           body: JSON.stringify({ Id: Id }),
@@ -243,7 +269,7 @@ const Admin = () => {
 
   const clearFiles = async (Id) => {
     try {
-      const response = await fetch("https://designjj-test.eu/php/removeImage.php", {
+      const response = await fetch("https://www.filipzeleny.cz/php/removeImage.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ Id: Id }),
@@ -269,6 +295,28 @@ const Admin = () => {
     setKDispozici(Number(creditals.zakoupeno) !== 1);
   }, [creditals.zakoupeno]);
 
+  const updateIgData = () => {
+    fetch("https://www.filipzeleny.cz/php/updateIg.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ instagram: igData }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setIgOpen(false);
+          toast.success("Počet sledujících byl úspěšně aktualizován.");
+        } else {
+          toast.error("Chyba: " + data.message);
+        }
+      })
+      .catch((err) => {
+        console.error("Chyba při odesílání dat:", err);
+      });
+  };
+
   return (
     <>
       <HelmetProvider>
@@ -280,6 +328,9 @@ const Admin = () => {
       </HelmetProvider>
       <ToastContainer position="bottom-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
       <AdminNavbar />
+      <div className="ig-edit" onClick={() => setIgOpen(true)}>
+        <i class="fa-brands fa-square-instagram"></i>
+      </div>
       <div className="admin-wrapper">
         <div className="container">
           <div className="admin-content">
@@ -332,6 +383,30 @@ const Admin = () => {
           </div>
         </div>
       </div>
+      {igOpen ? (
+        <div className="modal-wrapper">
+          <div className="modal">
+            <div className="modal-header">
+              <h3>Instagram</h3>
+              <button className="close-modal" onClick={() => setIgOpen(false)} title="Zavřít okno">
+                <i className="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <div className="modal-content">
+              <div className="form-group">
+                <input type="number" name="ig" placeholder="Počet sledujících" value={igData} onChange={_changeIgData} />
+              </div>
+              <div className="ig-modal-btn">
+                <button className="save-btn" onClick={updateIgData} title="Aktualizovat sledující">
+                  Aktualizovat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
       {modalOpen ? (
         <div className="modal-wrapper">
           <div className="modal">

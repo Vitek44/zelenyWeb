@@ -51,6 +51,22 @@ const SliderRev = () => {
         arrows: false,
         pagination: false,
         gap: "2.5rem",
+        breakpoints: {
+          768: {
+            perPage: 1,
+            gap: "1rem",
+            arrows: false,
+          },
+          1024: {
+            perPage: 2,
+          },
+          1440: {
+            perPage: 2,
+          },
+          1980: {
+            perPage: 3,
+          },
+        },
       }}
     >
       {slides.map((slide) => (

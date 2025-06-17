@@ -77,10 +77,10 @@ const SliderProduct = () => {
           <div className="stoly-card">
             <img src={item.URL} alt={item.Nazev} onClick={() => handleLinkClick(`/stoly/produkt?id=${item.Id}`)} />
             <div className="stoly-text">
-              <h1>{item.Nazev}</h1>
+              <h1>{i18next.language === "de" ? item.NazevDE : i18next.language === "en" ? item.NazevEN : item.Nazev}</h1>
               <p>
                 <p>
-                  {item.Material} | {item.Vyska}x{item.Sirka} cm
+                  {t(item.Material)} | {item.Vyska}x{item.Sirka} cm
                 </p>
               </p>
             </div>

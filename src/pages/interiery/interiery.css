@@ -37,7 +37,6 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-
   border-radius: 5px;
   transition: 0.2s ease-in;
   height: 100%;
@@ -61,17 +60,17 @@
 
 .interiery-crossroad {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 1rem;
   width: 100%;
 }
 
 .crossroad-item {
-  background-image: url("../img/kuchyne.svg");
   background-size: cover;
-  background-position: bottom;
   background-repeat: no-repeat;
-  grid-column: span 4 / span 4;
-  height: 100%;
+  background-position: center;
+  min-height: 250px;
   width: 100%;
   border-radius: 5px;
   cursor: pointer;
@@ -79,9 +78,54 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 9rem 0;
   color: white;
+  padding: 0;
   transition: 0.2s ease-out;
+}
+
+.crossroad-item:nth-child(1) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../img/kuchne.png");
+  grid-row: span 2 / span 2;
+}
+
+.crossroad-item:nth-child(2) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../img/obyvaci pokoj.png");
+}
+
+.crossroad-item:nth-child(3) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../img/satny.png");
+}
+
+.crossroad-item:nth-child(4) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("/img/loznice.png");
+  grid-column-start: 2;
+}
+
+.crossroad-item:nth-child(5) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("/img/koupelny.png");
+  grid-column-start: 3;
+}
+
+.crossroad-item:nth-child(6) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("/img/detskepokoje.webp");
+  grid-row-start: 3;
+}
+
+.crossroad-item:nth-child(7) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("/img/skrine.webp");
+  grid-row-start: 3;
+}
+
+.crossroad-item:nth-child(8) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("/img/predsine.webp");
+  grid-row: span 2 / span 2;
+  grid-row-start: 3;
+}
+
+.crossroad-item:nth-child(9) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("/img/kancelare.webp");
+  grid-column: span 2 / span 2;
+  grid-row-start: 4;
 }
 
 .crossroad-item:hover {
@@ -95,28 +139,6 @@
   text-transform: uppercase;
 }
 
-.crossroad-item:nth-child(2) {
-  background-image: url("../img/podlahy.svg");
-  grid-column: span 2 / span 2;
-  grid-column-start: 1;
-  grid-row-start: 2;
-}
-
-.crossroad-item:nth-child(3) {
-  background-image: url("../img/pokoje.svg");
-  grid-column: span 2 / span 2;
-  grid-column-start: 3;
-  grid-row-start: 2;
-}
-
-.crossroad-item:nth-child(4) {
-  background-image: url("/img/skrine.svg");
-  grid-column: span 2 / span 2;
-  grid-row: span 2 / span 2;
-  grid-column-start: 5;
-  grid-row-start: 1;
-}
-
 .interiery-modal-wrap {
   position: fixed;
   z-index: 99999999;
@@ -125,7 +147,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden !important;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(10px);
 }
 
@@ -180,6 +202,10 @@
   box-shadow: none;
 }
 
+.interiery-modal .modal-btn {
+  justify-content: flex-end;
+}
+
 .modal-btn {
   margin-top: 1rem;
 }
@@ -189,13 +215,13 @@
 }
 
 .interiery-gallery {
-  margin: 2rem 0;
+  margin-top: 1rem;
 }
 
 .interiery-gallery-item img {
   width: 100%;
   object-fit: contain;
-  height: 300px;
+  height: 250px;
   border-radius: 5px;
 }
 
@@ -203,6 +229,46 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .interiery-crossroad {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .crossroad-item:nth-child(1) {
+    grid-row: span 2 / span 2;
+  }
+
+  .crossroad-item:nth-child(4) {
+    grid-column-start: unset;
+  }
+
+  .crossroad-item:nth-child(5) {
+    grid-column-start: unset;
+  }
+
+  .crossroad-item:nth-child(6) {
+    grid-row-start: unset;
+  }
+
+  .crossroad-item:nth-child(7) {
+    grid-row-start: unset;
+  }
+
+  .crossroad-item:nth-child(8) {
+    grid-row-start: unset;
+    grid-row: unset;
+  }
+
+  .crossroad-item:nth-child(9) {
+    grid-row-start: unset;
+    grid-column: unset;
+  }
+  .interiery-gallery-item img {
+    height: 100px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -215,35 +281,35 @@
   }
 
   .interiery-crossroad {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(9, 1fr);
   }
 
-  .crossroad-item:nth-child(2) {
-    grid-column: span 2 / span 2;
-    grid-column-start: 1;
-    grid-row-start: 1;
-  }
-
-  .crossroad-item:nth-child(3) {
-    grid-column: span 2 / span 2;
-    grid-column-start: 1;
-    grid-row-start: 2;
+  .crossroad-item:nth-child(1) {
+    grid-row: unset;
   }
 
   .crossroad-item:nth-child(4) {
-    grid-column: span 2 / span 2;
-    grid-row-start: 3;
-    grid-column-start: 1;
-    grid-row-start: 3;
+    grid-column-start: unset;
   }
 
-  .crossroad-item {
-    padding: 4rem 0;
+  .crossroad-item:nth-child(5) {
+    grid-column-start: unset;
   }
 
-  .interiery-content {
-    grid-template-columns: repeat(2, 1fr);
+  .crossroad-item:nth-child(6) {
+    grid-row-start: unset;
+  }
+  .crossroad-item:nth-child(7) {
+    grid-row-start: unset;
+  }
+  .crossroad-item:nth-child(8) {
+    grid-row: unset;
+  }
+  .crossroad-item:nth-child(9) {
+    grid-column: unset;
+    grid-row-start: unset;
   }
 
   .interiery-item img {

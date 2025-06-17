@@ -17,14 +17,15 @@ header("Access-Control-Allow-Headers: Content-Type");
 $_POST = json_decode(file_get_contents('php://input'), true);
 
 // Kontrola, zda jsou všechny hodnoty nastavené
-if (!isset($_POST['jmeno'], $_POST['email'], $_POST['predmet'], $_POST['zprava'])) {
+if (!isset($_POST['nazev'], $_POST['jmeno'], $_POST['email'], $_POST['telefon'], $_POST['zprava'])) {
     echo json_encode(["success" => false, "error" => "Chybějící data ve formuláři."]);
     exit;
 }
 
+$nazev = htmlspecialchars($_POST['nazev']);  // Ochrana proti XSS
 $jmeno = htmlspecialchars($_POST['jmeno']);
 $email = htmlspecialchars($_POST['email']);
-$predmet = htmlspecialchars($_POST['predmet']);
+$telefon = htmlspecialchars($_POST['telefon']);
 $zprava = htmlspecialchars($_POST['zprava']);
 
 $mail = new PHPMailer(true);
@@ -40,15 +41,16 @@ try {
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port = 465;
 
-    $mail->setFrom('info@filipzeleny.cz', 'Info ' . $nazev);
+    $mail->setFrom('info@filipzeleny.cz', 'Poptávka stolu ' . $nazev);
     $mail->addAddress('info@filipzeleny.cz');  
 
     $mail->isHTML(true);
-    $mail->Subject = $predmet;
-    $mail->Body = "
+    $mail->Subject = 'Poptávka interiéru - ' . $nazev;
+    $mail->Body = "<b>Poptávka interiéru</b>: $nazev <br><br> 
                    Jméno: $jmeno <br> 
                    Email: $email <br> 
-                   Zpráva: $zprava <br>"; 
+                   Telefon: $telefon <br> 
+                   Zpráva: $zprava";
 
     $mail->send();
     

@@ -25,9 +25,16 @@ export default function Footer() {
             <a href="/" className="footer-logo">
               <img src="/img/Zeleny logo-2B.jpg" alt="DesignJJ logo" draggable="false" />
             </a>
-            <h5>{t("footertext")}</h5>
+            <h5>
+              {t("content-slider")} - {t("content-slider-text")}
+            </h5>
             <div className="footer-text">
               <p>Filip Zelený</p>
+              <p>IČO: 17124344</p>
+              <br />
+              <a href="ZZOÚ.pdf" target="_blank">
+                Zásady Zpracování Osobních Údajů
+              </a>
             </div>
           </div>
           <div className="footer-content">

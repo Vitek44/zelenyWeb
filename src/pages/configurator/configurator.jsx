@@ -55,14 +55,11 @@ function Konfigurator() {
       <a href="/" className="back-btn">
         <i className="fa-solid fa-arrow-left"></i>
       </a>
-      <div className="configurator-main">
+      {/* <div className="configurator-main">
         <div className="configurator-section">
           <CustomizationProvider>
             <div className="configurator-picture">
               <Canvas dpr={[1, 2]}>
-                {/* <color attach="background" args={["#ffffff"]} />
-                  <fog attach="fog" args={["#ffffff", 10, 20]} /> */}
-
                 <color attach="background" args={["#f7f7f7"]} />
 
                 <Experience />
@@ -72,6 +69,13 @@ function Konfigurator() {
             <Configuratoring />
           </CustomizationProvider>
         </div>
+      </div> */}
+      <div class="config-provoz">
+        <h1>{t("config_provoz")}</h1>
+        <p>{t("config_provoz_text")}</p>
+        <a className="btn-provoz" href="/kontakt">
+          {t("white_btn")}
+        </a>
       </div>
     </>
   );

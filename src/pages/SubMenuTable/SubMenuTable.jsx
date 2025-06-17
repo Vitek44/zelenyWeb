@@ -25,7 +25,7 @@ function SubMenu() {
   const [data, setData] = useState([]);
 
   const loadData = () => {
-    fetch(`https://designjj-test.eu/php/getProdukt.php`, {
+    fetch(`https://www.filipzeleny.cz/php/getProdukt.php`, {
       method: "POST",
     })
       .then((res) => res.json())
@@ -114,9 +114,9 @@ function SubMenu() {
                 <div className="stoly-card" key={item.Id}>
                   <img src={item.URL} alt={item.Nazev} onClick={() => handleLinkClick(`/stoly/produkt?id=${item.Id}`)} />
                   <div className="stoly-text">
-                    <h1>{item.Nazev}</h1>
+                    <h1>{i18next.language === "de" ? item.NazevDE : i18next.language === "en" ? item.NazevEN : item.Nazev}</h1>
                     <p>
-                      {item.Material} | {item.Vyska}x{item.Sirka} cm
+                      {t(item.Material)} | {item.Vyska}x{item.Sirka} cm
                     </p>
                     <div className="text-row">
                       <span>{formatCena(getFormattedPrice(item.Cena))}</span>
@@ -127,22 +127,22 @@ function SubMenu() {
                         {hoveredId === item.Id && (
                           <div className="tooltip">
                             <p>
-                              Název: <span>{item.Nazev}</span>
+                              {t("Nazev")}: <span>{i18next.language === "de" ? item.NazevDE : i18next.language === "en" ? item.NazevEN : item.Nazev}</span>
                             </p>
                             <p>
-                              Výška: <span>{item.Vyska} cm</span>
+                              {t("Vyska2")}: <span>{item.Vyska} cm</span>
                             </p>
                             <p>
-                              Šířka: <span>{item.Sirka} cm</span>
+                              {t("Sirka")}: <span>{item.Sirka} cm</span>
                             </p>
                             <p>
-                              Tloušťka: <span>{item.Tloustka} cm</span>
+                              {t("Tloustka")}: <span>{item.Tloustka} cm</span>
                             </p>
                             <p>
-                              Typ: <span>{item.Typ}</span>
+                              {t("Typ")}: <span>{t(item.Typ)}</span>
                             </p>
                             <p>
-                              Materiál: <span>{item.Material}</span>
+                              {t("Typ_desky")}: <span>{t(item.Material)}</span>
                             </p>
                           </div>
                         )}

@@ -30,7 +30,7 @@ function Produkt({ id }) {
   const [getData, setData] = useState([]);
 
   const loadData = () => {
-    fetch(`https://designjj-test.eu/php/getProdukt.php?id=${id}`, {
+    fetch(`https://www.filipzeleny.cz/php/getProdukt.php?id=${id}`, {
       method: "POST",
     })
       .then((res) => res.json())
@@ -145,7 +145,8 @@ function Produkt({ id }) {
       toast.error("Vyplňte všechny povinné údaje.");
       return;
     }
-    fetch("https://designjj-test.eu/php/sendEmail.php", {
+    setModalOpen(false);
+    fetch("https://www.filipzeleny.cz/php/sendEmail.php", {
       method: "POST", // Správná metoda
       headers: {
         "Content-Type": "application/json",
@@ -156,7 +157,6 @@ function Produkt({ id }) {
       .then((data) => {
         if (data.success) {
           toast.success("Zpráva byla odeslána.");
-          setModalOpen(false);
           setFormData({
             id: "",
             nazev: "",
@@ -188,7 +188,7 @@ function Produkt({ id }) {
         <Helmet>
           <meta charSet="utf-8" />
           <title>{`${getData.Nazev} | Filip Zelený`}</title>
-          <link rel="canonical" href="http://mysite.com/example" />
+          <link rel="canonical" href="https://www.filipzeleny.cz/stoly/produkt" />
         </Helmet>
       </HelmetProvider>
       <Navbar />
@@ -280,16 +280,16 @@ function Produkt({ id }) {
                 </div>
                 <div className="modal-content">
                   <div className="form-group">
-                    <input type="text" name="jmeno" placeholder="Firma / Jméno" value={formData.jmeno} onChange={handleChange} />
+                    <input type="text" name="jmeno" placeholder={t("phName")} value={formData.jmeno} onChange={handleChange} />
                   </div>
                   <div className="form-group">
                     <input type="text" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
                   </div>
                   <div className="form-group">
-                    <input type="number" name="telefon" placeholder="Telefon" value={formData.telefon} onChange={handleChange} />
+                    <input type="number" name="telefon" placeholder={t("phPhone")} value={formData.telefon} onChange={handleChange} />
                   </div>
                   <div className="form-group">
-                    <textarea name="zprava" placeholder="Zpráva" value={formData.zprava} onChange={handleChange}></textarea>
+                    <textarea name="zprava" placeholder={t("phText")} value={formData.zprava} onChange={handleChange}></textarea>
                   </div>
                   <div className="modal-btn">
                     <button className="save-btn" onClick={handleSend}>
@@ -304,24 +304,22 @@ function Produkt({ id }) {
           )}
           <div className="desc-wrapper">
             <div className="desc-content">
-              <div className="desc-title">Popis stolu</div>
+              <div className="desc-title">{t("Popis_stolu")}</div>
               <div className="desc-text">
                 <p>{i18next.language === "de" ? getData.PopisDE : i18next.language === "en" ? getData.PopisEN : getData.Popis}</p>
               </div>
             </div>
+          </div>
+          <div className="services1">
+            <a href="/konfigurator" className="configurator" data-aos="zoom-in" data-aos-delay="200">
+              <h3>{t("configurator_text")}</h3>
+            </a>
           </div>
           <div className="title">
             <h2>{t("title7")}</h2>
             <h1>{t("subtitle7")}</h1>
           </div>
           <SliderProduct />
-        </div>
-        <div className="container">
-          <div className="services1">
-            <a href="/konfigurator" className="configurator" data-aos="zoom-in" data-aos-delay="200">
-              <h3>{t("configurator_text")}</h3>
-            </a>
-          </div>
         </div>
       </div>
       <Footer />
