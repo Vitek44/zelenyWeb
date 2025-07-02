@@ -221,14 +221,12 @@
 .interiery-gallery-item img {
   width: 100%;
   object-fit: contain;
-  height: 250px;
+  max-height: 280px;
   border-radius: 5px;
 }
 
 .interiery-gallery-group {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  margin: 0rem 1.5rem;
 }
 
 @media (max-width: 1200px) {

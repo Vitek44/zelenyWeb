@@ -230,13 +230,14 @@ function Interiery() {
                 <div className="interiery-gallery-group">
                   <Splide
                     options={{
-                      type: "loop",
                       perPage: 3,
                       gap: "1rem",
+                      arrows: false,
+                      pagination: false,
                       autoplay: true,
                       breakpoints: {
-                        768: { perPage: 1 },
-                        1024: { perPage: 2 },
+                        924: { perPage: 1 },
+                        1200: { perPage: 2 },
                       },
                     }}
                     aria-label="Galerie interiérů"
@@ -244,7 +245,9 @@ function Interiery() {
                     {filtrovanaData.map((item) => (
                       <SplideSlide key={item.Id}>
                         <div className="interiery-gallery-item">
-                          <img src={item.cesta} alt={item.popis} />
+                          <a href={`https://filipzeleny.cz/${item.cesta}`} target="_blank" rel="noopener noreferrer">
+                            <img src={item.cesta} alt={item.popis} />
+                          </a>
                         </div>
                       </SplideSlide>
                     ))}
