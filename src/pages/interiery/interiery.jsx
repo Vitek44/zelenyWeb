@@ -6,6 +6,8 @@ import Footer from "../../components/footer/footer";
 import { useTranslation } from "react-i18next";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "@splidejs/splide/css";
 
 //css
@@ -16,7 +18,7 @@ function Interiery() {
   const [data, setData] = useState([]);
 
   const loadData = () => {
-    fetch(`https://designjj-test.eu/php/getGallery.php`, {
+    fetch(`https://www.filipzeleny.cz/php/getGallery.php`, {
       method: "POST",
     })
       .then((res) => res.json())
@@ -39,6 +41,54 @@ function Interiery() {
 
   const [selectedCategory, setSelectedCategory] = useState("");
 
+  const [formData, setFormData] = useState({
+    nazev: selectedCategory,
+    jmeno: "",
+    email: "",
+    telefon: "",
+    zprava: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const filtrovanaData = data.filter((item) => item.kategorie === selectedCategory);
+
+  const handleSend = () => {
+    if (!formData.jmeno || !formData.email || !formData.telefon || !formData.zprava) {
+      toast.error("Vyplňte všechny povinné údaje.");
+      return;
+    }
+    fetch("https://www.filipzeleny.cz/php/sendInteriery.php", {
+      method: "POST", // Správná metoda
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData), // Převod objektu na JSON
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          toast.success("Zpráva byla odeslána.");
+          setModalOpen(false);
+          setFormData({
+            nazev: "",
+            jmeno: "",
+            email: "",
+            telefon: "",
+            zprava: "",
+          });
+        } else {
+          toast.error("Nepodařilo se odeslat zprávu.");
+        }
+      })
+      .catch((err) => {
+        console.error("Chyba při odesílání zprávy:", err);
+        toast.error("Chyba při komunikaci se serverem.");
+      });
+  };
+
   return (
     <>
       <HelmetProvider>
@@ -53,44 +103,91 @@ function Interiery() {
         <div class="podmenu-title">
           <h1>{t("Int_title")}</h1>
         </div>
-        <div class="interiery-crossroad">
-          <div
-            class="crossroad-item"
-            onClick={() => {
-              setSelectedCategory("Kuchyně");
-              setModalOpen(true);
-            }}
-          >
-            <h1>{t("Int_cat_1")}</h1>
-          </div>
+        <div class="container">
+          <div class="interiery-crossroad">
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Kuchyně");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_1")}</h1>
+            </div>
 
-          <div
-            class="crossroad-item"
-            onClick={() => {
-              setSelectedCategory("Podlahy");
-              setModalOpen(true);
-            }}
-          >
-            <h1>{t("Int_cat_2")}</h1>
-          </div>
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Obývací pokoje");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_2")}</h1>
+            </div>
 
-          <div
-            class="crossroad-item"
-            onClick={() => {
-              setSelectedCategory("Interiéry");
-              setModalOpen(true);
-            }}
-          >
-            <h1>{t("Int_cat_3")}</h1>
-          </div>
-          <div
-            class="crossroad-item"
-            onClick={() => {
-              setSelectedCategory("Skříně");
-              setModalOpen(true);
-            }}
-          >
-            <h1>{t("Int_cat_4")}</h1>
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Šatny");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_3")}</h1>
+            </div>
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Ložnice");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_4")}</h1>
+            </div>
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Koupelny");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_5")}</h1>
+            </div>
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Dětské pokoje");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_6")}</h1>
+            </div>
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Vestavěné skříně");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_7")}</h1>
+            </div>
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Předsíně");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_8")}</h1>
+            </div>
+            <div
+              class="crossroad-item"
+              onClick={() => {
+                setSelectedCategory("Kanceláře");
+                setModalOpen(true);
+              }}
+            >
+              <h1>{t("Int_cat_9")}</h1>
+            </div>
           </div>
         </div>
         {modalOpen ? (
@@ -98,7 +195,9 @@ function Interiery() {
             <div class="interiery-modal">
               <div class="interiery-form">
                 <div className="modal-header">
-                  <h3>{selectedCategory}</h3>
+                  <h3>
+                    {t("Poptavkový_formular")} - <span>{t(selectedCategory)}</span>
+                  </h3>
                   <button
                     className="close-modal"
                     onClick={() => {
@@ -110,30 +209,46 @@ function Interiery() {
                   </button>
                 </div>
                 <div class="interiery-form-item">
-                  <input type="text" placeholder={t("phName")} />
+                  <input type="text" name="jmeno" placeholder={t("phName")} value={formData.jmeno} onChange={handleChange} />
                 </div>
                 <div class="interiery-form-item">
-                  <input type="text" placeholder="E-mail" />
+                  <input type="text" name="email" placeholder="E-mail" value={formData.email} onChange={handleChange} />
                 </div>
                 <div class="interiery-form-item">
-                  <input type="text" placeholder={t("phPhone")} />
+                  <input type="number" name="telefon" placeholder={t("phPhone")} value={formData.telefon} onChange={handleChange} />
                 </div>
                 <div class="interiery-form-item">
-                  <textarea type="text" placeholder={t("phText")} />
+                  <textarea type="text" name="zprava" placeholder={t("phText")} value={formData.zprava} onChange={handleChange} />
                 </div>
                 <div class="modal-btn">
-                  <button className="save-btn">{t("snd_btn")}</button>
+                  <button className="save-btn" onClick={handleSend}>
+                    {t("snd_btn")}
+                  </button>
                 </div>
               </div>
               <div class="interiery-gallery">
                 <div className="interiery-gallery-group">
-                  {data
-                    .filter((item) => item.kategorie === selectedCategory)
-                    .map((item) => (
-                      <div className="interiery-gallery-item" key={item.Id}>
-                        <img src={item.cesta} alt={item.popis} />
-                      </div>
+                  <Splide
+                    options={{
+                      type: "loop",
+                      perPage: 3,
+                      gap: "1rem",
+                      autoplay: true,
+                      breakpoints: {
+                        768: { perPage: 1 },
+                        1024: { perPage: 2 },
+                      },
+                    }}
+                    aria-label="Galerie interiérů"
+                  >
+                    {filtrovanaData.map((item) => (
+                      <SplideSlide key={item.Id}>
+                        <div className="interiery-gallery-item">
+                          <img src={item.cesta} alt={item.popis} />
+                        </div>
+                      </SplideSlide>
                     ))}
+                  </Splide>
                 </div>
               </div>
             </div>

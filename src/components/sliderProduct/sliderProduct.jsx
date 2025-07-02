@@ -23,9 +23,7 @@ const SliderProduct = () => {
   };
 
   const loadData = () => {
-    fetch(`https://designjj-test.eu/php/sliderProdukt.php`, {
-      method: "POST",
-    })
+    fetch(`https://filipzeleny.cz/php/sliderProdukt.php`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -77,10 +75,10 @@ const SliderProduct = () => {
           <div className="stoly-card">
             <img src={item.URL} alt={item.Nazev} onClick={() => handleLinkClick(`/stoly/produkt?id=${item.Id}`)} />
             <div className="stoly-text">
-              <h1>{item.Nazev}</h1>
+              <h1>{i18next.language === "de" ? item.NazevDE : i18next.language === "en" ? item.NazevEN : item.Nazev}</h1>
               <p>
                 <p>
-                  {item.Material} | {item.Vyska}x{item.Sirka} cm
+                  {t(item.Material)} | {item.Vyska}x{item.Sirka} cm
                 </p>
               </p>
             </div>

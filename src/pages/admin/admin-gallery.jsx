@@ -9,35 +9,30 @@ const Admin = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const [data, setData] = useState([]);
-  useEffect(() => {
-    verifyToken();
-  }, []);
+
   const verifyToken = () => {
-    fetch("https://designjj-test.eu/php/verify-token.php") // Nahraď cestou k PHP skriptu
+    fetch("https://www.filipzeleny.cz/php/verify-token.php", {
+      method: "GET",
+      credentials: "include", // <-- důležité
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Chyba při načítání dat z PHP");
         }
-        return response.json(); // Očekáváme JSON odpověď
+        return response.json();
       })
       .then((data) => {
-        // Debugging - výpis tokenů pro ladění
+        const sessionToken = data.sessionToken;
+        const databaseToken = data.databaseToken;
 
-        const sessionToken = data.sessionToken; // Token ze session
-        const databaseToken = data.databaseToken; // Token z databáze
-
-        // Kontrola, jestli jsou tokeny správně načteny
         if (sessionToken === undefined || databaseToken === undefined) {
           console.error("Jedna nebo obě hodnoty tokenu chybí.");
           return;
         }
 
-        // Porovnání tokenů
         if (sessionToken === databaseToken) {
-          // Tokeny se shodují – přesměrování na admin-panel
           toast.success("Přihlášení proběhlo úspěšně");
         } else {
-          // Tokeny se neshodují – zůstaň na /admin/
           console.log("Tokeny se neshodují.");
           window.location.href = "/admin/";
         }
@@ -47,9 +42,12 @@ const Admin = () => {
         alert("Session vypršela.");
       });
   };
+  useEffect(() => {
+    verifyToken();
+  }, []);
 
   const loadData = () => {
-    fetch(`https://designjj-test.eu/php/getGallery.php`, {
+    fetch(`https://www.filipzeleny.cz/php/getGallery.php`, {
       method: "POST",
     })
       .then((res) => res.json())
@@ -88,7 +86,7 @@ const Admin = () => {
       formData.append("file", file);
 
       try {
-        const response = await fetch("https://designjj-test.eu/php/postGallery.php", {
+        const response = await fetch("https://www.filipzeleny.cz/php/postGallery.php", {
           method: "POST",
           body: formData,
         });
@@ -115,7 +113,7 @@ const Admin = () => {
       return;
     }
 
-    fetch("https://designjj-test.eu/php/saveGallery.php", {
+    fetch("https://www.filipzeleny.cz/php/saveGallery.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -153,7 +151,7 @@ const Admin = () => {
       cancelButtonText: "Zrušit",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch("https://designjj-test.eu/php/removeGallery.php", {
+        fetch("https://www.filipzeleny.cz/php/removeGallery.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json", // 🔹 Přidej správné hlavičky
@@ -259,9 +257,15 @@ const Admin = () => {
                 <select name="kategorie" value={creditals?.kategorie || ""} onChange={(e) => setCreditals({ ...creditals, kategorie: e.target.value })}>
                   <option value="">-- Zvolte typ --</option>
                   <option value="Stoly">Stoly</option>
-                  <option value="Interiéry">Interiéry</option>
+                  <option value="Obývací pokoje">Obývací pokoje</option>
+                  <option value="Šatny">Šatny</option>
+                  <option value="Ložnice">Ložnice</option>
+                  <option value="Koupelny">Koupelny</option>
                   <option value="Kuchyně">Kuchyně</option>
-                  <option value="Skříně">Skříně</option>
+                  <option value="Dětské pokoje">Dětské pokoje</option>
+                  <option value="Vestavěné skříně">Vestavěné skříně</option>
+                  <option value="Kanceláře">Kanceláře</option>
+                  <option value="Předsíně">Předsíně</option>
                 </select>
               </div>
               <div className="form-group">

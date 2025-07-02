@@ -54,13 +54,15 @@ function App() {
   const [data, setData] = useState([]);
 
   const getIg = () => {
-    fetch("https://designjj-test.eu/php/ig.php")
+    fetch("https://www.filipzeleny.cz/php/ig.php", {
+      method: "GET",
+    })
       .then((res) => res.json())
-      .then((result) => {
-        if (result.instagram) {
-          setData(result.instagram);
+      .then((data) => {
+        if (data) {
+          setData(data); // např. "255"
         } else {
-          console.error("Chyba při načítání dat:", result.error);
+          console.error("Data nebyla nalezena");
         }
       })
       .catch((err) => {
@@ -85,6 +87,7 @@ function App() {
       <div className="slide" id="home">
         <div className="container">
           <div className="content-slider">
+            <p>{t("content-slider-text")}</p>
             <h1>{t("content-slider")}</h1>
             <div className="button-group">
               <a href="#services" onClick={(e) => handleClick(e, "/", "services")}>
@@ -124,7 +127,7 @@ function App() {
                 </div>
                 <div className="service-item">
                   <i className="fa-solid fa-circle"></i>
-                  <p>{t("service2_item3")}</p>
+                  <p>{t("service1_item3")}</p>
                 </div>
               </div>
             </div>

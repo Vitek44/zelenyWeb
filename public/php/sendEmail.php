@@ -9,6 +9,10 @@ require '../phpmailer/src/PHPMailer.php';
 require '../phpmailer/src/SMTP.php';
 
 header('Content-Type: application/json'); // Správná odpověď v JSONu
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Headers: Content-Type");
+
 
 $_POST = json_decode(file_get_contents('php://input'), true);
 
@@ -33,13 +37,13 @@ try {
     $mail->isSMTP();
     $mail->Host = 'mail.webglobe.cz';
     $mail->SMTPAuth = true;
-    $mail->Username = 'info@designjj-test.eu';
-    $mail->Password = 'Radegast12*'; 
+    $mail->Username = 'info@filipzeleny.cz';
+    $mail->Password = 'Dobraprace13052025'; 
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port = 465;
 
-    $mail->setFrom('info@designjj-test.eu', 'Poptávka stolu ' . $nazev);
-    $mail->addAddress('vitejajan@gmail.com');  
+    $mail->setFrom('info@filipzeleny.cz', 'Poptávka stolu ' . $nazev);
+    $mail->addAddress('info@filipzeleny.cz');  
 
     $mail->isHTML(true);
     $mail->Subject = 'Poptávka stolu ' . $nazev;
@@ -48,7 +52,7 @@ try {
                    Email: $email <br> 
                    Telefon: $telefon <br> 
                    Zpráva: $zprava <br>
-                   https://designjj-test.eu/stoly/produkt?id=$id"; 
+                   https://filipzeleny.cz/stoly/produkt?id=$id"; 
 
     $mail->send();
     

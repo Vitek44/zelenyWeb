@@ -1,45 +1,47 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-// Spuštění session (musí být jako první)
 session_start();
+require_once 'ini.php';
 
-// Generování tokenu
-$token = bin2hex(random_bytes(8));
+header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: https://www.filipzeleny.cz"/);
+header("Access-Control-Allow-Credentials: true");
 
-// Uložení tokenu do session
-$_SESSION['token'] = $token;
-
-// Uložení tokenu do cookies (musí být před jakýmkoliv výstupem)
-setcookie("token", $token, time() + 3600, "/", "", false, true);
-
-// Připojení k databázi
-require_once 'ini.php'; 
-
-// Uložení tokenu do databáze
-try {
-    // Příprava dotazu
-    $sql = "INSERT INTO tokens (token) VALUES (?)";
-    $stmt = $conn->prepare($sql);
-    
-    if ($stmt) {
-        $stmt->bind_param("s", $token);
-        $stmt->execute();
-        $stmt->close();
-
-        // ✅ Přesměrování na /admin/admin-panel po úspěšném uložení
-        header("Location: /admin/admin-panel");
-        exit(); // Ukončí skript, aby se nepokračovalo v provádění
-    } else {
-        throw new Exception("Chyba při přípravě dotazu: " . $conn->error);
-    }
-} catch (Exception $e) {
-    echo 'Chyba při ukládání tokenu: ' . $e->getMessage();
+// Session kontrola
+if (!isset($_SESSION['token'])) {
+    echo json_encode([
+        "success" => false,
+        "message" => "Session token chybí"
+    ]);
+    exit;
 }
 
-// Debug - zobrazíme session a cookies (vypíše se jen při chybě)
-echo "Session token: " . ($_SESSION['token'] ?? 'není nastaven') . "<br>";
-echo "Cookie token: " . ($_COOKIE['token'] ?? 'není nastaven') . "<br>";
-?>
+$sessionToken = $_SESSION['token'];
+
+// Načti poslední token z databáze
+$sql = "SELECT token FROM tokens ORDER BY id DESC LIMIT 1";
+$result = $conn->query($sql);
+
+if ($result && $row = $result->fetch_assoc()) {
+    $databaseToken = $row['token'];
+
+    if ($sessionToken === $databaseToken) {
+        echo json_encode([
+            "success" => true,
+            "sessionToken" => $sessionToken,
+            "databaseToken" => $databaseToken
+        ]);
+    } else {
+        echo json_encode([
+            "success" => false,
+            "message" => "Tokeny se neshodují",
+            "sessionToken" => $sessionToken,
+            "databaseToken" => $databaseToken
+        ]);
+    }
+} else {
+    echo json_encode([
+        "success" => false,
+        "message" => "Token v databázi nenalezen"
+    ]);
+}
+

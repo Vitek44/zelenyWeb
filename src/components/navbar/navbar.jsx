@@ -102,7 +102,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="navLogo" data-aos="fade-right">
             <a href="#home" onClick={(e) => handleClick(e, "/", "home")}>
-              <img src="/img/Zeleny logo web.png" className="logo" alt="Zeleny logo" />
+              <img src="/img/navlogo.webp" className="logo" alt="Zeleny logo" />
             </a>
           </div>
           {/* Menu */}

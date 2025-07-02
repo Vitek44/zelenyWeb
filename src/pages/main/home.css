@@ -282,7 +282,11 @@
 
 @media screen and (max-width: 768px) {
   .content-slider h1 {
-    font-size: 38px;
+    font-size: 30px;
+  }
+
+  .content-slider p {
+    font-size: 18px;
   }
 
   .button-group {
