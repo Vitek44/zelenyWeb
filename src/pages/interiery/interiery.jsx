@@ -53,6 +53,8 @@ function Interiery() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const filtrovanaData = data.filter((item) => item.kategorie === selectedCategory);
+
   const handleSend = () => {
     if (!formData.jmeno || !formData.email || !formData.telefon || !formData.zprava) {
       toast.error("Vyplňte všechny povinné údaje.");
@@ -226,13 +228,27 @@ function Interiery() {
               </div>
               <div class="interiery-gallery">
                 <div className="interiery-gallery-group">
-                  {data
-                    .filter((item) => item.kategorie === selectedCategory)
-                    .map((item) => (
-                      <div className="interiery-gallery-item" key={item.Id}>
-                        <img src={item.cesta} alt={item.popis} />
-                      </div>
+                  <Splide
+                    options={{
+                      type: "loop",
+                      perPage: 3,
+                      gap: "1rem",
+                      autoplay: true,
+                      breakpoints: {
+                        768: { perPage: 1 },
+                        1024: { perPage: 2 },
+                      },
+                    }}
+                    aria-label="Galerie interiérů"
+                  >
+                    {filtrovanaData.map((item) => (
+                      <SplideSlide key={item.Id}>
+                        <div className="interiery-gallery-item">
+                          <img src={item.cesta} alt={item.popis} />
+                        </div>
+                      </SplideSlide>
                     ))}
+                  </Splide>
                 </div>
               </div>
             </div>

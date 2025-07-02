@@ -23,9 +23,7 @@ const SliderProduct = () => {
   };
 
   const loadData = () => {
-    fetch(`https://designjj-test.eu/php/sliderProdukt.php`, {
-      method: "POST",
-    })
+    fetch(`https://filipzeleny.cz/php/sliderProdukt.php`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
