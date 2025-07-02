@@ -126,7 +126,7 @@ const Configurator = () => {
       toast.error("Vyplňte všechny povinné údaje.");
       return;
     }
-    fetch("https:/https://filipzeleny.cz/php/sendInteriery.php", {
+    fetch("https://filipzeleny.cz/php/sendInteriery.php", {
       method: "POST", // Správná metoda
       headers: {
         "Content-Type": "application/json",
